@@ -1,0 +1,18 @@
+{
+  "last_updated": "2026-06-23T00:00:00Z",
+  "combinations": [
+    {
+      "id": "combo-001",
+      "agp": "9.2.1",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.4.1",
+      "jdk": "17",
+      "android_studio": "Narwhal",
+      "status": "verified",
+      "ci_run_url": "",
+      "verified_at": "2026-06-23T00:00:00Z",
+      "notes": "AGP 9.x has built-in Kotlin — do not apply org.jetbrains.kotlin.android plugin separately"
+    }
+  ]
+}
