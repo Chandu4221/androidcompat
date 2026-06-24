@@ -1,0 +1,116 @@
+name: Compile Matrix
+
+on:
+  push:
+    paths:
+      - 'data/combos-to-test.json'
+  workflow_dispatch:
+
+jobs:
+  load-combos:
+    runs-on: ubuntu-latest
+    outputs:
+      combos: ${{ steps.read.outputs.combos }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read combos
+        id: read
+        run: |
+          COMBOS=$(cat data/combos-to-test.json | tr -d '\n')
+          echo "combos=$COMBOS" >> $GITHUB_OUTPUT
+
+  compile:
+    needs: load-combos
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        combo: ${{ fromJson(needs.load-combos.outputs.combos) }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Inject versions
+        run: node scripts/inject-versions.js '${{ toJson(matrix.combo) }}'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Run compile test
+        id: compile
+        run: |
+          cd stub-project
+          ./gradlew :app:kspDebugKotlin --no-daemon --no-configuration-cache
+        continue-on-error: true
+
+      - name: Record result
+        run: |
+          node scripts/update-compat.js \
+            --combo '${{ toJson(matrix.combo) }}' \
+            --status ${{ steps.compile.outcome }} \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Upload result artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: result-${{ strategy.job-index }}
+          path: data/compat.json
+
+  merge-results:
+    needs: compile
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts/
+
+      - name: Merge latest compat.json
+        run: |
+          # Use the artifact with the most entries as the final result
+          BEST=""
+          BEST_COUNT=0
+          for f in artifacts/*/compat.json; do
+            COUNT=$(cat "$f" | python3 -c "import json,sys; print(len(json.load(sys.stdin)['combinations']))")
+            if [ "$COUNT" -gt "$BEST_COUNT" ]; then
+              BEST_COUNT=$COUNT
+              BEST=$f
+            fi
+          done
+          echo "Using $BEST with $BEST_COUNT entries"
+          cp "$BEST" data/compat.json
+
+      - name: Commit final compat.json
+        run: |
+          git config user.name "androidcompat-bot"
+          git config user.email "bot@androidcompat.dev"
+          git add data/compat.json
+          git diff --staged --quiet || git commit -m "data: update compat matrix from CI run [skip ci]"
+          git push

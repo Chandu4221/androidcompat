@@ -1,0 +1,41 @@
+name: Nightly Version Scraper
+
+on:
+  schedule:
+    - cron: '30 20 * * *'  # 2am IST = 8:30pm UTC
+  workflow_dispatch:         # manual trigger for testing
+
+jobs:
+  fetch-and-generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch latest versions
+        run: node scripts/fetch-versions.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate candidates
+        run: node scripts/generate-candidates.js
+
+      - name: Commit updated files
+        run: |
+          git config user.name "androidcompat-bot"
+          git config user.email "bot@androidcompat.dev"
+          git add data/version-registry.json data/combos-to-test.json
+          git diff --staged --quiet || git commit -m "chore: nightly version update [skip ci]"
+          git push
