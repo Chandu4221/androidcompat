@@ -1,0 +1,2372 @@
+{
+  "agp": {
+    "3.0.0": {
+      "version": "3.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.171Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.0.1": {
+      "version": "3.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.175Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.1.0": {
+      "version": "3.1.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.175Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.1.1": {
+      "version": "3.1.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.175Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.1.2": {
+      "version": "3.1.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.175Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.1.3": {
+      "version": "3.1.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.176Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.1.4": {
+      "version": "3.1.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.176Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.2.0": {
+      "version": "3.2.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.176Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.2.1": {
+      "version": "3.2.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.176Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.3.0": {
+      "version": "3.3.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.3.1": {
+      "version": "3.3.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.3.2": {
+      "version": "3.3.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.3.3": {
+      "version": "3.3.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.4.0": {
+      "version": "3.4.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.4.1": {
+      "version": "3.4.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.4.2": {
+      "version": "3.4.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.4.3": {
+      "version": "3.4.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.5.0": {
+      "version": "3.5.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.5.1": {
+      "version": "3.5.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.5.2": {
+      "version": "3.5.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.5.3": {
+      "version": "3.5.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.5.4": {
+      "version": "3.5.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.6.0": {
+      "version": "3.6.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.6.1": {
+      "version": "3.6.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.6.2": {
+      "version": "3.6.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.6.3": {
+      "version": "3.6.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "3.6.4": {
+      "version": "3.6.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "4.0.0": {
+      "version": "4.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "4.0.1": {
+      "version": "4.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "4.0.2": {
+      "version": "4.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "4.1.0": {
+      "version": "4.1.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "4.1.1": {
+      "version": "4.1.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "4.1.2": {
+      "version": "4.1.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "4.1.3": {
+      "version": "4.1.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "4.2.0": {
+      "version": "4.2.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "4.2.1": {
+      "version": "4.2.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "4.2.2": {
+      "version": "4.2.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.0.0": {
+      "version": "7.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.0.1": {
+      "version": "7.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.0.2": {
+      "version": "7.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.0.3": {
+      "version": "7.0.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.0.4": {
+      "version": "7.0.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.1.0": {
+      "version": "7.1.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.177Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.1.1": {
+      "version": "7.1.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.1.2": {
+      "version": "7.1.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.1.3": {
+      "version": "7.1.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.2.0": {
+      "version": "7.2.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.2.1": {
+      "version": "7.2.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.2.2": {
+      "version": "7.2.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.3.0": {
+      "version": "7.3.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.3.1": {
+      "version": "7.3.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.4.0": {
+      "version": "7.4.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.4.1": {
+      "version": "7.4.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "7.4.2": {
+      "version": "7.4.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.0.0": {
+      "version": "8.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.0.1": {
+      "version": "8.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.0.2": {
+      "version": "8.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.1.0": {
+      "version": "8.1.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.1.1": {
+      "version": "8.1.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.1.2": {
+      "version": "8.1.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.1.3": {
+      "version": "8.1.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.1.4": {
+      "version": "8.1.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.2.0": {
+      "version": "8.2.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.2.1": {
+      "version": "8.2.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.2.2": {
+      "version": "8.2.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.3.0": {
+      "version": "8.3.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.3.1": {
+      "version": "8.3.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.3.2": {
+      "version": "8.3.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.4.0": {
+      "version": "8.4.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.4.1": {
+      "version": "8.4.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.4.2": {
+      "version": "8.4.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.5.0": {
+      "version": "8.5.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.5.1": {
+      "version": "8.5.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.5.2": {
+      "version": "8.5.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.6.0": {
+      "version": "8.6.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.6.1": {
+      "version": "8.6.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.7.0": {
+      "version": "8.7.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.7.1": {
+      "version": "8.7.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.7.2": {
+      "version": "8.7.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.7.3": {
+      "version": "8.7.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.8.0": {
+      "version": "8.8.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.8.1": {
+      "version": "8.8.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.8.2": {
+      "version": "8.8.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.9.0": {
+      "version": "8.9.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.9.1": {
+      "version": "8.9.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.9.2": {
+      "version": "8.9.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.9.3": {
+      "version": "8.9.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.10.0": {
+      "version": "8.10.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.10.1": {
+      "version": "8.10.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.11.0": {
+      "version": "8.11.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.11.1": {
+      "version": "8.11.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.11.2": {
+      "version": "8.11.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.12.0": {
+      "version": "8.12.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.12.1": {
+      "version": "8.12.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.12.2": {
+      "version": "8.12.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.12.3": {
+      "version": "8.12.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.13.0": {
+      "version": "8.13.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.13.1": {
+      "version": "8.13.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "8.13.2": {
+      "version": "8.13.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "9.0.0": {
+      "version": "9.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "9.0.1": {
+      "version": "9.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "9.1.0": {
+      "version": "9.1.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "9.1.1": {
+      "version": "9.1.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "9.2.0": {
+      "version": "9.2.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.178Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    },
+    "9.2.1": {
+      "version": "9.2.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.179Z",
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+    }
+  },
+  "ksp": {
+    "1.5.30-1.0.0": {
+      "version": "1.5.30-1.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.5.31-1.0.0": {
+      "version": "1.5.31-1.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.5.31-1.0.1": {
+      "version": "1.5.31-1.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.6.0-M1-1.0.0": {
+      "version": "1.6.0-M1-1.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.6.0-RC-1.0.0": {
+      "version": "1.6.0-RC-1.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.6.0-RC-1.0.1-RC": {
+      "version": "1.6.0-RC-1.0.1-RC",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.6.0-1.0.1": {
+      "version": "1.6.0-1.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.6.0-1.0.2": {
+      "version": "1.6.0-1.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.6.10-RC-1.0.1": {
+      "version": "1.6.10-RC-1.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.6.10-1.0.2": {
+      "version": "1.6.10-1.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.6.10-1.0.3": {
+      "version": "1.6.10-1.0.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.6.10-1.0.4": {
+      "version": "1.6.10-1.0.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.6.20-M1-1.0.2": {
+      "version": "1.6.20-M1-1.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.6.20-RC-1.0.4": {
+      "version": "1.6.20-RC-1.0.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.6.20-RC2-1.0.4": {
+      "version": "1.6.20-RC2-1.0.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.6.20-1.0.4": {
+      "version": "1.6.20-1.0.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.6.20-1.0.5": {
+      "version": "1.6.20-1.0.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.6.21-1.0.5": {
+      "version": "1.6.21-1.0.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.6.21-1.0.6": {
+      "version": "1.6.21-1.0.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.7.0-Beta-1.0.5": {
+      "version": "1.7.0-Beta-1.0.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.7.0-RC-1.0.5": {
+      "version": "1.7.0-RC-1.0.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.7.0-RC2-1.0.5": {
+      "version": "1.7.0-RC2-1.0.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.7.0-1.0.6": {
+      "version": "1.7.0-1.0.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.7.10-1.0.6": {
+      "version": "1.7.10-1.0.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.7.20-Beta-1.0.6": {
+      "version": "1.7.20-Beta-1.0.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.7.20-RC-1.0.6": {
+      "version": "1.7.20-RC-1.0.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.7.20-1.0.6": {
+      "version": "1.7.20-1.0.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.7.20-1.0.7": {
+      "version": "1.7.20-1.0.7",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.7.20-1.0.8": {
+      "version": "1.7.20-1.0.8",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.7.21-1.0.8": {
+      "version": "1.7.21-1.0.8",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.7.22-1.0.8": {
+      "version": "1.7.22-1.0.8",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.8.0-Beta-1.0.8": {
+      "version": "1.8.0-Beta-1.0.8",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.8.0-RC-1.0.8": {
+      "version": "1.8.0-RC-1.0.8",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.8.0-RC2-1.0.8": {
+      "version": "1.8.0-RC2-1.0.8",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.8.0-1.0.8": {
+      "version": "1.8.0-1.0.8",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.8.0-1.0.9": {
+      "version": "1.8.0-1.0.9",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.8.10-1.0.9": {
+      "version": "1.8.10-1.0.9",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.8.20-Beta-1.0.9": {
+      "version": "1.8.20-Beta-1.0.9",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.8.20-RC-1.0.9": {
+      "version": "1.8.20-RC-1.0.9",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.8.20-RC2-1.0.9": {
+      "version": "1.8.20-RC2-1.0.9",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.8.20-1.0.10": {
+      "version": "1.8.20-1.0.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.8.20-1.0.11": {
+      "version": "1.8.20-1.0.11",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.8.21-1.0.11": {
+      "version": "1.8.21-1.0.11",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.8.22-1.0.11": {
+      "version": "1.8.22-1.0.11",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.0-Beta-1.0.11": {
+      "version": "1.9.0-Beta-1.0.11",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.0-RC-1.0.11": {
+      "version": "1.9.0-RC-1.0.11",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.0-1.0.11": {
+      "version": "1.9.0-1.0.11",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.0-1.0.12": {
+      "version": "1.9.0-1.0.12",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.0-1.0.13": {
+      "version": "1.9.0-1.0.13",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.10-1.0.13": {
+      "version": "1.9.10-1.0.13",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.20-Beta-1.0.13": {
+      "version": "1.9.20-Beta-1.0.13",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.20-Beta2-1.0.13": {
+      "version": "1.9.20-Beta2-1.0.13",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.20-RC-1.0.13": {
+      "version": "1.9.20-RC-1.0.13",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.20-RC2-1.0.13": {
+      "version": "1.9.20-RC2-1.0.13",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.20-1.0.13": {
+      "version": "1.9.20-1.0.13",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.20-1.0.14": {
+      "version": "1.9.20-1.0.14",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.298Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.21-1.0.15": {
+      "version": "1.9.21-1.0.15",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.21-1.0.16": {
+      "version": "1.9.21-1.0.16",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.22-1.0.16": {
+      "version": "1.9.22-1.0.16",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.22-1.0.17": {
+      "version": "1.9.22-1.0.17",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.22-1.0.18": {
+      "version": "1.9.22-1.0.18",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.23-1.0.19": {
+      "version": "1.9.23-1.0.19",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.23-1.0.20": {
+      "version": "1.9.23-1.0.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.24-1.0.20": {
+      "version": "1.9.24-1.0.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "1.9.25-1.0.20": {
+      "version": "1.9.25-1.0.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.0-Beta1-1.0.14": {
+      "version": "2.0.0-Beta1-1.0.14",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.0-Beta1-1.0.15": {
+      "version": "2.0.0-Beta1-1.0.15",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.0-Beta2-1.0.16": {
+      "version": "2.0.0-Beta2-1.0.16",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.0-Beta3-1.0.17": {
+      "version": "2.0.0-Beta3-1.0.17",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.0-Beta4-1.0.17": {
+      "version": "2.0.0-Beta4-1.0.17",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.0-Beta4-1.0.19": {
+      "version": "2.0.0-Beta4-1.0.19",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.0-Beta4-1.0.18": {
+      "version": "2.0.0-Beta4-1.0.18",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.0-Beta5-1.0.20": {
+      "version": "2.0.0-Beta5-1.0.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.0-Beta5-1.0.19": {
+      "version": "2.0.0-Beta5-1.0.19",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.0-RC1-1.0.20": {
+      "version": "2.0.0-RC1-1.0.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.0-RC2-1.0.20": {
+      "version": "2.0.0-RC2-1.0.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.0-RC3-1.0.20": {
+      "version": "2.0.0-RC3-1.0.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.0-1.0.21": {
+      "version": "2.0.0-1.0.21",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.0-1.0.22": {
+      "version": "2.0.0-1.0.22",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.0-1.0.23": {
+      "version": "2.0.0-1.0.23",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.0-1.0.24": {
+      "version": "2.0.0-1.0.24",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.10-RC-1.0.23": {
+      "version": "2.0.10-RC-1.0.23",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.10-RC2-1.0.24": {
+      "version": "2.0.10-RC2-1.0.24",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.10-1.0.24": {
+      "version": "2.0.10-1.0.24",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.20-Beta1-1.0.22": {
+      "version": "2.0.20-Beta1-1.0.22",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.20-Beta2-1.0.23": {
+      "version": "2.0.20-Beta2-1.0.23",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.20-RC-1.0.24": {
+      "version": "2.0.20-RC-1.0.24",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.20-RC2-1.0.24": {
+      "version": "2.0.20-RC2-1.0.24",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.20-1.0.24": {
+      "version": "2.0.20-1.0.24",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.20-1.0.25": {
+      "version": "2.0.20-1.0.25",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.21-RC-1.0.25": {
+      "version": "2.0.21-RC-1.0.25",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.21-1.0.25": {
+      "version": "2.0.21-1.0.25",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.21-1.0.26": {
+      "version": "2.0.21-1.0.26",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.21-1.0.27": {
+      "version": "2.0.21-1.0.27",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.0.21-1.0.28": {
+      "version": "2.0.21-1.0.28",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.0-Beta1-1.0.25": {
+      "version": "2.1.0-Beta1-1.0.25",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.0-Beta2-1.0.26": {
+      "version": "2.1.0-Beta2-1.0.26",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.0-Beta2-1.0.25": {
+      "version": "2.1.0-Beta2-1.0.25",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.0-RC-1.0.26": {
+      "version": "2.1.0-RC-1.0.26",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.0-RC-1.0.27": {
+      "version": "2.1.0-RC-1.0.27",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.0-RC2-1.0.28": {
+      "version": "2.1.0-RC2-1.0.28",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.0-1.0.28": {
+      "version": "2.1.0-1.0.28",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.0-1.0.29": {
+      "version": "2.1.0-1.0.29",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.10-RC-1.0.29": {
+      "version": "2.1.10-RC-1.0.29",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.10-RC2-1.0.29": {
+      "version": "2.1.10-RC2-1.0.29",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.10-1.0.29": {
+      "version": "2.1.10-1.0.29",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.10-1.0.30": {
+      "version": "2.1.10-1.0.30",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.10-1.0.31": {
+      "version": "2.1.10-1.0.31",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.20-Beta1-1.0.29": {
+      "version": "2.1.20-Beta1-1.0.29",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.20-Beta2-1.0.29": {
+      "version": "2.1.20-Beta2-1.0.29",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.20-Beta2-1.0.30": {
+      "version": "2.1.20-Beta2-1.0.30",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.20-RC-1.0.30": {
+      "version": "2.1.20-RC-1.0.30",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.20-RC-1.0.31": {
+      "version": "2.1.20-RC-1.0.31",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.20-RC2-1.0.31": {
+      "version": "2.1.20-RC2-1.0.31",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.20-RC3-1.0.31": {
+      "version": "2.1.20-RC3-1.0.31",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.20-1.0.31": {
+      "version": "2.1.20-1.0.31",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.20-1.0.32": {
+      "version": "2.1.20-1.0.32",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.20-2.0.0": {
+      "version": "2.1.20-2.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.299Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.20-2.0.1": {
+      "version": "2.1.20-2.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.21-RC-2.0.0": {
+      "version": "2.1.21-RC-2.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.21-RC2-2.0.1": {
+      "version": "2.1.21-RC2-2.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.21-2.0.1": {
+      "version": "2.1.21-2.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.1.21-2.0.2": {
+      "version": "2.1.21-2.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.0-Beta1-2.0.0": {
+      "version": "2.2.0-Beta1-2.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.0-Beta2-2.0.1": {
+      "version": "2.2.0-Beta2-2.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.0-RC-2.0.1": {
+      "version": "2.2.0-RC-2.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.0-RC2-2.0.2": {
+      "version": "2.2.0-RC2-2.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.0-RC2-2.0.1": {
+      "version": "2.2.0-RC2-2.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.0-RC3-2.0.2": {
+      "version": "2.2.0-RC3-2.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.0-2.0.2": {
+      "version": "2.2.0-2.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.10-RC-2.0.2": {
+      "version": "2.2.10-RC-2.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.10-RC2-2.0.2": {
+      "version": "2.2.10-RC2-2.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.10-2.0.2": {
+      "version": "2.2.10-2.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.20-Beta1-2.0.2": {
+      "version": "2.2.20-Beta1-2.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.20-Beta2-2.0.2": {
+      "version": "2.2.20-Beta2-2.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.20-RC-2.0.2": {
+      "version": "2.2.20-RC-2.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.20-RC2-2.0.2": {
+      "version": "2.2.20-RC2-2.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.20-2.0.2": {
+      "version": "2.2.20-2.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.20-2.0.3": {
+      "version": "2.2.20-2.0.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.20-2.0.4": {
+      "version": "2.2.20-2.0.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.21-RC-2.0.4": {
+      "version": "2.2.21-RC-2.0.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.21-RC2-2.0.4": {
+      "version": "2.2.21-RC2-2.0.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.21-2.0.4": {
+      "version": "2.2.21-2.0.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.2.21-2.0.5": {
+      "version": "2.2.21-2.0.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.3.0": {
+      "version": "2.3.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.3.1": {
+      "version": "2.3.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.3.2": {
+      "version": "2.3.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.3.3": {
+      "version": "2.3.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.3.4": {
+      "version": "2.3.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.3.5": {
+      "version": "2.3.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.3.6": {
+      "version": "2.3.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.3.7": {
+      "version": "2.3.7",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.3.8": {
+      "version": "2.3.8",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    },
+    "2.3.9": {
+      "version": "2.3.9",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.300Z",
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+    }
+  },
+  "hilt": {
+    "2.35": {
+      "version": "2.35",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.35.1": {
+      "version": "2.35.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.36": {
+      "version": "2.36",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.37": {
+      "version": "2.37",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.38": {
+      "version": "2.38",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.38.1": {
+      "version": "2.38.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.39": {
+      "version": "2.39",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.39.1": {
+      "version": "2.39.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.4": {
+      "version": "2.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.40.1": {
+      "version": "2.40.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.40.2": {
+      "version": "2.40.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.40.3": {
+      "version": "2.40.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.40.4": {
+      "version": "2.40.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.40.5": {
+      "version": "2.40.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.41": {
+      "version": "2.41",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.42": {
+      "version": "2.42",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.43": {
+      "version": "2.43",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.43.1": {
+      "version": "2.43.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.43.2": {
+      "version": "2.43.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.44": {
+      "version": "2.44",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.44.1": {
+      "version": "2.44.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.44.2": {
+      "version": "2.44.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.45": {
+      "version": "2.45",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.46": {
+      "version": "2.46",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.46.1": {
+      "version": "2.46.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.47": {
+      "version": "2.47",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.48": {
+      "version": "2.48",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.48.1": {
+      "version": "2.48.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.49": {
+      "version": "2.49",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.5": {
+      "version": "2.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.51": {
+      "version": "2.51",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.51.1": {
+      "version": "2.51.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.52": {
+      "version": "2.52",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.53": {
+      "version": "2.53",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.53.1": {
+      "version": "2.53.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.54": {
+      "version": "2.54",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.55": {
+      "version": "2.55",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.56": {
+      "version": "2.56",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.56.1": {
+      "version": "2.56.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.56.2": {
+      "version": "2.56.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.57": {
+      "version": "2.57",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.57.1": {
+      "version": "2.57.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.447Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.57.2": {
+      "version": "2.57.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.448Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.58": {
+      "version": "2.58",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.448Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.59": {
+      "version": "2.59",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.448Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.59.1": {
+      "version": "2.59.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.448Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.59.2": {
+      "version": "2.59.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.448Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    }
+  },
+  "composeBom": {
+    "2022.10.00": {
+      "version": "2022.10.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2022.11.00": {
+      "version": "2022.11.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2022.12.00": {
+      "version": "2022.12.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2023.01.00": {
+      "version": "2023.01.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2023.03.00": {
+      "version": "2023.03.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2023.04.00": {
+      "version": "2023.04.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2023.04.01": {
+      "version": "2023.04.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2023.05.00": {
+      "version": "2023.05.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2023.05.01": {
+      "version": "2023.05.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2023.06.00": {
+      "version": "2023.06.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2023.06.01": {
+      "version": "2023.06.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2023.08.00": {
+      "version": "2023.08.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2023.09.00": {
+      "version": "2023.09.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2023.09.01": {
+      "version": "2023.09.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2023.09.02": {
+      "version": "2023.09.02",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2023.10.00": {
+      "version": "2023.10.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2023.10.01": {
+      "version": "2023.10.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.01.00": {
+      "version": "2024.01.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.02.00": {
+      "version": "2024.02.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.02.01": {
+      "version": "2024.02.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.02.02": {
+      "version": "2024.02.02",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.03.00": {
+      "version": "2024.03.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.04.00": {
+      "version": "2024.04.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.04.01": {
+      "version": "2024.04.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.05.00": {
+      "version": "2024.05.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.913Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.06.00": {
+      "version": "2024.06.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.08.00": {
+      "version": "2024.08.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.09.00": {
+      "version": "2024.09.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.09.01": {
+      "version": "2024.09.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.09.02": {
+      "version": "2024.09.02",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.09.03": {
+      "version": "2024.09.03",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.10.00": {
+      "version": "2024.10.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.10.01": {
+      "version": "2024.10.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.11.00": {
+      "version": "2024.11.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2024.12.01": {
+      "version": "2024.12.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.01.00": {
+      "version": "2025.01.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.01.01": {
+      "version": "2025.01.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.02.00": {
+      "version": "2025.02.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.03.00": {
+      "version": "2025.03.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.03.01": {
+      "version": "2025.03.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.04.00": {
+      "version": "2025.04.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.04.01": {
+      "version": "2025.04.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.05.00": {
+      "version": "2025.05.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.05.01": {
+      "version": "2025.05.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.06.00": {
+      "version": "2025.06.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.06.01": {
+      "version": "2025.06.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.07.00": {
+      "version": "2025.07.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.08.00": {
+      "version": "2025.08.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.08.01": {
+      "version": "2025.08.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.09.00": {
+      "version": "2025.09.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.09.01": {
+      "version": "2025.09.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.10.00": {
+      "version": "2025.10.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.10.01": {
+      "version": "2025.10.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.11.00": {
+      "version": "2025.11.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.11.01": {
+      "version": "2025.11.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.914Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.12.00": {
+      "version": "2025.12.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.915Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2025.12.01": {
+      "version": "2025.12.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.915Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2026.01.00": {
+      "version": "2026.01.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.915Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2026.01.01": {
+      "version": "2026.01.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.915Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2026.02.00": {
+      "version": "2026.02.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.915Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2026.02.01": {
+      "version": "2026.02.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.915Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2026.03.00": {
+      "version": "2026.03.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.915Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2026.03.01": {
+      "version": "2026.03.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.915Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2026.04.01": {
+      "version": "2026.04.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.915Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2026.05.00": {
+      "version": "2026.05.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.915Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2026.05.01": {
+      "version": "2026.05.01",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.915Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    },
+    "2026.06.00": {
+      "version": "2026.06.00",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:28.915Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+    }
+  },
+  "kotlin": {
+    "2.4.0": {
+      "version": "2.4.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.086Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "2.3.21": {
+      "version": "2.3.21",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.087Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "2.3.20": {
+      "version": "2.3.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.087Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "2.3.10": {
+      "version": "2.3.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.087Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "2.3.0": {
+      "version": "2.3.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.087Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "2.2.21": {
+      "version": "2.2.21",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.087Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "2.2.20": {
+      "version": "2.2.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.087Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "2.2.10": {
+      "version": "2.2.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.087Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    }
+  },
+  "gradle": {
+    "9.6.0": {
+      "version": "9.6.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.716Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "9.5.1": {
+      "version": "9.5.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.716Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.14.5": {
+      "version": "8.14.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.716Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "9.5.0": {
+      "version": "9.5.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.716Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "9.4.1": {
+      "version": "9.4.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.716Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "9.4.0": {
+      "version": "9.4.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.716Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "9.3.1": {
+      "version": "9.3.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.716Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.14.4": {
+      "version": "8.14.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.716Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "9.3.0": {
+      "version": "9.3.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.716Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "9.2.1": {
+      "version": "9.2.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.716Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "9.2.0": {
+      "version": "9.2.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.716Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "9.1.0": {
+      "version": "9.1.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-24T09:24:30.716Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    }
+  }
+}

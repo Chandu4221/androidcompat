@@ -50,7 +50,14 @@ async function fetchMavenVersions(url) {
   const list = Array.isArray(versions) ? versions : [versions];
   return list
     .map(String)
-    .filter(v => !v.includes('alpha') && !v.includes('beta') && !v.includes('rc'));
+    .filter(v => {
+      const lower = v.toLowerCase();
+      return !lower.includes('alpha') &&
+             !lower.includes('beta') &&
+             !lower.includes('rc') &&
+             !lower.includes('-m1') &&
+             !lower.includes('-m2');
+    });
 }
 
 async function fetchGithubVersions(url) {
