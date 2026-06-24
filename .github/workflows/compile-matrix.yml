@@ -94,22 +94,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: artifacts/
-
-      - name: Merge latest compat.json
+      - name: Merge all results
         run: |
-          # Use the artifact with the most entries as the final result
-          BEST=""
-          BEST_COUNT=0
-          for f in artifacts/*/compat.json; do
-            COUNT=$(cat "$f" | python3 -c "import json,sys; print(len(json.load(sys.stdin)['combinations']))")
-            if [ "$COUNT" -gt "$BEST_COUNT" ]; then
-              BEST_COUNT=$COUNT
-              BEST=$f
-            fi
-          done
-          echo "Using $BEST with $BEST_COUNT entries"
-          cp "$BEST" data/compat.json
-
+          node scripts/update-compat.js \
+            --merge-artifacts \
+            --artifacts-dir artifacts/
       - name: Commit final compat.json
         run: |
           git config user.name "androidcompat-bot"

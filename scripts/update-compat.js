@@ -25,19 +25,64 @@ function findExisting(combinations, combo) {
   );
 }
 
+function getArg(args, flag) {
+  const i = args.indexOf(flag);
+  return i !== -1 ? args[i + 1] : null;
+}
+
+function mergeAllArtifacts(artifactsDir) {
+  const compatData = loadCompat();
+  const seen = new Set();
+
+  compatData.combinations.forEach(c => {
+    const key = `${c.agp}-${c.kotlin}-${c.ksp}-${c.hilt}-${c.gradle}`;
+    seen.add(key);
+  });
+
+  const artifactFiles = [];
+
+  function walk(dir) {
+    fs.readdirSync(dir).forEach(f => {
+      const full = path.join(dir, f);
+      if (fs.statSync(full).isDirectory()) walk(full);
+      else if (f === 'compat.json') artifactFiles.push(full);
+    });
+  }
+
+  walk(artifactsDir);
+  console.log(`📦 Found ${artifactFiles.length} artifact files`);
+
+  let added = 0;
+  artifactFiles.forEach(file => {
+    const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+    data.combinations.forEach(entry => {
+      const key = `${entry.agp}-${entry.kotlin}-${entry.ksp}-${entry.hilt}-${entry.gradle}`;
+      if (!seen.has(key)) {
+        compatData.combinations.push(entry);
+        seen.add(key);
+        added++;
+      }
+    });
+  });
+
+  saveCompat(compatData);
+  console.log(`✅ Merged ${added} new entries. Total: ${compatData.combinations.length}`);
+}
+
 function main() {
   const args = process.argv.slice(2);
 
-  // Parse CLI args: --combo '{...}' --status success --run-url '...' --error-log '...'
-  const get = (flag) => {
-    const i = args.indexOf(flag);
-    return i !== -1 ? args[i + 1] : null;
-  };
+  // Handle merge command
+  if (args[0] === '--merge-artifacts') {
+    const artifactsDir = getArg(args, '--artifacts-dir') || 'artifacts';
+    mergeAllArtifacts(artifactsDir);
+    process.exit(0);
+  }
 
-  const comboArg  = get('--combo');
-  const status    = get('--status');    // 'success' or 'failure'
-  const runUrl    = get('--run-url') || '';
-  const errorLog  = get('--error-log') || '';
+  const comboArg = getArg(args, '--combo');
+  const status   = getArg(args, '--status');
+  const runUrl   = getArg(args, '--run-url') || '';
+  const errorLog = getArg(args, '--error-log') || '';
 
   if (!comboArg || !status) {
     console.error('Usage: node update-compat.js --combo \'{...}\' --status success|failure --run-url \'...\' --error-log \'...\'');
@@ -65,17 +110,15 @@ function main() {
   const existingIndex = findExisting(compatData.combinations, combo);
 
   if (existingIndex !== -1) {
-    // Update existing entry
     compatData.combinations[existingIndex] = {
       ...compatData.combinations[existingIndex],
       ...entry,
-      id: compatData.combinations[existingIndex].id, // keep original id
+      id: compatData.combinations[existingIndex].id,
     };
-    console.log(`♻️  Updated existing entry: AGP ${combo.agp} | KSP ${combo.ksp} | Hilt ${combo.hilt} → ${entry.status}`);
+    console.log(`♻️  Updated: AGP ${combo.agp} | KSP ${combo.ksp} | Hilt ${combo.hilt} → ${entry.status}`);
   } else {
-    // Add new entry
     compatData.combinations.push(entry);
-    console.log(`✅ Added new entry: AGP ${combo.agp} | KSP ${combo.ksp} | Hilt ${combo.hilt} → ${entry.status}`);
+    console.log(`✅ Added: AGP ${combo.agp} | KSP ${combo.ksp} | Hilt ${combo.hilt} → ${entry.status}`);
   }
 
   saveCompat(compatData);
