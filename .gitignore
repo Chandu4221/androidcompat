@@ -14,3 +14,7 @@ stub-project/.idea/
 stub-project/local.properties
 stub-project/build/
 stub-project/app/build/
+
+.env
+node_modules/
+package-lock.json
