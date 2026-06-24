@@ -17,4 +17,3 @@ stub-project/app/build/
 
 .env
 node_modules/
-package-lock.json
