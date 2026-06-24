@@ -6,6 +6,9 @@ on:
       - 'data/combos-to-test.json'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   load-combos:
     runs-on: ubuntu-latest
