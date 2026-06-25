@@ -70,6 +70,9 @@ function isAlreadyVerified(combo, compatData) {
       c.agp === combo.agp &&
       c.ksp === combo.ksp &&
       c.hilt === combo.hilt &&
+      c.kotlin === combo.kotlin &&
+      c.gradle === combo.gradle &&
+      c.composeBom === combo.composeBom &&
       c.status === "verified",
   );
 }
