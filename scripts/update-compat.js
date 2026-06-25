@@ -101,6 +101,7 @@ function main() {
   const comboArg = getArg(args, "--combo");
   const runUrl = getArg(args, "--run-url") || "";
   const syncStatus = getArg(args, "--sync-status");
+  const errorLog = getArg(args, "--error-log") || "";
 
   if (!comboArg || !syncStatus) {
     console.error(
@@ -132,7 +133,7 @@ function main() {
 
     ci_run_url: runUrl,
     verified_at: new Date().toISOString(),
-    error_log: "", // Phase B will populate this
+    error_log: errorLog,
     notes: "",
   };
 

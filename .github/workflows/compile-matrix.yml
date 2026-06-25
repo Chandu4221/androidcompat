@@ -74,8 +74,19 @@ jobs:
         if: steps.compile.outcome == 'success'
         run: |
           cd stub-project
-          ./gradlew :app:testDebugUnitTest --no-daemon --no-configuration-cache
+          ./gradlew :app:testDebugUnitTest --no-daemon --no-configuration-cache 2>&1 | tee ../unit-test-output.log
+          exit ${PIPESTATUS[0]}
         continue-on-error: true
+
+      - name: Capture error log
+        if: always()
+        id: capture_error
+        run: |
+          ERROR_LOG=""
+          if [ -f unit-test-output.log ]; then
+            ERROR_LOG=$(grep "error:" unit-test-output.log | head -5 | tr '\n' ' ' || true)
+          fi
+          echo "error_log=$ERROR_LOG" >> $GITHUB_OUTPUT
 
       - name: Capture logs
         if: always()
@@ -103,6 +114,7 @@ jobs:
             --compile-status ${{ steps.compile.outcome }} \
             --unit-test-status "${{ steps.unit_test.outcome || 'skipped' }}" \
             --instrumentation-status skipped \
+            --error-log "${{ steps.capture_error.outputs.error_log }}" \
             --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Upload result artifact
