@@ -58,7 +58,7 @@ jobs:
         id: sync
         run: |
           cd stub-project
-          ./gradlew :app:generateDebugBuildConfig --no-daemon --no-configuration-cache
+          ./gradlew :app:preBuild --no-daemon --no-configuration-cache
         continue-on-error: true
 
       - name: Stage - Compile
