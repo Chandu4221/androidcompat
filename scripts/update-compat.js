@@ -32,6 +32,10 @@ function getArg(args, flag) {
 }
 
 function mergeAllArtifacts(artifactsDir) {
+  if (!fs.existsSync(artifactsDir)) {
+    console.log("⚠️ No artifacts directory found. Nothing to merge.");
+    process.exit(0);
+  }
   const compatData = loadCompat();
   const seen = new Set();
 
