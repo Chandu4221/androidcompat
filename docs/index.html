@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AndroidCompat — Dependency Compatibility Matrix</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #21262d;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #7d8590;
+      --text-dim: #484f58;
+      --green: #3fb950;
+      --green-dim: #1a3a1f;
+      --red: #f85149;
+      --red-dim: #3a1a1a;
+      --yellow: #d29922;
+      --yellow-dim: #3a2e10;
+      --blue: #58a6ff;
+      --blue-dim: #1a2a3a;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Header ─────────────────────────────────────────────────────────── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 10;
+    }
+
+    .logo {
+      font-family: var(--mono);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--green);
+    }
+
+    .header-meta {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* ── Hero ────────────────────────────────────────────────────────────── */
+    .hero {
+      padding: 48px 32px 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero h1 {
+      font-family: var(--mono);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 em {
+      color: var(--green);
+      font-style: normal;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 14px;
+      max-width: 560px;
+      margin-bottom: 28px;
+    }
+
+    /* ── Stats ───────────────────────────────────────────────────────────── */
+    .stats {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 20px;
+      min-width: 120px;
+    }
+
+    .stat-value {
+      font-family: var(--mono);
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat.green .stat-value { color: var(--green); }
+    .stat.red .stat-value { color: var(--red); }
+    .stat.blue .stat-value { color: var(--blue); }
+    .stat.yellow .stat-value { color: var(--yellow); }
+
+    /* ── Filters ─────────────────────────────────────────────────────────── */
+    .filters {
+      padding: 16px 32px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-right: 4px;
+    }
+
+    select, input {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 6px 10px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    select:focus, input:focus {
+      border-color: var(--blue);
+    }
+
+    .filter-sep {
+      width: 1px;
+      height: 20px;
+      background: var(--border);
+    }
+
+    /* ── Table ───────────────────────────────────────────────────────────── */
+    .table-wrap {
+      padding: 0 32px 48px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+
+    thead tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 10px 12px;
+      text-align: left;
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    th:hover { color: var(--text); }
+    th.sorted { color: var(--blue); }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.1s;
+      cursor: pointer;
+    }
+
+    tbody tr:hover { background: var(--surface); }
+    tbody tr.expanded { background: var(--surface); }
+
+    td {
+      padding: 10px 12px;
+      font-family: var(--mono);
+      font-size: 12px;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    .version-chip {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 11px;
+      color: var(--text);
+    }
+
+    /* ── Status badges ───────────────────────────────────────────────────── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border-radius: 4px;
+      padding: 3px 8px;
+      font-size: 11px;
+      font-weight: 600;
+      font-family: var(--mono);
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .badge.verified {
+      background: var(--green-dim);
+      color: var(--green);
+    }
+    .badge.verified .badge-dot { background: var(--green); }
+
+    .badge.broken {
+      background: var(--red-dim);
+      color: var(--red);
+    }
+    .badge.broken .badge-dot { background: var(--red); }
+
+    .badge.partial {
+      background: var(--yellow-dim);
+      color: var(--yellow);
+    }
+    .badge.partial .badge-dot { background: var(--yellow); }
+
+    .badge.unknown {
+      background: var(--surface2);
+      color: var(--text-muted);
+    }
+
+    /* ── Confidence ──────────────────────────────────────────────────────── */
+    .confidence {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .confidence-bar {
+      width: 60px;
+      height: 4px;
+      background: var(--surface2);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .confidence-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.3s;
+    }
+
+    .confidence-fill.high { background: var(--green); }
+    .confidence-fill.medium { background: var(--yellow); }
+    .confidence-fill.low { background: var(--red); }
+
+    .confidence-score {
+      font-size: 11px;
+      color: var(--text-muted);
+      min-width: 28px;
+    }
+
+    /* ── Expanded row ────────────────────────────────────────────────────── */
+    .expand-row td {
+      padding: 0;
+    }
+
+    .expand-content {
+      padding: 16px 20px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .expand-section h4 {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .expand-section p {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .fix-box {
+      background: var(--green-dim);
+      border: 1px solid var(--green);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--green);
+      line-height: 1.5;
+    }
+
+    .signature-chip {
+      display: inline-block;
+      background: var(--red-dim);
+      border: 1px solid var(--red);
+      color: var(--red);
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .factors {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 6px;
+    }
+
+    .factor-chip {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    .ci-link {
+      color: var(--blue);
+      text-decoration: none;
+      font-size: 11px;
+    }
+    .ci-link:hover { text-decoration: underline; }
+
+    /* ── Empty / loading ─────────────────────────────────────────────────── */
+    .state-msg {
+      text-align: center;
+      padding: 64px 32px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+
+    /* ── Footer ──────────────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    footer a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    /* ── Responsive ──────────────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      header, .hero, .filters, .table-wrap, footer {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      .hero h1 { font-size: 20px; }
+      .expand-content { grid-template-columns: 1fr; }
+      .stats { gap: 8px; }
+      .stat { min-width: 100px; padding: 12px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">android<span>compat</span>.dev</div>
+  <div class="header-meta" id="last-updated">Loading...</div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Compile-verified <em>compatibility</em><br>for Android dependencies.</h1>
+    <p>Every combination is tested by real Gradle builds — not docs, not guesses. AGP · Kotlin · KSP · Hilt · Compose · Room · Coil.</p>
+    <div class="stats" id="stats">
+      <div class="stat blue"><div class="stat-value" id="stat-total">—</div><div class="stat-label">Tested</div></div>
+      <div class="stat green"><div class="stat-value" id="stat-verified">—</div><div class="stat-label">Verified</div></div>
+      <div class="stat red"><div class="stat-value" id="stat-broken">—</div><div class="stat-label">Broken</div></div>
+      <div class="stat yellow"><div class="stat-value" id="stat-signatures">—</div><div class="stat-label">Failure Signatures</div></div>
+    </div>
+  </section>
+
+  <section class="filters">
+    <span class="filter-label">Filter</span>
+    <select id="filter-agp"><option value="">All AGP</option></select>
+    <select id="filter-kotlin"><option value="">All Kotlin</option></select>
+    <select id="filter-status"><option value="">All Status</option>
+      <option value="verified">Verified</option>
+      <option value="broken_unit_test">Broken (Unit Test)</option>
+      <option value="broken_compile">Broken (Compile)</option>
+      <option value="broken_sync">Broken (Sync)</option>
+    </select>
+    <div class="filter-sep"></div>
+    <select id="sort-by">
+      <option value="confidence">Sort: Confidence ↓</option>
+      <option value="verified_at">Sort: Newest</option>
+      <option value="agp">Sort: AGP</option>
+      <option value="kotlin">Sort: Kotlin</option>
+    </select>
+  </section>
+
+  <div class="table-wrap">
+    <table id="compat-table">
+      <thead>
+        <tr>
+          <th>AGP</th>
+          <th>Kotlin</th>
+          <th>KSP</th>
+          <th>Hilt</th>
+          <th>Gradle</th>
+          <th>Compose BOM</th>
+          <th>Status</th>
+          <th>Confidence</th>
+          <th>Verified</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+        <tr><td colspan="9" class="state-msg">Loading compatibility data...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<footer>
+  <p>Data updated nightly via GitHub Actions. <a href="https://github.com/Chandu4221/androidcompat" target="_blank">View source →</a></p>
+  <p>Compile-verified. Not affiliated with Google or JetBrains.</p>
+</footer>
+
+<script>
+  const DATA_URL = 'https://raw.githubusercontent.com/Chandu4221/androidcompat/main/data/compat.json';
+
+  let allCombos = [];
+  let expandedId = null;
+
+  // ── Fetch data ────────────────────────────────────────────────────────────
+  async function loadData() {
+    try {
+      const res = await fetch(DATA_URL);
+      const json = await res.json();
+      allCombos = json.combinations || [];
+
+      document.getElementById('last-updated').textContent =
+        'Updated ' + timeAgo(json.last_updated);
+
+      populateFilters();
+      updateStats();
+      render();
+    } catch (e) {
+      document.getElementById('table-body').innerHTML =
+        `<tr><td colspan="9" class="state-msg">Failed to load data. <a class="ci-link" href="${DATA_URL}">View raw →</a></td></tr>`;
+    }
+  }
+
+  // ── Filters ───────────────────────────────────────────────────────────────
+  function populateFilters() {
+    const agpVals = [...new Set(allCombos.map(c => c.agp))].sort(semverDesc);
+    const kotlinVals = [...new Set(allCombos.map(c => c.kotlin))].sort(semverDesc);
+
+    fillSelect('filter-agp', agpVals, 'All AGP');
+    fillSelect('filter-kotlin', kotlinVals, 'All Kotlin');
+  }
+
+  function fillSelect(id, vals, placeholder) {
+    const el = document.getElementById(id);
+    el.innerHTML = `<option value="">${placeholder}</option>` +
+      vals.map(v => `<option value="${v}">${v}</option>`).join('');
+  }
+
+  function getFiltered() {
+    const agp = document.getElementById('filter-agp').value;
+    const kotlin = document.getElementById('filter-kotlin').value;
+    const status = document.getElementById('filter-status').value;
+    const sortBy = document.getElementById('sort-by').value;
+
+    let combos = allCombos.filter(c =>
+      (!agp || c.agp === agp) &&
+      (!kotlin || c.kotlin === kotlin) &&
+      (!status || c.status === status)
+    );
+
+    combos.sort((a, b) => {
+      if (sortBy === 'confidence') return (b.confidence?.score ?? 0) - (a.confidence?.score ?? 0);
+      if (sortBy === 'verified_at') return new Date(b.verified_at) - new Date(a.verified_at);
+      if (sortBy === 'agp') return semverDesc(a.agp, b.agp);
+      if (sortBy === 'kotlin') return semverDesc(a.kotlin, b.kotlin);
+      return 0;
+    });
+
+    return combos;
+  }
+
+  // ── Stats ─────────────────────────────────────────────────────────────────
+  function updateStats() {
+    const total = allCombos.length;
+    const verified = allCombos.filter(c => c.status === 'verified').length;
+    const broken = allCombos.filter(c => c.status.startsWith('broken')).length;
+    const sigs = new Set(
+      allCombos
+        .filter(c => c.failure_analysis?.signature && c.failure_analysis.signature !== 'unknown')
+        .map(c => c.failure_analysis.signature)
+    ).size;
+
+    document.getElementById('stat-total').textContent = total;
+    document.getElementById('stat-verified').textContent = verified;
+    document.getElementById('stat-broken').textContent = broken;
+    document.getElementById('stat-signatures').textContent = sigs;
+  }
+
+  // ── Render ────────────────────────────────────────────────────────────────
+  function render() {
+    const combos = getFiltered();
+    const tbody = document.getElementById('table-body');
+
+    if (combos.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="9" class="state-msg">No combinations match the current filters.</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = combos.map(c => rowHTML(c)).join('');
+
+    // Attach click handlers
+    tbody.querySelectorAll('tr.data-row').forEach(row => {
+      row.addEventListener('click', () => toggleExpand(row.dataset.id));
+    });
+  }
+
+  function rowHTML(c) {
+    const statusBadge = statusHTML(c.status);
+    const conf = c.confidence;
+    const confHTML = conf
+      ? `<div class="confidence">
+          <div class="confidence-bar">
+            <div class="confidence-fill ${conf.level}" style="width:${conf.score}%"></div>
+          </div>
+          <span class="confidence-score">${conf.score}</span>
+        </div>`
+      : '—';
+
+    const date = c.verified_at ? new Date(c.verified_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '—';
+
+    let rows = `<tr class="data-row" data-id="${c.id}">
+      <td><span class="version-chip">${c.agp}</span></td>
+      <td><span class="version-chip">${c.kotlin}</span></td>
+      <td><span class="version-chip">${c.ksp}</span></td>
+      <td><span class="version-chip">${c.hilt}</span></td>
+      <td><span class="version-chip">${c.gradle}</span></td>
+      <td><span class="version-chip">${c.composeBom}</span></td>
+      <td>${statusBadge}</td>
+      <td>${confHTML}</td>
+      <td style="color:var(--text-muted)">${date}</td>
+    </tr>`;
+
+    if (expandedId === c.id) {
+      rows += expandHTML(c);
+    }
+
+    return rows;
+  }
+
+  function expandHTML(c) {
+    const fa = c.failure_analysis;
+    const conf = c.confidence;
+
+    const leftContent = fa
+      ? `<div class="expand-section">
+          <h4>Failure Signature</h4>
+          <div class="signature-chip">${fa.signature}</div>
+          <p>${fa.root_cause}</p>
+        </div>
+        <div class="expand-section">
+          <h4>Fix</h4>
+          <div class="fix-box">${fa.fix}</div>
+        </div>`
+      : `<div class="expand-section">
+          <h4>Result</h4>
+          <p style="color:var(--green)">All verification stages passed. This combination is safe to use.</p>
+        </div>`;
+
+    const stageHTML = Object.entries(c.verification || {})
+      .map(([k, v]) => `<span class="factor-chip" style="color:${v === 'success' ? 'var(--green)' : v === 'failure' ? 'var(--red)' : 'var(--text-dim)'}">${k}: ${v}</span>`)
+      .join('');
+
+    const rightContent = `
+      <div class="expand-section">
+        <h4>Verification Stages</h4>
+        <div class="factors">${stageHTML}</div>
+      </div>
+      ${conf ? `<div class="expand-section">
+        <h4>Confidence Factors</h4>
+        <div class="factors">${conf.factors.map(f => `<span class="factor-chip">${f}</span>`).join('')}</div>
+      </div>` : ''}
+      <div class="expand-section">
+        <h4>CI Run</h4>
+        <a class="ci-link" href="${c.ci_run_url}" target="_blank">View build logs →</a>
+      </div>`;
+
+    return `<tr class="expand-row"><td colspan="9">
+      <div class="expand-content">
+        <div>${leftContent}</div>
+        <div>${rightContent}</div>
+      </div>
+    </td></tr>`;
+  }
+
+  function toggleExpand(id) {
+    expandedId = expandedId === id ? null : id;
+    render();
+  }
+
+  // ── Status HTML ───────────────────────────────────────────────────────────
+  function statusHTML(status) {
+    if (status === 'verified')
+      return `<span class="badge verified"><span class="badge-dot"></span>verified</span>`;
+    if (status.startsWith('broken_unit'))
+      return `<span class="badge broken"><span class="badge-dot"></span>broken · unit test</span>`;
+    if (status.startsWith('broken_compile'))
+      return `<span class="badge broken"><span class="badge-dot"></span>broken · compile</span>`;
+    if (status.startsWith('broken_sync'))
+      return `<span class="badge broken"><span class="badge-dot"></span>broken · sync</span>`;
+    if (status === 'partial')
+      return `<span class="badge partial"><span class="badge-dot"></span>partial</span>`;
+    return `<span class="badge unknown">${status}</span>`;
+  }
+
+  // ── Helpers ───────────────────────────────────────────────────────────────
+  function semverDesc(a, b) {
+    const pa = String(a).split('.').map(Number);
+    const pb = String(b).split('.').map(Number);
+    for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+      const diff = (pb[i] || 0) - (pa[i] || 0);
+      if (diff !== 0) return diff;
+    }
+    return 0;
+  }
+
+  function timeAgo(iso) {
+    if (!iso) return '—';
+    const diff = Date.now() - new Date(iso);
+    const h = Math.floor(diff / 3600000);
+    const d = Math.floor(h / 24);
+    if (d > 0) return `${d}d ago`;
+    if (h > 0) return `${h}h ago`;
+    return 'just now';
+  }
+
+  // ── Event listeners ───────────────────────────────────────────────────────
+  ['filter-agp', 'filter-kotlin', 'filter-status', 'sort-by'].forEach(id => {
+    document.getElementById(id).addEventListener('change', render);
+  });
+
+  loadData();
+</script>
+</body>
+</html>
