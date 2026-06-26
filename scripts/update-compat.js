@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { parseFailure } = require("./parse-failure");
+const { scoreConfidence } = require("./score-confidence");
 
 const COMPAT_PATH = path.join(__dirname, "../data/compat.json");
 
@@ -136,8 +137,11 @@ function main() {
     verified_at: new Date().toISOString(),
     error_log: errorLog,
     failure_analysis: parseFailure(errorLog),
+    confidence: null,
     notes: "",
   };
+
+  entry.confidence = scoreConfidence(entry);
 
   const existingIndex = findExisting(compatData.combinations, combo);
 
