@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { parseFailure } = require("./parse-failure");
 
 const COMPAT_PATH = path.join(__dirname, "../data/compat.json");
 
@@ -134,6 +135,7 @@ function main() {
     ci_run_url: runUrl,
     verified_at: new Date().toISOString(),
     error_log: errorLog,
+    failure_analysis: parseFailure(errorLog),
     notes: "",
   };
 
