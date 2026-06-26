@@ -1,1 +1,1093 @@
-{"last_updated":"","combinations":[]}
+{
+  "last_updated": "2026-06-26T10:10:20.913Z",
+  "combinations": [
+    {
+      "id": "combo-1782468358896",
+      "agp": "9.2.1",
+      "kotlin": "2.4.0",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "failure",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_unit_test",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:05:58.896Z",
+      "error_log": "error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.   error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library. ",
+      "failure_analysis": {
+        "signature": "dagger_metadata_error",
+        "affected_component": "hilt",
+        "root_cause": "Hilt's bundled kotlin-metadata-jvm library does not support the Kotlin metadata version emitted by the current Kotlin compiler. Hilt 2.59.x supports up to Kotlin metadata 2.3.0.",
+        "fix": "Downgrade to Kotlin 2.3.x, or wait for a Hilt release that bundles a newer kotlin-metadata-jvm."
+      },
+      "confidence": {
+        "score": 50,
+        "level": "medium",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "known_failure_signature",
+          "broken_status:broken_unit_test"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468376281",
+      "agp": "9.2.1",
+      "kotlin": "2.4.0",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.5.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "failure",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_unit_test",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:06:16.281Z",
+      "error_log": "error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.   error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library. ",
+      "failure_analysis": {
+        "signature": "dagger_metadata_error",
+        "affected_component": "hilt",
+        "root_cause": "Hilt's bundled kotlin-metadata-jvm library does not support the Kotlin metadata version emitted by the current Kotlin compiler. Hilt 2.59.x supports up to Kotlin metadata 2.3.0.",
+        "fix": "Downgrade to Kotlin 2.3.x, or wait for a Hilt release that bundles a newer kotlin-metadata-jvm."
+      },
+      "confidence": {
+        "score": 50,
+        "level": "medium",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "known_failure_signature",
+          "broken_status:broken_unit_test"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468541458",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:09:01.458Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468466877",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.5.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:07:46.877Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468542421",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:09:02.421Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468430945",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.5.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:07:10.945Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468399002",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:06:39.002Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468505181",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.5.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:08:25.181Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468367420",
+      "agp": "9.2.0",
+      "kotlin": "2.4.0",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "failure",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_unit_test",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:06:07.420Z",
+      "error_log": "error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.   error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library. ",
+      "failure_analysis": {
+        "signature": "dagger_metadata_error",
+        "affected_component": "hilt",
+        "root_cause": "Hilt's bundled kotlin-metadata-jvm library does not support the Kotlin metadata version emitted by the current Kotlin compiler. Hilt 2.59.x supports up to Kotlin metadata 2.3.0.",
+        "fix": "Downgrade to Kotlin 2.3.x, or wait for a Hilt release that bundles a newer kotlin-metadata-jvm."
+      },
+      "confidence": {
+        "score": 50,
+        "level": "medium",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "known_failure_signature",
+          "broken_status:broken_unit_test"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468464916",
+      "agp": "9.2.0",
+      "kotlin": "2.4.0",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.5.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "failure",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_unit_test",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:07:44.916Z",
+      "error_log": "error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.   error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library. ",
+      "failure_analysis": {
+        "signature": "dagger_metadata_error",
+        "affected_component": "hilt",
+        "root_cause": "Hilt's bundled kotlin-metadata-jvm library does not support the Kotlin metadata version emitted by the current Kotlin compiler. Hilt 2.59.x supports up to Kotlin metadata 2.3.0.",
+        "fix": "Downgrade to Kotlin 2.3.x, or wait for a Hilt release that bundles a newer kotlin-metadata-jvm."
+      },
+      "confidence": {
+        "score": 50,
+        "level": "medium",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "known_failure_signature",
+          "broken_status:broken_unit_test"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468358497",
+      "agp": "9.2.0",
+      "kotlin": "2.4.0",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "failure",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_unit_test",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:05:58.497Z",
+      "error_log": "error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.   error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library. ",
+      "failure_analysis": {
+        "signature": "dagger_metadata_error",
+        "affected_component": "hilt",
+        "root_cause": "Hilt's bundled kotlin-metadata-jvm library does not support the Kotlin metadata version emitted by the current Kotlin compiler. Hilt 2.59.x supports up to Kotlin metadata 2.3.0.",
+        "fix": "Downgrade to Kotlin 2.3.x, or wait for a Hilt release that bundles a newer kotlin-metadata-jvm."
+      },
+      "confidence": {
+        "score": 50,
+        "level": "medium",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "known_failure_signature",
+          "broken_status:broken_unit_test"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468377777",
+      "agp": "9.2.0",
+      "kotlin": "2.4.0",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.5.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "failure",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_unit_test",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:06:17.777Z",
+      "error_log": "error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.   error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library. ",
+      "failure_analysis": {
+        "signature": "dagger_metadata_error",
+        "affected_component": "hilt",
+        "root_cause": "Hilt's bundled kotlin-metadata-jvm library does not support the Kotlin metadata version emitted by the current Kotlin compiler. Hilt 2.59.x supports up to Kotlin metadata 2.3.0.",
+        "fix": "Downgrade to Kotlin 2.3.x, or wait for a Hilt release that bundles a newer kotlin-metadata-jvm."
+      },
+      "confidence": {
+        "score": 50,
+        "level": "medium",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "known_failure_signature",
+          "broken_status:broken_unit_test"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468370927",
+      "agp": "9.2.1",
+      "kotlin": "2.4.0",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "failure",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_unit_test",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:06:10.927Z",
+      "error_log": "error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.   error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library. ",
+      "failure_analysis": {
+        "signature": "dagger_metadata_error",
+        "affected_component": "hilt",
+        "root_cause": "Hilt's bundled kotlin-metadata-jvm library does not support the Kotlin metadata version emitted by the current Kotlin compiler. Hilt 2.59.x supports up to Kotlin metadata 2.3.0.",
+        "fix": "Downgrade to Kotlin 2.3.x, or wait for a Hilt release that bundles a newer kotlin-metadata-jvm."
+      },
+      "confidence": {
+        "score": 50,
+        "level": "medium",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "known_failure_signature",
+          "broken_status:broken_unit_test"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468448005",
+      "agp": "9.2.0",
+      "kotlin": "2.4.0",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "failure",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_unit_test",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:07:28.005Z",
+      "error_log": "error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.   error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library. ",
+      "failure_analysis": {
+        "signature": "dagger_metadata_error",
+        "affected_component": "hilt",
+        "root_cause": "Hilt's bundled kotlin-metadata-jvm library does not support the Kotlin metadata version emitted by the current Kotlin compiler. Hilt 2.59.x supports up to Kotlin metadata 2.3.0.",
+        "fix": "Downgrade to Kotlin 2.3.x, or wait for a Hilt release that bundles a newer kotlin-metadata-jvm."
+      },
+      "confidence": {
+        "score": 50,
+        "level": "medium",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "known_failure_signature",
+          "broken_status:broken_unit_test"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468386695",
+      "agp": "9.2.0",
+      "kotlin": "2.4.0",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.5.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "failure",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_unit_test",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:06:26.695Z",
+      "error_log": "error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.   error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library. ",
+      "failure_analysis": {
+        "signature": "dagger_metadata_error",
+        "affected_component": "hilt",
+        "root_cause": "Hilt's bundled kotlin-metadata-jvm library does not support the Kotlin metadata version emitted by the current Kotlin compiler. Hilt 2.59.x supports up to Kotlin metadata 2.3.0.",
+        "fix": "Downgrade to Kotlin 2.3.x, or wait for a Hilt release that bundles a newer kotlin-metadata-jvm."
+      },
+      "confidence": {
+        "score": 50,
+        "level": "medium",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "known_failure_signature",
+          "broken_status:broken_unit_test"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468444273",
+      "agp": "9.2.0",
+      "kotlin": "2.4.0",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "failure",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_unit_test",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:07:24.273Z",
+      "error_log": "error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.   error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library. ",
+      "failure_analysis": {
+        "signature": "dagger_metadata_error",
+        "affected_component": "hilt",
+        "root_cause": "Hilt's bundled kotlin-metadata-jvm library does not support the Kotlin metadata version emitted by the current Kotlin compiler. Hilt 2.59.x supports up to Kotlin metadata 2.3.0.",
+        "fix": "Downgrade to Kotlin 2.3.x, or wait for a Hilt release that bundles a newer kotlin-metadata-jvm."
+      },
+      "confidence": {
+        "score": 50,
+        "level": "medium",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "known_failure_signature",
+          "broken_status:broken_unit_test"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468367926",
+      "agp": "9.2.0",
+      "kotlin": "2.4.0",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.5.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "failure",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_unit_test",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:06:07.926Z",
+      "error_log": "error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.   error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library. ",
+      "failure_analysis": {
+        "signature": "dagger_metadata_error",
+        "affected_component": "hilt",
+        "root_cause": "Hilt's bundled kotlin-metadata-jvm library does not support the Kotlin metadata version emitted by the current Kotlin compiler. Hilt 2.59.x supports up to Kotlin metadata 2.3.0.",
+        "fix": "Downgrade to Kotlin 2.3.x, or wait for a Hilt release that bundles a newer kotlin-metadata-jvm."
+      },
+      "confidence": {
+        "score": 50,
+        "level": "medium",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "known_failure_signature",
+          "broken_status:broken_unit_test"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468382661",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:06:22.661Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468450241",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.5.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:07:30.241Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468533778",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:08:53.778Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468450816",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.5.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:07:30.816Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468407236",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:06:47.236Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468521286",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.5.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:08:41.286Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468459729",
+      "agp": "9.2.1",
+      "kotlin": "2.4.0",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.5.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "failure",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_unit_test",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:07:39.729Z",
+      "error_log": "error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.   error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library. ",
+      "failure_analysis": {
+        "signature": "dagger_metadata_error",
+        "affected_component": "hilt",
+        "root_cause": "Hilt's bundled kotlin-metadata-jvm library does not support the Kotlin metadata version emitted by the current Kotlin compiler. Hilt 2.59.x supports up to Kotlin metadata 2.3.0.",
+        "fix": "Downgrade to Kotlin 2.3.x, or wait for a Hilt release that bundles a newer kotlin-metadata-jvm."
+      },
+      "confidence": {
+        "score": 50,
+        "level": "medium",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "known_failure_signature",
+          "broken_status:broken_unit_test"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468406730",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:06:46.730Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468573712",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.5.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:09:33.712Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468457241",
+      "agp": "9.2.1",
+      "kotlin": "2.4.0",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "failure",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_unit_test",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:07:37.241Z",
+      "error_log": "error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.   error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library. ",
+      "failure_analysis": {
+        "signature": "dagger_metadata_error",
+        "affected_component": "hilt",
+        "root_cause": "Hilt's bundled kotlin-metadata-jvm library does not support the Kotlin metadata version emitted by the current Kotlin compiler. Hilt 2.59.x supports up to Kotlin metadata 2.3.0.",
+        "fix": "Downgrade to Kotlin 2.3.x, or wait for a Hilt release that bundles a newer kotlin-metadata-jvm."
+      },
+      "confidence": {
+        "score": 50,
+        "level": "medium",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "known_failure_signature",
+          "broken_status:broken_unit_test"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468457450",
+      "agp": "9.2.1",
+      "kotlin": "2.4.0",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.5.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "failure",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_unit_test",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:07:37.450Z",
+      "error_log": "error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.   error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library. ",
+      "failure_analysis": {
+        "signature": "dagger_metadata_error",
+        "affected_component": "hilt",
+        "root_cause": "Hilt's bundled kotlin-metadata-jvm library does not support the Kotlin metadata version emitted by the current Kotlin compiler. Hilt 2.59.x supports up to Kotlin metadata 2.3.0.",
+        "fix": "Downgrade to Kotlin 2.3.x, or wait for a Hilt release that bundles a newer kotlin-metadata-jvm."
+      },
+      "confidence": {
+        "score": 50,
+        "level": "medium",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "known_failure_signature",
+          "broken_status:broken_unit_test"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468373416",
+      "agp": "9.2.1",
+      "kotlin": "2.4.0",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "failure",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_unit_test",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:06:13.416Z",
+      "error_log": "error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.   error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library. ",
+      "failure_analysis": {
+        "signature": "dagger_metadata_error",
+        "affected_component": "hilt",
+        "root_cause": "Hilt's bundled kotlin-metadata-jvm library does not support the Kotlin metadata version emitted by the current Kotlin compiler. Hilt 2.59.x supports up to Kotlin metadata 2.3.0.",
+        "fix": "Downgrade to Kotlin 2.3.x, or wait for a Hilt release that bundles a newer kotlin-metadata-jvm."
+      },
+      "confidence": {
+        "score": 50,
+        "level": "medium",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "known_failure_signature",
+          "broken_status:broken_unit_test"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468365050",
+      "agp": "9.2.1",
+      "kotlin": "2.4.0",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.5.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "failure",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_unit_test",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:06:05.050Z",
+      "error_log": "error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.   error: [Hilt] Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library.: java.lang.IllegalArgumentException: Provided Metadata instance has version 2.4.0, while maximum supported version is 2.3.0. To support newer versions, update the kotlin-metadata-jvm library. ",
+      "failure_analysis": {
+        "signature": "dagger_metadata_error",
+        "affected_component": "hilt",
+        "root_cause": "Hilt's bundled kotlin-metadata-jvm library does not support the Kotlin metadata version emitted by the current Kotlin compiler. Hilt 2.59.x supports up to Kotlin metadata 2.3.0.",
+        "fix": "Downgrade to Kotlin 2.3.x, or wait for a Hilt release that bundles a newer kotlin-metadata-jvm."
+      },
+      "confidence": {
+        "score": 50,
+        "level": "medium",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "known_failure_signature",
+          "broken_status:broken_unit_test"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468415826",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:06:55.826Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782468452446",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.5.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28231281593",
+      "verified_at": "2026-06-26T10:07:32.447Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    }
+  ]
+}
