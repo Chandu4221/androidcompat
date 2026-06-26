@@ -1839,6 +1839,12 @@
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.448Z",
       "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+    },
+    "2.6": {
+      "version": "2.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-26T21:45:07.759Z",
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
     }
   },
   "composeBom": {
@@ -2366,6 +2372,12 @@
       "version": "9.1.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "9.6.1": {
+      "version": "9.6.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-26T21:45:08.800Z",
       "source": "https://api.github.com/repos/gradle/gradle/releases"
     }
   }
