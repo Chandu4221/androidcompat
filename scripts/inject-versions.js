@@ -9,6 +9,14 @@ const SETTINGS_PATH = path.join(
   __dirname,
   "../stub-project/settings.gradle.kts",
 );
+const RULES_PATH = path.join(__dirname, "../data/rules.json");
+
+// ── Load Rules ────────────────────────────────────────────────────────────────
+
+const RULES = JSON.parse(fs.readFileSync(RULES_PATH, "utf8"));
+const { pinnedLibraries } = RULES;
+
+// ── Injector ──────────────────────────────────────────────────────────────────
 
 function injectVersions(combo) {
   const toml = `[versions]
@@ -17,19 +25,19 @@ kotlin = "${combo.kotlin}"
 ksp = "${combo.ksp}"
 hilt = "${combo.hilt}"
 compose-bom = "${combo.composeBom}"
-room = "2.7.1"
-coil = "3.2.0"
-lifecycle = "2.8.7"
-hiltNavigationCompose = "1.2.0"
-lifecycleRuntimeCompose = "2.8.7"
-coreKtx = "1.16.0"
-junit = "4.13.2"
-junitVersion = "1.3.0"
-espressoCore = "3.7.0"
-appcompat = "1.6.1"
-material = "1.10.0"
-activityKtx = "1.13.0"
-constraintlayout = "2.1.4"
+room = "${pinnedLibraries.room}"
+coil = "${pinnedLibraries.coil}"
+lifecycle = "${pinnedLibraries.lifecycle}"
+hiltNavigationCompose = "${pinnedLibraries.hiltNavigationCompose}"
+lifecycleRuntimeCompose = "${pinnedLibraries.lifecycleRuntimeCompose}"
+coreKtx = "${pinnedLibraries.coreKtx}"
+junit = "${pinnedLibraries.junit}"
+junitVersion = "${pinnedLibraries.junitExt}"
+espressoCore = "${pinnedLibraries.espressoCore}"
+appcompat = "${pinnedLibraries.appcompat}"
+material = "${pinnedLibraries.material}"
+activityKtx = "${pinnedLibraries.activityKtx}"
+constraintlayout = "${pinnedLibraries.constraintlayout}"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -66,7 +74,7 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 
   fs.writeFileSync(TOML_PATH, toml);
 
-  // Also inject kotlin version into settings.gradle.kts
+  // Inject versions into settings.gradle.kts
   let settings = fs.readFileSync(SETTINGS_PATH, "utf8");
   settings = settings.replace(
     /id\("org\.jetbrains\.kotlin\.android"\) version "[^"]+"/,
@@ -82,11 +90,11 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
   );
   fs.writeFileSync(SETTINGS_PATH, settings);
 
+  // Inject Gradle wrapper version
   const WRAPPER_PATH = path.join(
     __dirname,
     "../stub-project/gradle/wrapper/gradle-wrapper.properties",
   );
-
   const wrapperContent = `distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
 distributionUrl=https\\://services.gradle.org/distributions/gradle-${combo.gradle}-bin.zip
@@ -100,12 +108,15 @@ zipStorePath=wrapper/dists
   console.log(
     `✅ Injected: AGP ${combo.agp} | Kotlin ${combo.kotlin} | KSP ${combo.ksp} | Hilt ${combo.hilt} | Gradle ${combo.gradle} | Compose BOM ${combo.composeBom}`,
   );
+  console.log(`📖 Pinned libraries loaded from rules.json`);
 }
+
+// ── Entry Point ───────────────────────────────────────────────────────────────
 
 const comboArg = process.argv[2];
 if (!comboArg) {
   console.error(
-    'Usage: node inject-versions.js \'{"agp":"9.2.1","kotlin":"2.4.0","ksp":"2.3.9","hilt":"2.59.2","composeBom":"2026.06.00"}\'',
+    'Usage: node inject-versions.js \'{"agp":"9.2.1","kotlin":"2.4.0","ksp":"2.3.9","hilt":"2.59.2","gradle":"9.1.0","composeBom":"2026.06.00"}\'',
   );
   process.exit(1);
 }

@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "description": "AndroidCompat constraint rules and pinned library versions. Update this file when Google changes requirements or when pinned library versions need bumping.",
+    "lastUpdated": "2026-06-28"
+  },
+
+  "matrixConstraints": {
+    "description": "Controls which versions enter the test matrix and how combos are pruned.",
+
+    "agpMajorVersions": ["8", "9"],
+    "kotlinMajorVersions": ["2"],
+
+    "agpGradleMinimum": {
+      "description": "Minimum Gradle version required per AGP major version.",
+      "9": "9.1.0",
+      "8": "8.6.0"
+    },
+
+    "agpKotlinMinimum": {
+      "description": "Minimum Kotlin version required per AGP major version.",
+      "9": "2.0.0",
+      "8": "1.9.0"
+    },
+
+    "kspIndependentFrom": {
+      "description": "KSP versions >= this value are independent of Kotlin version. Below this, KSP used a kotlin-prefixed format (e.g. 2.2.0-2.3.9). At and above this, format is just the KSP version (e.g. 2.3.9).",
+      "version": "2.3.0"
+    },
+
+    "maxVersionsPerComponent": {
+      "description": "How many latest stable versions to pull per component into the matrix. Increase to expand coverage, decrease to save CI minutes.",
+      "agp": 2,
+      "kotlin": 2,
+      "ksp": 2,
+      "hilt": 2,
+      "gradle": 2,
+      "composeBom": 1
+    }
+  },
+
+  "pinnedLibraries": {
+    "description": "Library versions that are fixed across all combos — not part of the compatibility matrix itself. These are supporting dependencies in the stub project. Bump these when newer stable versions release.",
+
+    "room": "2.7.1",
+    "coil": "3.2.0",
+    "lifecycle": "2.8.7",
+    "lifecycleRuntimeCompose": "2.8.7",
+    "hiltNavigationCompose": "1.2.0",
+    "coreKtx": "1.16.0",
+    "activityKtx": "1.13.0",
+    "appcompat": "1.6.1",
+    "material": "1.10.0",
+    "constraintlayout": "2.1.4",
+    "junit": "4.13.2",
+    "junitExt": "1.3.0",
+    "espressoCore": "3.7.0"
+  },
+
+  "statusPriority": {
+    "description": "How overall status is derived from individual verification stage results. First matching rule wins.",
+    "rules": [
+      { "if": "sync === failure", "then": "broken_sync" },
+      { "if": "compile === failure", "then": "broken_compile" },
+      { "if": "unit_test === failure", "then": "broken_unit_test" },
+      { "if": "unit_test === success", "then": "verified" },
+      { "if": "compile === success", "then": "partial" }
+    ],
+    "default": "unknown"
+  },
+
+  "agpBehavior": {
+    "description": "Special behavioral flags per AGP major version.",
+    "9": {
+      "hasBuiltinKotlinSupport": true,
+      "note": "AGP 9.0+ has built-in Kotlin support. Do NOT apply org.jetbrains.kotlin.android separately — it causes: Cannot add extension with name kotlin."
+    },
+    "8": {
+      "hasBuiltinKotlinSupport": false,
+      "note": "AGP 8.x requires org.jetbrains.kotlin.android plugin applied separately."
+    }
+  }
+}
