@@ -173,4 +173,5 @@ jobs:
           git config user.email "bot@androidcompat.dev"
           git add data/compat.json
           git diff --staged --quiet || git commit -m "data: update compat matrix - AGP 7 historical batch [skip ci]"
+          git pull --rebase origin main
           git push
