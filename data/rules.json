@@ -21,7 +21,7 @@
 
     "agpGradleMaximum": {
       "description": "Maximum Gradle version supported per AGP major version. Prevents pairing AGP 7 with Gradle 9 which never coexisted.",
-      "7": "8.2.9",
+      "7": "7.6.9",
       "8": "8.13.9",
       "9": "9.9.9"
     },
