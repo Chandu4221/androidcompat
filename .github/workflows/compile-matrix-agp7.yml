@@ -26,9 +26,15 @@ jobs:
       - name: Generate AGP 7 candidates
         run: node scripts/generate-candidates-agp7.js
 
+      - name: Debug candidates file
+        run: |
+          echo "File exists: $(test -f data/combos-to-test-agp7.json && echo YES || echo NO)"
+          echo "Content: $(cat data/combos-to-test-agp7.json)"
+
       - name: Read combos
         id: read
         run: |
+          echo "📋 Candidate count: $(cat data/combos-to-test-agp7.json | node -e 'const d=JSON.parse(require("fs").readFileSync("/dev/stdin","utf8")); console.log(d.length)')"
           COMBOS=$(cat data/combos-to-test-agp7.json | tr -d '\n')
           echo "combos=$COMBOS" >> $GITHUB_OUTPUT
 
