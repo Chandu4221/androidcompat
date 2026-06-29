@@ -4,631 +4,736 @@
       "version": "3.0.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.171Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-09-21T00:24:08.000Z"
     },
     "3.0.1": {
       "version": "3.0.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.175Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-09-21T00:24:08.000Z"
     },
     "3.1.0": {
       "version": "3.1.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.175Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-09-21T00:24:08.000Z"
     },
     "3.1.1": {
       "version": "3.1.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.175Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-09-21T00:24:08.000Z"
     },
     "3.1.2": {
       "version": "3.1.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.175Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-09-21T00:24:08.000Z"
     },
     "3.1.3": {
       "version": "3.1.3",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.176Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-09-21T00:24:08.000Z"
     },
     "3.1.4": {
       "version": "3.1.4",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.176Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-09-21T00:24:08.000Z"
     },
     "3.2.0": {
       "version": "3.2.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.176Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-09-21T00:24:08.000Z"
     },
     "3.2.1": {
       "version": "3.2.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.176Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-09-21T00:24:08.000Z"
     },
     "3.3.0": {
       "version": "3.3.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-09-21T00:24:08.000Z"
     },
     "3.3.1": {
       "version": "3.3.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-09-21T00:24:08.000Z"
     },
     "3.3.2": {
       "version": "3.3.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-09-21T00:24:08.000Z"
     },
     "3.3.3": {
       "version": "3.3.3",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2020-07-14T17:00:00.000Z"
     },
     "3.4.0": {
       "version": "3.4.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-09-21T00:24:08.000Z"
     },
     "3.4.1": {
       "version": "3.4.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-09-21T00:24:08.000Z"
     },
     "3.4.2": {
       "version": "3.4.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-09-21T00:24:08.000Z"
     },
     "3.4.3": {
       "version": "3.4.3",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2020-07-14T17:00:00.000Z"
     },
     "3.5.0": {
       "version": "3.5.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-09-21T00:24:08.000Z"
     },
     "3.5.1": {
       "version": "3.5.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-10-02T17:00:00.000Z"
     },
     "3.5.2": {
       "version": "3.5.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-11-04T18:00:00.000Z"
     },
     "3.5.3": {
       "version": "3.5.3",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2019-12-05T18:00:00.000Z"
     },
     "3.5.4": {
       "version": "3.5.4",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2020-07-14T17:00:00.000Z"
     },
     "3.6.0": {
       "version": "3.6.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2020-02-20T18:00:00.000Z"
     },
     "3.6.1": {
       "version": "3.6.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2020-02-28T18:00:00.000Z"
     },
     "3.6.2": {
       "version": "3.6.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2020-03-31T19:00:00.000Z"
     },
     "3.6.3": {
       "version": "3.6.3",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2020-04-17T17:00:00.000Z"
     },
     "3.6.4": {
       "version": "3.6.4",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2020-07-14T17:00:00.000Z"
     },
     "4.0.0": {
       "version": "4.0.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2020-05-28T17:00:00.000Z"
     },
     "4.0.1": {
       "version": "4.0.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2020-07-14T17:00:00.000Z"
     },
     "4.0.2": {
       "version": "4.0.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2020-10-06T17:00:00.000Z"
     },
     "4.1.0": {
       "version": "4.1.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2020-10-12T17:00:00.000Z"
     },
     "4.1.1": {
       "version": "4.1.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2020-11-09T17:00:00.000Z"
     },
     "4.1.2": {
       "version": "4.1.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2021-01-14T17:00:00.000Z"
     },
     "4.1.3": {
       "version": "4.1.3",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2021-03-18T16:00:00.000Z"
     },
     "4.2.0": {
       "version": "4.2.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2021-05-04T17:00:00.000Z"
     },
     "4.2.1": {
       "version": "4.2.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2021-05-13T16:00:00.000Z"
     },
     "4.2.2": {
       "version": "4.2.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2021-06-29T16:00:00.000Z"
     },
     "7.0.0": {
       "version": "7.0.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2021-07-28T16:30:00.000Z"
     },
     "7.0.1": {
       "version": "7.0.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2021-08-18T17:00:00.000Z"
     },
     "7.0.2": {
       "version": "7.0.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2021-09-01T17:00:00.000Z"
     },
     "7.0.3": {
       "version": "7.0.3",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2021-10-08T16:00:00.000Z"
     },
     "7.0.4": {
       "version": "7.0.4",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2021-12-08T17:00:00.000Z"
     },
     "7.1.0": {
       "version": "7.1.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.177Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2022-01-25T18:00:00.000Z"
     },
     "7.1.1": {
       "version": "7.1.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2022-02-03T17:00:00.000Z"
     },
     "7.1.2": {
       "version": "7.1.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2022-02-23T18:00:00.000Z"
     },
     "7.1.3": {
       "version": "7.1.3",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2022-04-07T16:00:00.000Z"
     },
     "7.2.0": {
       "version": "7.2.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2022-05-09T16:00:00.000Z"
     },
     "7.2.1": {
       "version": "7.2.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2022-05-25T16:00:00.000Z"
     },
     "7.2.2": {
       "version": "7.2.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2022-08-03T16:00:00.000Z"
     },
     "7.3.0": {
       "version": "7.3.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2022-09-15T17:00:00.000Z"
     },
     "7.3.1": {
       "version": "7.3.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2022-10-13T16:00:00.000Z"
     },
     "7.4.0": {
       "version": "7.4.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2023-01-12T22:00:00.000Z"
     },
     "7.4.1": {
       "version": "7.4.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2023-01-31T21:00:00.000Z"
     },
     "7.4.2": {
       "version": "7.4.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2023-02-27T17:00:00.000Z"
     },
     "8.0.0": {
       "version": "8.0.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2023-04-13T17:36:04.000Z"
     },
     "8.0.1": {
       "version": "8.0.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2023-05-01T16:12:50.000Z"
     },
     "8.0.2": {
       "version": "8.0.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2023-05-24T19:12:55.000Z"
     },
     "8.1.0": {
       "version": "8.1.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2023-07-25T17:13:59.000Z"
     },
     "8.1.1": {
       "version": "8.1.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2023-08-22T03:17:20.000Z"
     },
     "8.1.2": {
       "version": "8.1.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2023-09-28T16:59:41.000Z"
     },
     "8.1.3": {
       "version": "8.1.3",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2023-11-07T18:52:55.000Z"
     },
     "8.1.4": {
       "version": "8.1.4",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2023-11-16T19:09:35.000Z"
     },
     "8.2.0": {
       "version": "8.2.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2023-11-30T18:11:00.000Z"
     },
     "8.2.1": {
       "version": "8.2.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-01-03T18:10:26.000Z"
     },
     "8.2.2": {
       "version": "8.2.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-01-23T18:10:27.000Z"
     },
     "8.3.0": {
       "version": "8.3.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-02-29T18:10:32.000Z"
     },
     "8.3.1": {
       "version": "8.3.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-03-18T18:03:06.000Z"
     },
     "8.3.2": {
       "version": "8.3.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-04-10T01:05:32.000Z"
     },
     "8.4.0": {
       "version": "8.4.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-04-30T17:07:23.000Z"
     },
     "8.4.1": {
       "version": "8.4.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-05-20T17:06:28.000Z"
     },
     "8.4.2": {
       "version": "8.4.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-06-10T15:53:40.000Z"
     },
     "8.5.0": {
       "version": "8.5.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-06-13T17:02:59.000Z"
     },
     "8.5.1": {
       "version": "8.5.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-07-11T21:29:10.000Z"
     },
     "8.5.2": {
       "version": "8.5.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-08-09T00:56:48.000Z"
     },
     "8.6.0": {
       "version": "8.6.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-08-29T16:58:45.000Z"
     },
     "8.6.1": {
       "version": "8.6.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-09-17T21:20:06.000Z"
     },
     "8.7.0": {
       "version": "8.7.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-10-01T16:58:27.000Z"
     },
     "8.7.1": {
       "version": "8.7.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-10-14T17:59:21.000Z"
     },
     "8.7.2": {
       "version": "8.7.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-10-31T19:42:47.000Z"
     },
     "8.7.3": {
       "version": "8.7.3",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2024-12-02T17:53:04.000Z"
     },
     "8.8.0": {
       "version": "8.8.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-01-09T17:53:25.000Z"
     },
     "8.8.1": {
       "version": "8.8.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-02-13T18:24:35.000Z"
     },
     "8.8.2": {
       "version": "8.8.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-02-26T17:52:32.000Z"
     },
     "8.9.0": {
       "version": "8.9.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-03-04T18:17:49.000Z"
     },
     "8.9.1": {
       "version": "8.9.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-03-24T17:41:31.000Z"
     },
     "8.9.2": {
       "version": "8.9.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-04-21T18:14:14.000Z"
     },
     "8.9.3": {
       "version": "8.9.3",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-05-15T22:18:03.000Z"
     },
     "8.10.0": {
       "version": "8.10.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-05-06T16:53:14.000Z"
     },
     "8.10.1": {
       "version": "8.10.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-05-28T18:37:22.000Z"
     },
     "8.11.0": {
       "version": "8.11.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-06-24T17:09:40.000Z"
     },
     "8.11.1": {
       "version": "8.11.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-07-10T21:38:14.000Z"
     },
     "8.11.2": {
       "version": "8.11.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-09-11T08:50:23.000Z"
     },
     "8.12.0": {
       "version": "8.12.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-07-31T16:48:26.000Z"
     },
     "8.12.1": {
       "version": "8.12.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-08-18T17:02:39.000Z"
     },
     "8.12.2": {
       "version": "8.12.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-08-28T17:02:16.000Z"
     },
     "8.12.3": {
       "version": "8.12.3",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-09-11T09:06:28.000Z"
     },
     "8.13.0": {
       "version": "8.13.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-09-02T16:53:34.000Z"
     },
     "8.13.1": {
       "version": "8.13.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-11-10T17:02:29.000Z"
     },
     "8.13.2": {
       "version": "8.13.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2025-12-11T05:28:08.000Z"
     },
     "9.0.0": {
       "version": "9.0.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2026-01-15T17:03:56.000Z"
     },
     "9.0.1": {
       "version": "9.0.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2026-02-13T16:54:23.000Z"
     },
     "9.1.0": {
       "version": "9.1.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2026-03-03T15:03:19.000Z"
     },
     "9.1.1": {
       "version": "9.1.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2026-04-13T13:55:08.000Z"
     },
     "9.2.0": {
       "version": "9.2.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.178Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2026-04-21T13:58:14.000Z"
     },
     "9.2.1": {
       "version": "9.2.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.179Z",
-      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/com/android/tools/build/gradle/maven-metadata.xml",
+      "releasedAt": "2026-05-05T13:53:53.000Z"
     }
   },
   "ksp": {
@@ -636,19 +741,22 @@
       "version": "1.5.30-1.0.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2021-09-07T18:50:49.000Z"
     },
     "1.5.31-1.0.0": {
       "version": "1.5.31-1.0.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2021-09-21T23:57:43.000Z"
     },
     "1.5.31-1.0.1": {
       "version": "1.5.31-1.0.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2021-11-12T00:50:16.000Z"
     },
     "1.6.0-M1-1.0.0": {
       "version": "1.6.0-M1-1.0.0",
@@ -672,13 +780,15 @@
       "version": "1.6.0-1.0.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2021-11-16T00:51:08.000Z"
     },
     "1.6.0-1.0.2": {
       "version": "1.6.0-1.0.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2021-12-13T07:07:39.000Z"
     },
     "1.6.10-RC-1.0.1": {
       "version": "1.6.10-RC-1.0.1",
@@ -690,19 +800,22 @@
       "version": "1.6.10-1.0.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2021-12-14T19:06:42.000Z"
     },
     "1.6.10-1.0.3": {
       "version": "1.6.10-1.0.3",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2022-02-16T23:37:40.000Z"
     },
     "1.6.10-1.0.4": {
       "version": "1.6.10-1.0.4",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2022-02-23T01:07:46.000Z"
     },
     "1.6.20-M1-1.0.2": {
       "version": "1.6.20-M1-1.0.2",
@@ -726,25 +839,29 @@
       "version": "1.6.20-1.0.4",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2022-04-02T23:43:53.000Z"
     },
     "1.6.20-1.0.5": {
       "version": "1.6.20-1.0.5",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2022-04-07T21:55:49.000Z"
     },
     "1.6.21-1.0.5": {
       "version": "1.6.21-1.0.5",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2022-04-20T20:22:10.000Z"
     },
     "1.6.21-1.0.6": {
       "version": "1.6.21-1.0.6",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2022-06-10T04:04:52.000Z"
     },
     "1.7.0-Beta-1.0.5": {
       "version": "1.7.0-Beta-1.0.5",
@@ -768,13 +885,15 @@
       "version": "1.7.0-1.0.6",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2022-06-10T05:06:59.000Z"
     },
     "1.7.10-1.0.6": {
       "version": "1.7.10-1.0.6",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2022-07-07T21:22:39.000Z"
     },
     "1.7.20-Beta-1.0.6": {
       "version": "1.7.20-Beta-1.0.6",
@@ -792,31 +911,36 @@
       "version": "1.7.20-1.0.6",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2022-09-29T16:16:32.000Z"
     },
     "1.7.20-1.0.7": {
       "version": "1.7.20-1.0.7",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2022-10-13T20:59:35.000Z"
     },
     "1.7.20-1.0.8": {
       "version": "1.7.20-1.0.8",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2022-11-03T22:47:15.000Z"
     },
     "1.7.21-1.0.8": {
       "version": "1.7.21-1.0.8",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2022-11-09T18:01:04.000Z"
     },
     "1.7.22-1.0.8": {
       "version": "1.7.22-1.0.8",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2022-11-28T20:27:06.000Z"
     },
     "1.8.0-Beta-1.0.8": {
       "version": "1.8.0-Beta-1.0.8",
@@ -840,19 +964,22 @@
       "version": "1.8.0-1.0.8",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2022-12-28T23:44:37.000Z"
     },
     "1.8.0-1.0.9": {
       "version": "1.8.0-1.0.9",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2023-01-26T01:26:12.000Z"
     },
     "1.8.10-1.0.9": {
       "version": "1.8.10-1.0.9",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2023-02-02T22:13:24.000Z"
     },
     "1.8.20-Beta-1.0.9": {
       "version": "1.8.20-Beta-1.0.9",
@@ -876,25 +1003,29 @@
       "version": "1.8.20-1.0.10",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2023-04-03T11:58:39.000Z"
     },
     "1.8.20-1.0.11": {
       "version": "1.8.20-1.0.11",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2023-04-18T05:32:21.000Z"
     },
     "1.8.21-1.0.11": {
       "version": "1.8.21-1.0.11",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2023-04-27T14:59:30.000Z"
     },
     "1.8.22-1.0.11": {
       "version": "1.8.22-1.0.11",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2023-06-08T19:58:40.000Z"
     },
     "1.9.0-Beta-1.0.11": {
       "version": "1.9.0-Beta-1.0.11",
@@ -912,25 +1043,29 @@
       "version": "1.9.0-1.0.11",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2023-07-06T20:44:19.000Z"
     },
     "1.9.0-1.0.12": {
       "version": "1.9.0-1.0.12",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2023-07-20T18:45:19.000Z"
     },
     "1.9.0-1.0.13": {
       "version": "1.9.0-1.0.13",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2023-08-01T19:54:33.000Z"
     },
     "1.9.10-1.0.13": {
       "version": "1.9.10-1.0.13",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2023-08-24T00:22:49.000Z"
     },
     "1.9.20-Beta-1.0.13": {
       "version": "1.9.20-Beta-1.0.13",
@@ -960,67 +1095,78 @@
       "version": "1.9.20-1.0.13",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2023-10-31T18:17:58.000Z"
     },
     "1.9.20-1.0.14": {
       "version": "1.9.20-1.0.14",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2023-11-02T20:08:44.000Z"
     },
     "1.9.21-1.0.15": {
       "version": "1.9.21-1.0.15",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2023-11-27T19:51:48.000Z"
     },
     "1.9.21-1.0.16": {
       "version": "1.9.21-1.0.16",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2023-12-14T06:16:21.000Z"
     },
     "1.9.22-1.0.16": {
       "version": "1.9.22-1.0.16",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2023-12-25T07:50:52.000Z"
     },
     "1.9.22-1.0.17": {
       "version": "1.9.22-1.0.17",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-01-18T22:52:07.000Z"
     },
     "1.9.22-1.0.18": {
       "version": "1.9.22-1.0.18",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-02-29T03:20:07.000Z"
     },
     "1.9.23-1.0.19": {
       "version": "1.9.23-1.0.19",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-03-07T22:37:31.000Z"
     },
     "1.9.23-1.0.20": {
       "version": "1.9.23-1.0.20",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-04-05T00:31:58.000Z"
     },
     "1.9.24-1.0.20": {
       "version": "1.9.24-1.0.20",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-05-07T18:30:16.000Z"
     },
     "1.9.25-1.0.20": {
       "version": "1.9.25-1.0.20",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-07-22T23:42:28.000Z"
     },
     "2.0.0-Beta1-1.0.14": {
       "version": "2.0.0-Beta1-1.0.14",
@@ -1098,25 +1244,29 @@
       "version": "2.0.0-1.0.21",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-05-21T18:26:05.000Z"
     },
     "2.0.0-1.0.22": {
       "version": "2.0.0-1.0.22",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-06-05T20:56:42.000Z"
     },
     "2.0.0-1.0.23": {
       "version": "2.0.0-1.0.23",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-07-11T18:01:42.000Z"
     },
     "2.0.0-1.0.24": {
       "version": "2.0.0-1.0.24",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-07-29T19:01:19.000Z"
     },
     "2.0.10-RC-1.0.23": {
       "version": "2.0.10-RC-1.0.23",
@@ -1134,7 +1284,8 @@
       "version": "2.0.10-1.0.24",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-08-06T18:13:49.000Z"
     },
     "2.0.20-Beta1-1.0.22": {
       "version": "2.0.20-Beta1-1.0.22",
@@ -1164,13 +1315,15 @@
       "version": "2.0.20-1.0.24",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-08-22T19:35:51.000Z"
     },
     "2.0.20-1.0.25": {
       "version": "2.0.20-1.0.25",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-09-05T17:35:30.000Z"
     },
     "2.0.21-RC-1.0.25": {
       "version": "2.0.21-RC-1.0.25",
@@ -1182,25 +1335,29 @@
       "version": "2.0.21-1.0.25",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-10-11T04:34:06.000Z"
     },
     "2.0.21-1.0.26": {
       "version": "2.0.21-1.0.26",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-10-23T19:24:23.000Z"
     },
     "2.0.21-1.0.27": {
       "version": "2.0.21-1.0.27",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-11-07T21:08:13.000Z"
     },
     "2.0.21-1.0.28": {
       "version": "2.0.21-1.0.28",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-11-15T22:31:36.000Z"
     },
     "2.1.0-Beta1-1.0.25": {
       "version": "2.1.0-Beta1-1.0.25",
@@ -1242,13 +1399,15 @@
       "version": "2.1.0-1.0.28",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-11-27T20:46:00.000Z"
     },
     "2.1.0-1.0.29": {
       "version": "2.1.0-1.0.29",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2024-11-27T23:25:22.000Z"
     },
     "2.1.10-RC-1.0.29": {
       "version": "2.1.10-RC-1.0.29",
@@ -1266,19 +1425,22 @@
       "version": "2.1.10-1.0.29",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-01-28T20:17:38.000Z"
     },
     "2.1.10-1.0.30": {
       "version": "2.1.10-1.0.30",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-02-14T03:14:14.000Z"
     },
     "2.1.10-1.0.31": {
       "version": "2.1.10-1.0.31",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-02-27T18:48:41.000Z"
     },
     "2.1.20-Beta1-1.0.29": {
       "version": "2.1.20-Beta1-1.0.29",
@@ -1326,25 +1488,29 @@
       "version": "2.1.20-1.0.31",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-03-21T01:45:27.000Z"
     },
     "2.1.20-1.0.32": {
       "version": "2.1.20-1.0.32",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-03-26T17:10:04.000Z"
     },
     "2.1.20-2.0.0": {
       "version": "2.1.20-2.0.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-04-08T23:32:22.000Z"
     },
     "2.1.20-2.0.1": {
       "version": "2.1.20-2.0.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-04-30T23:14:03.000Z"
     },
     "2.1.21-RC-2.0.0": {
       "version": "2.1.21-RC-2.0.0",
@@ -1362,13 +1528,15 @@
       "version": "2.1.21-2.0.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-05-13T21:25:17.000Z"
     },
     "2.1.21-2.0.2": {
       "version": "2.1.21-2.0.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-06-09T22:46:48.000Z"
     },
     "2.2.0-Beta1-2.0.0": {
       "version": "2.2.0-Beta1-2.0.0",
@@ -1410,7 +1578,8 @@
       "version": "2.2.0-2.0.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-06-24T18:15:39.000Z"
     },
     "2.2.10-RC-2.0.2": {
       "version": "2.2.10-RC-2.0.2",
@@ -1428,7 +1597,8 @@
       "version": "2.2.10-2.0.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-08-14T22:15:24.000Z"
     },
     "2.2.20-Beta1-2.0.2": {
       "version": "2.2.20-Beta1-2.0.2",
@@ -1458,19 +1628,22 @@
       "version": "2.2.20-2.0.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-09-10T19:17:30.000Z"
     },
     "2.2.20-2.0.3": {
       "version": "2.2.20-2.0.3",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-09-11T21:39:31.000Z"
     },
     "2.2.20-2.0.4": {
       "version": "2.2.20-2.0.4",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-10-07T20:16:52.000Z"
     },
     "2.2.21-RC-2.0.4": {
       "version": "2.2.21-RC-2.0.4",
@@ -1488,73 +1661,85 @@
       "version": "2.2.21-2.0.4",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-10-28T19:21:51.000Z"
     },
     "2.2.21-2.0.5": {
       "version": "2.2.21-2.0.5",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2026-02-02T20:59:57.000Z"
     },
     "2.3.0": {
       "version": "2.3.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-10-21T22:38:21.000Z"
     },
     "2.3.1": {
       "version": "2.3.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-11-03T21:47:32.000Z"
     },
     "2.3.2": {
       "version": "2.3.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-11-05T23:25:45.000Z"
     },
     "2.3.3": {
       "version": "2.3.3",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-11-20T19:54:55.000Z"
     },
     "2.3.4": {
       "version": "2.3.4",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2025-12-15T22:36:30.000Z"
     },
     "2.3.5": {
       "version": "2.3.5",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2026-01-27T23:30:01.000Z"
     },
     "2.3.6": {
       "version": "2.3.6",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2026-02-17T20:49:00.000Z"
     },
     "2.3.7": {
       "version": "2.3.7",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2026-04-22T21:54:27.000Z"
     },
     "2.3.8": {
       "version": "2.3.8",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2026-05-12T22:25:48.000Z"
     },
     "2.3.9": {
       "version": "2.3.9",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
+      "releasedAt": "2026-05-26T19:29:38.000Z"
     }
   },
   "hilt": {
@@ -1562,289 +1747,337 @@
       "version": "2.35",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2021-04-22T23:56:55.000Z"
     },
     "2.35.1": {
       "version": "2.35.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2021-04-27T23:13:39.000Z"
     },
     "2.36": {
       "version": "2.36",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2021-05-25T22:50:30.000Z"
     },
     "2.37": {
       "version": "2.37",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2021-06-10T18:46:43.000Z"
     },
     "2.38": {
       "version": "2.38",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2021-07-19T21:23:19.000Z"
     },
     "2.38.1": {
       "version": "2.38.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2021-07-27T18:15:43.000Z"
     },
     "2.39": {
       "version": "2.39",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2021-09-29T21:55:05.000Z"
     },
     "2.39.1": {
       "version": "2.39.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2021-10-01T16:31:21.000Z"
     },
     "2.4": {
       "version": "2.4",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": null
     },
     "2.40.1": {
       "version": "2.40.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2021-11-11T16:45:41.000Z"
     },
     "2.40.2": {
       "version": "2.40.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2021-11-24T00:40:58.000Z"
     },
     "2.40.3": {
       "version": "2.40.3",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2021-11-29T18:14:40.000Z"
     },
     "2.40.4": {
       "version": "2.40.4",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2021-12-02T17:02:37.000Z"
     },
     "2.40.5": {
       "version": "2.40.5",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2021-12-06T21:35:41.000Z"
     },
     "2.41": {
       "version": "2.41",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2022-02-16T19:11:50.000Z"
     },
     "2.42": {
       "version": "2.42",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2022-05-09T20:57:39.000Z"
     },
     "2.43": {
       "version": "2.43",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2022-07-20T21:21:16.000Z"
     },
     "2.43.1": {
       "version": "2.43.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2022-07-29T17:14:41.000Z"
     },
     "2.43.2": {
       "version": "2.43.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2022-08-03T20:45:30.000Z"
     },
     "2.44": {
       "version": "2.44",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2022-09-21T18:11:47.000Z"
     },
     "2.44.1": {
       "version": "2.44.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2022-11-11T17:06:54.000Z"
     },
     "2.44.2": {
       "version": "2.44.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2022-11-14T18:31:53.000Z"
     },
     "2.45": {
       "version": "2.45",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2023-02-09T23:42:33.000Z"
     },
     "2.46": {
       "version": "2.46",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2023-04-28T20:36:57.000Z"
     },
     "2.46.1": {
       "version": "2.46.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2023-05-12T21:03:25.000Z"
     },
     "2.47": {
       "version": "2.47",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2023-07-13T23:02:42.000Z"
     },
     "2.48": {
       "version": "2.48",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2023-08-30T15:23:48.000Z"
     },
     "2.48.1": {
       "version": "2.48.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2023-10-03T21:59:57.000Z"
     },
     "2.49": {
       "version": "2.49",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2023-12-01T19:25:11.000Z"
     },
     "2.5": {
       "version": "2.5",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": null
     },
     "2.51": {
       "version": "2.51",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2024-02-27T05:16:16.000Z"
     },
     "2.51.1": {
       "version": "2.51.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2024-03-29T00:53:29.000Z"
     },
     "2.52": {
       "version": "2.52",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2024-08-05T17:50:02.000Z"
     },
     "2.53": {
       "version": "2.53",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2024-12-02T21:39:51.000Z"
     },
     "2.53.1": {
       "version": "2.53.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2024-12-09T18:03:24.000Z"
     },
     "2.54": {
       "version": "2.54",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2024-12-20T19:01:50.000Z"
     },
     "2.55": {
       "version": "2.55",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2025-01-09T19:36:16.000Z"
     },
     "2.56": {
       "version": "2.56",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2025-03-19T19:22:37.000Z"
     },
     "2.56.1": {
       "version": "2.56.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2025-03-25T18:59:07.000Z"
     },
     "2.56.2": {
       "version": "2.56.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2025-04-16T20:45:15.000Z"
     },
     "2.57": {
       "version": "2.57",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2025-07-16T20:38:19.000Z"
     },
     "2.57.1": {
       "version": "2.57.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2025-08-20T21:00:17.000Z"
     },
     "2.57.2": {
       "version": "2.57.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.448Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2025-09-23T22:00:23.000Z"
     },
     "2.58": {
       "version": "2.58",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.448Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2026-01-15T21:39:26.000Z"
     },
     "2.59": {
       "version": "2.59",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.448Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2026-01-21T00:04:29.000Z"
     },
     "2.59.1": {
       "version": "2.59.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.448Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2026-02-02T23:52:38.000Z"
     },
     "2.59.2": {
       "version": "2.59.2",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.448Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": "2026-02-20T19:51:31.000Z"
     },
     "2.6": {
       "version": "2.6",
       "status": "NEW",
       "detectedAt": "2026-06-26T21:45:07.759Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml"
+      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
+      "releasedAt": null
     }
   },
   "composeBom": {
@@ -1852,403 +2085,470 @@
       "version": "2022.10.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2022-10-24T13:00:00.000Z"
     },
     "2022.11.00": {
       "version": "2022.11.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2022-11-09T18:00:00.000Z"
     },
     "2022.12.00": {
       "version": "2022.12.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2022-12-07T18:00:00.000Z"
     },
     "2023.01.00": {
       "version": "2023.01.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2023-01-11T19:59:00.000Z"
     },
     "2023.03.00": {
       "version": "2023.03.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2023-03-22T13:51:32.000Z"
     },
     "2023.04.00": {
       "version": "2023.04.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2023-04-05T17:00:00.000Z"
     },
     "2023.04.01": {
       "version": "2023.04.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2023-04-19T17:00:00.000Z"
     },
     "2023.05.00": {
       "version": "2023.05.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2023-05-03T17:00:00.000Z"
     },
     "2023.05.01": {
       "version": "2023.05.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2023-05-10T17:00:00.000Z"
     },
     "2023.06.00": {
       "version": "2023.06.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2023-06-07T17:00:00.000Z"
     },
     "2023.06.01": {
       "version": "2023.06.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2023-06-21T21:00:00.000Z"
     },
     "2023.08.00": {
       "version": "2023.08.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2023-08-09T17:00:00.000Z"
     },
     "2023.09.00": {
       "version": "2023.09.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2023-09-06T17:00:00.000Z"
     },
     "2023.09.01": {
       "version": "2023.09.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2023-09-20T17:00:00.000Z"
     },
     "2023.09.02": {
       "version": "2023.09.02",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2023-09-27T17:00:00.000Z"
     },
     "2023.10.00": {
       "version": "2023.10.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2023-10-04T17:00:00.000Z"
     },
     "2023.10.01": {
       "version": "2023.10.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2023-10-18T17:00:00.000Z"
     },
     "2024.01.00": {
       "version": "2024.01.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-01-24T18:00:00.000Z"
     },
     "2024.02.00": {
       "version": "2024.02.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-02-07T18:00:00.000Z"
     },
     "2024.02.01": {
       "version": "2024.02.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-02-21T19:49:24.000Z"
     },
     "2024.02.02": {
       "version": "2024.02.02",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-03-06T18:00:00.000Z"
     },
     "2024.03.00": {
       "version": "2024.03.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-03-20T17:00:46.000Z"
     },
     "2024.04.00": {
       "version": "2024.04.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-04-03T17:01:27.000Z"
     },
     "2024.04.01": {
       "version": "2024.04.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-04-17T17:01:50.000Z"
     },
     "2024.05.00": {
       "version": "2024.05.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-05-01T17:00:36.000Z"
     },
     "2024.06.00": {
       "version": "2024.06.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-06-12T17:01:01.000Z"
     },
     "2024.08.00": {
       "version": "2024.08.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-08-21T17:00:30.000Z"
     },
     "2024.09.00": {
       "version": "2024.09.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-09-04T21:21:29.000Z"
     },
     "2024.09.01": {
       "version": "2024.09.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-09-10T19:00:17.000Z"
     },
     "2024.09.02": {
       "version": "2024.09.02",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-09-18T17:05:51.000Z"
     },
     "2024.09.03": {
       "version": "2024.09.03",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-10-02T17:01:24.000Z"
     },
     "2024.10.00": {
       "version": "2024.10.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-10-16T17:02:51.000Z"
     },
     "2024.10.01": {
       "version": "2024.10.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-10-30T17:01:54.000Z"
     },
     "2024.11.00": {
       "version": "2024.11.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-11-13T18:01:21.000Z"
     },
     "2024.12.01": {
       "version": "2024.12.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2024-12-11T18:01:53.000Z"
     },
     "2025.01.00": {
       "version": "2025.01.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-01-15T18:02:12.000Z"
     },
     "2025.01.01": {
       "version": "2025.01.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-01-29T18:01:48.000Z"
     },
     "2025.02.00": {
       "version": "2025.02.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-02-12T18:02:07.000Z"
     },
     "2025.03.00": {
       "version": "2025.03.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-03-12T17:02:25.000Z"
     },
     "2025.03.01": {
       "version": "2025.03.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-03-26T17:01:57.000Z"
     },
     "2025.04.00": {
       "version": "2025.04.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-04-09T17:03:34.000Z"
     },
     "2025.04.01": {
       "version": "2025.04.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-04-23T17:02:49.000Z"
     },
     "2025.05.00": {
       "version": "2025.05.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-05-07T17:07:21.000Z"
     },
     "2025.05.01": {
       "version": "2025.05.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-05-20T17:02:14.000Z"
     },
     "2025.06.00": {
       "version": "2025.06.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-06-04T17:01:54.000Z"
     },
     "2025.06.01": {
       "version": "2025.06.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-06-18T17:01:22.000Z"
     },
     "2025.07.00": {
       "version": "2025.07.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-07-16T17:01:30.000Z"
     },
     "2025.08.00": {
       "version": "2025.08.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-08-13T20:29:43.000Z"
     },
     "2025.08.01": {
       "version": "2025.08.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-08-27T17:16:06.000Z"
     },
     "2025.09.00": {
       "version": "2025.09.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-09-10T17:01:51.000Z"
     },
     "2025.09.01": {
       "version": "2025.09.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-09-24T17:07:32.000Z"
     },
     "2025.10.00": {
       "version": "2025.10.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-10-08T17:04:36.000Z"
     },
     "2025.10.01": {
       "version": "2025.10.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-10-22T17:06:18.000Z"
     },
     "2025.11.00": {
       "version": "2025.11.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-11-05T18:02:53.000Z"
     },
     "2025.11.01": {
       "version": "2025.11.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-11-19T18:02:42.000Z"
     },
     "2025.12.00": {
       "version": "2025.12.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-12-03T18:03:35.000Z"
     },
     "2025.12.01": {
       "version": "2025.12.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2025-12-17T18:02:07.000Z"
     },
     "2026.01.00": {
       "version": "2026.01.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2026-01-14T18:01:31.000Z"
     },
     "2026.01.01": {
       "version": "2026.01.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2026-01-29T01:30:23.000Z"
     },
     "2026.02.00": {
       "version": "2026.02.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2026-02-11T18:00:57.000Z"
     },
     "2026.02.01": {
       "version": "2026.02.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2026-02-27T23:00:05.000Z"
     },
     "2026.03.00": {
       "version": "2026.03.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2026-03-11T18:10:36.000Z"
     },
     "2026.03.01": {
       "version": "2026.03.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2026-03-25T17:28:24.000Z"
     },
     "2026.04.01": {
       "version": "2026.04.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2026-04-22T17:08:03.000Z"
     },
     "2026.05.00": {
       "version": "2026.05.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2026-05-06T17:05:59.000Z"
     },
     "2026.05.01": {
       "version": "2026.05.01",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2026-05-19T17:01:10.000Z"
     },
     "2026.06.00": {
       "version": "2026.06.00",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
+      "releasedAt": "2026-06-17T17:05:32.000Z"
     }
   },
   "kotlin": {
@@ -2256,48 +2556,791 @@
       "version": "2.4.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.086Z",
-      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases",
+      "releasedAt": "2026-06-03T09:31:47Z"
     },
     "2.3.21": {
       "version": "2.3.21",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.087Z",
-      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases",
+      "releasedAt": "2026-04-23T10:11:51Z"
     },
     "2.3.20": {
       "version": "2.3.20",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.087Z",
-      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases",
+      "releasedAt": "2026-03-16T09:37:25Z"
     },
     "2.3.10": {
       "version": "2.3.10",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.087Z",
-      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases",
+      "releasedAt": "2026-02-05T11:48:04Z"
     },
     "2.3.0": {
       "version": "2.3.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.087Z",
-      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases",
+      "releasedAt": "2025-12-16T13:29:31Z"
     },
     "2.2.21": {
       "version": "2.2.21",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.087Z",
-      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases",
+      "releasedAt": "2025-10-23T10:35:10Z"
     },
     "2.2.20": {
       "version": "2.2.20",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.087Z",
-      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases",
+      "releasedAt": "2025-09-10T08:33:26Z"
     },
     "2.2.10": {
       "version": "2.2.10",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.087Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases",
+      "releasedAt": "2025-08-14T08:36:12Z"
+    },
+    "2.2.0": {
+      "version": "2.2.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.429Z",
+      "releasedAt": "2025-06-23T13:11:56Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "2.1.21": {
+      "version": "2.1.21",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "releasedAt": "2025-05-13T09:40:10Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "2.1.20": {
+      "version": "2.1.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "releasedAt": "2025-03-20T11:05:04Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "2.1.10": {
+      "version": "2.1.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "releasedAt": "2025-01-27T10:21:27Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "2.1.0": {
+      "version": "2.1.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "releasedAt": "2024-11-27T14:17:27Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "2.0.21": {
+      "version": "2.0.21",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "releasedAt": "2024-10-10T11:45:43Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "2.0.20": {
+      "version": "2.0.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "releasedAt": "2024-08-22T11:10:29Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "2.0.10": {
+      "version": "2.0.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "releasedAt": "2024-08-06T10:58:37Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.9.25": {
+      "version": "1.9.25",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "releasedAt": "2024-07-19T12:52:20Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "2.0.0": {
+      "version": "2.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "releasedAt": "2024-05-21T10:50:57Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.9.24": {
+      "version": "1.9.24",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "releasedAt": "2024-05-07T09:49:25Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.9.23": {
+      "version": "1.9.23",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "releasedAt": "2024-03-07T09:32:27Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.9.22": {
+      "version": "1.9.22",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "releasedAt": "2023-12-21T16:27:31Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.9.21": {
+      "version": "1.9.21",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "releasedAt": "2023-11-23T13:47:11Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.9.20": {
+      "version": "1.9.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "releasedAt": "2023-11-01T09:37:59Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.9.10": {
+      "version": "1.9.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2023-08-23T13:13:05Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.9.0": {
+      "version": "1.9.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2023-07-06T09:31:33Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.8.22": {
+      "version": "1.8.22",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2023-06-08T10:55:43Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.8.21": {
+      "version": "1.8.21",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2023-04-25T07:40:55Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.8.20": {
+      "version": "1.8.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2023-04-03T07:46:20Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.8.10": {
+      "version": "1.8.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2023-02-02T15:08:51Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.8.0": {
+      "version": "1.8.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2022-12-28T12:00:57Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.7.22": {
+      "version": "1.7.22",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2022-11-28T10:58:38Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.7.21": {
+      "version": "1.7.21",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2022-11-09T07:51:34Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.7.20": {
+      "version": "1.7.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2022-09-29T13:22:49Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.7.10": {
+      "version": "1.7.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2022-07-08T07:32:20Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.7.0": {
+      "version": "1.7.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2022-06-09T12:59:32Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.6.21": {
+      "version": "1.6.21",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2022-04-20T07:40:54Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.6.20": {
+      "version": "1.6.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2022-04-04T06:42:00Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.6.10": {
+      "version": "1.6.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2021-12-14T09:04:35Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.5.32": {
+      "version": "1.5.32",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2021-11-29T12:32:59Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.6.0": {
+      "version": "1.6.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2021-11-16T06:39:24Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.5.31": {
+      "version": "1.5.31",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2021-09-20T08:17:32Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.5.30": {
+      "version": "1.5.30",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2021-08-24T13:56:57Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.5.21": {
+      "version": "1.5.21",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2021-07-13T11:40:57Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.5.20": {
+      "version": "1.5.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2021-06-24T13:20:03Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.5.10": {
+      "version": "1.5.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2021-05-24T10:38:40Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.5.0": {
+      "version": "1.5.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2021-05-05T07:39:55Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.4.32": {
+      "version": "1.4.32",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2021-03-30T05:53:29Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.4.31": {
+      "version": "1.4.31",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2021-02-26T08:48:20Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.4.30": {
+      "version": "1.4.30",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2021-02-03T15:24:16Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.4.30-RC": {
+      "version": "1.4.30-RC",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2021-01-18T15:58:33Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.4.21": {
+      "version": "1.4.21",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2020-12-09T15:21:30Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.4.20": {
+      "version": "1.4.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2020-11-19T10:57:06Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.4.10": {
+      "version": "1.4.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2020-09-10T07:19:19Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.4.0": {
+      "version": "1.4.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2020-08-14T15:50:51Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.3.72": {
+      "version": "1.3.72",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2020-04-15T09:10:07Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.3.71": {
+      "version": "1.3.71",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2020-03-23T15:33:47Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.3.70": {
+      "version": "1.3.70",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2020-03-03T17:04:28Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.3.61": {
+      "version": "1.3.61",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2019-11-26T23:35:10Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.3.60": {
+      "version": "1.3.60",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2019-11-18T19:10:31Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.3.50": {
+      "version": "1.3.50",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2019-08-22T19:24:18Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.3.41": {
+      "version": "1.3.41",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2019-07-03T21:16:15Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.3.40": {
+      "version": "1.3.40",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2019-06-19T16:16:02Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.3.31": {
+      "version": "1.3.31",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2019-04-25T19:01:30Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.3.30": {
+      "version": "1.3.30",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2019-04-11T16:50:31Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.3.21": {
+      "version": "1.3.21",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2019-02-06T14:27:06Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.3.20": {
+      "version": "1.3.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2019-01-23T17:37:05Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.3.11": {
+      "version": "1.3.11",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2018-12-06T15:35:03Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.3.10": {
+      "version": "1.3.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2018-11-13T15:46:27Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.3.0": {
+      "version": "1.3.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2018-10-29T14:43:20Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.2.71": {
+      "version": "1.2.71",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2018-09-24T15:04:12Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.2.70": {
+      "version": "1.2.70",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2018-09-13T14:47:55Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.2.61": {
+      "version": "1.2.61",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2018-08-20T15:23:41Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.2.60": {
+      "version": "1.2.60",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2018-08-01T17:03:23Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.2.51": {
+      "version": "1.2.51",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2018-07-03T10:50:24Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.2.50": {
+      "version": "1.2.50",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2018-06-13T15:32:21Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.2.41": {
+      "version": "1.2.41",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2018-04-28T13:09:31Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.2.40": {
+      "version": "1.2.40",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2018-04-19T16:34:13Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.2.31": {
+      "version": "1.2.31",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "releasedAt": "2018-03-23T11:47:40Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.2.30": {
+      "version": "1.2.30",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2018-03-01T16:11:21Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.2.21": {
+      "version": "1.2.21",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2018-01-23T14:45:21Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.2.20": {
+      "version": "1.2.20",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2018-01-17T10:47:27Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.2.10": {
+      "version": "1.2.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-12-13T16:28:08Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.2.0": {
+      "version": "1.2.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-11-28T14:41:58Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.61": {
+      "version": "1.1.61",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-11-24T16:02:48Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.60": {
+      "version": "1.1.60",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-11-13T16:55:34Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.51": {
+      "version": "1.1.51",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-09-29T11:23:49Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.50": {
+      "version": "1.1.50",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-09-22T13:07:35Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.4-3": {
+      "version": "1.1.4-3",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-08-30T08:58:10Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.4-2": {
+      "version": "1.1.4-2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-08-18T15:06:12Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.4": {
+      "version": "1.1.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-08-15T06:21:25Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.3-2": {
+      "version": "1.1.3-2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-07-04T17:02:52Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.3": {
+      "version": "1.1.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-06-23T16:05:12Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.2-5": {
+      "version": "1.1.2-5",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-06-12T17:28:17Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.2-2": {
+      "version": "1.1.2-2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-04-28T13:19:57Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.2": {
+      "version": "1.1.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-04-25T17:03:53Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.2-eap-77": {
+      "version": "1.1.2-eap-77",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-04-20T18:05:42Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.2-eap-73": {
+      "version": "1.1.2-eap-73",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-04-17T18:41:31Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.2-eap-69": {
+      "version": "1.1.2-eap-69",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-04-11T14:58:52Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.2-eap-44": {
+      "version": "1.1.2-eap-44",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-03-31T16:00:32Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1.1": {
+      "version": "1.1.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-03-14T13:06:56Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.1": {
+      "version": "1.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-03-01T12:03:13Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.0.7": {
+      "version": "1.0.7",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2017-03-15T17:55:09Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.0.6": {
+      "version": "1.0.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2016-12-27T16:17:16Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.0.5-2": {
+      "version": "1.0.5-2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2016-11-15T15:21:22Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.0.5": {
+      "version": "1.0.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2016-11-08T16:21:56Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.0.4": {
+      "version": "1.0.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2016-09-22T15:44:51Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.0.3": {
+      "version": "1.0.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2016-06-30T12:55:08Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.0.2": {
+      "version": "1.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2016-05-13T06:48:33Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.0.1-2": {
+      "version": "1.0.1-2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2016-03-28T16:59:27Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.0.1-1": {
+      "version": "1.0.1-1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2016-03-23T11:10:31Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "build-1.0.1": {
+      "version": "build-1.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2016-03-17T13:14:33Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "1.0.1": {
+      "version": "1.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2016-03-17T13:15:38Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    },
+    "build-1.0.0": {
+      "version": "build-1.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "releasedAt": "2016-02-15T12:01:42Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     }
   },
@@ -2306,78 +3349,931 @@
       "version": "9.6.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "releasedAt": "2026-06-19T00:47:45Z"
     },
     "9.5.1": {
       "version": "9.5.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "releasedAt": "2026-05-12T14:14:22Z"
     },
     "8.14.5": {
       "version": "8.14.5",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "releasedAt": "2026-05-07T12:12:37Z"
     },
     "9.5.0": {
       "version": "9.5.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "releasedAt": "2026-04-28T13:11:16Z"
     },
     "9.4.1": {
       "version": "9.4.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "releasedAt": "2026-03-19T10:36:59Z"
     },
     "9.4.0": {
       "version": "9.4.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "releasedAt": "2026-03-04T11:28:20Z"
     },
     "9.3.1": {
       "version": "9.3.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "releasedAt": "2026-01-29T16:04:52Z"
     },
     "8.14.4": {
       "version": "8.14.4",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "releasedAt": "2026-01-23T18:40:48Z"
     },
     "9.3.0": {
       "version": "9.3.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "releasedAt": "2026-01-16T12:12:04Z"
     },
     "9.2.1": {
       "version": "9.2.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "releasedAt": "2025-11-17T14:48:50Z"
     },
     "9.2.0": {
       "version": "9.2.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "releasedAt": "2025-10-29T14:54:36Z"
     },
     "9.1.0": {
       "version": "9.1.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "releasedAt": "2025-09-18T13:49:07Z"
     },
     "9.6.1": {
       "version": "9.6.1",
       "status": "NEW",
       "detectedAt": "2026-06-26T21:45:08.800Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "releasedAt": "2026-06-26T15:42:35Z"
+    },
+    "9.0.0": {
+      "version": "9.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.951Z",
+      "releasedAt": "2025-07-31T17:31:48Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.14.3": {
+      "version": "8.14.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.951Z",
+      "releasedAt": "2025-07-04T13:33:13Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.6.6": {
+      "version": "7.6.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.951Z",
+      "releasedAt": "2025-07-04T11:23:11Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.14.2": {
+      "version": "8.14.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.951Z",
+      "releasedAt": "2025-06-05T14:04:47Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.6.5": {
+      "version": "7.6.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.951Z",
+      "releasedAt": "2025-06-04T14:17:51Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.14.1": {
+      "version": "8.14.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.951Z",
+      "releasedAt": "2025-05-22T14:36:22Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.14.0": {
+      "version": "8.14.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.951Z",
+      "releasedAt": "2025-04-25T10:13:56Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.13.0": {
+      "version": "8.13.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2025-02-25T10:19:02Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.12.1": {
+      "version": "8.12.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2025-01-24T13:28:41Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.12.0": {
+      "version": "8.12.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2024-12-20T16:29:29Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.11.1": {
+      "version": "8.11.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2024-11-20T18:05:08Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.11.0": {
+      "version": "8.11.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2024-11-11T15:10:05Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.10.2": {
+      "version": "8.10.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2024-09-23T22:38:30Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.10.1": {
+      "version": "8.10.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2024-09-09T12:41:42Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.10.0": {
+      "version": "8.10.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2024-08-14T11:58:32Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.9.0": {
+      "version": "8.9.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2024-07-11T15:18:15Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.8.0": {
+      "version": "8.8.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2024-05-31T22:22:22Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.7.0": {
+      "version": "8.7.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2024-03-22T17:55:19Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.6.4": {
+      "version": "7.6.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2024-02-05T15:01:20Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.6.0": {
+      "version": "8.6.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2024-02-02T17:46:57Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.5.0": {
+      "version": "8.5.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2023-11-29T14:50:00Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.4.0": {
+      "version": "8.4.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2023-10-04T21:58:38Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.6.3": {
+      "version": "7.6.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2023-10-04T21:58:15Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.3.0": {
+      "version": "8.3.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2023-08-17T08:19:24Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.2.1": {
+      "version": "8.2.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2023-07-10T13:36:53Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.2.0": {
+      "version": "8.2.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2023-06-30T20:14:55Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.6.2": {
+      "version": "7.6.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2023-06-30T18:02:31Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.1.1": {
+      "version": "8.1.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2023-04-21T14:02:30Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.1.0": {
+      "version": "8.1.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2023-04-12T13:10:56Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.0.2": {
+      "version": "8.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2023-03-03T17:59:49Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.6.1": {
+      "version": "7.6.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2023-02-24T14:54:35Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.9.4": {
+      "version": "6.9.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2023-02-22T10:56:39Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.0.1": {
+      "version": "8.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2023-02-17T21:08:13Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "8.0.0": {
+      "version": "8.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2023-02-13T14:19:57Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.6.0": {
+      "version": "7.6.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2022-11-25T14:09:29Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.9.3": {
+      "version": "6.9.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2022-10-17T09:06:11Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.5.1": {
+      "version": "7.5.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2022-08-05T21:33:25Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.5.0": {
+      "version": "7.5.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2022-07-14T13:30:24Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.4.2": {
+      "version": "7.4.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2022-03-31T15:36:56Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.4.1": {
+      "version": "7.4.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2022-03-09T17:42:29Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.4.0": {
+      "version": "7.4.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2022-02-08T11:00:58Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.3.3": {
+      "version": "7.3.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2021-12-22T13:16:38Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.9.2": {
+      "version": "6.9.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2021-12-21T21:47:11Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.3.2": {
+      "version": "7.3.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2021-12-15T13:09:52Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.3.1": {
+      "version": "7.3.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2021-12-01T16:29:32Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.3.0": {
+      "version": "7.3.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2021-11-09T21:50:41Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.9.1": {
+      "version": "6.9.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.952Z",
+      "releasedAt": "2021-08-20T13:04:54Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.2.0": {
+      "version": "7.2.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2021-08-17T11:14:12Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.1.1": {
+      "version": "7.1.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2021-07-02T12:37:42Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.1.0": {
+      "version": "7.1.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2021-06-14T15:41:48Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.0.2": {
+      "version": "7.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2021-05-14T12:43:16Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.0.1": {
+      "version": "7.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2021-05-10T16:49:05Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.9.0": {
+      "version": "6.9.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2021-05-07T08:08:23Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "7.0.0": {
+      "version": "7.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2021-04-09T22:42:15Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.8.3": {
+      "version": "6.8.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2021-02-22T16:56:13Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.8.2": {
+      "version": "6.8.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2021-02-05T13:15:56Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.8.1": {
+      "version": "6.8.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2021-01-22T14:00:37Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.8.0": {
+      "version": "6.8.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2021-01-08T17:52:38Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.7.1": {
+      "version": "6.7.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2020-11-16T18:28:01Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.7.0": {
+      "version": "6.7.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2020-10-14T16:32:00Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.6.1": {
+      "version": "6.6.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2020-08-25T17:13:15Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.6.0": {
+      "version": "6.6.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2020-08-10T22:56:28Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.5.1": {
+      "version": "6.5.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2020-06-30T06:53:56Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.5.0": {
+      "version": "6.5.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2020-06-02T21:31:40Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.4.1": {
+      "version": "6.4.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2020-05-15T20:10:52Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.4.0": {
+      "version": "6.4.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2020-05-05T20:00:59Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.3.0": {
+      "version": "6.3.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2020-03-24T20:24:21Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.2.2": {
+      "version": "6.2.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2020-03-04T09:20:56Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.2.1": {
+      "version": "6.2.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2020-02-24T21:26:19Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.2.0": {
+      "version": "6.2.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2020-02-17T09:00:20Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.1.1": {
+      "version": "6.1.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.953Z",
+      "releasedAt": "2020-01-24T23:09:29Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.1.0": {
+      "version": "6.1.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2020-01-16T00:26:53Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.0.1": {
+      "version": "6.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-11-18T21:43:04Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "6.0.0": {
+      "version": "6.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-11-08T18:50:55Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "5.6.4": {
+      "version": "5.6.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-11-01T21:26:25Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "5.6.3": {
+      "version": "5.6.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-10-18T02:16:49Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "5.6.2": {
+      "version": "5.6.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-09-05T16:47:46Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "5.6.1": {
+      "version": "5.6.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-08-28T03:17:07Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "5.6.0": {
+      "version": "5.6.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-08-14T21:45:25Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "5.5.1": {
+      "version": "5.5.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-07-10T21:26:16Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "5.5.0": {
+      "version": "5.5.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-06-28T17:58:30Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "5.4.1": {
+      "version": "5.4.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-04-26T10:36:46Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "5.4.0": {
+      "version": "5.4.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-04-25T16:33:17Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "5.3.1": {
+      "version": "5.3.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-03-28T09:32:31Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "5.3.0": {
+      "version": "5.3.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-03-20T11:49:09Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "5.2.1": {
+      "version": "5.2.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-02-08T19:22:39Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "5.2.0": {
+      "version": "5.2.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-02-04T11:49:47Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "5.1.1": {
+      "version": "5.1.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-01-10T23:27:43Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "5.1.0": {
+      "version": "5.1.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2019-01-02T19:47:09Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.10.3": {
+      "version": "4.10.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2018-12-05T01:49:46Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "5.0.0": {
+      "version": "5.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2018-11-26T13:02:02Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.10.2": {
+      "version": "4.10.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2018-09-19T18:31:36Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.10.1": {
+      "version": "4.10.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2018-09-12T11:48:15Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.10.0": {
+      "version": "4.10.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2018-08-27T18:53:17Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.9.0": {
+      "version": "4.9.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2018-07-16T08:29:55Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.8.1": {
+      "version": "4.8.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2018-06-21T08:31:11Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.8.0": {
+      "version": "4.8.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2018-06-04T11:00:49Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.7.0": {
+      "version": "4.7.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2018-04-18T09:30:01Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.6.0": {
+      "version": "4.6.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2018-04-17T08:17:40Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.5.1": {
+      "version": "4.5.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2018-02-05T13:44:50Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.5.0": {
+      "version": "4.5.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2018-01-24T17:14:49Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.4.1": {
+      "version": "4.4.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2017-12-20T16:06:42Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.4.0": {
+      "version": "4.4.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2017-12-06T09:19:36Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.3.1": {
+      "version": "4.3.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2017-11-08T09:16:51Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.3.0": {
+      "version": "4.3.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2017-10-30T16:08:32Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.2.1": {
+      "version": "4.2.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2017-10-02T16:17:22Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.2.0": {
+      "version": "4.2.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2017-09-22T10:24:53Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.1.0": {
+      "version": "4.1.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2017-08-07T17:10:23Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.0.2": {
+      "version": "4.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2017-07-26T16:26:30Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.0.1": {
+      "version": "4.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2017-07-07T14:30:26Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "3.5.1": {
+      "version": "3.5.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2017-06-16T14:51:38Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "4.0.0": {
+      "version": "4.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2017-06-14T15:29:54Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "3.5.0": {
+      "version": "3.5.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.954Z",
+      "releasedAt": "2017-04-10T14:25:32Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "3.4.1": {
+      "version": "3.4.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.955Z",
+      "releasedAt": "2017-03-03T20:01:54Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "3.4.0": {
+      "version": "3.4.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.955Z",
+      "releasedAt": "2017-02-20T15:30:10Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "3.3.0": {
+      "version": "3.3.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.955Z",
+      "releasedAt": "2017-01-03T15:55:10Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "3.2.1": {
+      "version": "3.2.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.955Z",
+      "releasedAt": "2016-11-22T20:22:42Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "3.2.0": {
+      "version": "3.2.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.955Z",
+      "releasedAt": "2016-11-14T12:57:25Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "3.1.0": {
+      "version": "3.1.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.955Z",
+      "releasedAt": "2016-09-19T11:28:01Z",
+      "source": "https://api.github.com/repos/gradle/gradle/releases"
+    },
+    "3.0.0": {
+      "version": "3.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-29T07:50:03.955Z",
+      "releasedAt": "2016-09-19T11:33:07Z",
       "source": "https://api.github.com/repos/gradle/gradle/releases"
     }
   }
