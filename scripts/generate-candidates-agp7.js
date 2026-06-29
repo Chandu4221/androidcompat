@@ -4,13 +4,27 @@ const path = require("path");
 
 const REGISTRY_PATH = path.join(__dirname, "../data/version-registry.json");
 const COMPAT_PATH = path.join(__dirname, "../data/compat.json");
-const CANDIDATES_PATH = path.join(__dirname, "../data/combos-to-test.json");
+const CANDIDATES_PATH = path.join(
+  __dirname,
+  "../data/combos-to-test-agp7.json",
+);
 const RULES_PATH = path.join(__dirname, "../data/rules.json");
 
 // ── Load Rules ────────────────────────────────────────────────────────────────
 
 const RULES = JSON.parse(fs.readFileSync(RULES_PATH, "utf8"));
 const { matrixConstraints } = RULES;
+
+// ── AGP 7 specific constants ──────────────────────────────────────────────────
+
+const AGP7_KOTLIN_BUCKETS = ["1.7", "1.8", "1.9"]; // minor buckets to test
+const AGP7_VERSIONS_PER_BUCKET = 2; // latest N per bucket
+const AGP7_KSP_PER_KOTLIN = 2; // latest N KSP per Kotlin version
+
+// AGP 7 is legacy — tighten forward window to 6 months.
+// Real developers on AGP 7 are conservative and won't pair it with
+// a BOM released a year later. Main pipeline stays at 12 months.
+const AGP7_FORWARD_MONTHS_OVERRIDE = 6;
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -43,18 +57,6 @@ function meetsMaximum(version, maximum) {
 
 function getLatestN(versions, n) {
   return [...versions].sort((a, b) => semverCompare(b, a)).slice(0, n);
-}
-
-function getLatestNPerMajor(versionMap, majors, nPerMajor) {
-  const result = [];
-  for (const major of majors) {
-    const filtered = Object.keys(versionMap)
-      .filter((v) => getMajor(v) === major)
-      .sort((a, b) => semverCompare(b, a))
-      .slice(0, nPerMajor);
-    result.push(...filtered);
-  }
-  return result;
 }
 
 function getReleasedAt(versionMap, version) {
@@ -92,78 +94,92 @@ function isAlreadyVerified(combo, compatData) {
   );
 }
 
+// Extract Kotlin version prefix from old KSP format: "1.9.25-1.0.20" → "1.9.25"
+function kspToKotlinVersion(kspVersion) {
+  const parts = kspVersion.split("-");
+  return parts[0]; // "1.9.25"
+}
+
 // ── Candidate Generator ───────────────────────────────────────────────────────
 
 function generateCandidates(registry, compatData) {
   const candidates = [];
-  const { lookbackMonths, forwardMonths } = matrixConstraints.libraryTimeWindow;
-  const { maxVersionsPerComponent } = matrixConstraints;
+  const { lookbackMonths } = matrixConstraints.libraryTimeWindow;
+  const forwardMonths = AGP7_FORWARD_MONTHS_OVERRIDE;
 
-  // ── Layer 1: Toolchain pools ──────────────────────────────────────────────
+  const minGradle = matrixConstraints.agpGradleMinimum["7"];
+  const maxGradle = matrixConstraints.agpGradleMaximum["7"];
+  const minKotlin = matrixConstraints.agpKotlinMinimum["7"];
+  const maxKotlin = matrixConstraints.agpKotlinMaximum["7"];
 
-  const agpVersions = getLatestNPerMajor(
-    registry.agp || {},
-    matrixConstraints.agpMajorVersions,
-    maxVersionsPerComponent.agpPerMajor,
+  // AGP 7.x versions — latest 2
+  const agpVersions = getLatestN(
+    Object.keys(registry.agp || {}).filter((v) => getMajor(v) === "7"),
+    matrixConstraints.maxVersionsPerComponent.agpPerMajor,
   );
 
-  const allGradleVersions = Object.keys(registry.gradle || {}).sort((a, b) =>
-    semverCompare(b, a),
-  );
-
-  const kotlinVersions = getLatestN(
-    Object.keys(registry.kotlin || {}).filter((v) =>
-      matrixConstraints.kotlinMajorVersions.includes(getMajor(v)),
+  // Gradle: filtered to AGP 7 era bounds
+  const gradleVersions = getLatestN(
+    Object.keys(registry.gradle || {}).filter(
+      (v) => meetsMinimum(v, minGradle) && meetsMaximum(v, maxGradle),
     ),
-    maxVersionsPerComponent.kotlin,
+    matrixConstraints.maxVersionsPerComponent.gradle,
   );
 
-  // ── Layer 2: Library pools ────────────────────────────────────────────────
+  // Kotlin 1.x: latest N per minor bucket (1.7, 1.8, 1.9)
+  const kotlinVersions = [];
+  for (const bucket of AGP7_KOTLIN_BUCKETS) {
+    const bucketed = getLatestN(
+      Object.keys(registry.kotlin || {}).filter(
+        (v) =>
+          getMajorMinor(v) === bucket &&
+          meetsMinimum(v, minKotlin) &&
+          meetsMaximum(v, maxKotlin),
+      ),
+      AGP7_VERSIONS_PER_BUCKET,
+    );
+    kotlinVersions.push(...bucketed);
+  }
 
-  const allKspVersions = Object.keys(registry.ksp || {}).filter((v) =>
-    meetsMinimum(v, matrixConstraints.kspIndependentFrom.version),
+  // All KSP 1.x versions (old prefixed format)
+  const allKsp1Versions = Object.keys(registry.ksp || {}).filter(
+    (v) => v.includes("-") && v.startsWith("1."),
   );
 
+  // All Hilt and Compose BOM for date-window filtering
   const allHiltVersions = Object.keys(registry.hilt || {}).sort((a, b) =>
     semverCompare(b, a),
   );
-
   const allComposeBomVersions = Object.keys(registry.composeBom || {}).sort(
     (a, b) => semverCompare(b, a),
   );
 
-  console.log("\n📋 Version pools:");
-  console.log(`  AGP:         ${agpVersions.join(", ")}`);
-  console.log(`  Kotlin:      ${kotlinVersions.join(", ")}`);
-  console.log(`  Gradle pool: ${allGradleVersions.slice(0, 4).join(", ")} ...`);
-  console.log(`  KSP pool:    ${allKspVersions.slice(0, 4).join(", ")} ...`);
-  console.log(`  Hilt pool:   ${allHiltVersions.slice(0, 4).join(", ")} ...`);
-  console.log(
-    `  BOM pool:    ${allComposeBomVersions.slice(0, 3).join(", ")} ...`,
-  );
+  console.log("\n📋 AGP 7 version pools:");
+  console.log(`  AGP 7.x:     ${agpVersions.join(", ")}`);
+  console.log(`  Kotlin 1.x:  ${kotlinVersions.join(", ")}`);
+  console.log(`  Gradle:      ${gradleVersions.join(", ")}`);
+  console.log(`  KSP 1.x:     ${allKsp1Versions.slice(-4).join(", ")} ...`);
 
-  let prunedByConstraint = 0;
   let prunedByVerified = 0;
+  let prunedNoKsp = 0;
 
   // Outer loop: Kotlin (master clock)
   for (const kotlin of kotlinVersions) {
     const kotlinReleasedAt = getReleasedAt(registry.kotlin, kotlin);
-    const kotlinMajorMinor = getMajorMinor(kotlin);
 
-    // KSP: 1:1 major.minor match with Kotlin
+    // KSP: match by Kotlin version prefix in old format (e.g. "1.9.25-x.x.x")
     const kspVersions = getLatestN(
-      allKspVersions.filter((v) => getMajorMinor(v) === kotlinMajorMinor),
-      maxVersionsPerComponent.ksp,
+      allKsp1Versions.filter((v) => kspToKotlinVersion(v) === kotlin),
+      AGP7_KSP_PER_KOTLIN,
     );
 
     if (kspVersions.length === 0) {
-      console.log(
-        `  ⚠️  No KSP for Kotlin ${kotlin} (${kotlinMajorMinor}) — skipping`,
-      );
+      console.log(`  ⚠️  No KSP for Kotlin ${kotlin} — skipping`);
+      prunedNoKsp++;
       continue;
     }
 
-    // Hilt: filter by Kotlin date window
+    // Hilt: Kotlin date window
     const hiltVersions = getLatestN(
       allHiltVersions.filter((v) =>
         isInKotlinWindow(
@@ -173,10 +189,10 @@ function generateCandidates(registry, compatData) {
           forwardMonths,
         ),
       ),
-      maxVersionsPerComponent.hilt,
+      matrixConstraints.maxVersionsPerComponent.hilt,
     );
 
-    // Compose BOM: filter by Kotlin date window
+    // Compose BOM: Kotlin date window
     const composeBomVersions = getLatestN(
       allComposeBomVersions.filter((v) =>
         isInKotlinWindow(
@@ -186,41 +202,10 @@ function generateCandidates(registry, compatData) {
           forwardMonths,
         ),
       ),
-      maxVersionsPerComponent.composeBom,
+      matrixConstraints.maxVersionsPerComponent.composeBom,
     );
 
     for (const agp of agpVersions) {
-      const agpMajor = getMajor(agp);
-      const minKotlin = matrixConstraints.agpKotlinMinimum[agpMajor] || "1.9.0";
-      const maxKotlin =
-        matrixConstraints.agpKotlinMaximum[agpMajor] || "9.9.99";
-      const minGradle = matrixConstraints.agpGradleMinimum[agpMajor] || "8.6.0";
-      const maxGradle = matrixConstraints.agpGradleMaximum[agpMajor] || "9.9.9";
-
-      // Prune: Kotlin outside AGP bounds
-      if (
-        !meetsMinimum(kotlin, minKotlin) ||
-        !meetsMaximum(kotlin, maxKotlin)
-      ) {
-        prunedByConstraint++;
-        continue;
-      }
-
-      // Gradle: filtered by AGP min/max bounds
-      const gradleVersions = getLatestN(
-        allGradleVersions.filter(
-          (v) => meetsMinimum(v, minGradle) && meetsMaximum(v, maxGradle),
-        ),
-        maxVersionsPerComponent.gradle,
-      );
-
-      if (gradleVersions.length === 0) {
-        console.log(
-          `  ⚠️  No Gradle for AGP ${agp} [${minGradle}, ${maxGradle}] — skipping`,
-        );
-        continue;
-      }
-
       for (const gradle of gradleVersions) {
         for (const ksp of kspVersions) {
           for (const hilt of hiltVersions) {
@@ -241,8 +226,8 @@ function generateCandidates(registry, compatData) {
   }
 
   console.log(`\n📊 Pruning summary:`);
-  console.log(`  Pruned by AGP/Kotlin constraint: ${prunedByConstraint}`);
-  console.log(`  Pruned by already verified:      ${prunedByVerified}`);
+  console.log(`  Pruned - no KSP match:      ${prunedNoKsp}`);
+  console.log(`  Pruned - already verified:  ${prunedByVerified}`);
 
   return candidates;
 }
@@ -250,10 +235,10 @@ function generateCandidates(registry, compatData) {
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 function main() {
-  console.log("🧠 Generating test candidates (Two-Layer Cake)...");
+  console.log("🧠 Generating AGP 7 historical candidates (one-time batch)...");
   console.log(`📖 Rules from ${RULES_PATH}`);
   console.log(
-    `⏱️  Library window: -${matrixConstraints.libraryTimeWindow.lookbackMonths}mo / +${matrixConstraints.libraryTimeWindow.forwardMonths}mo from Kotlin release\n`,
+    `⏱️  Library window: -${matrixConstraints.libraryTimeWindow.lookbackMonths}mo / +${AGP7_FORWARD_MONTHS_OVERRIDE}mo from Kotlin release (AGP 7 override)\n`,
   );
 
   const registry = JSON.parse(fs.readFileSync(REGISTRY_PATH, "utf8"));
@@ -266,7 +251,7 @@ function main() {
   fs.writeFileSync(CANDIDATES_PATH, JSON.stringify(candidates, null, 2));
 
   console.log(
-    `\n✅ ${candidates.length} candidates written to combos-to-test.json`,
+    `\n✅ ${candidates.length} AGP 7 candidates written to combos-to-test-agp7.json`,
   );
   console.log("\n📋 Candidates:");
   candidates.forEach((c, i) => {

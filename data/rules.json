@@ -1,26 +1,43 @@
 {
   "meta": {
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "AndroidCompat constraint rules and pinned library versions. Update this file when Google changes requirements or when pinned library versions need bumping.",
-    "lastUpdated": "2026-06-28"
+    "lastUpdated": "2026-06-29"
   },
 
   "matrixConstraints": {
     "description": "Controls which versions enter the test matrix and how combos are pruned.",
 
-    "agpMajorVersions": ["8", "9"],
+    "agpMajorVersions": ["7", "8", "9"],
     "kotlinMajorVersions": ["2"],
+    "versionsPerAgpMajor": 2,
 
     "agpGradleMinimum": {
       "description": "Minimum Gradle version required per AGP major version.",
-      "9": "9.1.0",
-      "8": "8.6.0"
+      "7": "7.5.0",
+      "8": "8.6.0",
+      "9": "9.1.0"
+    },
+
+    "agpGradleMaximum": {
+      "description": "Maximum Gradle version supported per AGP major version. Prevents pairing AGP 7 with Gradle 9 which never coexisted.",
+      "7": "8.2.9",
+      "8": "8.13.9",
+      "9": "9.9.9"
     },
 
     "agpKotlinMinimum": {
       "description": "Minimum Kotlin version required per AGP major version.",
-      "9": "2.0.0",
-      "8": "1.9.0"
+      "7": "1.7.0",
+      "8": "1.9.0",
+      "9": "2.0.0"
+    },
+
+    "agpKotlinMaximum": {
+      "description": "Maximum Kotlin version that realistically coexisted with this AGP major. Prevents testing AGP 7 with Kotlin 2.4.0.",
+      "7": "1.9.99",
+      "8": "2.4.99",
+      "9": "9.9.99"
     },
 
     "kspIndependentFrom": {
@@ -28,9 +45,15 @@
       "version": "2.3.0"
     },
 
+    "libraryTimeWindow": {
+      "description": "Time window in months relative to Kotlin release date for filtering library versions. Lower bound = how far back to look. Upper bound = how far forward to look.",
+      "lookbackMonths": 24,
+      "forwardMonths": 12
+    },
+
     "maxVersionsPerComponent": {
       "description": "How many latest stable versions to pull per component into the matrix. Increase to expand coverage, decrease to save CI minutes.",
-      "agp": 2,
+      "agpPerMajor": 2,
       "kotlin": 2,
       "ksp": 2,
       "hilt": 2,
@@ -78,6 +101,10 @@
     "8": {
       "hasBuiltinKotlinSupport": false,
       "note": "AGP 8.x requires org.jetbrains.kotlin.android plugin applied separately."
+    },
+    "7": {
+      "hasBuiltinKotlinSupport": false,
+      "note": "AGP 7.x requires org.jetbrains.kotlin.android plugin applied separately."
     }
   }
 }
