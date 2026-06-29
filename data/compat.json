@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-29T12:11:08.110Z",
+  "last_updated": "2026-06-29T12:27:07.713Z",
   "combinations": [
     {
       "id": "combo-1782468358896",
@@ -2469,6 +2469,726 @@
       "status": "broken_sync",
       "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28370130221",
       "verified_at": "2026-06-29T11:55:32.433Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 25,
+        "level": "low",
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735776900",
+      "agp": "8.13.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "8.13.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:22:56.900Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 25,
+        "level": "low",
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735774796",
+      "agp": "8.13.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "8.13.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:22:54.796Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 25,
+        "level": "low",
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735774257",
+      "agp": "8.13.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "8.13.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:22:54.257Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 25,
+        "level": "low",
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735783870",
+      "agp": "8.13.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "8.13.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:23:03.871Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 25,
+        "level": "low",
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735864791",
+      "agp": "8.13.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:24:24.792Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 25,
+        "level": "low",
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735830822",
+      "agp": "8.13.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:23:50.822Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 25,
+        "level": "low",
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735841790",
+      "agp": "8.13.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:24:01.791Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 25,
+        "level": "low",
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735833398",
+      "agp": "8.13.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:23:53.399Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 25,
+        "level": "low",
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735962765",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:26:02.765Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735923667",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:25:23.667Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735927445",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:25:27.445Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735929805",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:25:29.805Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735780304",
+      "agp": "8.13.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "8.13.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:23:00.304Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 25,
+        "level": "low",
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735952741",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:25:52.741Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735935379",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:25:35.379Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735911373",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:25:11.374Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735918117",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:25:18.117Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735775042",
+      "agp": "8.13.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "8.13.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:22:55.042Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 25,
+        "level": "low",
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735837666",
+      "agp": "8.13.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:23:57.666Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 25,
+        "level": "low",
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735832646",
+      "agp": "8.13.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:23:52.647Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 25,
+        "level": "low",
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735830291",
+      "agp": "8.13.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:23:50.291Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 25,
+        "level": "low",
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735826929",
+      "agp": "8.13.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:23:46.929Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 25,
+        "level": "low",
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735815191",
+      "agp": "8.13.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "8.13.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:23:35.191Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 25,
+        "level": "low",
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782735781514",
+      "agp": "8.13.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "8.13.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28371671065",
+      "verified_at": "2026-06-29T12:23:01.514Z",
       "error_log": "",
       "failure_analysis": null,
       "confidence": {
