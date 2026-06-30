@@ -163,17 +163,15 @@ function generateCandidates(registry, compatData) {
       continue;
     }
 
-    // Hilt: filter by Kotlin date window
-    const hiltVersions = getLatestN(
-      allHiltVersions.filter((v) =>
-        isInKotlinWindow(
-          registry.hilt[v]?.releasedAt,
-          kotlinReleasedAt,
-          lookbackMonths,
-          forwardMonths,
-        ),
+    // Hilt: filter by Kotlin date window (AGP-Hilt boundary applied later, per-AGP, since
+    // the same Kotlin/Hilt pairing can be valid for AGP 9 but invalid for AGP 8)
+    const hiltVersionsByDate = allHiltVersions.filter((v) =>
+      isInKotlinWindow(
+        registry.hilt[v]?.releasedAt,
+        kotlinReleasedAt,
+        lookbackMonths,
+        forwardMonths,
       ),
-      maxVersionsPerComponent.hilt,
     );
 
     // Compose BOM: filter by Kotlin date window
@@ -225,6 +223,28 @@ function generateCandidates(registry, compatData) {
       if (gradleVersions.length === 0) {
         console.log(
           `  ⚠️  No Gradle for AGP ${agp} [${minGradle}, ${maxGradle}] — skipping`,
+        );
+        continue;
+      }
+
+      // Hilt 2.58 is the last version supporting AGP 8.x; 2.59+ requires AGP 9.0+.
+      // Apply this hard cutover per-AGP before picking the latest N Hilt versions.
+      const hiltBoundary = matrixConstraints.hiltAgpCompatibility;
+      const hiltVersionsForThisAgp = hiltVersionsByDate.filter((v) => {
+        if (agpMajor === "8")
+          return !meetsMinimum(v, hiltBoundary.minHiltForAgp9);
+        if (agpMajor === "9")
+          return meetsMinimum(v, hiltBoundary.minHiltForAgp9);
+        return true;
+      });
+      const hiltVersions = getLatestN(
+        hiltVersionsForThisAgp,
+        maxVersionsPerComponent.hilt,
+      );
+
+      if (hiltVersions.length === 0) {
+        console.log(
+          `  ⚠️  No compatible Hilt for AGP ${agp} (Kotlin ${kotlin}) — skipping`,
         );
         continue;
       }
