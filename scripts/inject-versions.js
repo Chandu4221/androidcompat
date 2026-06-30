@@ -10,11 +10,27 @@ const SETTINGS_PATH = path.join(
   "../stub-project/settings.gradle.kts",
 );
 const RULES_PATH = path.join(__dirname, "../data/rules.json");
+const REGISTRY_PATH = path.join(__dirname, "../data/version-registry.json");
 
-// ── Load Rules ────────────────────────────────────────────────────────────────
+// ── Load Rules & Registry ────────────────────────────────────────────────────
 
 const RULES = JSON.parse(fs.readFileSync(RULES_PATH, "utf8"));
 const { pinnedLibraries } = RULES;
+const REGISTRY = JSON.parse(fs.readFileSync(REGISTRY_PATH, "utf8"));
+
+// Look up Gradle's canonical downloadUrl from the registry instead of
+// constructing it from the version string. Gradle distribution filenames
+// are inconsistent (e.g. "8.13" not "8.13.0"), so the registry — populated
+// from services.gradle.org/versions/all — is the source of truth.
+function getGradleDownloadUrl(gradleVersion) {
+  const entry = REGISTRY.gradle?.[gradleVersion];
+  if (entry?.downloadUrl) return entry.downloadUrl;
+  // Fallback: construct it (may fail for inconsistent versions, but better than nothing)
+  console.warn(
+    `  ⚠️  No downloadUrl in registry for Gradle ${gradleVersion}, falling back to constructed URL`,
+  );
+  return `https://services.gradle.org/distributions/gradle-${gradleVersion}-bin.zip`;
+}
 
 // ── Injector ──────────────────────────────────────────────────────────────────
 
@@ -95,9 +111,11 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
     __dirname,
     "../stub-project/gradle/wrapper/gradle-wrapper.properties",
   );
+  const gradleDownloadUrl = getGradleDownloadUrl(combo.gradle);
+  const escapedUrl = gradleDownloadUrl.replace(/:/g, "\\:");
   const wrapperContent = `distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
-distributionUrl=https\\://services.gradle.org/distributions/gradle-${combo.gradle}-bin.zip
+distributionUrl=${escapedUrl}
 networkTimeout=10000
 validateDistributionUrl=true
 zipStoreBase=GRADLE_USER_HOME

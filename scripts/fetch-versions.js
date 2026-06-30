@@ -47,8 +47,8 @@ const SOURCES = {
     url: "https://api.github.com/repos/JetBrains/kotlin/releases",
   },
   gradle: {
-    type: "github-releases",
-    url: "https://api.github.com/repos/gradle/gradle/releases",
+    type: "gradle-services",
+    url: "https://services.gradle.org/versions/all",
   },
 };
 
@@ -72,23 +72,8 @@ async function fetchMavenVersions(url) {
 }
 
 async function fetchGithubVersions(url) {
-  const allReleases = [];
-  let page = 1;
-
-  while (true) {
-    const res = await axios.get(`${url}?per_page=100&page=${page}`, {
-      headers: GITHUB_HEADERS,
-    });
-
-    if (!res.data.length) break;
-    allReleases.push(...res.data);
-
-    // Stop if we have enough history — 500 releases covers all Gradle/Kotlin versions
-    if (allReleases.length >= 500 || res.data.length < 100) break;
-    page++;
-  }
-
-  return allReleases
+  const res = await axios.get(url, { headers: GITHUB_HEADERS });
+  return res.data
     .filter((r) => !r.prerelease && !r.draft)
     .map((r) => ({
       version: r.tag_name.replace(/^v/, ""),
@@ -101,6 +86,44 @@ async function fetchGithubVersions(url) {
         !v.includes("rc") &&
         !v.includes("M"),
     );
+}
+
+// Gradle's own version service — gives canonical version strings, real
+// downloadUrl, release status, and broken flag. Solves the 8.13 vs 8.13.0
+// distribution-naming mismatch at the source.
+async function fetchGradleVersions(url) {
+  const res = await axios.get(url);
+  return res.data
+    .filter(
+      (r) =>
+        r.released === true &&
+        r.broken === false &&
+        r.snapshot === false &&
+        r.nightly === false &&
+        r.activeRc === false &&
+        !r.rcFor &&
+        !r.milestoneFor,
+    )
+    .map((r) => ({
+      version: r.version,
+      downloadUrl: r.downloadUrl,
+      checksumUrl: r.checksumUrl,
+      // buildTime format: 20260618231903+0000 -> ISO
+      releasedAt: gradleBuildTimeToISO(r.buildTime),
+    }));
+}
+
+function gradleBuildTimeToISO(buildTime) {
+  // "20260618231903+0000" -> "2026-06-18T23:19:03+00:00"
+  const m = buildTime.match(
+    /^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})([+-]\d{4})$/,
+  );
+  if (!m) return null;
+  const [, yyyy, mm, dd, HH, MM, SS, tz] = m;
+  const tzFormatted = `${tz.slice(0, 3)}:${tz.slice(3)}`;
+  return new Date(
+    `${yyyy}-${mm}-${dd}T${HH}:${MM}:${SS}${tzFormatted}`,
+  ).toISOString();
 }
 
 // Fetch releasedAt for a single Maven/Google Maven version via POM Last-Modified header
@@ -144,7 +167,6 @@ async function main() {
       if (!registry[component]) registry[component] = {};
 
       if (source.type === "github-releases") {
-        // GitHub gives us dates for free in one request
         const releases = await fetchGithubVersions(source.url);
 
         for (const { version, releasedAt } of releases) {
@@ -163,17 +185,52 @@ async function main() {
             );
             newCount++;
           } else if (!registry[component][version].releasedAt && releasedAt) {
-            // Backfill releasedAt for existing entries that are missing it
             registry[component][version].releasedAt = releasedAt;
-            console.log(
-              `  📅 DATED  ${component} @ ${version} (released: ${releasedAt})`,
-            );
             dateCount++;
           }
         }
 
         console.log(
           `  📦 ${component}: ${releases.length} stable versions found`,
+        );
+      } else if (source.type === "gradle-services") {
+        const releases = await fetchGradleVersions(source.url);
+
+        for (const {
+          version,
+          downloadUrl,
+          checksumUrl,
+          releasedAt,
+        } of releases) {
+          const isNew = !registry[component][version];
+
+          if (isNew) {
+            registry[component][version] = {
+              version,
+              status: "NEW",
+              detectedAt: new Date().toISOString(),
+              releasedAt,
+              downloadUrl,
+              checksumUrl,
+              source: source.url,
+            };
+            console.log(
+              `  ✅ NEW  ${component} @ ${version} (released: ${releasedAt})`,
+            );
+            newCount++;
+          } else {
+            // Always refresh downloadUrl/checksumUrl in case they change
+            registry[component][version].downloadUrl = downloadUrl;
+            registry[component][version].checksumUrl = checksumUrl;
+            if (!registry[component][version].releasedAt && releasedAt) {
+              registry[component][version].releasedAt = releasedAt;
+              dateCount++;
+            }
+          }
+        }
+
+        console.log(
+          `  📦 ${component}: ${releases.length} stable, downloadable versions found`,
         );
       } else {
         // Maven / Google Maven — need separate POM request per version for date
@@ -212,7 +269,6 @@ async function main() {
               process.stdout.write(` ⚠️  not found\n`);
             }
 
-            // Small delay to avoid hammering the server
             await new Promise((r) => setTimeout(r, 150));
           }
 

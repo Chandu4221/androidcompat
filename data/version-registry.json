@@ -3350,931 +3350,1593 @@
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
       "source": "https://api.github.com/repos/gradle/gradle/releases",
-      "releasedAt": "2026-06-19T00:47:45Z"
+      "releasedAt": "2026-06-19T00:47:45Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-9.6.0-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-9.6.0-bin.zip.sha256"
     },
     "9.5.1": {
       "version": "9.5.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
       "source": "https://api.github.com/repos/gradle/gradle/releases",
-      "releasedAt": "2026-05-12T14:14:22Z"
+      "releasedAt": "2026-05-12T14:14:22Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-9.5.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-9.5.1-bin.zip.sha256"
     },
     "8.14.5": {
       "version": "8.14.5",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
       "source": "https://api.github.com/repos/gradle/gradle/releases",
-      "releasedAt": "2026-05-07T12:12:37Z"
+      "releasedAt": "2026-05-07T12:12:37Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.14.5-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.14.5-bin.zip.sha256"
     },
     "9.5.0": {
       "version": "9.5.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
       "source": "https://api.github.com/repos/gradle/gradle/releases",
-      "releasedAt": "2026-04-28T13:11:16Z"
+      "releasedAt": "2026-04-28T13:11:16Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-9.5.0-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-9.5.0-bin.zip.sha256"
     },
     "9.4.1": {
       "version": "9.4.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
       "source": "https://api.github.com/repos/gradle/gradle/releases",
-      "releasedAt": "2026-03-19T10:36:59Z"
+      "releasedAt": "2026-03-19T10:36:59Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-9.4.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-9.4.1-bin.zip.sha256"
     },
     "9.4.0": {
       "version": "9.4.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
       "source": "https://api.github.com/repos/gradle/gradle/releases",
-      "releasedAt": "2026-03-04T11:28:20Z"
+      "releasedAt": "2026-03-04T11:28:20Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-9.4.0-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-9.4.0-bin.zip.sha256"
     },
     "9.3.1": {
       "version": "9.3.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
       "source": "https://api.github.com/repos/gradle/gradle/releases",
-      "releasedAt": "2026-01-29T16:04:52Z"
+      "releasedAt": "2026-01-29T16:04:52Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-9.3.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-9.3.1-bin.zip.sha256"
     },
     "8.14.4": {
       "version": "8.14.4",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
       "source": "https://api.github.com/repos/gradle/gradle/releases",
-      "releasedAt": "2026-01-23T18:40:48Z"
+      "releasedAt": "2026-01-23T18:40:48Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.14.4-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.14.4-bin.zip.sha256"
     },
     "9.3.0": {
       "version": "9.3.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
       "source": "https://api.github.com/repos/gradle/gradle/releases",
-      "releasedAt": "2026-01-16T12:12:04Z"
+      "releasedAt": "2026-01-16T12:12:04Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-9.3.0-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-9.3.0-bin.zip.sha256"
     },
     "9.2.1": {
       "version": "9.2.1",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
       "source": "https://api.github.com/repos/gradle/gradle/releases",
-      "releasedAt": "2025-11-17T14:48:50Z"
+      "releasedAt": "2025-11-17T14:48:50Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-9.2.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-9.2.1-bin.zip.sha256"
     },
     "9.2.0": {
       "version": "9.2.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
       "source": "https://api.github.com/repos/gradle/gradle/releases",
-      "releasedAt": "2025-10-29T14:54:36Z"
+      "releasedAt": "2025-10-29T14:54:36Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-9.2.0-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-9.2.0-bin.zip.sha256"
     },
     "9.1.0": {
       "version": "9.1.0",
       "status": "NEW",
       "detectedAt": "2026-06-24T09:24:30.716Z",
       "source": "https://api.github.com/repos/gradle/gradle/releases",
-      "releasedAt": "2025-09-18T13:49:07Z"
+      "releasedAt": "2025-09-18T13:49:07Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-9.1.0-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-9.1.0-bin.zip.sha256"
     },
     "9.6.1": {
       "version": "9.6.1",
       "status": "NEW",
       "detectedAt": "2026-06-26T21:45:08.800Z",
       "source": "https://api.github.com/repos/gradle/gradle/releases",
-      "releasedAt": "2026-06-26T15:42:35Z"
+      "releasedAt": "2026-06-26T15:42:35Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-9.6.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-9.6.1-bin.zip.sha256"
     },
     "9.0.0": {
       "version": "9.0.0",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.951Z",
       "releasedAt": "2025-07-31T17:31:48Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-9.0.0-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-9.0.0-bin.zip.sha256"
     },
     "8.14.3": {
       "version": "8.14.3",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.951Z",
       "releasedAt": "2025-07-04T13:33:13Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.14.3-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.14.3-bin.zip.sha256"
     },
     "7.6.6": {
       "version": "7.6.6",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.951Z",
       "releasedAt": "2025-07-04T11:23:11Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.6.6-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.6.6-bin.zip.sha256"
     },
     "8.14.2": {
       "version": "8.14.2",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.951Z",
       "releasedAt": "2025-06-05T14:04:47Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.14.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.14.2-bin.zip.sha256"
     },
     "7.6.5": {
       "version": "7.6.5",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.951Z",
       "releasedAt": "2025-06-04T14:17:51Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.6.5-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.6.5-bin.zip.sha256"
     },
     "8.14.1": {
       "version": "8.14.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.951Z",
       "releasedAt": "2025-05-22T14:36:22Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "8.14.0": {
-      "version": "8.14.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.951Z",
-      "releasedAt": "2025-04-25T10:13:56Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "8.13.0": {
-      "version": "8.13.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2025-02-25T10:19:02Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.14.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.14.1-bin.zip.sha256"
     },
     "8.12.1": {
       "version": "8.12.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2025-01-24T13:28:41Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "8.12.0": {
-      "version": "8.12.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2024-12-20T16:29:29Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.12.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.12.1-bin.zip.sha256"
     },
     "8.11.1": {
       "version": "8.11.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2024-11-20T18:05:08Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "8.11.0": {
-      "version": "8.11.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2024-11-11T15:10:05Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.11.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.11.1-bin.zip.sha256"
     },
     "8.10.2": {
       "version": "8.10.2",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2024-09-23T22:38:30Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.10.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.10.2-bin.zip.sha256"
     },
     "8.10.1": {
       "version": "8.10.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2024-09-09T12:41:42Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "8.10.0": {
-      "version": "8.10.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2024-08-14T11:58:32Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "8.9.0": {
-      "version": "8.9.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2024-07-11T15:18:15Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "8.8.0": {
-      "version": "8.8.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2024-05-31T22:22:22Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "8.7.0": {
-      "version": "8.7.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2024-03-22T17:55:19Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.10.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.10.1-bin.zip.sha256"
     },
     "7.6.4": {
       "version": "7.6.4",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2024-02-05T15:01:20Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "8.6.0": {
-      "version": "8.6.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2024-02-02T17:46:57Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "8.5.0": {
-      "version": "8.5.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2023-11-29T14:50:00Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "8.4.0": {
-      "version": "8.4.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2023-10-04T21:58:38Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.6.4-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.6.4-bin.zip.sha256"
     },
     "7.6.3": {
       "version": "7.6.3",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2023-10-04T21:58:15Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "8.3.0": {
-      "version": "8.3.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2023-08-17T08:19:24Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.6.3-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.6.3-bin.zip.sha256"
     },
     "8.2.1": {
       "version": "8.2.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2023-07-10T13:36:53Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "8.2.0": {
-      "version": "8.2.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2023-06-30T20:14:55Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.2.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.2.1-bin.zip.sha256"
     },
     "7.6.2": {
       "version": "7.6.2",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2023-06-30T18:02:31Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.6.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.6.2-bin.zip.sha256"
     },
     "8.1.1": {
       "version": "8.1.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2023-04-21T14:02:30Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "8.1.0": {
-      "version": "8.1.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2023-04-12T13:10:56Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.1.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.1.1-bin.zip.sha256"
     },
     "8.0.2": {
       "version": "8.0.2",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2023-03-03T17:59:49Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.0.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.0.2-bin.zip.sha256"
     },
     "7.6.1": {
       "version": "7.6.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2023-02-24T14:54:35Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.6.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.6.1-bin.zip.sha256"
     },
     "6.9.4": {
       "version": "6.9.4",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2023-02-22T10:56:39Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.9.4-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.9.4-bin.zip.sha256"
     },
     "8.0.1": {
       "version": "8.0.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2023-02-17T21:08:13Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "8.0.0": {
-      "version": "8.0.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2023-02-13T14:19:57Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "7.6.0": {
-      "version": "7.6.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2022-11-25T14:09:29Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.0.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.0.1-bin.zip.sha256"
     },
     "6.9.3": {
       "version": "6.9.3",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2022-10-17T09:06:11Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.9.3-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.9.3-bin.zip.sha256"
     },
     "7.5.1": {
       "version": "7.5.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2022-08-05T21:33:25Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "7.5.0": {
-      "version": "7.5.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2022-07-14T13:30:24Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.5.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.5.1-bin.zip.sha256"
     },
     "7.4.2": {
       "version": "7.4.2",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2022-03-31T15:36:56Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.4.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.4.2-bin.zip.sha256"
     },
     "7.4.1": {
       "version": "7.4.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2022-03-09T17:42:29Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "7.4.0": {
-      "version": "7.4.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2022-02-08T11:00:58Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.4.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.4.1-bin.zip.sha256"
     },
     "7.3.3": {
       "version": "7.3.3",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2021-12-22T13:16:38Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.3.3-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.3.3-bin.zip.sha256"
     },
     "6.9.2": {
       "version": "6.9.2",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2021-12-21T21:47:11Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.9.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.9.2-bin.zip.sha256"
     },
     "7.3.2": {
       "version": "7.3.2",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2021-12-15T13:09:52Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.3.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.3.2-bin.zip.sha256"
     },
     "7.3.1": {
       "version": "7.3.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2021-12-01T16:29:32Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "7.3.0": {
-      "version": "7.3.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.952Z",
-      "releasedAt": "2021-11-09T21:50:41Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.3.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.3.1-bin.zip.sha256"
     },
     "6.9.1": {
       "version": "6.9.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.952Z",
       "releasedAt": "2021-08-20T13:04:54Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "7.2.0": {
-      "version": "7.2.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.953Z",
-      "releasedAt": "2021-08-17T11:14:12Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.9.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.9.1-bin.zip.sha256"
     },
     "7.1.1": {
       "version": "7.1.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.953Z",
       "releasedAt": "2021-07-02T12:37:42Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "7.1.0": {
-      "version": "7.1.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.953Z",
-      "releasedAt": "2021-06-14T15:41:48Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.1.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.1.1-bin.zip.sha256"
     },
     "7.0.2": {
       "version": "7.0.2",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.953Z",
       "releasedAt": "2021-05-14T12:43:16Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.0.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.0.2-bin.zip.sha256"
     },
     "7.0.1": {
       "version": "7.0.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.953Z",
       "releasedAt": "2021-05-10T16:49:05Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "6.9.0": {
-      "version": "6.9.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.953Z",
-      "releasedAt": "2021-05-07T08:08:23Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "7.0.0": {
-      "version": "7.0.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.953Z",
-      "releasedAt": "2021-04-09T22:42:15Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.0.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.0.1-bin.zip.sha256"
     },
     "6.8.3": {
       "version": "6.8.3",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.953Z",
       "releasedAt": "2021-02-22T16:56:13Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.8.3-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.8.3-bin.zip.sha256"
     },
     "6.8.2": {
       "version": "6.8.2",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.953Z",
       "releasedAt": "2021-02-05T13:15:56Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.8.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.8.2-bin.zip.sha256"
     },
     "6.8.1": {
       "version": "6.8.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.953Z",
       "releasedAt": "2021-01-22T14:00:37Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "6.8.0": {
-      "version": "6.8.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.953Z",
-      "releasedAt": "2021-01-08T17:52:38Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.8.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.8.1-bin.zip.sha256"
     },
     "6.7.1": {
       "version": "6.7.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.953Z",
       "releasedAt": "2020-11-16T18:28:01Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "6.7.0": {
-      "version": "6.7.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.953Z",
-      "releasedAt": "2020-10-14T16:32:00Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.7.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.7.1-bin.zip.sha256"
     },
     "6.6.1": {
       "version": "6.6.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.953Z",
       "releasedAt": "2020-08-25T17:13:15Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "6.6.0": {
-      "version": "6.6.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.953Z",
-      "releasedAt": "2020-08-10T22:56:28Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.6.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.6.1-bin.zip.sha256"
     },
     "6.5.1": {
       "version": "6.5.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.953Z",
       "releasedAt": "2020-06-30T06:53:56Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "6.5.0": {
-      "version": "6.5.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.953Z",
-      "releasedAt": "2020-06-02T21:31:40Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.5.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.5.1-bin.zip.sha256"
     },
     "6.4.1": {
       "version": "6.4.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.953Z",
       "releasedAt": "2020-05-15T20:10:52Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "6.4.0": {
-      "version": "6.4.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.953Z",
-      "releasedAt": "2020-05-05T20:00:59Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "6.3.0": {
-      "version": "6.3.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.953Z",
-      "releasedAt": "2020-03-24T20:24:21Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.4.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.4.1-bin.zip.sha256"
     },
     "6.2.2": {
       "version": "6.2.2",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.953Z",
       "releasedAt": "2020-03-04T09:20:56Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.2.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.2.2-bin.zip.sha256"
     },
     "6.2.1": {
       "version": "6.2.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.953Z",
       "releasedAt": "2020-02-24T21:26:19Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "6.2.0": {
-      "version": "6.2.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.953Z",
-      "releasedAt": "2020-02-17T09:00:20Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.2.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.2.1-bin.zip.sha256"
     },
     "6.1.1": {
       "version": "6.1.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.953Z",
       "releasedAt": "2020-01-24T23:09:29Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "6.1.0": {
-      "version": "6.1.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2020-01-16T00:26:53Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.1.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.1.1-bin.zip.sha256"
     },
     "6.0.1": {
       "version": "6.0.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2019-11-18T21:43:04Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "6.0.0": {
-      "version": "6.0.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2019-11-08T18:50:55Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.0.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.0.1-bin.zip.sha256"
     },
     "5.6.4": {
       "version": "5.6.4",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2019-11-01T21:26:25Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-5.6.4-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-5.6.4-bin.zip.sha256"
     },
     "5.6.3": {
       "version": "5.6.3",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2019-10-18T02:16:49Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-5.6.3-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-5.6.3-bin.zip.sha256"
     },
     "5.6.2": {
       "version": "5.6.2",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2019-09-05T16:47:46Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-5.6.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-5.6.2-bin.zip.sha256"
     },
     "5.6.1": {
       "version": "5.6.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2019-08-28T03:17:07Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "5.6.0": {
-      "version": "5.6.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2019-08-14T21:45:25Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-5.6.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-5.6.1-bin.zip.sha256"
     },
     "5.5.1": {
       "version": "5.5.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2019-07-10T21:26:16Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "5.5.0": {
-      "version": "5.5.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2019-06-28T17:58:30Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-5.5.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-5.5.1-bin.zip.sha256"
     },
     "5.4.1": {
       "version": "5.4.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2019-04-26T10:36:46Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "5.4.0": {
-      "version": "5.4.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2019-04-25T16:33:17Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-5.4.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-5.4.1-bin.zip.sha256"
     },
     "5.3.1": {
       "version": "5.3.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2019-03-28T09:32:31Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "5.3.0": {
-      "version": "5.3.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2019-03-20T11:49:09Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-5.3.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-5.3.1-bin.zip.sha256"
     },
     "5.2.1": {
       "version": "5.2.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2019-02-08T19:22:39Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "5.2.0": {
-      "version": "5.2.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2019-02-04T11:49:47Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-5.2.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-5.2.1-bin.zip.sha256"
     },
     "5.1.1": {
       "version": "5.1.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2019-01-10T23:27:43Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "5.1.0": {
-      "version": "5.1.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2019-01-02T19:47:09Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-5.1.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-5.1.1-bin.zip.sha256"
     },
     "4.10.3": {
       "version": "4.10.3",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2018-12-05T01:49:46Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "5.0.0": {
-      "version": "5.0.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2018-11-26T13:02:02Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.10.3-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.10.3-bin.zip.sha256"
     },
     "4.10.2": {
       "version": "4.10.2",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2018-09-19T18:31:36Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.10.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.10.2-bin.zip.sha256"
     },
     "4.10.1": {
       "version": "4.10.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2018-09-12T11:48:15Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "4.10.0": {
-      "version": "4.10.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2018-08-27T18:53:17Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "4.9.0": {
-      "version": "4.9.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2018-07-16T08:29:55Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.10.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.10.1-bin.zip.sha256"
     },
     "4.8.1": {
       "version": "4.8.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2018-06-21T08:31:11Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "4.8.0": {
-      "version": "4.8.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2018-06-04T11:00:49Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "4.7.0": {
-      "version": "4.7.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2018-04-18T09:30:01Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "4.6.0": {
-      "version": "4.6.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2018-04-17T08:17:40Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.8.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.8.1-bin.zip.sha256"
     },
     "4.5.1": {
       "version": "4.5.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2018-02-05T13:44:50Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "4.5.0": {
-      "version": "4.5.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2018-01-24T17:14:49Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.5.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.5.1-bin.zip.sha256"
     },
     "4.4.1": {
       "version": "4.4.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2017-12-20T16:06:42Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "4.4.0": {
-      "version": "4.4.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2017-12-06T09:19:36Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.4.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.4.1-bin.zip.sha256"
     },
     "4.3.1": {
       "version": "4.3.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2017-11-08T09:16:51Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "4.3.0": {
-      "version": "4.3.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2017-10-30T16:08:32Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.3.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.3.1-bin.zip.sha256"
     },
     "4.2.1": {
       "version": "4.2.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2017-10-02T16:17:22Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "4.2.0": {
-      "version": "4.2.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2017-09-22T10:24:53Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "4.1.0": {
-      "version": "4.1.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2017-08-07T17:10:23Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.2.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.2.1-bin.zip.sha256"
     },
     "4.0.2": {
       "version": "4.0.2",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2017-07-26T16:26:30Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.0.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.0.2-bin.zip.sha256"
     },
     "4.0.1": {
       "version": "4.0.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2017-07-07T14:30:26Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.0.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.0.1-bin.zip.sha256"
     },
     "3.5.1": {
       "version": "3.5.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.954Z",
       "releasedAt": "2017-06-16T14:51:38Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "4.0.0": {
-      "version": "4.0.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2017-06-14T15:29:54Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "3.5.0": {
-      "version": "3.5.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.954Z",
-      "releasedAt": "2017-04-10T14:25:32Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-3.5.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-3.5.1-bin.zip.sha256"
     },
     "3.4.1": {
       "version": "3.4.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.955Z",
       "releasedAt": "2017-03-03T20:01:54Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "3.4.0": {
-      "version": "3.4.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.955Z",
-      "releasedAt": "2017-02-20T15:30:10Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
-    },
-    "3.3.0": {
-      "version": "3.3.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.955Z",
-      "releasedAt": "2017-01-03T15:55:10Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-3.4.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-3.4.1-bin.zip.sha256"
     },
     "3.2.1": {
       "version": "3.2.1",
       "status": "NEW",
       "detectedAt": "2026-06-29T07:50:03.955Z",
       "releasedAt": "2016-11-22T20:22:42Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "source": "https://api.github.com/repos/gradle/gradle/releases",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-3.2.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-3.2.1-bin.zip.sha256"
     },
-    "3.2.0": {
-      "version": "3.2.0",
+    "8.14": {
+      "version": "8.14",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.955Z",
-      "releasedAt": "2016-11-14T12:57:25Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "detectedAt": "2026-06-30T09:03:27.275Z",
+      "releasedAt": "2025-04-25T09:29:08.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.14-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.14-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
     },
-    "3.1.0": {
-      "version": "3.1.0",
+    "8.13": {
+      "version": "8.13",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.955Z",
-      "releasedAt": "2016-09-19T11:28:01Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "detectedAt": "2026-06-30T09:03:27.275Z",
+      "releasedAt": "2025-02-25T09:22:14.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.13-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.13-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
     },
-    "3.0.0": {
-      "version": "3.0.0",
+    "8.12": {
+      "version": "8.12",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:03.955Z",
-      "releasedAt": "2016-09-19T11:33:07Z",
-      "source": "https://api.github.com/repos/gradle/gradle/releases"
+      "detectedAt": "2026-06-30T09:03:27.275Z",
+      "releasedAt": "2024-12-20T15:46:53.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.12-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.12-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "8.11": {
+      "version": "8.11",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.275Z",
+      "releasedAt": "2024-11-11T13:58:01.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.11-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.11-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "8.10": {
+      "version": "8.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.275Z",
+      "releasedAt": "2024-08-14T11:07:45.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.10-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.10-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "8.9": {
+      "version": "8.9",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.275Z",
+      "releasedAt": "2024-07-11T14:37:41.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.9-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.9-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "8.8": {
+      "version": "8.8",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.275Z",
+      "releasedAt": "2024-05-31T21:46:56.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.8-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.8-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "8.7": {
+      "version": "8.7",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.275Z",
+      "releasedAt": "2024-03-22T15:52:46.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.7-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.7-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "8.6": {
+      "version": "8.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.275Z",
+      "releasedAt": "2024-02-02T16:47:16.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.6-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.6-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "8.5": {
+      "version": "8.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.275Z",
+      "releasedAt": "2023-11-29T14:08:57.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.5-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.5-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "8.4": {
+      "version": "8.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.275Z",
+      "releasedAt": "2023-10-04T20:52:13.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.4-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.4-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "8.3": {
+      "version": "8.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.275Z",
+      "releasedAt": "2023-08-17T07:06:47.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.3-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.3-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "8.2": {
+      "version": "8.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.275Z",
+      "releasedAt": "2023-06-30T18:02:30.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.2-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "8.1": {
+      "version": "8.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.275Z",
+      "releasedAt": "2023-04-12T12:07:45.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.1-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "8.0": {
+      "version": "8.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2023-02-13T13:15:21.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-8.0-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-8.0-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "7.6": {
+      "version": "7.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2022-11-25T13:35:10.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.6-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.6-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "7.5": {
+      "version": "7.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2022-07-14T12:48:15.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.5-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.5-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "7.4": {
+      "version": "7.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2022-02-08T09:58:38.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.4-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.4-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "7.3": {
+      "version": "7.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2021-11-09T20:40:36.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.3-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.3-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "7.2": {
+      "version": "7.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2021-08-17T09:59:03.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.2-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "7.1": {
+      "version": "7.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2021-06-14T14:47:26.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.1-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "6.9": {
+      "version": "6.9",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2021-05-07T07:28:53.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.9-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.9-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "7.0": {
+      "version": "7.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2021-04-09T22:27:31.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-7.0-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-7.0-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "6.8": {
+      "version": "6.8",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2021-01-08T16:38:46.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.8-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.8-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "6.7": {
+      "version": "6.7",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2020-10-14T16:13:12.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.7-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.7-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "6.6": {
+      "version": "6.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2020-08-10T22:06:19.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.6-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.6-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "6.5": {
+      "version": "6.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2020-06-02T20:46:21.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.5-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.5-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "6.4": {
+      "version": "6.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2020-05-05T19:18:55.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.4-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.4-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "6.3": {
+      "version": "6.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2020-03-24T19:52:07.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.3-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.3-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "6.2": {
+      "version": "6.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2020-02-17T08:32:01.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.2-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "6.1": {
+      "version": "6.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2020-01-15T23:56:46.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.1-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "6.0": {
+      "version": "6.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2019-11-08T18:12:12.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-6.0-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-6.0-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "5.6": {
+      "version": "5.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2019-08-14T21:05:25.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-5.6-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-5.6-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "5.5": {
+      "version": "5.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2019-06-28T17:36:05.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-5.5-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-5.5-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "5.4": {
+      "version": "5.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2019-04-16T02:44:16.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-5.4-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-5.4-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "5.3": {
+      "version": "5.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2019-03-20T11:03:29.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-5.3-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-5.3-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "5.2": {
+      "version": "5.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2019-02-04T11:16:48.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-5.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-5.2-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "5.1": {
+      "version": "5.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2019-01-02T18:57:47.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-5.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-5.1-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "5.0": {
+      "version": "5.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2018-11-26T11:48:43.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-5.0-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-5.0-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "4.10": {
+      "version": "4.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2018-08-27T18:35:06.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.10-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.10-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "4.9": {
+      "version": "4.9",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2018-07-16T08:14:03.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.9-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.9-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "4.8": {
+      "version": "4.8",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2018-06-04T10:39:58.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.8-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.8-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "4.7": {
+      "version": "4.7",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2018-04-18T09:09:12.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.7-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.7-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "4.6": {
+      "version": "4.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2018-02-28T13:36:36.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.6-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.6-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "4.5": {
+      "version": "4.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2018-01-24T17:04:52.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.5-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.5-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "4.4": {
+      "version": "4.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2017-12-06T09:05:06.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.4-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.4-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "4.3": {
+      "version": "4.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2017-10-30T15:43:29.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.3-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.3-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "4.2": {
+      "version": "4.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2017-09-20T14:48:23.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.2-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "4.1": {
+      "version": "4.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2017-08-07T14:38:48.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.1-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "4.0": {
+      "version": "4.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2017-06-14T15:11:08.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-4.0-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-4.0-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "3.5": {
+      "version": "3.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2017-04-10T13:37:25.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-3.5-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-3.5-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "3.4": {
+      "version": "3.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2017-02-20T14:49:26.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-3.4-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-3.4-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "3.3": {
+      "version": "3.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2017-01-03T15:31:04.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-3.3-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-3.3-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "3.2": {
+      "version": "3.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2016-11-14T12:32:59.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-3.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-3.2-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "3.1": {
+      "version": "3.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2016-09-19T10:53:53.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-3.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-3.1-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "3.0": {
+      "version": "3.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2016-08-15T13:15:01.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-3.0-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-3.0-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.14.1": {
+      "version": "2.14.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2016-07-18T06:38:37.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.14.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.14.1-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.14": {
+      "version": "2.14",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2016-06-14T07:16:37.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.14-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.14-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.13": {
+      "version": "2.13",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2016-04-25T04:10:10.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.13-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.13-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.12": {
+      "version": "2.12",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2016-03-14T08:32:03.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.12-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.12-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.11": {
+      "version": "2.11",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2016-02-08T07:59:16.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.11-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.11-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.10": {
+      "version": "2.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2015-12-21T21:15:04.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.10-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.10-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.9": {
+      "version": "2.9",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2015-11-17T07:02:17.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.9-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.9-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.8": {
+      "version": "2.8",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2015-10-20T03:46:36.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.8-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.8-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.7": {
+      "version": "2.7",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2015-09-14T07:26:16.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.7-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.7-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.6": {
+      "version": "2.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2015-08-10T13:15:06.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.6-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.6-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.5": {
+      "version": "2.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2015-07-08T07:38:37.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.5-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.5-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.4": {
+      "version": "2.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2015-05-05T08:09:24.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.4-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.4-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.3": {
+      "version": "2.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2015-02-16T05:09:33.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.3-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.3-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.2.1": {
+      "version": "2.2.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2014-11-24T09:45:35.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.2.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.2.1-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.2": {
+      "version": "2.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2014-11-10T13:31:44.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.2-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.1": {
+      "version": "2.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2014-09-08T10:40:39.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.1-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "2.0": {
+      "version": "2.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2014-07-01T07:45:34.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-2.0-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-2.0-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.12": {
+      "version": "1.12",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2014-04-29T09:24:31.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.12-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.12-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.11": {
+      "version": "1.11",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2014-02-11T11:34:39.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.11-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.11-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.10": {
+      "version": "1.10",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2013-12-17T09:28:15.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.10-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.10-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.9": {
+      "version": "1.9",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2013-11-19T08:20:02.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.9-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.9-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.8": {
+      "version": "1.8",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2013-09-24T07:32:33.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.8-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.8-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.7": {
+      "version": "1.7",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2013-08-06T11:19:56.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.7-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.7-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.6": {
+      "version": "1.6",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2013-05-07T09:12:14.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.6-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.6-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.5": {
+      "version": "1.5",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2013-03-27T14:09:35.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.5-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.5-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.4": {
+      "version": "1.4",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2013-01-28T03:42:46.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.4-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.4-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.3": {
+      "version": "1.3",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2012-11-20T11:37:38.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.3-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.3-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.2": {
+      "version": "1.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2012-09-12T10:46:02.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.2-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.1": {
+      "version": "1.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2012-07-31T13:24:32.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.1-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.0": {
+      "version": "1.0",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2012-06-12T00:56:21.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.0-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.0-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.0-milestone-9": {
+      "version": "1.0-milestone-9",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.276Z",
+      "releasedAt": "2012-03-13T16:10:09.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-9-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-9-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.0-milestone-8a": {
+      "version": "1.0-milestone-8a",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.277Z",
+      "releasedAt": "2012-02-20T17:53:57.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-8a-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-8a-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.0-milestone-8": {
+      "version": "1.0-milestone-8",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.277Z",
+      "releasedAt": "2012-02-14T01:24:51.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-8-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-8-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.0-milestone-7": {
+      "version": "1.0-milestone-7",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.277Z",
+      "releasedAt": "2012-01-05T10:24:43.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-7-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-7-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.0-milestone-6": {
+      "version": "1.0-milestone-6",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.277Z",
+      "releasedAt": "2011-11-17T05:54:12.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-6-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-6-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.0-milestone-5": {
+      "version": "1.0-milestone-5",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.277Z",
+      "releasedAt": "2011-10-25T03:56:08.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-5-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-5-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.0-milestone-3": {
+      "version": "1.0-milestone-3",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.277Z",
+      "releasedAt": "2011-04-25T07:40:11.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-3-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-3-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.0-milestone-2": {
+      "version": "1.0-milestone-2",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.277Z",
+      "releasedAt": "2011-04-07T06:32:55.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-2-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "1.0-milestone-1": {
+      "version": "1.0-milestone-1",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.277Z",
+      "releasedAt": "2011-02-27T03:13:20.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-1.0-milestone-1-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "0.9.2": {
+      "version": "0.9.2",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.277Z",
+      "releasedAt": "2011-01-23T02:34:21.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-0.9.2-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-0.9.2-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "0.9.1": {
+      "version": "0.9.1",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.277Z",
+      "releasedAt": "2011-01-02T00:40:57.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-0.9.1-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-0.9.1-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "0.9": {
+      "version": "0.9",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.277Z",
+      "releasedAt": "2010-12-19T01:50:06.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-0.9-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-0.9-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "0.8": {
+      "version": "0.8",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.277Z",
+      "releasedAt": "2009-09-28T12:01:59.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-0.8-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-0.8-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
+    },
+    "0.7": {
+      "version": "0.7",
+      "status": "NEW",
+      "detectedAt": "2026-06-30T09:03:27.277Z",
+      "releasedAt": "2009-07-20T06:50:13.000Z",
+      "downloadUrl": "https://services.gradle.org/distributions/gradle-0.7-bin.zip",
+      "checksumUrl": "https://services.gradle.org/distributions/gradle-0.7-bin.zip.sha256",
+      "source": "https://services.gradle.org/versions/all"
     }
   }
 }
