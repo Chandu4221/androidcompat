@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-30T09:45:07.850Z",
+  "last_updated": "2026-06-30T09:53:27.857Z",
   "combinations": [
     {
       "id": "combo-1782468358896",
@@ -1804,6 +1804,278 @@
         "level": "low",
         "factors": [
           "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782813177334",
+      "agp": "8.13.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28435647103",
+      "verified_at": "2026-06-30T09:52:57.334Z",
+      "error_log": "FAILURE: Build failed with an exception. An exception occurred applying plugin request [id: 'com.google.dagger.hilt.android', version: '2.59.2'] ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782813182443",
+      "agp": "8.13.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28435647103",
+      "verified_at": "2026-06-30T09:53:02.443Z",
+      "error_log": "FAILURE: Build failed with an exception. An exception occurred applying plugin request [id: 'com.google.dagger.hilt.android', version: '2.59.1'] ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782813175972",
+      "agp": "8.13.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28435647103",
+      "verified_at": "2026-06-30T09:52:55.972Z",
+      "error_log": "FAILURE: Build failed with an exception. An exception occurred applying plugin request [id: 'com.google.dagger.hilt.android', version: '2.59.2'] ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782813167357",
+      "agp": "8.13.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28435647103",
+      "verified_at": "2026-06-30T09:52:47.357Z",
+      "error_log": "FAILURE: Build failed with an exception. An exception occurred applying plugin request [id: 'com.google.dagger.hilt.android', version: '2.59.1'] ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782813182302",
+      "agp": "8.13.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28435647103",
+      "verified_at": "2026-06-30T09:53:02.302Z",
+      "error_log": "FAILURE: Build failed with an exception. An exception occurred applying plugin request [id: 'com.google.dagger.hilt.android', version: '2.59.2'] ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782813181521",
+      "agp": "8.13.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28435647103",
+      "verified_at": "2026-06-30T09:53:01.521Z",
+      "error_log": "FAILURE: Build failed with an exception. An exception occurred applying plugin request [id: 'com.google.dagger.hilt.android', version: '2.59.1'] ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782813173841",
+      "agp": "8.13.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28435647103",
+      "verified_at": "2026-06-30T09:52:53.841Z",
+      "error_log": "FAILURE: Build failed with an exception. An exception occurred applying plugin request [id: 'com.google.dagger.hilt.android', version: '2.59.2'] ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782813170454",
+      "agp": "8.13.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28435647103",
+      "verified_at": "2026-06-30T09:52:50.454Z",
+      "error_log": "FAILURE: Build failed with an exception. An exception occurred applying plugin request [id: 'com.google.dagger.hilt.android', version: '2.59.1'] ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
           "broken_status:broken_sync"
         ]
       },
