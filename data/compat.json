@@ -1,1 +1,789 @@
-{"last_updated": "", "combinations": []}
+{
+  "last_updated": "2026-06-30T13:52:53.992Z",
+  "combinations": [
+    {
+      "id": "combo-1782827354335",
+      "agp": "8.13.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:49:14.335Z",
+      "error_log": "FAILURE: Build failed with an exception. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827350368",
+      "agp": "8.13.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:49:10.368Z",
+      "error_log": "FAILURE: Build failed with an exception. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827539598",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:52:19.598Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827417143",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:50:17.143Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827428688",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:50:28.688Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827436136",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:50:36.136Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827439085",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:50:39.085Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827448763",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:50:48.763Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827464787",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:51:04.787Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827473100",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:51:13.100Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827526756",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:52:06.756Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827487016",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:51:27.016Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827342795",
+      "agp": "8.13.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:49:02.795Z",
+      "error_log": "FAILURE: Build failed with an exception. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827423558",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:50:23.558Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827450953",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:50:50.953Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827433928",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:50:33.929Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827494229",
+      "agp": "9.2.0",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:51:34.229Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827343817",
+      "agp": "8.13.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:49:03.817Z",
+      "error_log": "FAILURE: Build failed with an exception. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827359665",
+      "agp": "8.13.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:49:19.665Z",
+      "error_log": "FAILURE: Build failed with an exception. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827350876",
+      "agp": "8.13.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:49:10.876Z",
+      "error_log": "FAILURE: Build failed with an exception. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827423325",
+      "agp": "8.13.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:50:23.325Z",
+      "error_log": "FAILURE: Build failed with an exception. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827353048",
+      "agp": "8.13.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:49:13.048Z",
+      "error_log": "FAILURE: Build failed with an exception. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827458649",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:50:58.649Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782827471338",
+      "agp": "9.2.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
+      "verified_at": "2026-06-30T13:51:11.338Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    }
+  ]
+}
