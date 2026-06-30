@@ -58,7 +58,8 @@ jobs:
         id: sync
         run: |
           cd stub-project
-          ./gradlew :app:preBuild --no-daemon --no-configuration-cache
+          ./gradlew :app:preBuild --no-daemon --no-configuration-cache 2>&1 | tee ../sync-output.log
+          exit ${PIPESTATUS[0]}
         continue-on-error: true
 
       - name: Stage - Compile
@@ -66,7 +67,8 @@ jobs:
         if: steps.sync.outcome == 'success'
         run: |
           cd stub-project
-          ./gradlew :app:kspDebugKotlin :app:compileDebugKotlin --no-daemon --no-configuration-cache
+          ./gradlew :app:kspDebugKotlin :app:compileDebugKotlin --no-daemon --no-configuration-cache 2>&1 | tee ../compile-output.log
+          exit ${PIPESTATUS[0]}
         continue-on-error: true
 
       - name: Stage - Unit Test
@@ -83,9 +85,15 @@ jobs:
         id: capture_error
         run: |
           ERROR_LOG=""
-          if [ -f unit-test-output.log ]; then
-            ERROR_LOG=$(grep "error:" unit-test-output.log | head -5 | tr '\n' ' ' || true)
-          fi
+          for f in sync-output.log compile-output.log unit-test-output.log; do
+            if [ -f "$f" ]; then
+              FOUND=$(grep -iE "error:|FAILURE:|Exception" "$f" | head -5 | tr '\n' ' ' || true)
+              if [ -n "$FOUND" ]; then
+                ERROR_LOG="$FOUND"
+                break
+              fi
+            fi
+          done
           echo "error_log=$ERROR_LOG" >> $GITHUB_OUTPUT
 
       - name: Capture logs
@@ -148,12 +156,11 @@ jobs:
           node scripts/update-compat.js \
             --merge-artifacts \
             --artifacts-dir artifacts/
-
       - name: Commit final compat.json
         run: |
           git config user.name "androidcompat-bot"
           git config user.email "bot@androidcompat.dev"
           git add data/compat.json
-          git diff --staged --quiet || git commit -m "data: update compat matrix - AGP 7 historical batch [skip ci]"
+          git diff --staged --quiet || git commit -m "data: update compat matrix from CI run [skip ci]"
           git pull --rebase origin main
           git push
