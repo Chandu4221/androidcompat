@@ -23,7 +23,7 @@ const { pinnedLibraries } = RULES;
 // AGP 7 era pinned versions — these are fixed for the historical stub.
 // Do NOT use the same pinnedLibraries as AGP 9 (Room 2.7.x needs Kotlin 2.x).
 const AGP7_PINNED = {
-  room: "2.6.1",
+  room: "2.5.2",
   lifecycle: "2.7.0",
   coreKtx: "1.12.0",
   appcompat: "1.6.1",
