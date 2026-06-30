@@ -23,17 +23,14 @@ const SOURCES = {
     pomArtifact: "gradle",
   },
   ksp: {
-    type: "maven-central",
-    url: "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-    pomBase:
-      "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api",
-    pomArtifact: "symbol-processing-api",
+    type: "maven-central-solr",
+    groupId: "com.google.devtools.ksp",
+    artifactId: "symbol-processing-api",
   },
   hilt: {
-    type: "maven-central",
-    url: "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-    pomBase: "https://repo1.maven.org/maven2/com/google/dagger/hilt-android",
-    pomArtifact: "hilt-android",
+    type: "maven-central-solr",
+    groupId: "com.google.dagger",
+    artifactId: "hilt-android",
   },
   composeBom: {
     type: "google-maven",
@@ -71,9 +68,63 @@ async function fetchMavenVersions(url) {
   });
 }
 
+// Maven Central Solr Search API — returns versions AND release timestamps
+// in a single request. Eliminates the need for per-version POM HEAD requests
+// for any artifact hosted on Maven Central (KSP, Hilt).
+async function fetchMavenCentralWithDates(groupId, artifactId) {
+  const results = [];
+  let start = 0;
+  const rows = 100;
+
+  while (true) {
+    const url = `https://search.maven.org/solrsearch/select?q=g:"${groupId}"+AND+a:"${artifactId}"&rows=${rows}&start=${start}&core=gav&wt=json`;
+    const res = await axios.get(url);
+    const docs = res.data?.response?.docs ?? [];
+
+    if (!docs.length) break;
+
+    for (const doc of docs) {
+      results.push({
+        version: doc.v,
+        releasedAt: new Date(doc.timestamp).toISOString(),
+      });
+    }
+
+    if (docs.length < rows) break; // last page
+    start += rows;
+  }
+
+  return results.filter(({ version: v }) => {
+    const lower = v.toLowerCase();
+    return (
+      !lower.includes("alpha") &&
+      !lower.includes("beta") &&
+      !lower.includes("rc") &&
+      !lower.includes("-m1") &&
+      !lower.includes("-m2")
+    );
+  });
+}
+
 async function fetchGithubVersions(url) {
-  const res = await axios.get(url, { headers: GITHUB_HEADERS });
-  return res.data
+  const allReleases = [];
+  let page = 1;
+
+  // Paginate through all releases — default API page size is 30,
+  // which silently truncates historical versions without this.
+  while (true) {
+    const separator = url.includes("?") ? "&" : "?";
+    const pageUrl = `${url}${separator}per_page=100&page=${page}`;
+    const res = await axios.get(pageUrl, { headers: GITHUB_HEADERS });
+
+    if (!res.data.length) break;
+    allReleases.push(...res.data);
+
+    if (res.data.length < 100) break; // last page
+    page++;
+  }
+
+  return allReleases
     .filter((r) => !r.prerelease && !r.draft)
     .map((r) => ({
       version: r.tag_name.replace(/^v/, ""),
@@ -192,6 +243,37 @@ async function main() {
 
         console.log(
           `  📦 ${component}: ${releases.length} stable versions found`,
+        );
+      } else if (source.type === "maven-central-solr") {
+        // Single request gets versions AND dates — no per-version POM requests needed
+        const releases = await fetchMavenCentralWithDates(
+          source.groupId,
+          source.artifactId,
+        );
+
+        for (const { version, releasedAt } of releases) {
+          const isNew = !registry[component][version];
+
+          if (isNew) {
+            registry[component][version] = {
+              version,
+              status: "NEW",
+              detectedAt: new Date().toISOString(),
+              releasedAt,
+              source: `https://search.maven.org/solrsearch/select?g:${source.groupId}+a:${source.artifactId}`,
+            };
+            console.log(
+              `  ✅ NEW  ${component} @ ${version} (released: ${releasedAt})`,
+            );
+            newCount++;
+          } else if (!registry[component][version].releasedAt && releasedAt) {
+            registry[component][version].releasedAt = releasedAt;
+            dateCount++;
+          }
+        }
+
+        console.log(
+          `  📦 ${component}: ${releases.length} stable versions found (Solr API, single request)`,
         );
       } else if (source.type === "gradle-services") {
         const releases = await fetchGradleVersions(source.url);
