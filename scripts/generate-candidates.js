@@ -194,7 +194,15 @@ function generateCandidates(registry, compatData) {
       const minKotlin = matrixConstraints.agpKotlinMinimum[agpMajor] || "1.9.0";
       const maxKotlin =
         matrixConstraints.agpKotlinMaximum[agpMajor] || "9.9.99";
-      const minGradle = matrixConstraints.agpGradleMinimum[agpMajor] || "8.6.0";
+      // Check for a per-minor-version override first (e.g. AGP 8.13 requires
+      // Gradle 8.13 exactly, stricter than the AGP 8.x default of 8.6.0)
+      const agpMajorMinor = getMajorMinor(agp);
+      const overrides = matrixConstraints.agpGradleMinimumOverrides || {};
+      const minGradle =
+        overrides[agp] ||
+        overrides[agpMajorMinor] ||
+        matrixConstraints.agpGradleMinimum[agpMajor] ||
+        "8.6.0";
       const maxGradle = matrixConstraints.agpGradleMaximum[agpMajor] || "9.9.9";
 
       // Prune: Kotlin outside AGP bounds
