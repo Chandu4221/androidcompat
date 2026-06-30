@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-30T05:19:51.698Z",
+  "last_updated": "2026-06-30T08:39:01.741Z",
   "combinations": [
     {
       "id": "combo-1782468358896",
@@ -1111,7 +1111,10 @@
       "confidence": {
         "score": 25,
         "level": "low",
-        "factors": ["no_failure_signature", "broken_status:broken_sync"]
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
       },
       "notes": ""
     },
@@ -1137,7 +1140,10 @@
       "confidence": {
         "score": 25,
         "level": "low",
-        "factors": ["no_failure_signature", "broken_status:broken_sync"]
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
       },
       "notes": ""
     },
@@ -1163,7 +1169,10 @@
       "confidence": {
         "score": 25,
         "level": "low",
-        "factors": ["no_failure_signature", "broken_status:broken_sync"]
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
       },
       "notes": ""
     },
@@ -1189,7 +1198,10 @@
       "confidence": {
         "score": 25,
         "level": "low",
-        "factors": ["no_failure_signature", "broken_status:broken_sync"]
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
       },
       "notes": ""
     },
@@ -1215,7 +1227,10 @@
       "confidence": {
         "score": 25,
         "level": "low",
-        "factors": ["no_failure_signature", "broken_status:broken_sync"]
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
       },
       "notes": ""
     },
@@ -1241,7 +1256,10 @@
       "confidence": {
         "score": 25,
         "level": "low",
-        "factors": ["no_failure_signature", "broken_status:broken_sync"]
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
       },
       "notes": ""
     },
@@ -1267,7 +1285,10 @@
       "confidence": {
         "score": 25,
         "level": "low",
-        "factors": ["no_failure_signature", "broken_status:broken_sync"]
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
       },
       "notes": ""
     },
@@ -1293,7 +1314,10 @@
       "confidence": {
         "score": 25,
         "level": "low",
-        "factors": ["no_failure_signature", "broken_status:broken_sync"]
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
       },
       "notes": ""
     },
@@ -1447,7 +1471,10 @@
       "confidence": {
         "score": 25,
         "level": "low",
-        "factors": ["no_failure_signature", "broken_status:broken_sync"]
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
       },
       "notes": ""
     },
@@ -1601,7 +1628,10 @@
       "confidence": {
         "score": 25,
         "level": "low",
-        "factors": ["no_failure_signature", "broken_status:broken_sync"]
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
       },
       "notes": ""
     },
@@ -1627,7 +1657,10 @@
       "confidence": {
         "score": 25,
         "level": "low",
-        "factors": ["no_failure_signature", "broken_status:broken_sync"]
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
       },
       "notes": ""
     },
@@ -1653,7 +1686,10 @@
       "confidence": {
         "score": 25,
         "level": "low",
-        "factors": ["no_failure_signature", "broken_status:broken_sync"]
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
       },
       "notes": ""
     },
@@ -1679,7 +1715,10 @@
       "confidence": {
         "score": 25,
         "level": "low",
-        "factors": ["no_failure_signature", "broken_status:broken_sync"]
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
       },
       "notes": ""
     },
@@ -1705,7 +1744,10 @@
       "confidence": {
         "score": 25,
         "level": "low",
-        "factors": ["no_failure_signature", "broken_status:broken_sync"]
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
       },
       "notes": ""
     },
@@ -1731,7 +1773,10 @@
       "confidence": {
         "score": 25,
         "level": "low",
-        "factors": ["no_failure_signature", "broken_status:broken_sync"]
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
       },
       "notes": ""
     },
@@ -1757,7 +1802,10 @@
       "confidence": {
         "score": 25,
         "level": "low",
-        "factors": ["no_failure_signature", "broken_status:broken_sync"]
+        "factors": [
+          "no_failure_signature",
+          "broken_status:broken_sync"
+        ]
       },
       "notes": ""
     }
