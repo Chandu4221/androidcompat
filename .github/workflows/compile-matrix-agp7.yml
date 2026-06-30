@@ -103,7 +103,7 @@ jobs:
           ERROR_LOG=""
           for f in sync-output.log compile-output.log unit-test-output.log; do
             if [ -f "$f" ]; then
-              FOUND=$(grep -iE "error:|FAILURE:|Exception" "$f" | head -5 | tr '\n' ' ' || true)
+              FOUND=$(grep -A 8 -iE "FAILURE:|error:|Exception" "$f" | head -20 | tr '\n' ' ' || true)
               if [ -n "$FOUND" ]; then
                 ERROR_LOG="$FOUND"
                 break
