@@ -10,11 +10,6 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
-    plugins {
-        id("org.jetbrains.kotlin.android") version "2.2.0"
-        id("com.google.devtools.ksp") version "2.3.9"
-        id("com.google.dagger.hilt.android") version "2.59.2"
-    }
 }
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
