@@ -2,12 +2,12 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
-    alias(libs.plugins.kotlin.compose)  // ADD
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
     namespace = "dev.androidcompat.stub"
-    compileSdk  = 37
+    compileSdk = 37
     defaultConfig {
         applicationId = "dev.androidcompat.stub"
         minSdk = 24
@@ -18,21 +18,18 @@ android {
     }
     buildTypes {
         release {
-            optimization { enable = false }
+            isMinifyEnabled = false
         }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    buildFeatures {
-        compose = true  // ADD
+    kotlinOptions {
+        jvmTarget = "17"
     }
-}
-
-kotlin {
-    compilerOptions {
-        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+    buildFeatures {
+        compose = true
     }
 }
 
