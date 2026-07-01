@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-01T02:35:14.788Z",
+  "last_updated": "2026-07-01T06:56:59.651Z",
   "combinations": [
     {
       "id": "combo-1782827354335",
@@ -770,6 +770,2982 @@
       "status": "verified",
       "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28449289015",
       "verified_at": "2026-06-30T13:51:11.338Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888605481",
+      "agp": "8.12.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:05.481Z",
+      "error_log": "An exception occurred applying plugin request [id: 'com.android.application', version: '8.12.3'] > Failed to apply plugin 'com.android.internal.version-check'. > Minimum supported Gradle version is 8.13. Current version is 8.12.1. Try updating the 'distributionUrl' property in /home/runner/work/androidcompat/androidcompat/stub-project/gradle/wrapper/gradle-wrapper.properties to 'gradle-8.13-bin.zip'. ",
+      "failure_analysis": {
+        "signature": "agp_gradle_incompatibility",
+        "affected_component": "agp",
+        "root_cause": "The Android Gradle Plugin version requires a newer Gradle wrapper version than what is configured.",
+        "fix": "Update gradle-wrapper.properties to use a Gradle version that meets the AGP minimum requirement."
+      },
+      "confidence": {
+        "score": 10,
+        "level": "low",
+        "factors": [
+          "known_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888606895",
+      "agp": "8.12.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:06.895Z",
+      "error_log": "An exception occurred applying plugin request [id: 'com.android.application', version: '8.12.3'] > Failed to apply plugin 'com.android.internal.version-check'. > Minimum supported Gradle version is 8.13. Current version is 8.12.1. Try updating the 'distributionUrl' property in /home/runner/work/androidcompat/androidcompat/stub-project/gradle/wrapper/gradle-wrapper.properties to 'gradle-8.13-bin.zip'. ",
+      "failure_analysis": {
+        "signature": "agp_gradle_incompatibility",
+        "affected_component": "agp",
+        "root_cause": "The Android Gradle Plugin version requires a newer Gradle wrapper version than what is configured.",
+        "fix": "Update gradle-wrapper.properties to use a Gradle version that meets the AGP minimum requirement."
+      },
+      "confidence": {
+        "score": 10,
+        "level": "low",
+        "factors": [
+          "known_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888614000",
+      "agp": "8.11.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "failure",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_compile",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:14.000Z",
+      "error_log": "Cannot locate tasks that match ':app:kspDebugKotlin' as task 'kspDebugKotlin' not found in project ':app'. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 20,
+        "level": "low",
+        "factors": [
+          "sync_passed",
+          "unknown_failure_signature",
+          "broken_status:broken_compile"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888614619",
+      "agp": "8.11.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "failure",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_compile",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:14.619Z",
+      "error_log": "Cannot locate tasks that match ':app:kspDebugKotlin' as task 'kspDebugKotlin' not found in project ':app'. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 20,
+        "level": "low",
+        "factors": [
+          "sync_passed",
+          "unknown_failure_signature",
+          "broken_status:broken_compile"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888617575",
+      "agp": "8.11.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "failure",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_compile",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:17.575Z",
+      "error_log": "Cannot locate tasks that match ':app:kspDebugKotlin' as task 'kspDebugKotlin' not found in project ':app'. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 20,
+        "level": "low",
+        "factors": [
+          "sync_passed",
+          "unknown_failure_signature",
+          "broken_status:broken_compile"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888624014",
+      "agp": "8.11.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "failure",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_compile",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:24.014Z",
+      "error_log": "Cannot locate tasks that match ':app:kspDebugKotlin' as task 'kspDebugKotlin' not found in project ':app'. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 20,
+        "level": "low",
+        "factors": [
+          "sync_passed",
+          "unknown_failure_signature",
+          "broken_status:broken_compile"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888668153",
+      "agp": "8.11.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:08.153Z",
+      "error_log": "An exception occurred applying plugin request [id: 'com.android.application', version: '8.11.2'] > Failed to apply plugin 'com.android.internal.version-check'. > Minimum supported Gradle version is 8.13. Current version is 8.12.1. Try updating the 'distributionUrl' property in /home/runner/work/androidcompat/androidcompat/stub-project/gradle/wrapper/gradle-wrapper.properties to 'gradle-8.13-bin.zip'. ",
+      "failure_analysis": {
+        "signature": "agp_gradle_incompatibility",
+        "affected_component": "agp",
+        "root_cause": "The Android Gradle Plugin version requires a newer Gradle wrapper version than what is configured.",
+        "fix": "Update gradle-wrapper.properties to use a Gradle version that meets the AGP minimum requirement."
+      },
+      "confidence": {
+        "score": 10,
+        "level": "low",
+        "factors": [
+          "known_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888805128",
+      "agp": "8.11.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:53:25.128Z",
+      "error_log": "An exception occurred applying plugin request [id: 'com.android.application', version: '8.11.2'] > Failed to apply plugin 'com.android.internal.version-check'. > Minimum supported Gradle version is 8.13. Current version is 8.12.1. Try updating the 'distributionUrl' property in /home/runner/work/androidcompat/androidcompat/stub-project/gradle/wrapper/gradle-wrapper.properties to 'gradle-8.13-bin.zip'. ",
+      "failure_analysis": {
+        "signature": "agp_gradle_incompatibility",
+        "affected_component": "agp",
+        "root_cause": "The Android Gradle Plugin version requires a newer Gradle wrapper version than what is configured.",
+        "fix": "Update gradle-wrapper.properties to use a Gradle version that meets the AGP minimum requirement."
+      },
+      "confidence": {
+        "score": 10,
+        "level": "low",
+        "factors": [
+          "known_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888618841",
+      "agp": "8.11.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:18.841Z",
+      "error_log": "An exception occurred applying plugin request [id: 'com.android.application', version: '8.11.2'] > Failed to apply plugin 'com.android.internal.version-check'. > Minimum supported Gradle version is 8.13. Current version is 8.12.1. Try updating the 'distributionUrl' property in /home/runner/work/androidcompat/androidcompat/stub-project/gradle/wrapper/gradle-wrapper.properties to 'gradle-8.13-bin.zip'. ",
+      "failure_analysis": {
+        "signature": "agp_gradle_incompatibility",
+        "affected_component": "agp",
+        "root_cause": "The Android Gradle Plugin version requires a newer Gradle wrapper version than what is configured.",
+        "fix": "Update gradle-wrapper.properties to use a Gradle version that meets the AGP minimum requirement."
+      },
+      "confidence": {
+        "score": 10,
+        "level": "low",
+        "factors": [
+          "known_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888748282",
+      "agp": "8.11.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:28.282Z",
+      "error_log": "An exception occurred applying plugin request [id: 'com.android.application', version: '8.11.2'] > Failed to apply plugin 'com.android.internal.version-check'. > Minimum supported Gradle version is 8.13. Current version is 8.12.1. Try updating the 'distributionUrl' property in /home/runner/work/androidcompat/androidcompat/stub-project/gradle/wrapper/gradle-wrapper.properties to 'gradle-8.13-bin.zip'. ",
+      "failure_analysis": {
+        "signature": "agp_gradle_incompatibility",
+        "affected_component": "agp",
+        "root_cause": "The Android Gradle Plugin version requires a newer Gradle wrapper version than what is configured.",
+        "fix": "Update gradle-wrapper.properties to use a Gradle version that meets the AGP minimum requirement."
+      },
+      "confidence": {
+        "score": 10,
+        "level": "low",
+        "factors": [
+          "known_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888702916",
+      "agp": "8.10.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "failure",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_compile",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:42.916Z",
+      "error_log": "Cannot locate tasks that match ':app:kspDebugKotlin' as task 'kspDebugKotlin' not found in project ':app'. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 20,
+        "level": "low",
+        "factors": [
+          "sync_passed",
+          "unknown_failure_signature",
+          "broken_status:broken_compile"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888692904",
+      "agp": "8.10.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "failure",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_compile",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:32.904Z",
+      "error_log": "Cannot locate tasks that match ':app:kspDebugKotlin' as task 'kspDebugKotlin' not found in project ':app'. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 20,
+        "level": "low",
+        "factors": [
+          "sync_passed",
+          "unknown_failure_signature",
+          "broken_status:broken_compile"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888786232",
+      "agp": "8.10.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "failure",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_compile",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:53:06.232Z",
+      "error_log": "Cannot locate tasks that match ':app:kspDebugKotlin' as task 'kspDebugKotlin' not found in project ':app'. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 20,
+        "level": "low",
+        "factors": [
+          "sync_passed",
+          "unknown_failure_signature",
+          "broken_status:broken_compile"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888786594",
+      "agp": "8.10.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "failure",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_compile",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:53:06.594Z",
+      "error_log": "Cannot locate tasks that match ':app:kspDebugKotlin' as task 'kspDebugKotlin' not found in project ':app'. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 20,
+        "level": "low",
+        "factors": [
+          "sync_passed",
+          "unknown_failure_signature",
+          "broken_status:broken_compile"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888770320",
+      "agp": "8.10.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "failure",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_compile",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:50.320Z",
+      "error_log": "Cannot locate tasks that match ':app:kspDebugKotlin' as task 'kspDebugKotlin' not found in project ':app'. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 20,
+        "level": "low",
+        "factors": [
+          "sync_passed",
+          "unknown_failure_signature",
+          "broken_status:broken_compile"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888683339",
+      "agp": "8.10.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "failure",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_compile",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:23.339Z",
+      "error_log": "Cannot locate tasks that match ':app:kspDebugKotlin' as task 'kspDebugKotlin' not found in project ':app'. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 20,
+        "level": "low",
+        "factors": [
+          "sync_passed",
+          "unknown_failure_signature",
+          "broken_status:broken_compile"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888763948",
+      "agp": "8.10.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "failure",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_compile",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:43.948Z",
+      "error_log": "Cannot locate tasks that match ':app:kspDebugKotlin' as task 'kspDebugKotlin' not found in project ':app'. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 20,
+        "level": "low",
+        "factors": [
+          "sync_passed",
+          "unknown_failure_signature",
+          "broken_status:broken_compile"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888747548",
+      "agp": "8.10.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "failure",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_compile",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:27.548Z",
+      "error_log": "Cannot locate tasks that match ':app:kspDebugKotlin' as task 'kspDebugKotlin' not found in project ':app'. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 20,
+        "level": "low",
+        "factors": [
+          "sync_passed",
+          "unknown_failure_signature",
+          "broken_status:broken_compile"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888675651",
+      "agp": "8.9.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:15.651Z",
+      "error_log": "An exception occurred applying plugin request [id: 'com.google.devtools.ksp', version: '2.3.9'] > Failed to apply plugin 'com.google.devtools.ksp'. > The minimum supported AGP version is 8.10.0. Please upgrade the AGP version in your project. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888738692",
+      "agp": "8.9.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:18.692Z",
+      "error_log": "An exception occurred applying plugin request [id: 'com.google.devtools.ksp', version: '2.3.9'] > Failed to apply plugin 'com.google.devtools.ksp'. > The minimum supported AGP version is 8.10.0. Please upgrade the AGP version in your project. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888690289",
+      "agp": "8.9.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:30.289Z",
+      "error_log": "An exception occurred applying plugin request [id: 'com.google.devtools.ksp', version: '2.3.8'] > Failed to apply plugin 'com.google.devtools.ksp'. > The minimum supported AGP version is 8.10.0. Please upgrade the AGP version in your project. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888770995",
+      "agp": "8.9.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:50.995Z",
+      "error_log": "An exception occurred applying plugin request [id: 'com.google.devtools.ksp', version: '2.3.8'] > Failed to apply plugin 'com.google.devtools.ksp'. > The minimum supported AGP version is 8.10.0. Please upgrade the AGP version in your project. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888704589",
+      "agp": "8.9.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:44.590Z",
+      "error_log": "An exception occurred applying plugin request [id: 'com.google.devtools.ksp', version: '2.3.9'] > Failed to apply plugin 'com.google.devtools.ksp'. > The minimum supported AGP version is 8.10.0. Please upgrade the AGP version in your project. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888688934",
+      "agp": "8.9.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:28.934Z",
+      "error_log": "An exception occurred applying plugin request [id: 'com.google.devtools.ksp', version: '2.3.9'] > Failed to apply plugin 'com.google.devtools.ksp'. > The minimum supported AGP version is 8.10.0. Please upgrade the AGP version in your project. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888674005",
+      "agp": "8.9.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:14.005Z",
+      "error_log": "An exception occurred applying plugin request [id: 'com.google.devtools.ksp', version: '2.3.8'] > Failed to apply plugin 'com.google.devtools.ksp'. > The minimum supported AGP version is 8.10.0. Please upgrade the AGP version in your project. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888740243",
+      "agp": "8.9.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:20.243Z",
+      "error_log": "An exception occurred applying plugin request [id: 'com.google.devtools.ksp', version: '2.3.8'] > Failed to apply plugin 'com.google.devtools.ksp'. > The minimum supported AGP version is 8.10.0. Please upgrade the AGP version in your project. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888674408",
+      "agp": "8.8.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:14.408Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888687583",
+      "agp": "8.8.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:27.583Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888766092",
+      "agp": "8.8.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:46.093Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888617322",
+      "agp": "8.8.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:17.322Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888616105",
+      "agp": "8.12.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "failure",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_compile",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:16.105Z",
+      "error_log": "Cannot locate tasks that match ':app:kspDebugKotlin' as task 'kspDebugKotlin' not found in project ':app'. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 20,
+        "level": "low",
+        "factors": [
+          "sync_passed",
+          "unknown_failure_signature",
+          "broken_status:broken_compile"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888607775",
+      "agp": "8.8.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:07.775Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888682357",
+      "agp": "8.8.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:22.357Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888675456",
+      "agp": "8.8.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:15.456Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888740606",
+      "agp": "8.8.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:20.606Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888799402",
+      "agp": "8.7.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:53:19.402Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888609820",
+      "agp": "8.7.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:09.820Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888741411",
+      "agp": "8.7.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:21.411Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888611303",
+      "agp": "8.7.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:11.303Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888750021",
+      "agp": "8.7.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:30.021Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888618090",
+      "agp": "8.7.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:18.090Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888687635",
+      "agp": "8.12.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "failure",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_compile",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:27.635Z",
+      "error_log": "Cannot locate tasks that match ':app:kspDebugKotlin' as task 'kspDebugKotlin' not found in project ':app'. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 20,
+        "level": "low",
+        "factors": [
+          "sync_passed",
+          "unknown_failure_signature",
+          "broken_status:broken_compile"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888756871",
+      "agp": "8.7.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:36.871Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888801592",
+      "agp": "8.7.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:53:21.592Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888739866",
+      "agp": "8.6.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:19.866Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888730384",
+      "agp": "8.6.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:10.384Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888756017",
+      "agp": "8.6.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:36.017Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888705144",
+      "agp": "8.6.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:45.144Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888684375",
+      "agp": "8.6.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:24.375Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888761083",
+      "agp": "8.6.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:41.083Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888673329",
+      "agp": "8.6.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:13.329Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888759026",
+      "agp": "8.6.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:39.026Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888626923",
+      "agp": "8.12.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "failure",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_compile",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:26.924Z",
+      "error_log": "Cannot locate tasks that match ':app:kspDebugKotlin' as task 'kspDebugKotlin' not found in project ':app'. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 20,
+        "level": "low",
+        "factors": [
+          "sync_passed",
+          "unknown_failure_signature",
+          "broken_status:broken_compile"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888732822",
+      "agp": "8.5.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:52:12.822Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888671619",
+      "agp": "8.5.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:11.619Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888816985",
+      "agp": "8.5.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:53:36.985Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888689037",
+      "agp": "8.5.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:51:29.037Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888832905",
+      "agp": "8.5.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:53:52.905Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888832513",
+      "agp": "8.5.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:53:52.513Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888824511",
+      "agp": "8.5.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:53:44.511Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888906920",
+      "agp": "8.5.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:55:06.920Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888816326",
+      "agp": "8.4.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:53:36.326Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888861840",
+      "agp": "8.4.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:54:21.841Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888616258",
+      "agp": "8.12.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "failure",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_compile",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:16.258Z",
+      "error_log": "Cannot locate tasks that match ':app:kspDebugKotlin' as task 'kspDebugKotlin' not found in project ':app'. ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 20,
+        "level": "low",
+        "factors": [
+          "sync_passed",
+          "unknown_failure_signature",
+          "broken_status:broken_compile"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888877199",
+      "agp": "8.4.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:54:37.199Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888871638",
+      "agp": "8.4.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.13",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:54:31.639Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888938263",
+      "agp": "8.4.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:55:38.263Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888812547",
+      "agp": "8.4.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:53:32.547Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888935998",
+      "agp": "8.4.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:55:35.998Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888831213",
+      "agp": "8.4.2",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:53:51.213Z",
+      "error_log": "'void com.android.build.api.variant.AndroidComponentsExtension.addKspConfigurations(boolean)' ",
+      "failure_analysis": {
+        "signature": "unknown",
+        "affected_component": "unknown",
+        "root_cause": "Could not match the error log to a known failure signature.",
+        "fix": "Review the full CI log for more details."
+      },
+      "confidence": {
+        "score": 0,
+        "level": "low",
+        "factors": [
+          "unknown_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888968872",
+      "agp": "9.1.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:56:08.872Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888944603",
+      "agp": "9.1.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:55:44.603Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888955228",
+      "agp": "9.1.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:55:55.228Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888925198",
+      "agp": "9.1.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:55:25.199Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888609276",
+      "agp": "8.12.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.58",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:09.277Z",
+      "error_log": "An exception occurred applying plugin request [id: 'com.android.application', version: '8.12.3'] > Failed to apply plugin 'com.android.internal.version-check'. > Minimum supported Gradle version is 8.13. Current version is 8.12.1. Try updating the 'distributionUrl' property in /home/runner/work/androidcompat/androidcompat/stub-project/gradle/wrapper/gradle-wrapper.properties to 'gradle-8.13-bin.zip'. ",
+      "failure_analysis": {
+        "signature": "agp_gradle_incompatibility",
+        "affected_component": "agp",
+        "root_cause": "The Android Gradle Plugin version requires a newer Gradle wrapper version than what is configured.",
+        "fix": "Update gradle-wrapper.properties to use a Gradle version that meets the AGP minimum requirement."
+      },
+      "confidence": {
+        "score": 10,
+        "level": "low",
+        "factors": [
+          "known_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888990995",
+      "agp": "9.1.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:56:30.995Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888878154",
+      "agp": "9.1.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:54:38.154Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888972028",
+      "agp": "9.1.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:56:12.028Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888917809",
+      "agp": "9.1.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:55:17.809Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888979561",
+      "agp": "9.0.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:56:19.561Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888968826",
+      "agp": "9.0.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:56:08.826Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888993479",
+      "agp": "9.0.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:56:33.479Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782889007047",
+      "agp": "9.0.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.6.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:56:47.047Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888946950",
+      "agp": "9.0.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.2",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:55:46.950Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888890515",
+      "agp": "9.0.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.59.1",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:54:50.515Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888600645",
+      "agp": "8.12.3",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.9",
+      "hilt": "2.57.2",
+      "gradle": "8.12.1",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "failure",
+        "compile": "skipped",
+        "unit_test": "skipped",
+        "instrumentation": "skipped"
+      },
+      "status": "broken_sync",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:50:00.646Z",
+      "error_log": "An exception occurred applying plugin request [id: 'com.android.application', version: '8.12.3'] > Failed to apply plugin 'com.android.internal.version-check'. > Minimum supported Gradle version is 8.13. Current version is 8.12.1. Try updating the 'distributionUrl' property in /home/runner/work/androidcompat/androidcompat/stub-project/gradle/wrapper/gradle-wrapper.properties to 'gradle-8.13-bin.zip'. ",
+      "failure_analysis": {
+        "signature": "agp_gradle_incompatibility",
+        "affected_component": "agp",
+        "root_cause": "The Android Gradle Plugin version requires a newer Gradle wrapper version than what is configured.",
+        "fix": "Update gradle-wrapper.properties to use a Gradle version that meets the AGP minimum requirement."
+      },
+      "confidence": {
+        "score": 10,
+        "level": "low",
+        "factors": [
+          "known_failure_signature",
+          "broken_status:broken_sync"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888896091",
+      "agp": "9.0.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.2",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:54:56.091Z",
+      "error_log": "",
+      "failure_analysis": null,
+      "confidence": {
+        "score": 100,
+        "level": "high",
+        "factors": [
+          "sync_passed",
+          "compile_passed",
+          "unit_test_passed",
+          "no_failure_signature",
+          "fully_verified"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "combo-1782888893853",
+      "agp": "9.0.1",
+      "kotlin": "2.3.21",
+      "ksp": "2.3.8",
+      "hilt": "2.59.1",
+      "gradle": "9.6.0",
+      "composeBom": "2026.06.00",
+      "verification": {
+        "sync": "success",
+        "compile": "success",
+        "unit_test": "success",
+        "instrumentation": "skipped"
+      },
+      "status": "verified",
+      "ci_run_url": "https://github.com/Chandu4221/androidcompat/actions/runs/28499130440",
+      "verified_at": "2026-07-01T06:54:53.853Z",
       "error_log": "",
       "failure_analysis": null,
       "confidence": {
