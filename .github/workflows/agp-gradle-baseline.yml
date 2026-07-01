@@ -15,7 +15,7 @@ jobs:
     outputs:
       combos: ${{ steps.set-matrix.outputs.combos }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: set-matrix
         run: |
           COMBOS=$(cat data/combos-to-test.json | jq -c '.')
@@ -31,7 +31,7 @@ jobs:
         combo: ${{ fromJson(needs.load-combos.outputs.combos) }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Setup Java ${{ matrix.combo.java_version }}
         uses: actions/setup-java@v5
@@ -40,7 +40,7 @@ jobs:
           java-version: ${{ matrix.combo.java_version }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: "22"
           cache: "npm"
@@ -52,7 +52,7 @@ jobs:
         run: node scripts/inject-versions.js '${{ toJson(matrix.combo) }}'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v5
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Stage - Compile
         id: compile
@@ -72,7 +72,7 @@ jobs:
 
       - name: Upload result artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: result-${{ matrix.combo.agp }}-${{ matrix.combo.gradle }}
           path: result-*.json
@@ -82,17 +82,17 @@ jobs:
     runs-on: ubuntu-latest
     if: always()
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Download all result artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: results
           pattern: result-*
           merge-multiple: true
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: "22"
 
@@ -103,7 +103,7 @@ jobs:
         run: node scripts/update-compat.js --merge-artifacts --artifacts-dir results
 
       - name: Create Pull Request with new compat data
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           commit-message: "chore: update compatibility matrix"
           title: "Update Compatibility Matrix"
