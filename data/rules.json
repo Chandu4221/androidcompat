@@ -9,7 +9,7 @@
     "description": "Controls which versions enter the test matrix and how combos are pruned.",
 
     "agpMajorVersions": ["8", "9"],
-    "kotlinMajorVersions": ["2"],
+    "kotlinMajorVersions": ["1", "2"],
     "versionsPerAgpMajor": 2,
 
     "agpGradleMinimum": {

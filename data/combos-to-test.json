@@ -42,376 +42,87 @@
   {
     "agp": "8.12.3",
     "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.57.2",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.12.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.58",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.12.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.57.2",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.12.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.58",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.12.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.57.2",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.12.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.58",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.12.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.57.2",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.11.2",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.58",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.11.2",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.57.2",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.11.2",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.58",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.11.2",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.57.2",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.11.2",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.58",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.11.2",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.57.2",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.11.2",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.58",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.11.2",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.57.2",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.10.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.58",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.10.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.57.2",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.10.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.58",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.10.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.57.2",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.10.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.58",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.10.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.57.2",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.10.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.58",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.10.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.57.2",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.9.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.58",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.9.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.57.2",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.9.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.58",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.9.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.57.2",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.9.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.58",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.9.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.57.2",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.9.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.58",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.9.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.57.2",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.8.2",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.58",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.8.2",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.57.2",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.8.2",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.58",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.8.2",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.57.2",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.8.2",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.58",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.8.2",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.57.2",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.8.2",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.58",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.8.2",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.57.2",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.7.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.58",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.7.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.57.2",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.7.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.58",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.7.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.57.2",
-    "gradle": "8.13",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.7.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.58",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.7.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.57.2",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.7.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.58",
-    "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "8.7.3",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.57.2",
+    "ksp"
+✅ 76 candidates written to combos-to-test.json
+
+📋 Candidates:
+  1. AGP 8.13.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  2. AGP 8.13.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  3. AGP 8.13.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  4. AGP 8.13.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  5. AGP 8.12.3 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  6. AGP 8.12.3 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  7. AGP 8.12.3 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  8. AGP 8.12.3 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  9. AGP 8.12.3 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  10. AGP 8.12.3 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  11. AGP 8.12.3 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  12. AGP 8.12.3 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  13. AGP 8.11.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  14. AGP 8.11.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  15. AGP 8.11.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  16. AGP 8.11.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  17. AGP 8.11.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  18. AGP 8.11.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  19. AGP 8.11.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  20. AGP 8.11.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  21. AGP 8.10.1 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  22. AGP 8.10.1 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  23. AGP 8.10.1 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  24. AGP 8.10.1 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  25. AGP 8.10.1 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  26. AGP 8.10.1 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  27. AGP 8.10.1 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  28. AGP 8.10.1 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  29. AGP 8.9.3 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  30. AGP 8.9.3 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  31. AGP 8.9.3 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  32. AGP 8.9.3 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  33. AGP 8.9.3 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  34. AGP 8.9.3 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  35. AGP 8.9.3 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  36. AGP 8.9.3 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  37. AGP 8.8.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  38. AGP 8.8.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  39. AGP 8.8.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  40. AGP 8.8.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  41. AGP 8.8.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  42. AGP 8.8.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  43. AGP 8.8.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  44. AGP 8.8.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  45. AGP 8.7.3 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  46. AGP 8.7.3 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  47. AGP 8.7.3 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  48. AGP 8.7.3 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  49. AGP 8.7.3 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  50. AGP 8.7.3 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  51. AGP 8.7.3 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  52. AGP 8.7.3 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  53. AGP 8.6.1 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  54. AGP 8.6.1 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  55. AGP 8.6.1 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  56. AGP 8.6.1 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  57. AGP 8.6.1 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  58. AGP 8.6.1 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  59. AGP 8.6.1 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  60. AGP 8.6.1 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  61. AGP 8.5.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  62. AGP 8.5.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  63. AGP 8.5.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  64. AGP 8.5.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  65. AGP 8.5.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  66. AGP 8.5.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  67. AGP 8.5.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  68. AGP 8.5.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  69. AGP 8.4.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  70. AGP 8.4.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  71. AGP 8.4.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.13 | BOM 2026.06.00
+  72. AGP 8.4.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.13 | BOM 2026.06.00
+  73. AGP 8.4.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  74. AGP 8.4.2 | Kotlin 2.3.21 | KSP 2.3.9 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+  75. AGP 8.4.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.58 | Gradle 8.12.1 | BOM 2026.06.00
+  76. AGP 8.4.2 | Kotlin 2.3.21 | KSP 2.3.8 | Hilt 2.57.2 | Gradle 8.12.1 | BOM 2026.06.00
+ilt": "2.57.2",
     "gradle": "8.12.1",
     "composeBom": "2026.06.00"
   },
@@ -605,134 +316,6 @@
     "ksp": "2.3.8",
     "hilt": "2.57.2",
     "gradle": "8.12.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "9.1.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.59.2",
-    "gradle": "9.6.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "9.1.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.59.1",
-    "gradle": "9.6.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "9.1.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.59.2",
-    "gradle": "9.6.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "9.1.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.59.1",
-    "gradle": "9.6.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "9.1.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.59.2",
-    "gradle": "9.6.0",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "9.1.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.59.1",
-    "gradle": "9.6.0",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "9.1.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.59.2",
-    "gradle": "9.6.0",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "9.1.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.59.1",
-    "gradle": "9.6.0",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "9.0.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.59.2",
-    "gradle": "9.6.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "9.0.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.59.1",
-    "gradle": "9.6.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "9.0.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.59.2",
-    "gradle": "9.6.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "9.0.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.59.1",
-    "gradle": "9.6.1",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "9.0.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.59.2",
-    "gradle": "9.6.0",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "9.0.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.9",
-    "hilt": "2.59.1",
-    "gradle": "9.6.0",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "9.0.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.59.2",
-    "gradle": "9.6.0",
-    "composeBom": "2026.06.00"
-  },
-  {
-    "agp": "9.0.1",
-    "kotlin": "2.3.21",
-    "ksp": "2.3.8",
-    "hilt": "2.59.1",
-    "gradle": "9.6.0",
     "composeBom": "2026.06.00"
   }
 ]
