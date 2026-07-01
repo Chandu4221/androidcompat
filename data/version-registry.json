@@ -736,2626 +736,1429 @@
       "releasedAt": "2026-05-05T13:53:53.000Z"
     }
   },
-  "ksp": {
-    "1.5.30-1.0.0": {
-      "version": "1.5.30-1.0.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2021-09-07T18:50:49.000Z"
-    },
-    "1.5.31-1.0.0": {
-      "version": "1.5.31-1.0.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2021-09-21T23:57:43.000Z"
-    },
-    "1.5.31-1.0.1": {
-      "version": "1.5.31-1.0.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2021-11-12T00:50:16.000Z"
-    },
-    "1.6.0-M1-1.0.0": {
-      "version": "1.6.0-M1-1.0.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.6.0-RC-1.0.0": {
-      "version": "1.6.0-RC-1.0.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.6.0-RC-1.0.1-RC": {
-      "version": "1.6.0-RC-1.0.1-RC",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.6.0-1.0.1": {
-      "version": "1.6.0-1.0.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2021-11-16T00:51:08.000Z"
-    },
-    "1.6.0-1.0.2": {
-      "version": "1.6.0-1.0.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2021-12-13T07:07:39.000Z"
-    },
-    "1.6.10-RC-1.0.1": {
-      "version": "1.6.10-RC-1.0.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.6.10-1.0.2": {
-      "version": "1.6.10-1.0.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2021-12-14T19:06:42.000Z"
-    },
-    "1.6.10-1.0.3": {
-      "version": "1.6.10-1.0.3",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2022-02-16T23:37:40.000Z"
-    },
-    "1.6.10-1.0.4": {
-      "version": "1.6.10-1.0.4",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2022-02-23T01:07:46.000Z"
-    },
-    "1.6.20-M1-1.0.2": {
-      "version": "1.6.20-M1-1.0.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.6.20-RC-1.0.4": {
-      "version": "1.6.20-RC-1.0.4",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.6.20-RC2-1.0.4": {
-      "version": "1.6.20-RC2-1.0.4",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.6.20-1.0.4": {
-      "version": "1.6.20-1.0.4",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2022-04-02T23:43:53.000Z"
-    },
-    "1.6.20-1.0.5": {
-      "version": "1.6.20-1.0.5",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2022-04-07T21:55:49.000Z"
-    },
-    "1.6.21-1.0.5": {
-      "version": "1.6.21-1.0.5",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2022-04-20T20:22:10.000Z"
-    },
-    "1.6.21-1.0.6": {
-      "version": "1.6.21-1.0.6",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2022-06-10T04:04:52.000Z"
-    },
-    "1.7.0-Beta-1.0.5": {
-      "version": "1.7.0-Beta-1.0.5",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.7.0-RC-1.0.5": {
-      "version": "1.7.0-RC-1.0.5",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.7.0-RC2-1.0.5": {
-      "version": "1.7.0-RC2-1.0.5",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.7.0-1.0.6": {
-      "version": "1.7.0-1.0.6",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2022-06-10T05:06:59.000Z"
-    },
-    "1.7.10-1.0.6": {
-      "version": "1.7.10-1.0.6",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2022-07-07T21:22:39.000Z"
-    },
-    "1.7.20-Beta-1.0.6": {
-      "version": "1.7.20-Beta-1.0.6",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.7.20-RC-1.0.6": {
-      "version": "1.7.20-RC-1.0.6",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.7.20-1.0.6": {
-      "version": "1.7.20-1.0.6",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2022-09-29T16:16:32.000Z"
-    },
-    "1.7.20-1.0.7": {
-      "version": "1.7.20-1.0.7",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2022-10-13T20:59:35.000Z"
-    },
-    "1.7.20-1.0.8": {
-      "version": "1.7.20-1.0.8",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2022-11-03T22:47:15.000Z"
-    },
-    "1.7.21-1.0.8": {
-      "version": "1.7.21-1.0.8",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2022-11-09T18:01:04.000Z"
-    },
-    "1.7.22-1.0.8": {
-      "version": "1.7.22-1.0.8",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2022-11-28T20:27:06.000Z"
-    },
-    "1.8.0-Beta-1.0.8": {
-      "version": "1.8.0-Beta-1.0.8",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.8.0-RC-1.0.8": {
-      "version": "1.8.0-RC-1.0.8",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.8.0-RC2-1.0.8": {
-      "version": "1.8.0-RC2-1.0.8",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.8.0-1.0.8": {
-      "version": "1.8.0-1.0.8",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2022-12-28T23:44:37.000Z"
-    },
-    "1.8.0-1.0.9": {
-      "version": "1.8.0-1.0.9",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2023-01-26T01:26:12.000Z"
-    },
-    "1.8.10-1.0.9": {
-      "version": "1.8.10-1.0.9",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2023-02-02T22:13:24.000Z"
-    },
-    "1.8.20-Beta-1.0.9": {
-      "version": "1.8.20-Beta-1.0.9",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.8.20-RC-1.0.9": {
-      "version": "1.8.20-RC-1.0.9",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.8.20-RC2-1.0.9": {
-      "version": "1.8.20-RC2-1.0.9",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.8.20-1.0.10": {
-      "version": "1.8.20-1.0.10",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2023-04-03T11:58:39.000Z"
-    },
-    "1.8.20-1.0.11": {
-      "version": "1.8.20-1.0.11",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2023-04-18T05:32:21.000Z"
-    },
-    "1.8.21-1.0.11": {
-      "version": "1.8.21-1.0.11",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2023-04-27T14:59:30.000Z"
-    },
-    "1.8.22-1.0.11": {
-      "version": "1.8.22-1.0.11",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2023-06-08T19:58:40.000Z"
-    },
-    "1.9.0-Beta-1.0.11": {
-      "version": "1.9.0-Beta-1.0.11",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.9.0-RC-1.0.11": {
-      "version": "1.9.0-RC-1.0.11",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.9.0-1.0.11": {
-      "version": "1.9.0-1.0.11",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2023-07-06T20:44:19.000Z"
-    },
-    "1.9.0-1.0.12": {
-      "version": "1.9.0-1.0.12",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2023-07-20T18:45:19.000Z"
-    },
-    "1.9.0-1.0.13": {
-      "version": "1.9.0-1.0.13",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2023-08-01T19:54:33.000Z"
-    },
-    "1.9.10-1.0.13": {
-      "version": "1.9.10-1.0.13",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2023-08-24T00:22:49.000Z"
-    },
-    "1.9.20-Beta-1.0.13": {
-      "version": "1.9.20-Beta-1.0.13",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.9.20-Beta2-1.0.13": {
-      "version": "1.9.20-Beta2-1.0.13",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.9.20-RC-1.0.13": {
-      "version": "1.9.20-RC-1.0.13",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.9.20-RC2-1.0.13": {
-      "version": "1.9.20-RC2-1.0.13",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "1.9.20-1.0.13": {
-      "version": "1.9.20-1.0.13",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2023-10-31T18:17:58.000Z"
-    },
-    "1.9.20-1.0.14": {
-      "version": "1.9.20-1.0.14",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.298Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2023-11-02T20:08:44.000Z"
-    },
-    "1.9.21-1.0.15": {
-      "version": "1.9.21-1.0.15",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2023-11-27T19:51:48.000Z"
-    },
-    "1.9.21-1.0.16": {
-      "version": "1.9.21-1.0.16",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2023-12-14T06:16:21.000Z"
-    },
-    "1.9.22-1.0.16": {
-      "version": "1.9.22-1.0.16",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2023-12-25T07:50:52.000Z"
-    },
-    "1.9.22-1.0.17": {
-      "version": "1.9.22-1.0.17",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-01-18T22:52:07.000Z"
-    },
-    "1.9.22-1.0.18": {
-      "version": "1.9.22-1.0.18",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-02-29T03:20:07.000Z"
-    },
-    "1.9.23-1.0.19": {
-      "version": "1.9.23-1.0.19",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-03-07T22:37:31.000Z"
-    },
-    "1.9.23-1.0.20": {
-      "version": "1.9.23-1.0.20",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-04-05T00:31:58.000Z"
-    },
-    "1.9.24-1.0.20": {
-      "version": "1.9.24-1.0.20",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-05-07T18:30:16.000Z"
-    },
-    "1.9.25-1.0.20": {
-      "version": "1.9.25-1.0.20",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-07-22T23:42:28.000Z"
-    },
-    "2.0.0-Beta1-1.0.14": {
-      "version": "2.0.0-Beta1-1.0.14",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.0-Beta1-1.0.15": {
-      "version": "2.0.0-Beta1-1.0.15",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.0-Beta2-1.0.16": {
-      "version": "2.0.0-Beta2-1.0.16",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.0-Beta3-1.0.17": {
-      "version": "2.0.0-Beta3-1.0.17",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.0-Beta4-1.0.17": {
-      "version": "2.0.0-Beta4-1.0.17",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.0-Beta4-1.0.19": {
-      "version": "2.0.0-Beta4-1.0.19",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.0-Beta4-1.0.18": {
-      "version": "2.0.0-Beta4-1.0.18",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.0-Beta5-1.0.20": {
-      "version": "2.0.0-Beta5-1.0.20",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.0-Beta5-1.0.19": {
-      "version": "2.0.0-Beta5-1.0.19",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.0-RC1-1.0.20": {
-      "version": "2.0.0-RC1-1.0.20",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.0-RC2-1.0.20": {
-      "version": "2.0.0-RC2-1.0.20",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.0-RC3-1.0.20": {
-      "version": "2.0.0-RC3-1.0.20",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.0-1.0.21": {
-      "version": "2.0.0-1.0.21",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-05-21T18:26:05.000Z"
-    },
-    "2.0.0-1.0.22": {
-      "version": "2.0.0-1.0.22",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-06-05T20:56:42.000Z"
-    },
-    "2.0.0-1.0.23": {
-      "version": "2.0.0-1.0.23",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-07-11T18:01:42.000Z"
-    },
-    "2.0.0-1.0.24": {
-      "version": "2.0.0-1.0.24",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-07-29T19:01:19.000Z"
-    },
-    "2.0.10-RC-1.0.23": {
-      "version": "2.0.10-RC-1.0.23",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.10-RC2-1.0.24": {
-      "version": "2.0.10-RC2-1.0.24",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.10-1.0.24": {
-      "version": "2.0.10-1.0.24",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-08-06T18:13:49.000Z"
-    },
-    "2.0.20-Beta1-1.0.22": {
-      "version": "2.0.20-Beta1-1.0.22",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.20-Beta2-1.0.23": {
-      "version": "2.0.20-Beta2-1.0.23",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.20-RC-1.0.24": {
-      "version": "2.0.20-RC-1.0.24",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.20-RC2-1.0.24": {
-      "version": "2.0.20-RC2-1.0.24",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.20-1.0.24": {
-      "version": "2.0.20-1.0.24",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-08-22T19:35:51.000Z"
-    },
-    "2.0.20-1.0.25": {
-      "version": "2.0.20-1.0.25",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-09-05T17:35:30.000Z"
-    },
-    "2.0.21-RC-1.0.25": {
-      "version": "2.0.21-RC-1.0.25",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.0.21-1.0.25": {
-      "version": "2.0.21-1.0.25",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-10-11T04:34:06.000Z"
-    },
-    "2.0.21-1.0.26": {
-      "version": "2.0.21-1.0.26",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-10-23T19:24:23.000Z"
-    },
-    "2.0.21-1.0.27": {
-      "version": "2.0.21-1.0.27",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-11-07T21:08:13.000Z"
-    },
-    "2.0.21-1.0.28": {
-      "version": "2.0.21-1.0.28",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-11-15T22:31:36.000Z"
-    },
-    "2.1.0-Beta1-1.0.25": {
-      "version": "2.1.0-Beta1-1.0.25",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.0-Beta2-1.0.26": {
-      "version": "2.1.0-Beta2-1.0.26",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.0-Beta2-1.0.25": {
-      "version": "2.1.0-Beta2-1.0.25",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.0-RC-1.0.26": {
-      "version": "2.1.0-RC-1.0.26",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.0-RC-1.0.27": {
-      "version": "2.1.0-RC-1.0.27",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.0-RC2-1.0.28": {
-      "version": "2.1.0-RC2-1.0.28",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.0-1.0.28": {
-      "version": "2.1.0-1.0.28",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-11-27T20:46:00.000Z"
-    },
-    "2.1.0-1.0.29": {
-      "version": "2.1.0-1.0.29",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2024-11-27T23:25:22.000Z"
-    },
-    "2.1.10-RC-1.0.29": {
-      "version": "2.1.10-RC-1.0.29",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.10-RC2-1.0.29": {
-      "version": "2.1.10-RC2-1.0.29",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.10-1.0.29": {
-      "version": "2.1.10-1.0.29",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-01-28T20:17:38.000Z"
-    },
-    "2.1.10-1.0.30": {
-      "version": "2.1.10-1.0.30",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-02-14T03:14:14.000Z"
-    },
-    "2.1.10-1.0.31": {
-      "version": "2.1.10-1.0.31",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-02-27T18:48:41.000Z"
-    },
-    "2.1.20-Beta1-1.0.29": {
-      "version": "2.1.20-Beta1-1.0.29",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.20-Beta2-1.0.29": {
-      "version": "2.1.20-Beta2-1.0.29",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.20-Beta2-1.0.30": {
-      "version": "2.1.20-Beta2-1.0.30",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.20-RC-1.0.30": {
-      "version": "2.1.20-RC-1.0.30",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.20-RC-1.0.31": {
-      "version": "2.1.20-RC-1.0.31",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.20-RC2-1.0.31": {
-      "version": "2.1.20-RC2-1.0.31",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.20-RC3-1.0.31": {
-      "version": "2.1.20-RC3-1.0.31",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.20-1.0.31": {
-      "version": "2.1.20-1.0.31",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-03-21T01:45:27.000Z"
-    },
-    "2.1.20-1.0.32": {
-      "version": "2.1.20-1.0.32",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-03-26T17:10:04.000Z"
-    },
-    "2.1.20-2.0.0": {
-      "version": "2.1.20-2.0.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.299Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-04-08T23:32:22.000Z"
-    },
-    "2.1.20-2.0.1": {
-      "version": "2.1.20-2.0.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-04-30T23:14:03.000Z"
-    },
-    "2.1.21-RC-2.0.0": {
-      "version": "2.1.21-RC-2.0.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.21-RC2-2.0.1": {
-      "version": "2.1.21-RC2-2.0.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.1.21-2.0.1": {
-      "version": "2.1.21-2.0.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-05-13T21:25:17.000Z"
-    },
-    "2.1.21-2.0.2": {
-      "version": "2.1.21-2.0.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-06-09T22:46:48.000Z"
-    },
-    "2.2.0-Beta1-2.0.0": {
-      "version": "2.2.0-Beta1-2.0.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.2.0-Beta2-2.0.1": {
-      "version": "2.2.0-Beta2-2.0.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.2.0-RC-2.0.1": {
-      "version": "2.2.0-RC-2.0.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.2.0-RC2-2.0.2": {
-      "version": "2.2.0-RC2-2.0.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.2.0-RC2-2.0.1": {
-      "version": "2.2.0-RC2-2.0.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.2.0-RC3-2.0.2": {
-      "version": "2.2.0-RC3-2.0.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.2.0-2.0.2": {
-      "version": "2.2.0-2.0.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-06-24T18:15:39.000Z"
-    },
-    "2.2.10-RC-2.0.2": {
-      "version": "2.2.10-RC-2.0.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.2.10-RC2-2.0.2": {
-      "version": "2.2.10-RC2-2.0.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.2.10-2.0.2": {
-      "version": "2.2.10-2.0.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-08-14T22:15:24.000Z"
-    },
-    "2.2.20-Beta1-2.0.2": {
-      "version": "2.2.20-Beta1-2.0.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.2.20-Beta2-2.0.2": {
-      "version": "2.2.20-Beta2-2.0.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.2.20-RC-2.0.2": {
-      "version": "2.2.20-RC-2.0.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.2.20-RC2-2.0.2": {
-      "version": "2.2.20-RC2-2.0.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.2.20-2.0.2": {
-      "version": "2.2.20-2.0.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-09-10T19:17:30.000Z"
-    },
-    "2.2.20-2.0.3": {
-      "version": "2.2.20-2.0.3",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-09-11T21:39:31.000Z"
-    },
-    "2.2.20-2.0.4": {
-      "version": "2.2.20-2.0.4",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-10-07T20:16:52.000Z"
-    },
-    "2.2.21-RC-2.0.4": {
-      "version": "2.2.21-RC-2.0.4",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.2.21-RC2-2.0.4": {
-      "version": "2.2.21-RC2-2.0.4",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml"
-    },
-    "2.2.21-2.0.4": {
-      "version": "2.2.21-2.0.4",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-10-28T19:21:51.000Z"
-    },
-    "2.2.21-2.0.5": {
-      "version": "2.2.21-2.0.5",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2026-02-02T20:59:57.000Z"
-    },
-    "2.3.0": {
-      "version": "2.3.0",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-10-21T22:38:21.000Z"
-    },
-    "2.3.1": {
-      "version": "2.3.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-11-03T21:47:32.000Z"
-    },
-    "2.3.2": {
-      "version": "2.3.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-11-05T23:25:45.000Z"
-    },
-    "2.3.3": {
-      "version": "2.3.3",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-11-20T19:54:55.000Z"
-    },
-    "2.3.4": {
-      "version": "2.3.4",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2025-12-15T22:36:30.000Z"
-    },
-    "2.3.5": {
-      "version": "2.3.5",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2026-01-27T23:30:01.000Z"
-    },
-    "2.3.6": {
-      "version": "2.3.6",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2026-02-17T20:49:00.000Z"
-    },
-    "2.3.7": {
-      "version": "2.3.7",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2026-04-22T21:54:27.000Z"
-    },
-    "2.3.8": {
-      "version": "2.3.8",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2026-05-12T22:25:48.000Z"
-    },
-    "2.3.9": {
-      "version": "2.3.9",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.300Z",
-      "source": "https://repo1.maven.org/maven2/com/google/devtools/ksp/symbol-processing-api/maven-metadata.xml",
-      "releasedAt": "2026-05-26T19:29:38.000Z"
-    }
-  },
-  "hilt": {
-    "2.35": {
-      "version": "2.35",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2021-04-22T23:56:55.000Z"
-    },
-    "2.35.1": {
-      "version": "2.35.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2021-04-27T23:13:39.000Z"
-    },
-    "2.36": {
-      "version": "2.36",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2021-05-25T22:50:30.000Z"
-    },
-    "2.37": {
-      "version": "2.37",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2021-06-10T18:46:43.000Z"
-    },
-    "2.38": {
-      "version": "2.38",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2021-07-19T21:23:19.000Z"
-    },
-    "2.38.1": {
-      "version": "2.38.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2021-07-27T18:15:43.000Z"
-    },
-    "2.39": {
-      "version": "2.39",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2021-09-29T21:55:05.000Z"
-    },
-    "2.39.1": {
-      "version": "2.39.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2021-10-01T16:31:21.000Z"
-    },
-    "2.4": {
-      "version": "2.4",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": null
-    },
-    "2.40.1": {
-      "version": "2.40.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2021-11-11T16:45:41.000Z"
-    },
-    "2.40.2": {
-      "version": "2.40.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2021-11-24T00:40:58.000Z"
-    },
-    "2.40.3": {
-      "version": "2.40.3",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2021-11-29T18:14:40.000Z"
-    },
-    "2.40.4": {
-      "version": "2.40.4",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2021-12-02T17:02:37.000Z"
-    },
-    "2.40.5": {
-      "version": "2.40.5",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2021-12-06T21:35:41.000Z"
-    },
-    "2.41": {
-      "version": "2.41",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2022-02-16T19:11:50.000Z"
-    },
-    "2.42": {
-      "version": "2.42",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2022-05-09T20:57:39.000Z"
-    },
-    "2.43": {
-      "version": "2.43",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2022-07-20T21:21:16.000Z"
-    },
-    "2.43.1": {
-      "version": "2.43.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2022-07-29T17:14:41.000Z"
-    },
-    "2.43.2": {
-      "version": "2.43.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2022-08-03T20:45:30.000Z"
-    },
-    "2.44": {
-      "version": "2.44",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2022-09-21T18:11:47.000Z"
-    },
-    "2.44.1": {
-      "version": "2.44.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2022-11-11T17:06:54.000Z"
-    },
-    "2.44.2": {
-      "version": "2.44.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2022-11-14T18:31:53.000Z"
-    },
-    "2.45": {
-      "version": "2.45",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2023-02-09T23:42:33.000Z"
-    },
-    "2.46": {
-      "version": "2.46",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2023-04-28T20:36:57.000Z"
-    },
-    "2.46.1": {
-      "version": "2.46.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2023-05-12T21:03:25.000Z"
-    },
-    "2.47": {
-      "version": "2.47",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2023-07-13T23:02:42.000Z"
-    },
-    "2.48": {
-      "version": "2.48",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2023-08-30T15:23:48.000Z"
-    },
-    "2.48.1": {
-      "version": "2.48.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2023-10-03T21:59:57.000Z"
-    },
-    "2.49": {
-      "version": "2.49",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2023-12-01T19:25:11.000Z"
-    },
-    "2.5": {
-      "version": "2.5",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": null
-    },
-    "2.51": {
-      "version": "2.51",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2024-02-27T05:16:16.000Z"
-    },
-    "2.51.1": {
-      "version": "2.51.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2024-03-29T00:53:29.000Z"
-    },
-    "2.52": {
-      "version": "2.52",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2024-08-05T17:50:02.000Z"
-    },
-    "2.53": {
-      "version": "2.53",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2024-12-02T21:39:51.000Z"
-    },
-    "2.53.1": {
-      "version": "2.53.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2024-12-09T18:03:24.000Z"
-    },
-    "2.54": {
-      "version": "2.54",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2024-12-20T19:01:50.000Z"
-    },
-    "2.55": {
-      "version": "2.55",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2025-01-09T19:36:16.000Z"
-    },
-    "2.56": {
-      "version": "2.56",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2025-03-19T19:22:37.000Z"
-    },
-    "2.56.1": {
-      "version": "2.56.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2025-03-25T18:59:07.000Z"
-    },
-    "2.56.2": {
-      "version": "2.56.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2025-04-16T20:45:15.000Z"
-    },
-    "2.57": {
-      "version": "2.57",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2025-07-16T20:38:19.000Z"
-    },
-    "2.57.1": {
-      "version": "2.57.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.447Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2025-08-20T21:00:17.000Z"
-    },
-    "2.57.2": {
-      "version": "2.57.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.448Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2025-09-23T22:00:23.000Z"
-    },
-    "2.58": {
-      "version": "2.58",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.448Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2026-01-15T21:39:26.000Z"
-    },
-    "2.59": {
-      "version": "2.59",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.448Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2026-01-21T00:04:29.000Z"
-    },
-    "2.59.1": {
-      "version": "2.59.1",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.448Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2026-02-02T23:52:38.000Z"
-    },
-    "2.59.2": {
-      "version": "2.59.2",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.448Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": "2026-02-20T19:51:31.000Z"
-    },
-    "2.6": {
-      "version": "2.6",
-      "status": "NEW",
-      "detectedAt": "2026-06-26T21:45:07.759Z",
-      "source": "https://repo1.maven.org/maven2/com/google/dagger/hilt-android/maven-metadata.xml",
-      "releasedAt": null
-    },
-    "2.50": {
-      "version": "2.50",
-      "status": "NEW",
-      "detectedAt": "2026-06-30T09:38:31.260Z",
-      "releasedAt": "2023-12-19T20:01:27.820Z",
-      "source": "https://search.maven.org/solrsearch/select?g:com.google.dagger+a:hilt-android"
-    },
-    "2.40": {
-      "version": "2.40",
-      "status": "NEW",
-      "detectedAt": "2026-06-30T09:38:31.260Z",
-      "releasedAt": "2021-10-27T22:18:22.000Z",
-      "source": "https://search.maven.org/solrsearch/select?g:com.google.dagger+a:hilt-android"
-    }
-  },
-  "composeBom": {
-    "2022.10.00": {
-      "version": "2022.10.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2022-10-24T13:00:00.000Z"
-    },
-    "2022.11.00": {
-      "version": "2022.11.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2022-11-09T18:00:00.000Z"
-    },
-    "2022.12.00": {
-      "version": "2022.12.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2022-12-07T18:00:00.000Z"
-    },
-    "2023.01.00": {
-      "version": "2023.01.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2023-01-11T19:59:00.000Z"
-    },
-    "2023.03.00": {
-      "version": "2023.03.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2023-03-22T13:51:32.000Z"
-    },
-    "2023.04.00": {
-      "version": "2023.04.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2023-04-05T17:00:00.000Z"
-    },
-    "2023.04.01": {
-      "version": "2023.04.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2023-04-19T17:00:00.000Z"
-    },
-    "2023.05.00": {
-      "version": "2023.05.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2023-05-03T17:00:00.000Z"
-    },
-    "2023.05.01": {
-      "version": "2023.05.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2023-05-10T17:00:00.000Z"
-    },
-    "2023.06.00": {
-      "version": "2023.06.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2023-06-07T17:00:00.000Z"
-    },
-    "2023.06.01": {
-      "version": "2023.06.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2023-06-21T21:00:00.000Z"
-    },
-    "2023.08.00": {
-      "version": "2023.08.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2023-08-09T17:00:00.000Z"
-    },
-    "2023.09.00": {
-      "version": "2023.09.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2023-09-06T17:00:00.000Z"
-    },
-    "2023.09.01": {
-      "version": "2023.09.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2023-09-20T17:00:00.000Z"
-    },
-    "2023.09.02": {
-      "version": "2023.09.02",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2023-09-27T17:00:00.000Z"
-    },
-    "2023.10.00": {
-      "version": "2023.10.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2023-10-04T17:00:00.000Z"
-    },
-    "2023.10.01": {
-      "version": "2023.10.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2023-10-18T17:00:00.000Z"
-    },
-    "2024.01.00": {
-      "version": "2024.01.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-01-24T18:00:00.000Z"
-    },
-    "2024.02.00": {
-      "version": "2024.02.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-02-07T18:00:00.000Z"
-    },
-    "2024.02.01": {
-      "version": "2024.02.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-02-21T19:49:24.000Z"
-    },
-    "2024.02.02": {
-      "version": "2024.02.02",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-03-06T18:00:00.000Z"
-    },
-    "2024.03.00": {
-      "version": "2024.03.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-03-20T17:00:46.000Z"
-    },
-    "2024.04.00": {
-      "version": "2024.04.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-04-03T17:01:27.000Z"
-    },
-    "2024.04.01": {
-      "version": "2024.04.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-04-17T17:01:50.000Z"
-    },
-    "2024.05.00": {
-      "version": "2024.05.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.913Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-05-01T17:00:36.000Z"
-    },
-    "2024.06.00": {
-      "version": "2024.06.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-06-12T17:01:01.000Z"
-    },
-    "2024.08.00": {
-      "version": "2024.08.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-08-21T17:00:30.000Z"
-    },
-    "2024.09.00": {
-      "version": "2024.09.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-09-04T21:21:29.000Z"
-    },
-    "2024.09.01": {
-      "version": "2024.09.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-09-10T19:00:17.000Z"
-    },
-    "2024.09.02": {
-      "version": "2024.09.02",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-09-18T17:05:51.000Z"
-    },
-    "2024.09.03": {
-      "version": "2024.09.03",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-10-02T17:01:24.000Z"
-    },
-    "2024.10.00": {
-      "version": "2024.10.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-10-16T17:02:51.000Z"
-    },
-    "2024.10.01": {
-      "version": "2024.10.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-10-30T17:01:54.000Z"
-    },
-    "2024.11.00": {
-      "version": "2024.11.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-11-13T18:01:21.000Z"
-    },
-    "2024.12.01": {
-      "version": "2024.12.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2024-12-11T18:01:53.000Z"
-    },
-    "2025.01.00": {
-      "version": "2025.01.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-01-15T18:02:12.000Z"
-    },
-    "2025.01.01": {
-      "version": "2025.01.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-01-29T18:01:48.000Z"
-    },
-    "2025.02.00": {
-      "version": "2025.02.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-02-12T18:02:07.000Z"
-    },
-    "2025.03.00": {
-      "version": "2025.03.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-03-12T17:02:25.000Z"
-    },
-    "2025.03.01": {
-      "version": "2025.03.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-03-26T17:01:57.000Z"
-    },
-    "2025.04.00": {
-      "version": "2025.04.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-04-09T17:03:34.000Z"
-    },
-    "2025.04.01": {
-      "version": "2025.04.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-04-23T17:02:49.000Z"
-    },
-    "2025.05.00": {
-      "version": "2025.05.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-05-07T17:07:21.000Z"
-    },
-    "2025.05.01": {
-      "version": "2025.05.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-05-20T17:02:14.000Z"
-    },
-    "2025.06.00": {
-      "version": "2025.06.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-06-04T17:01:54.000Z"
-    },
-    "2025.06.01": {
-      "version": "2025.06.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-06-18T17:01:22.000Z"
-    },
-    "2025.07.00": {
-      "version": "2025.07.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-07-16T17:01:30.000Z"
-    },
-    "2025.08.00": {
-      "version": "2025.08.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-08-13T20:29:43.000Z"
-    },
-    "2025.08.01": {
-      "version": "2025.08.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-08-27T17:16:06.000Z"
-    },
-    "2025.09.00": {
-      "version": "2025.09.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-09-10T17:01:51.000Z"
-    },
-    "2025.09.01": {
-      "version": "2025.09.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-09-24T17:07:32.000Z"
-    },
-    "2025.10.00": {
-      "version": "2025.10.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-10-08T17:04:36.000Z"
-    },
-    "2025.10.01": {
-      "version": "2025.10.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-10-22T17:06:18.000Z"
-    },
-    "2025.11.00": {
-      "version": "2025.11.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-11-05T18:02:53.000Z"
-    },
-    "2025.11.01": {
-      "version": "2025.11.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.914Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-11-19T18:02:42.000Z"
-    },
-    "2025.12.00": {
-      "version": "2025.12.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-12-03T18:03:35.000Z"
-    },
-    "2025.12.01": {
-      "version": "2025.12.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2025-12-17T18:02:07.000Z"
-    },
-    "2026.01.00": {
-      "version": "2026.01.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2026-01-14T18:01:31.000Z"
-    },
-    "2026.01.01": {
-      "version": "2026.01.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2026-01-29T01:30:23.000Z"
-    },
-    "2026.02.00": {
-      "version": "2026.02.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2026-02-11T18:00:57.000Z"
-    },
-    "2026.02.01": {
-      "version": "2026.02.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2026-02-27T23:00:05.000Z"
-    },
-    "2026.03.00": {
-      "version": "2026.03.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2026-03-11T18:10:36.000Z"
-    },
-    "2026.03.01": {
-      "version": "2026.03.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2026-03-25T17:28:24.000Z"
-    },
-    "2026.04.01": {
-      "version": "2026.04.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2026-04-22T17:08:03.000Z"
-    },
-    "2026.05.00": {
-      "version": "2026.05.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2026-05-06T17:05:59.000Z"
-    },
-    "2026.05.01": {
-      "version": "2026.05.01",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2026-05-19T17:01:10.000Z"
-    },
-    "2026.06.00": {
-      "version": "2026.06.00",
-      "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:28.915Z",
-      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-      "releasedAt": "2026-06-17T17:05:32.000Z"
-    }
-  },
   "kotlin": {
     "2.4.0": {
       "version": "2.4.0",
       "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:30.086Z",
-      "source": "https://api.github.com/repos/JetBrains/kotlin/releases",
-      "releasedAt": "2026-06-03T09:31:47Z"
+      "detectedAt": "2026-07-01T11:11:13.884Z",
+      "releasedAt": "2026-06-03T09:31:47Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "2.3.21": {
       "version": "2.3.21",
       "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:30.087Z",
-      "source": "https://api.github.com/repos/JetBrains/kotlin/releases",
-      "releasedAt": "2026-04-23T10:11:51Z"
+      "detectedAt": "2026-07-01T11:11:13.884Z",
+      "releasedAt": "2026-04-23T10:11:51Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "2.3.20": {
       "version": "2.3.20",
       "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:30.087Z",
-      "source": "https://api.github.com/repos/JetBrains/kotlin/releases",
-      "releasedAt": "2026-03-16T09:37:25Z"
+      "detectedAt": "2026-07-01T11:11:13.884Z",
+      "releasedAt": "2026-03-16T09:37:25Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "2.3.10": {
       "version": "2.3.10",
       "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:30.087Z",
-      "source": "https://api.github.com/repos/JetBrains/kotlin/releases",
-      "releasedAt": "2026-02-05T11:48:04Z"
+      "detectedAt": "2026-07-01T11:11:13.884Z",
+      "releasedAt": "2026-02-05T11:48:04Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "2.3.0": {
       "version": "2.3.0",
       "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:30.087Z",
-      "source": "https://api.github.com/repos/JetBrains/kotlin/releases",
-      "releasedAt": "2025-12-16T13:29:31Z"
+      "detectedAt": "2026-07-01T11:11:13.885Z",
+      "releasedAt": "2025-12-16T13:29:31Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "2.2.21": {
       "version": "2.2.21",
       "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:30.087Z",
-      "source": "https://api.github.com/repos/JetBrains/kotlin/releases",
-      "releasedAt": "2025-10-23T10:35:10Z"
+      "detectedAt": "2026-07-01T11:11:13.885Z",
+      "releasedAt": "2025-10-23T10:35:10Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "2.2.20": {
       "version": "2.2.20",
       "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:30.087Z",
-      "source": "https://api.github.com/repos/JetBrains/kotlin/releases",
-      "releasedAt": "2025-09-10T08:33:26Z"
+      "detectedAt": "2026-07-01T11:11:13.885Z",
+      "releasedAt": "2025-09-10T08:33:26Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "2.2.10": {
       "version": "2.2.10",
       "status": "NEW",
-      "detectedAt": "2026-06-24T09:24:30.087Z",
-      "source": "https://api.github.com/repos/JetBrains/kotlin/releases",
-      "releasedAt": "2025-08-14T08:36:12Z"
+      "detectedAt": "2026-07-01T11:11:13.885Z",
+      "releasedAt": "2025-08-14T08:36:12Z",
+      "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "2.2.0": {
       "version": "2.2.0",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.429Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2025-06-23T13:11:56Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "2.1.21": {
       "version": "2.1.21",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2025-05-13T09:40:10Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "2.1.20": {
       "version": "2.1.20",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2025-03-20T11:05:04Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "2.1.10": {
       "version": "2.1.10",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2025-01-27T10:21:27Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "2.1.0": {
       "version": "2.1.0",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2024-11-27T14:17:27Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "2.0.21": {
       "version": "2.0.21",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2024-10-10T11:45:43Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "2.0.20": {
       "version": "2.0.20",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2024-08-22T11:10:29Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "2.0.10": {
       "version": "2.0.10",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2024-08-06T10:58:37Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.9.25": {
       "version": "1.9.25",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2024-07-19T12:52:20Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "2.0.0": {
       "version": "2.0.0",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2024-05-21T10:50:57Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.9.24": {
       "version": "1.9.24",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2024-05-07T09:49:25Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.9.23": {
       "version": "1.9.23",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2024-03-07T09:32:27Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.9.22": {
       "version": "1.9.22",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2023-12-21T16:27:31Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.9.21": {
       "version": "1.9.21",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2023-11-23T13:47:11Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.9.20": {
       "version": "1.9.20",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.435Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2023-11-01T09:37:59Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.9.10": {
       "version": "1.9.10",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2023-08-23T13:13:05Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.9.0": {
       "version": "1.9.0",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2023-07-06T09:31:33Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.8.22": {
       "version": "1.8.22",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2023-06-08T10:55:43Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.8.21": {
       "version": "1.8.21",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2023-04-25T07:40:55Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.8.20": {
       "version": "1.8.20",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2023-04-03T07:46:20Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.8.10": {
       "version": "1.8.10",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2023-02-02T15:08:51Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.8.0": {
       "version": "1.8.0",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2022-12-28T12:00:57Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.7.22": {
       "version": "1.7.22",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2022-11-28T10:58:38Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.7.21": {
       "version": "1.7.21",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2022-11-09T07:51:34Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.7.20": {
       "version": "1.7.20",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2022-09-29T13:22:49Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.7.10": {
       "version": "1.7.10",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2022-07-08T07:32:20Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.7.0": {
       "version": "1.7.0",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2022-06-09T12:59:32Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.6.21": {
       "version": "1.6.21",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2022-04-20T07:40:54Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.6.20": {
       "version": "1.6.20",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2022-04-04T06:42:00Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.6.10": {
       "version": "1.6.10",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2021-12-14T09:04:35Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.5.32": {
       "version": "1.5.32",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2021-11-29T12:32:59Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.6.0": {
       "version": "1.6.0",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2021-11-16T06:39:24Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.5.31": {
       "version": "1.5.31",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2021-09-20T08:17:32Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.5.30": {
       "version": "1.5.30",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2021-08-24T13:56:57Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.5.21": {
       "version": "1.5.21",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2021-07-13T11:40:57Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.5.20": {
       "version": "1.5.20",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.885Z",
       "releasedAt": "2021-06-24T13:20:03Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.5.10": {
       "version": "1.5.10",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2021-05-24T10:38:40Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.5.0": {
       "version": "1.5.0",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2021-05-05T07:39:55Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.4.32": {
       "version": "1.4.32",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2021-03-30T05:53:29Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.4.31": {
       "version": "1.4.31",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2021-02-26T08:48:20Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.4.30": {
       "version": "1.4.30",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2021-02-03T15:24:16Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.4.30-RC": {
       "version": "1.4.30-RC",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2021-01-18T15:58:33Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.4.21": {
       "version": "1.4.21",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2020-12-09T15:21:30Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.4.20": {
       "version": "1.4.20",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2020-11-19T10:57:06Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.4.10": {
       "version": "1.4.10",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2020-09-10T07:19:19Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.4.0": {
       "version": "1.4.0",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2020-08-14T15:50:51Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.3.72": {
       "version": "1.3.72",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2020-04-15T09:10:07Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.3.71": {
       "version": "1.3.71",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2020-03-23T15:33:47Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.3.70": {
       "version": "1.3.70",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2020-03-03T17:04:28Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.3.61": {
       "version": "1.3.61",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2019-11-26T23:35:10Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.3.60": {
       "version": "1.3.60",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2019-11-18T19:10:31Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.3.50": {
       "version": "1.3.50",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2019-08-22T19:24:18Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.3.41": {
       "version": "1.3.41",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2019-07-03T21:16:15Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.3.40": {
       "version": "1.3.40",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2019-06-19T16:16:02Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.3.31": {
       "version": "1.3.31",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2019-04-25T19:01:30Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.3.30": {
       "version": "1.3.30",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2019-04-11T16:50:31Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.3.21": {
       "version": "1.3.21",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2019-02-06T14:27:06Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.3.20": {
       "version": "1.3.20",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2019-01-23T17:37:05Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.3.11": {
       "version": "1.3.11",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2018-12-06T15:35:03Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.3.10": {
       "version": "1.3.10",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2018-11-13T15:46:27Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.3.0": {
       "version": "1.3.0",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2018-10-29T14:43:20Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.2.71": {
       "version": "1.2.71",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2018-09-24T15:04:12Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.2.70": {
       "version": "1.2.70",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2018-09-13T14:47:55Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.2.61": {
       "version": "1.2.61",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2018-08-20T15:23:41Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.2.60": {
       "version": "1.2.60",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2018-08-01T17:03:23Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.2.51": {
       "version": "1.2.51",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2018-07-03T10:50:24Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.2.50": {
       "version": "1.2.50",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2018-06-13T15:32:21Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.2.41": {
       "version": "1.2.41",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2018-04-28T13:09:31Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.2.40": {
       "version": "1.2.40",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2018-04-19T16:34:13Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.2.31": {
       "version": "1.2.31",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.436Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2018-03-23T11:47:40Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.2.30": {
       "version": "1.2.30",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2018-03-01T16:11:21Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.2.21": {
       "version": "1.2.21",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2018-01-23T14:45:21Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.2.20": {
       "version": "1.2.20",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2018-01-17T10:47:27Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.2.10": {
       "version": "1.2.10",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-12-13T16:28:08Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.2.0": {
       "version": "1.2.0",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-11-28T14:41:58Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.61": {
       "version": "1.1.61",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-11-24T16:02:48Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.60": {
       "version": "1.1.60",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-11-13T16:55:34Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.51": {
       "version": "1.1.51",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-09-29T11:23:49Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.50": {
       "version": "1.1.50",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-09-22T13:07:35Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.4-3": {
       "version": "1.1.4-3",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-08-30T08:58:10Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.4-2": {
       "version": "1.1.4-2",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-08-18T15:06:12Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.4": {
       "version": "1.1.4",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-08-15T06:21:25Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.3-2": {
       "version": "1.1.3-2",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-07-04T17:02:52Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.3": {
       "version": "1.1.3",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-06-23T16:05:12Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.2-5": {
       "version": "1.1.2-5",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-06-12T17:28:17Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.2-2": {
       "version": "1.1.2-2",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-04-28T13:19:57Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.2": {
       "version": "1.1.2",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-04-25T17:03:53Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.2-eap-77": {
       "version": "1.1.2-eap-77",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-04-20T18:05:42Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.2-eap-73": {
       "version": "1.1.2-eap-73",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-04-17T18:41:31Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.2-eap-69": {
       "version": "1.1.2-eap-69",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-04-11T14:58:52Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.2-eap-44": {
       "version": "1.1.2-eap-44",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-03-31T16:00:32Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1.1": {
       "version": "1.1.1",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-03-14T13:06:56Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.1": {
       "version": "1.1",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-03-01T12:03:13Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.0.7": {
       "version": "1.0.7",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2017-03-15T17:55:09Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.0.6": {
       "version": "1.0.6",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2016-12-27T16:17:16Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.0.5-2": {
       "version": "1.0.5-2",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2016-11-15T15:21:22Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.0.5": {
       "version": "1.0.5",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2016-11-08T16:21:56Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.0.4": {
       "version": "1.0.4",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2016-09-22T15:44:51Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.0.3": {
       "version": "1.0.3",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2016-06-30T12:55:08Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.0.2": {
       "version": "1.0.2",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2016-05-13T06:48:33Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.0.1-2": {
       "version": "1.0.1-2",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2016-03-28T16:59:27Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.0.1-1": {
       "version": "1.0.1-1",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2016-03-23T11:10:31Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "build-1.0.1": {
       "version": "build-1.0.1",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2016-03-17T13:14:33Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "1.0.1": {
       "version": "1.0.1",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2016-03-17T13:15:38Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
     },
     "build-1.0.0": {
       "version": "build-1.0.0",
       "status": "NEW",
-      "detectedAt": "2026-06-29T07:50:00.437Z",
+      "detectedAt": "2026-07-01T11:11:13.886Z",
       "releasedAt": "2016-02-15T12:01:42Z",
       "source": "https://api.github.com/repos/JetBrains/kotlin/releases"
+    }
+  },
+  "ksp": {
+    "2.3.9": {
+      "version": "2.3.9",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.849Z",
+      "releasedAt": "2026-05-26T19:53:05Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.3.8": {
+      "version": "2.3.8",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.849Z",
+      "releasedAt": "2026-05-13T17:08:49Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.3.7": {
+      "version": "2.3.7",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.849Z",
+      "releasedAt": "2026-04-22T22:11:27Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.3.6": {
+      "version": "2.3.6",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.849Z",
+      "releasedAt": "2026-02-17T22:04:24Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.2.21-2.0.5": {
+      "version": "2.2.21-2.0.5",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.849Z",
+      "releasedAt": "2026-02-02T21:06:01Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.3.5": {
+      "version": "2.3.5",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.849Z",
+      "releasedAt": "2026-01-28T18:06:46Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.3.4": {
+      "version": "2.3.4",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.849Z",
+      "releasedAt": "2025-12-16T20:35:23Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.3.3": {
+      "version": "2.3.3",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.849Z",
+      "releasedAt": "2025-11-20T20:58:40Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.3.2": {
+      "version": "2.3.2",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.849Z",
+      "releasedAt": "2025-11-06T20:22:33Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.3.1": {
+      "version": "2.3.1",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-11-04T17:29:37Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.2.21-2.0.4": {
+      "version": "2.2.21-2.0.4",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-10-28T20:11:15Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.3.0": {
+      "version": "2.3.0",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-10-22T16:26:19Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.2.20-2.0.4": {
+      "version": "2.2.20-2.0.4",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-10-07T21:52:47Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.2.20-2.0.3": {
+      "version": "2.2.20-2.0.3",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-09-11T21:48:29Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.2.20-2.0.2": {
+      "version": "2.2.20-2.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-09-10T21:04:57Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.2.10-2.0.2": {
+      "version": "2.2.10-2.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-08-15T00:06:32Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.2.0-2.0.2": {
+      "version": "2.2.0-2.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-06-24T19:52:03Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.1.21-2.0.2": {
+      "version": "2.1.21-2.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-06-09T23:32:29Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.1.21-2.0.1": {
+      "version": "2.1.21-2.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-05-13T21:49:36Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.1.20-2.0.1": {
+      "version": "2.1.20-2.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-04-30T23:55:33Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.1.20-2.0.0": {
+      "version": "2.1.20-2.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-04-08T23:50:38Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.1.20-1.0.32": {
+      "version": "2.1.20-1.0.32",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-03-26T17:35:30Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.1.20-1.0.31": {
+      "version": "2.1.20-1.0.31",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-03-21T02:02:47Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.1.10-1.0.31": {
+      "version": "2.1.10-1.0.31",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-02-27T19:08:17Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.1.10-1.0.30": {
+      "version": "2.1.10-1.0.30",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-02-14T04:18:06Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.1.10-1.0.29": {
+      "version": "2.1.10-1.0.29",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2025-01-28T20:27:12Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.1.0-1.0.29": {
+      "version": "2.1.0-1.0.29",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-11-27T23:37:16Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.1.0-1.0.28": {
+      "version": "2.1.0-1.0.28",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-11-27T21:16:32Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.0.21-1.0.28": {
+      "version": "2.0.21-1.0.28",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-11-16T00:28:45Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.0.21-1.0.27": {
+      "version": "2.0.21-1.0.27",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-11-07T22:10:07Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.0.21-1.0.26": {
+      "version": "2.0.21-1.0.26",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-10-23T20:54:47Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.0.21-1.0.25": {
+      "version": "2.0.21-1.0.25",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-10-11T05:33:16Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.0.20-1.0.25": {
+      "version": "2.0.20-1.0.25",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-09-05T20:32:26Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.0.20-1.0.24": {
+      "version": "2.0.20-1.0.24",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-08-22T20:30:13Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.0.10-1.0.24": {
+      "version": "2.0.10-1.0.24",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-08-06T19:07:37Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.0.0-1.0.24": {
+      "version": "2.0.0-1.0.24",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-07-29T22:58:03Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.0.0-1.0.23": {
+      "version": "2.0.0-1.0.23",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-07-11T19:28:54Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.0.0-1.0.22": {
+      "version": "2.0.0-1.0.22",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-06-05T22:26:25Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "2.0.0-1.0.21": {
+      "version": "2.0.0-1.0.21",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-05-21T20:19:49Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.9.24-1.0.20": {
+      "version": "1.9.24-1.0.20",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-05-07T19:22:50Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.9.23-1.0.20": {
+      "version": "1.9.23-1.0.20",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-04-05T00:55:59Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.9.23-1.0.19": {
+      "version": "1.9.23-1.0.19",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-03-07T23:08:19Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.9.22-1.0.17": {
+      "version": "1.9.22-1.0.17",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2024-01-18T23:33:44Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.9.22-1.0.16": {
+      "version": "1.9.22-1.0.16",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2023-12-25T08:37:48Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.9.21-1.0.16": {
+      "version": "1.9.21-1.0.16",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2023-12-14T06:34:19Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.9.21-1.0.15": {
+      "version": "1.9.21-1.0.15",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.850Z",
+      "releasedAt": "2023-11-27T20:10:44Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.9.20-1.0.14": {
+      "version": "1.9.20-1.0.14",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2023-11-02T21:07:49Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.9.20-1.0.13": {
+      "version": "1.9.20-1.0.13",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2023-10-31T18:35:25Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.9.10-1.0.13": {
+      "version": "1.9.10-1.0.13",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2023-08-24T00:44:16Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.9.0-1.0.13": {
+      "version": "1.9.0-1.0.13",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2023-08-02T17:28:43Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.9.0-1.0.12": {
+      "version": "1.9.0-1.0.12",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2023-07-20T18:37:51Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.9.0-1.0.11": {
+      "version": "1.9.0-1.0.11",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2023-07-06T20:39:31Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.8.22-1.0.11": {
+      "version": "1.8.22-1.0.11",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2023-06-08T19:46:30Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.8.21-1.0.11": {
+      "version": "1.8.21-1.0.11",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2023-04-27T14:54:33Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.8.20-1.0.11": {
+      "version": "1.8.20-1.0.11",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2023-04-18T05:27:16Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.8.20-1.0.10": {
+      "version": "1.8.20-1.0.10",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2023-04-03T11:53:06Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.8.10-1.0.9": {
+      "version": "1.8.10-1.0.9",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2023-02-02T22:01:25Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.8.0-1.0.9": {
+      "version": "1.8.0-1.0.9",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2023-01-26T01:16:04Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.8.0-1.0.8": {
+      "version": "1.8.0-1.0.8",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2022-12-28T23:59:33Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.7.22-1.0.8": {
+      "version": "1.7.22-1.0.8",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2022-11-28T20:20:33Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.7.21-1.0.8": {
+      "version": "1.7.21-1.0.8",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2022-11-09T18:01:43Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.7.20-1.0.8": {
+      "version": "1.7.20-1.0.8",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2022-11-03T23:06:04Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.7.20-1.0.7": {
+      "version": "1.7.20-1.0.7",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2022-10-13T20:59:55Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.7.20-1.0.6": {
+      "version": "1.7.20-1.0.6",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2022-09-29T16:52:38Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.7.20-Beta-1.0.6": {
+      "version": "1.7.20-Beta-1.0.6",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2022-08-02T00:10:33Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.7.10-1.0.6": {
+      "version": "1.7.10-1.0.6",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2022-07-07T21:39:33Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.7.0-1.0.6": {
+      "version": "1.7.0-1.0.6",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2022-06-10T05:07:27Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.6.21-1.0.6": {
+      "version": "1.6.21-1.0.6",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2022-06-10T04:08:55Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.6.21-1.0.5": {
+      "version": "1.6.21-1.0.5",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2022-04-20T22:09:23Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.6.20-1.0.5": {
+      "version": "1.6.20-1.0.5",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2022-04-07T21:52:46Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.6.20-1.0.4": {
+      "version": "1.6.20-1.0.4",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2022-04-02T23:45:08Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.6.10-1.0.4": {
+      "version": "1.6.10-1.0.4",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2022-02-23T01:05:39Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.6.10-1.0.3": {
+      "version": "1.6.10-1.0.3",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2022-02-16T23:30:49Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.6.10-1.0.2": {
+      "version": "1.6.10-1.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2021-12-14T20:54:21Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.6.0-1.0.2": {
+      "version": "1.6.0-1.0.2",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2021-12-13T18:57:40Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.6.0-1.0.1": {
+      "version": "1.6.0-1.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2021-11-16T21:09:50Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.5.31-1.0.1": {
+      "version": "1.5.31-1.0.1",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2021-11-12T00:55:23Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.5.31-1.0.0": {
+      "version": "1.5.31-1.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2021-09-22T00:12:50Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.5.30-1.0.0": {
+      "version": "1.5.30-1.0.0",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2021-09-07T18:19:23Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.4.20-dev-experimental-20210203": {
+      "version": "1.4.20-dev-experimental-20210203",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2021-02-04T01:11:56Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.4.20-dev-experimental-20210120": {
+      "version": "1.4.20-dev-experimental-20210120",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2021-01-20T23:58:44Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.4.20-dev-experimental-20210111": {
+      "version": "1.4.20-dev-experimental-20210111",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2021-01-12T02:24:43Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.4.20-dev-experimental-20210107": {
+      "version": "1.4.20-dev-experimental-20210107",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2021-01-08T00:41:01Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.4.20-dev-experimental-20201204": {
+      "version": "1.4.20-dev-experimental-20201204",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2020-12-05T00:01:37Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.4.10-dev-experimental-20201120": {
+      "version": "1.4.10-dev-experimental-20201120",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2020-11-20T22:08:53Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.4.10-dev-experimental-20201110": {
+      "version": "1.4.10-dev-experimental-20201110",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2020-11-10T18:47:45Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.4.10-dev-experimental-20201106": {
+      "version": "1.4.10-dev-experimental-20201106",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2020-11-06T23:20:28Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.4.10-dev-experimental-20201023": {
+      "version": "1.4.10-dev-experimental-20201023",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2020-10-23T21:57:14Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.4.10-dev-experimental-20201009": {
+      "version": "1.4.10-dev-experimental-20201009",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.851Z",
+      "releasedAt": "2020-10-09T22:16:54Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
+    },
+    "1.4.10-dev-experimental-20200924": {
+      "version": "1.4.10-dev-experimental-20200924",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T11:11:15.852Z",
+      "releasedAt": "2020-09-25T18:54:50Z",
+      "source": "https://api.github.com/repos/google/ksp/releases"
     }
   },
   "gradle": {

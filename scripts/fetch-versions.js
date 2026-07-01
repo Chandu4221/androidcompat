@@ -22,30 +22,17 @@ const SOURCES = {
       "https://dl.google.com/android/maven2/com/android/tools/build/gradle",
     pomArtifact: "gradle",
   },
-  ksp: {
-    type: "maven-central-solr",
-    groupId: "com.google.devtools.ksp",
-    artifactId: "symbol-processing-api",
-  },
-  hilt: {
-    type: "maven-central-solr",
-    groupId: "com.google.dagger",
-    artifactId: "hilt-android",
-  },
-  composeBom: {
-    type: "google-maven",
-    url: "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
-    pomBase:
-      "https://dl.google.com/android/maven2/androidx/compose/compose-bom",
-    pomArtifact: "compose-bom",
+  gradle: {
+    type: "gradle-services",
+    url: "https://services.gradle.org/versions/all",
   },
   kotlin: {
     type: "github-releases",
     url: "https://api.github.com/repos/JetBrains/kotlin/releases",
   },
-  gradle: {
-    type: "gradle-services",
-    url: "https://services.gradle.org/versions/all",
+  ksp: {
+    type: "github-releases",
+    url: "https://api.github.com/repos/google/ksp/releases",
   },
 };
 

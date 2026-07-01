@@ -57,37 +57,13 @@ function getLatestNPerMajor(versionMap, majors, nPerMajor) {
   return result;
 }
 
-function getReleasedAt(versionMap, version) {
-  return versionMap[version]?.releasedAt
-    ? new Date(versionMap[version].releasedAt)
-    : null;
-}
-
-function isInKotlinWindow(
-  libReleasedAt,
-  kotlinReleasedAt,
-  lookbackMonths,
-  forwardMonths,
-) {
-  if (!libReleasedAt || !kotlinReleasedAt) return true;
-  const libDate = new Date(libReleasedAt);
-  const kotlinDate = new Date(kotlinReleasedAt);
-  const lower = new Date(kotlinDate);
-  lower.setMonth(lower.getMonth() - lookbackMonths);
-  const upper = new Date(kotlinDate);
-  upper.setMonth(upper.getMonth() + forwardMonths);
-  return libDate >= lower && libDate <= upper;
-}
-
 function isAlreadyVerified(combo, compatData) {
   return compatData.combinations.some(
     (c) =>
-      c.agp === combo.agp &&
-      c.ksp === combo.ksp &&
-      c.hilt === combo.hilt &&
       c.kotlin === combo.kotlin &&
+      c.ksp === combo.ksp &&
+      c.agp === combo.agp &&
       c.gradle === combo.gradle &&
-      c.composeBom === combo.composeBom &&
       c.status === "verified",
   );
 }
@@ -96,10 +72,13 @@ function isAlreadyVerified(combo, compatData) {
 
 function generateCandidates(registry, compatData) {
   const candidates = [];
-  const { lookbackMonths, forwardMonths } = matrixConstraints.libraryTimeWindow;
   const { maxVersionsPerComponent } = matrixConstraints;
 
   // ── Layer 1: Toolchain pools ──────────────────────────────────────────────
+
+  const allKotlinVersions = Object.keys(registry.kotlin || {}).sort((a, b) =>
+    semverCompare(b, a),
+  );
 
   const agpVersions = getLatestNPerMajor(
     registry.agp || {},
@@ -111,89 +90,37 @@ function generateCandidates(registry, compatData) {
     semverCompare(b, a),
   );
 
-  const kotlinVersions = getLatestN(
-    Object.keys(registry.kotlin || {}).filter((v) =>
-      matrixConstraints.kotlinMajorVersions.includes(getMajor(v)),
-    ),
-    maxVersionsPerComponent.kotlin,
-  );
-
-  // ── Layer 2: Library pools ────────────────────────────────────────────────
-
-  const allKspVersions = Object.keys(registry.ksp || {}).filter((v) =>
-    meetsMinimum(v, matrixConstraints.kspIndependentFrom.version),
-  );
-
-  const allHiltVersions = Object.keys(registry.hilt || {}).sort((a, b) =>
+  const allKspVersions = Object.keys(registry.ksp || {}).sort((a, b) =>
     semverCompare(b, a),
-  );
-
-  const allComposeBomVersions = Object.keys(registry.composeBom || {}).sort(
-    (a, b) => semverCompare(b, a),
   );
 
   console.log("\n📋 Version pools:");
   console.log(`  AGP:         ${agpVersions.join(", ")}`);
-  console.log(`  Kotlin:      ${kotlinVersions.join(", ")}`);
-  console.log(`  Gradle pool: ${allGradleVersions.slice(0, 4).join(", ")} ...`);
-  console.log(`  KSP pool:    ${allKspVersions.slice(0, 4).join(", ")} ...`);
-  console.log(`  Hilt pool:   ${allHiltVersions.slice(0, 4).join(", ")} ...`);
-  console.log(
-    `  BOM pool:    ${allComposeBomVersions.slice(0, 3).join(", ")} ...`,
-  );
 
-  let prunedByConstraint = 0;
   let prunedByVerified = 0;
+  let prunedByNoKsp = 0;
+  let validKotlinCount = 0;
+  const targetKotlinCount = maxVersionsPerComponent.kotlinPerMajor || 2;
 
-  // Outer loop: Kotlin (master clock)
-  for (const kotlin of kotlinVersions) {
-    const kotlinReleasedAt = getReleasedAt(registry.kotlin, kotlin);
-    const kotlinMajorMinor = getMajorMinor(kotlin);
+  for (const kotlin of allKotlinVersions) {
+    if (validKotlinCount >= targetKotlinCount) break; // we found enough valid Kotlins
 
-    // KSP: 1:1 major.minor match with Kotlin
-    const kspVersions = getLatestN(
-      allKspVersions.filter((v) => getMajorMinor(v) === kotlinMajorMinor),
-      maxVersionsPerComponent.ksp,
+    // 1:1 strict coupling: KSP version MUST start with Kotlin version + "-" OR exactly match it
+    const kspCandidates = allKspVersions.filter(
+      (v) => v.startsWith(`${kotlin}-`) || v === kotlin,
     );
-
-    if (kspVersions.length === 0) {
-      console.log(
-        `  ⚠️  No KSP for Kotlin ${kotlin} (${kotlinMajorMinor}) — skipping`,
-      );
+    
+    if (kspCandidates.length === 0) {
+      prunedByNoKsp++;
       continue;
     }
-
-    // Hilt: filter by Kotlin date window (AGP-Hilt boundary applied later, per-AGP, since
-    // the same Kotlin/Hilt pairing can be valid for AGP 9 but invalid for AGP 8)
-    const hiltVersionsByDate = allHiltVersions.filter((v) =>
-      isInKotlinWindow(
-        registry.hilt[v]?.releasedAt,
-        kotlinReleasedAt,
-        lookbackMonths,
-        forwardMonths,
-      ),
-    );
-
-    // Compose BOM: filter by Kotlin date window
-    const composeBomVersions = getLatestN(
-      allComposeBomVersions.filter((v) =>
-        isInKotlinWindow(
-          registry.composeBom[v]?.releasedAt,
-          kotlinReleasedAt,
-          lookbackMonths,
-          forwardMonths,
-        ),
-      ),
-      maxVersionsPerComponent.composeBom,
-    );
+    
+    validKotlinCount++;
+    // Take the latest KSP version for this Kotlin version
+    const ksp = kspCandidates[0];
 
     for (const agp of agpVersions) {
       const agpMajor = getMajor(agp);
-      const minKotlin = matrixConstraints.agpKotlinMinimum[agpMajor] || "1.9.0";
-      const maxKotlin =
-        matrixConstraints.agpKotlinMaximum[agpMajor] || "9.9.99";
-      // Check for a per-minor-version override first (e.g. AGP 8.13 requires
-      // Gradle 8.13 exactly, stricter than the AGP 8.x default of 8.6.0)
       const agpMajorMinor = getMajorMinor(agp);
       const overrides = matrixConstraints.agpGradleMinimumOverrides || {};
       const minGradle =
@@ -203,16 +130,6 @@ function generateCandidates(registry, compatData) {
         "8.6.0";
       const maxGradle = matrixConstraints.agpGradleMaximum[agpMajor] || "9.9.9";
 
-      // Prune: Kotlin outside AGP bounds
-      if (
-        !meetsMinimum(kotlin, minKotlin) ||
-        !meetsMaximum(kotlin, maxKotlin)
-      ) {
-        prunedByConstraint++;
-        continue;
-      }
-
-      // Gradle: filtered by AGP min/max bounds
       const gradleVersions = getLatestN(
         allGradleVersions.filter(
           (v) => meetsMinimum(v, minGradle) && meetsMaximum(v, maxGradle),
@@ -227,49 +144,27 @@ function generateCandidates(registry, compatData) {
         continue;
       }
 
-      // Hilt 2.58 is the last version supporting AGP 8.x; 2.59+ requires AGP 9.0+.
-      // Apply this hard cutover per-AGP before picking the latest N Hilt versions.
-      const hiltBoundary = matrixConstraints.hiltAgpCompatibility;
-      const hiltVersionsForThisAgp = hiltVersionsByDate.filter((v) => {
-        if (agpMajor === "8")
-          return !meetsMinimum(v, hiltBoundary.minHiltForAgp9);
-        if (agpMajor === "9")
-          return meetsMinimum(v, hiltBoundary.minHiltForAgp9);
-        return true;
-      });
-      const hiltVersions = getLatestN(
-        hiltVersionsForThisAgp,
-        maxVersionsPerComponent.hilt,
-      );
-
-      if (hiltVersions.length === 0) {
-        console.log(
-          `  ⚠️  No compatible Hilt for AGP ${agp} (Kotlin ${kotlin}) — skipping`,
-        );
-        continue;
-      }
-
       for (const gradle of gradleVersions) {
-        for (const ksp of kspVersions) {
-          for (const hilt of hiltVersions) {
-            for (const composeBom of composeBomVersions) {
-              const combo = { agp, kotlin, ksp, hilt, gradle, composeBom };
+        const java_version =
+          matrixConstraints.agpJdkRequirements[agp] ||
+          matrixConstraints.agpJdkRequirements[agpMajorMinor] ||
+          matrixConstraints.agpJdkRequirements[agpMajor] ||
+          "17";
 
-              if (isAlreadyVerified(combo, compatData)) {
-                prunedByVerified++;
-                continue;
-              }
+        const combo = { kotlin, ksp, agp, gradle, java_version };
 
-              candidates.push(combo);
-            }
-          }
+        if (isAlreadyVerified(combo, compatData)) {
+          prunedByVerified++;
+          continue;
         }
+
+        candidates.push(combo);
       }
     }
   }
 
   console.log(`\n📊 Pruning summary:`);
-  console.log(`  Pruned by AGP/Kotlin constraint: ${prunedByConstraint}`);
+  console.log(`  Pruned by no matching KSP:       ${prunedByNoKsp}`);
   console.log(`  Pruned by already verified:      ${prunedByVerified}`);
 
   return candidates;
@@ -278,11 +173,8 @@ function generateCandidates(registry, compatData) {
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 function main() {
-  console.log("🧠 Generating test candidates (Two-Layer Cake)...");
-  console.log(`📖 Rules from ${RULES_PATH}`);
-  console.log(
-    `⏱️  Library window: -${matrixConstraints.libraryTimeWindow.lookbackMonths}mo / +${matrixConstraints.libraryTimeWindow.forwardMonths}mo from Kotlin release\n`,
-  );
+  console.log("🧠 Generating test candidates (Kotlin Master Clock)...");
+  console.log(`📖 Rules from ${RULES_PATH}\n`);
 
   const registry = JSON.parse(fs.readFileSync(REGISTRY_PATH, "utf8"));
   const compatData = fs.existsSync(COMPAT_PATH)
@@ -299,7 +191,7 @@ function main() {
   console.log("\n📋 Candidates:");
   candidates.forEach((c, i) => {
     console.log(
-      `  ${i + 1}. AGP ${c.agp} | Kotlin ${c.kotlin} | KSP ${c.ksp} | Hilt ${c.hilt} | Gradle ${c.gradle} | BOM ${c.composeBom}`,
+      `  ${i + 1}. Kotlin ${c.kotlin} (KSP ${c.ksp}) | AGP ${c.agp} | Gradle ${c.gradle} | Java ${c.java_version}`,
     );
   });
 }
