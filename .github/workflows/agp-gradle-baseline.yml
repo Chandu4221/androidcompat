@@ -54,20 +54,21 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
 
-      - name: Stage - Sync
-        id: sync
+      - name: Stage - Compile
+        id: compile
         run: |
           cd stub-project
-          ./gradlew help --no-daemon
+          ./gradlew compileDebugKotlin --no-daemon
 
       - name: Record Result
         if: always()
         run: |
           if [ "${{ job.status }}" == "success" ]; then
-            node scripts/record-result.js '${{ toJson(matrix.combo) }}' success
+            node scripts/update-compat.js --combo '${{ toJson(matrix.combo) }}' --sync-status success --compile-status success --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           else
-            node scripts/record-result.js '${{ toJson(matrix.combo) }}' failed
+            node scripts/update-compat.js --combo '${{ toJson(matrix.combo) }}' --sync-status failure --compile-status failure --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           fi
+          cp data/compat.json result-${{ matrix.combo.agp }}-${{ matrix.combo.gradle }}.json
 
       - name: Upload result artifact
         if: always()
@@ -99,7 +100,7 @@ jobs:
         run: npm ci
 
       - name: Merge results
-        run: node scripts/merge-results.js
+        run: node scripts/update-compat.js --merge-artifacts --artifacts-dir results
 
       - name: Create Pull Request with new compat data
         uses: peter-evans/create-pull-request@v6
