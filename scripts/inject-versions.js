@@ -50,14 +50,13 @@ zipStorePath=wrapper/dists
   fs.writeFileSync(WRAPPER_PATH, wrapperContent);
 
   const agpMajor = parseInt(combo.agp.split(".")[0], 10);
-  const includeKotlinPlugin = agpMajor < 9;
 
   // Rewrite root build.gradle.kts
   const ROOT_GRADLE_PATH = path.join(__dirname, "../stub-project/build.gradle.kts");
   const rootGradle = `// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
     alias(libs.plugins.android.application) apply false
-${includeKotlinPlugin ? '    alias(libs.plugins.kotlin.android) apply false' : ''}
+    alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.ksp) apply false
 }
 `;
@@ -67,7 +66,7 @@ ${includeKotlinPlugin ? '    alias(libs.plugins.kotlin.android) apply false' : '
   const APP_GRADLE_PATH = path.join(__dirname, "../stub-project/app/build.gradle.kts");
   const appGradle = `plugins {
     alias(libs.plugins.android.application)
-${includeKotlinPlugin ? '    alias(libs.plugins.kotlin.android)' : ''}
+    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
 }
 
@@ -93,6 +92,16 @@ kotlin {
 }
 `;
   fs.writeFileSync(APP_GRADLE_PATH, appGradle);
+
+  // Rewrite gradle.properties
+  const GRADLE_PROPERTIES_PATH = path.join(__dirname, "../stub-project/gradle.properties");
+  let gradleProperties = `org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+org.gradle.configuration-cache=true
+`;
+  if (agpMajor >= 9) {
+    gradleProperties += `android.builtInKotlin=false\n`;
+  }
+  fs.writeFileSync(GRADLE_PROPERTIES_PATH, gradleProperties);
 
   console.log(`✅ Injected: AGP ${combo.agp} | Gradle ${combo.gradle} | Kotlin ${combo.kotlin} | KSP ${combo.ksp}`);
 }
