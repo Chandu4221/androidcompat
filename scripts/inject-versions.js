@@ -49,6 +49,51 @@ zipStorePath=wrapper/dists
 `;
   fs.writeFileSync(WRAPPER_PATH, wrapperContent);
 
+  const agpMajor = parseInt(combo.agp.split(".")[0], 10);
+  const includeKotlinPlugin = agpMajor < 9;
+
+  // Rewrite root build.gradle.kts
+  const ROOT_GRADLE_PATH = path.join(__dirname, "../stub-project/build.gradle.kts");
+  const rootGradle = `// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    alias(libs.plugins.android.application) apply false
+${includeKotlinPlugin ? '    alias(libs.plugins.kotlin.android) apply false' : ''}
+    alias(libs.plugins.ksp) apply false
+}
+`;
+  fs.writeFileSync(ROOT_GRADLE_PATH, rootGradle);
+
+  // Rewrite app build.gradle.kts
+  const APP_GRADLE_PATH = path.join(__dirname, "../stub-project/app/build.gradle.kts");
+  const appGradle = `plugins {
+    alias(libs.plugins.android.application)
+${includeKotlinPlugin ? '    alias(libs.plugins.kotlin.android)' : ''}
+    alias(libs.plugins.ksp)
+}
+
+android {
+    namespace = "dev.androidcompat.stub"
+    compileSdk = 35
+    defaultConfig {
+        applicationId = "dev.androidcompat.stub"
+        minSdk = 24
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0"
+    }
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+        }
+    }
+}
+
+kotlin {
+    jvmToolchain(17)
+}
+`;
+  fs.writeFileSync(APP_GRADLE_PATH, appGradle);
+
   console.log(`✅ Injected: AGP ${combo.agp} | Gradle ${combo.gradle} | Kotlin ${combo.kotlin} | KSP ${combo.ksp}`);
 }
 
