@@ -11,6 +11,7 @@
     "agpMajorVersions": ["8", "9"],
     "kotlinMajorVersions": ["2"],
     "versionsPerAgpMajor": 2,
+    "strictKspCoupling": true,
 
     "agpGradleMinimum": {
       "description": "Minimum Gradle version required per AGP major version.",

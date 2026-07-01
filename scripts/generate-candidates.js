@@ -60,6 +60,8 @@ function getLatestNPerMajor(versionMap, majors, nPerMajor) {
 function isAlreadyVerified(combo, compatData) {
   return compatData.combinations.some(
     (c) =>
+      c.kotlin === combo.kotlin &&
+      c.ksp === combo.ksp &&
       c.agp === combo.agp &&
       c.gradle === combo.gradle &&
       c.status === "verified",
@@ -74,6 +76,10 @@ function generateCandidates(registry, compatData) {
 
   // ── Layer 1: Toolchain pools ──────────────────────────────────────────────
 
+  const allKotlinVersions = Object.keys(registry.kotlin || {}).sort((a, b) =>
+    semverCompare(b, a),
+  );
+
   const agpVersions = getLatestNPerMajor(
     registry.agp || {},
     matrixConstraints.agpMajorVersions,
@@ -84,60 +90,81 @@ function generateCandidates(registry, compatData) {
     semverCompare(b, a),
   );
 
+  const allKspVersions = Object.keys(registry.ksp || {}).sort((a, b) =>
+    semverCompare(b, a),
+  );
+
   console.log("\n📋 Version pools:");
   console.log(`  AGP:         ${agpVersions.join(", ")}`);
-  console.log(`  Gradle pool: ${allGradleVersions.slice(0, 4).join(", ")} ...`);
 
   let prunedByVerified = 0;
+  let prunedByNoKsp = 0;
+  let validKotlinCount = 0;
+  const targetKotlinCount = maxVersionsPerComponent.kotlinPerMajor || 2;
 
-  for (const agp of agpVersions) {
-    const agpMajor = getMajor(agp);
-    
-    // Check for a per-minor-version override first (e.g. AGP 8.13 requires
-    // Gradle 8.13 exactly, stricter than the AGP 8.x default of 8.6.0)
-    const agpMajorMinor = getMajorMinor(agp);
-    const overrides = matrixConstraints.agpGradleMinimumOverrides || {};
-    const minGradle =
-      overrides[agp] ||
-      overrides[agpMajorMinor] ||
-      matrixConstraints.agpGradleMinimum[agpMajor] ||
-      "8.6.0";
-    const maxGradle = matrixConstraints.agpGradleMaximum[agpMajor] || "9.9.9";
+  for (const kotlin of allKotlinVersions) {
+    if (validKotlinCount >= targetKotlinCount) break; // we found enough valid Kotlins
 
-    // Gradle: filtered by AGP min/max bounds
-    const gradleVersions = getLatestN(
-      allGradleVersions.filter(
-        (v) => meetsMinimum(v, minGradle) && meetsMaximum(v, maxGradle),
-      ),
-      maxVersionsPerComponent.gradle,
+    // 1:1 strict coupling: KSP version MUST start with Kotlin version + "-" OR exactly match it
+    const kspCandidates = allKspVersions.filter(
+      (v) => v.startsWith(`${kotlin}-`) || v === kotlin,
     );
-
-    if (gradleVersions.length === 0) {
-      console.log(
-        `  ⚠️  No Gradle for AGP ${agp} [${minGradle}, ${maxGradle}] — skipping`,
-      );
+    
+    if (kspCandidates.length === 0) {
+      prunedByNoKsp++;
       continue;
     }
+    
+    validKotlinCount++;
+    // Take the latest KSP version for this Kotlin version
+    const ksp = kspCandidates[0];
 
-    for (const gradle of gradleVersions) {
-      const java_version =
-        matrixConstraints.agpJdkRequirements[agp] ||
-        matrixConstraints.agpJdkRequirements[agpMajorMinor] ||
-        matrixConstraints.agpJdkRequirements[agpMajor] ||
-        "17";
+    for (const agp of agpVersions) {
+      const agpMajor = getMajor(agp);
+      const agpMajorMinor = getMajorMinor(agp);
+      const overrides = matrixConstraints.agpGradleMinimumOverrides || {};
+      const minGradle =
+        overrides[agp] ||
+        overrides[agpMajorMinor] ||
+        matrixConstraints.agpGradleMinimum[agpMajor] ||
+        "8.6.0";
+      const maxGradle = matrixConstraints.agpGradleMaximum[agpMajor] || "9.9.9";
 
-      const combo = { agp, gradle, java_version };
+      const gradleVersions = getLatestN(
+        allGradleVersions.filter(
+          (v) => meetsMinimum(v, minGradle) && meetsMaximum(v, maxGradle),
+        ),
+        maxVersionsPerComponent.gradle,
+      );
 
-      if (isAlreadyVerified(combo, compatData)) {
-        prunedByVerified++;
+      if (gradleVersions.length === 0) {
+        console.log(
+          `  ⚠️  No Gradle for AGP ${agp} [${minGradle}, ${maxGradle}] — skipping`,
+        );
         continue;
       }
 
-      candidates.push(combo);
+      for (const gradle of gradleVersions) {
+        const java_version =
+          matrixConstraints.agpJdkRequirements[agp] ||
+          matrixConstraints.agpJdkRequirements[agpMajorMinor] ||
+          matrixConstraints.agpJdkRequirements[agpMajor] ||
+          "17";
+
+        const combo = { kotlin, ksp, agp, gradle, java_version };
+
+        if (isAlreadyVerified(combo, compatData)) {
+          prunedByVerified++;
+          continue;
+        }
+
+        candidates.push(combo);
+      }
     }
   }
 
   console.log(`\n📊 Pruning summary:`);
+  console.log(`  Pruned by no matching KSP:       ${prunedByNoKsp}`);
   console.log(`  Pruned by already verified:      ${prunedByVerified}`);
 
   return candidates;
@@ -146,7 +173,7 @@ function generateCandidates(registry, compatData) {
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 function main() {
-  console.log("🧠 Generating test candidates (AGP & Gradle Baseline)...");
+  console.log("🧠 Generating test candidates (Kotlin Master Clock)...");
   console.log(`📖 Rules from ${RULES_PATH}\n`);
 
   const registry = JSON.parse(fs.readFileSync(REGISTRY_PATH, "utf8"));
@@ -164,7 +191,7 @@ function main() {
   console.log("\n📋 Candidates:");
   candidates.forEach((c, i) => {
     console.log(
-      `  ${i + 1}. AGP ${c.agp} | Gradle ${c.gradle} | Java ${c.java_version}`,
+      `  ${i + 1}. Kotlin ${c.kotlin} (KSP ${c.ksp}) | AGP ${c.agp} | Gradle ${c.gradle} | Java ${c.java_version}`,
     );
   });
 }

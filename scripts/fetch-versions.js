@@ -26,6 +26,14 @@ const SOURCES = {
     type: "gradle-services",
     url: "https://services.gradle.org/versions/all",
   },
+  kotlin: {
+    type: "github-releases",
+    url: "https://api.github.com/repos/JetBrains/kotlin/releases",
+  },
+  ksp: {
+    type: "github-releases",
+    url: "https://api.github.com/repos/google/ksp/releases",
+  },
 };
 
 // ── Fetchers ──────────────────────────────────────────────────────────────────

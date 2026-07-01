@@ -21,9 +21,13 @@ function getGradleDownloadUrl(gradleVersion) {
 function injectVersions(combo) {
   const toml = `[versions]
 agp = "${combo.agp}"
+kotlin = "${combo.kotlin}"
+ksp = "${combo.ksp}"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 `;
 
   fs.writeFileSync(TOML_PATH, toml);
@@ -45,7 +49,7 @@ zipStorePath=wrapper/dists
 `;
   fs.writeFileSync(WRAPPER_PATH, wrapperContent);
 
-  console.log(`✅ Injected: AGP ${combo.agp} | Gradle ${combo.gradle}`);
+  console.log(`✅ Injected: AGP ${combo.agp} | Gradle ${combo.gradle} | Kotlin ${combo.kotlin} | KSP ${combo.ksp}`);
 }
 
 const comboArg = process.argv[2];
@@ -58,7 +62,7 @@ if (!comboArg) {
 
 try {
   const combo = JSON.parse(comboArg);
-  const required = ["agp", "gradle"];
+  const required = ["agp", "gradle", "kotlin", "ksp"];
   const missing = required.filter((k) => !combo[k]);
   if (missing.length > 0) {
     console.error(`Missing required fields: ${missing.join(", ")}`);
