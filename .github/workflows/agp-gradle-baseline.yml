@@ -15,7 +15,7 @@ jobs:
     outputs:
       combos: ${{ steps.set-matrix.outputs.combos }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v4
       - id: set-matrix
         run: |
           COMBOS=$(cat data/combos-to-test.json | jq -c '.')
@@ -31,7 +31,7 @@ jobs:
         combo: ${{ fromJson(needs.load-combos.outputs.combos) }}
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v4
 
       - name: Setup Java ${{ matrix.combo.java_version }}
         uses: actions/setup-java@v5
@@ -72,7 +72,7 @@ jobs:
 
       - name: Upload result artifact
         if: always()
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v4
         with:
           name: result-${{ matrix.combo.agp }}-${{ matrix.combo.gradle }}
           path: result-*.json
@@ -82,10 +82,10 @@ jobs:
     runs-on: ubuntu-latest
     if: always()
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v4
 
       - name: Download all result artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v4
         with:
           path: results
           pattern: result-*
@@ -103,7 +103,7 @@ jobs:
         run: node scripts/update-compat.js --merge-artifacts --artifacts-dir results
 
       - name: Create Pull Request with new compat data
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           commit-message: "chore: update compatibility matrix"
           title: "Update Compatibility Matrix"
