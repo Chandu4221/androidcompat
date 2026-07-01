@@ -52,7 +52,7 @@ function mergeAllArtifacts(artifactsDir) {
     fs.readdirSync(dir).forEach((f) => {
       const full = path.join(dir, f);
       if (fs.statSync(full).isDirectory()) walk(full);
-      else if (f === "compat.json") artifactFiles.push(full);
+      else if (f.startsWith("result-") && f.endsWith(".json")) artifactFiles.push(full);
     });
   }
 
