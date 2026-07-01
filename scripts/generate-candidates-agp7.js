@@ -60,38 +60,26 @@ function getLatestN(versions, n) {
 }
 
 function getReleasedAt(versionMap, version) {
-  return versionMap[version]?.releasedAt
-    ? new Date(versionMap[version].releasedAt)
-    : null;
+  const vData = versionMap[version];
+  if (!vData) return null;
+  const dateStr = vData.releasedAt || vData.detectedAt;
+  return dateStr ? new Date(dateStr) : null;
 }
 
-function isInKotlinWindow(
-  libReleasedAt,
-  kotlinReleasedAt,
+function isInWindow(
+  targetDate,
+  anchorDate,
   lookbackMonths,
   forwardMonths,
 ) {
-  if (!libReleasedAt || !kotlinReleasedAt) return true;
-  const libDate = new Date(libReleasedAt);
-  const kotlinDate = new Date(kotlinReleasedAt);
-  const lower = new Date(kotlinDate);
+  if (!targetDate || !anchorDate) return false;
+  const tDate = new Date(targetDate);
+  const aDate = new Date(anchorDate);
+  const lower = new Date(aDate);
   lower.setMonth(lower.getMonth() - lookbackMonths);
-  const upper = new Date(kotlinDate);
+  const upper = new Date(aDate);
   upper.setMonth(upper.getMonth() + forwardMonths);
-  return libDate >= lower && libDate <= upper;
-}
-
-function isAlreadyVerified(combo, compatData) {
-  return compatData.combinations.some(
-    (c) =>
-      c.agp === combo.agp &&
-      c.ksp === combo.ksp &&
-      c.hilt === combo.hilt &&
-      c.kotlin === combo.kotlin &&
-      c.gradle === combo.gradle &&
-      c.composeBom === combo.composeBom &&
-      c.status === "verified",
-  );
+  return tDate >= lower && tDate <= upper;
 }
 
 // Extract Kotlin version prefix from old KSP format: "1.9.25-1.0.20" → "1.9.25"
@@ -107,6 +95,12 @@ function generateCandidates(registry, compatData) {
   const { lookbackMonths } = matrixConstraints.libraryTimeWindow;
   const forwardMonths = AGP7_FORWARD_MONTHS_OVERRIDE;
 
+  const verifiedKeys = new Set(
+    compatData.combinations
+      .filter((c) => c.status === "verified")
+      .map((c) => `${c.agp}-${c.kotlin}-${c.ksp}-${c.hilt}-${c.gradle}-${c.composeBom}`)
+  );
+
   const minGradle = matrixConstraints.agpGradleMinimum["7"];
   const maxGradle = matrixConstraints.agpGradleMaximum["7"];
   const minKotlin = matrixConstraints.agpKotlinMinimum["7"];
@@ -116,14 +110,6 @@ function generateCandidates(registry, compatData) {
   const agpVersions = getLatestN(
     Object.keys(registry.agp || {}).filter((v) => getMajor(v) === "7"),
     matrixConstraints.maxVersionsPerComponent.agpPerMajor,
-  );
-
-  // Gradle: filtered to AGP 7 era bounds
-  const gradleVersions = getLatestN(
-    Object.keys(registry.gradle || {}).filter(
-      (v) => meetsMinimum(v, minGradle) && meetsMaximum(v, maxGradle),
-    ),
-    matrixConstraints.maxVersionsPerComponent.gradle,
   );
 
   // Kotlin 1.x: latest N per minor bucket (1.7, 1.8, 1.9)
@@ -157,7 +143,6 @@ function generateCandidates(registry, compatData) {
   console.log("\n📋 AGP 7 version pools:");
   console.log(`  AGP 7.x:     ${agpVersions.join(", ")}`);
   console.log(`  Kotlin 1.x:  ${kotlinVersions.join(", ")}`);
-  console.log(`  Gradle:      ${gradleVersions.join(", ")}`);
   console.log(`  KSP 1.x:     ${allKsp1Versions.slice(-4).join(", ")} ...`);
 
   let prunedByVerified = 0;
@@ -182,8 +167,8 @@ function generateCandidates(registry, compatData) {
     // Hilt: Kotlin date window
     const hiltVersions = getLatestN(
       allHiltVersions.filter((v) =>
-        isInKotlinWindow(
-          registry.hilt[v]?.releasedAt,
+        isInWindow(
+          getReleasedAt(registry.hilt, v),
           kotlinReleasedAt,
           lookbackMonths,
           forwardMonths,
@@ -195,8 +180,8 @@ function generateCandidates(registry, compatData) {
     // Compose BOM: Kotlin date window
     const composeBomVersions = getLatestN(
       allComposeBomVersions.filter((v) =>
-        isInKotlinWindow(
-          registry.composeBom[v]?.releasedAt,
+        isInWindow(
+          getReleasedAt(registry.composeBom, v),
           kotlinReleasedAt,
           lookbackMonths,
           forwardMonths,
@@ -206,13 +191,35 @@ function generateCandidates(registry, compatData) {
     );
 
     for (const agp of agpVersions) {
+      const agpReleasedAt = getReleasedAt(registry.agp, agp);
+      if (!isInWindow(agpReleasedAt, kotlinReleasedAt, lookbackMonths, forwardMonths)) {
+        continue;
+      }
+
+      // Gradle: filtered to AGP 7 era bounds and release date relative to AGP
+      const gradleVersions = getLatestN(
+        Object.keys(registry.gradle || {}).filter(
+          (v) => 
+            meetsMinimum(v, minGradle) && 
+            meetsMaximum(v, maxGradle) &&
+            isInWindow(
+              getReleasedAt(registry.gradle, v),
+              agpReleasedAt,
+              lookbackMonths,
+              forwardMonths
+            )
+        ),
+        matrixConstraints.maxVersionsPerComponent.gradle,
+      );
+
       for (const gradle of gradleVersions) {
         for (const ksp of kspVersions) {
           for (const hilt of hiltVersions) {
             for (const composeBom of composeBomVersions) {
               const combo = { agp, kotlin, ksp, hilt, gradle, composeBom };
 
-              if (isAlreadyVerified(combo, compatData)) {
+              const comboKey = `${combo.agp}-${combo.kotlin}-${combo.ksp}-${combo.hilt}-${combo.gradle}-${combo.composeBom}`;
+              if (verifiedKeys.has(comboKey)) {
                 prunedByVerified++;
                 continue;
               }

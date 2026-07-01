@@ -24,7 +24,8 @@ function findExisting(combinations, combo) {
       c.ksp === combo.ksp &&
       c.hilt === combo.hilt &&
       c.kotlin === combo.kotlin &&
-      c.gradle === combo.gradle,
+      c.gradle === combo.gradle &&
+      c.composeBom === combo.composeBom,
   );
 }
 
@@ -42,7 +43,7 @@ function mergeAllArtifacts(artifactsDir) {
   const seen = new Set();
 
   compatData.combinations.forEach((c) => {
-    const key = `${c.agp}-${c.kotlin}-${c.ksp}-${c.hilt}-${c.gradle}`;
+    const key = `${c.agp}-${c.kotlin}-${c.ksp}-${c.hilt}-${c.gradle}-${c.composeBom}`;
     seen.add(key);
   });
 
@@ -63,7 +64,7 @@ function mergeAllArtifacts(artifactsDir) {
   artifactFiles.forEach((file) => {
     const data = JSON.parse(fs.readFileSync(file, "utf8"));
     data.combinations.forEach((entry) => {
-      const key = `${entry.agp}-${entry.kotlin}-${entry.ksp}-${entry.hilt}-${entry.gradle}`;
+      const key = `${entry.agp}-${entry.kotlin}-${entry.ksp}-${entry.hilt}-${entry.gradle}-${entry.composeBom}`;
       if (!seen.has(key)) {
         compatData.combinations.push(entry);
         seen.add(key);

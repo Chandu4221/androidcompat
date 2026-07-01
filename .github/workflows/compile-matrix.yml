@@ -87,9 +87,15 @@ jobs:
           ERROR_LOG=""
           for f in sync-output.log compile-output.log unit-test-output.log; do
             if [ -f "$f" ]; then
-              FOUND=$(grep -iE "error:|FAILURE:|Exception" "$f" | head -5 | tr '\n' ' ' || true)
+              # Look for the Gradle "What went wrong" block and extract its contents
+              FOUND=$(awk '/^\* What went wrong:/{flag=1; next} /^\* Try:/{flag=0; print ""; next} flag' "$f" | tr '\n' ' ' || true)
+              if [ -z "$FOUND" ]; then
+                # Fallback to simple grep if "What went wrong" block not found
+                FOUND=$(grep -iE "error:|FAILURE:|Exception" "$f" | head -5 | tr '\n' ' ' || true)
+              fi
               if [ -n "$FOUND" ]; then
-                ERROR_LOG="$FOUND"
+                # Strip excessive whitespace
+                ERROR_LOG=$(echo "$FOUND" | sed 's/  */ /g')
                 break
               fi
             fi

@@ -45,51 +45,46 @@ function getLatestN(versions, n) {
   return [...versions].sort((a, b) => semverCompare(b, a)).slice(0, n);
 }
 
-function getLatestNPerMajor(versionMap, majors, nPerMajor) {
+function getLatestNPerMinor(versionMap, majors, nPerMinor) {
   const result = [];
   for (const major of majors) {
-    const filtered = Object.keys(versionMap)
-      .filter((v) => getMajor(v) === major)
-      .sort((a, b) => semverCompare(b, a))
-      .slice(0, nPerMajor);
-    result.push(...filtered);
+    const majorVersions = Object.keys(versionMap).filter((v) => getMajor(v) === major);
+    const byMinor = {};
+    for (const v of majorVersions) {
+      const minor = getMajorMinor(v);
+      if (!byMinor[minor]) byMinor[minor] = [];
+      byMinor[minor].push(v);
+    }
+    const sortedMinors = Object.keys(byMinor).sort((a, b) => semverCompare(b, a));
+    for (const minor of sortedMinors) {
+      const versions = byMinor[minor].sort((a, b) => semverCompare(b, a)).slice(0, nPerMinor);
+      result.push(...versions);
+    }
   }
   return result;
 }
 
 function getReleasedAt(versionMap, version) {
-  return versionMap[version]?.releasedAt
-    ? new Date(versionMap[version].releasedAt)
-    : null;
+  const vData = versionMap[version];
+  if (!vData) return null;
+  const dateStr = vData.releasedAt || vData.detectedAt;
+  return dateStr ? new Date(dateStr) : null;
 }
 
-function isInKotlinWindow(
-  libReleasedAt,
-  kotlinReleasedAt,
+function isInWindow(
+  targetDate,
+  anchorDate,
   lookbackMonths,
   forwardMonths,
 ) {
-  if (!libReleasedAt || !kotlinReleasedAt) return true;
-  const libDate = new Date(libReleasedAt);
-  const kotlinDate = new Date(kotlinReleasedAt);
-  const lower = new Date(kotlinDate);
+  if (!targetDate || !anchorDate) return false;
+  const tDate = new Date(targetDate);
+  const aDate = new Date(anchorDate);
+  const lower = new Date(aDate);
   lower.setMonth(lower.getMonth() - lookbackMonths);
-  const upper = new Date(kotlinDate);
+  const upper = new Date(aDate);
   upper.setMonth(upper.getMonth() + forwardMonths);
-  return libDate >= lower && libDate <= upper;
-}
-
-function isAlreadyVerified(combo, compatData) {
-  return compatData.combinations.some(
-    (c) =>
-      c.agp === combo.agp &&
-      c.ksp === combo.ksp &&
-      c.hilt === combo.hilt &&
-      c.kotlin === combo.kotlin &&
-      c.gradle === combo.gradle &&
-      c.composeBom === combo.composeBom &&
-      c.status === "verified",
-  );
+  return tDate >= lower && tDate <= upper;
 }
 
 // ── Candidate Generator ───────────────────────────────────────────────────────
@@ -99,12 +94,18 @@ function generateCandidates(registry, compatData) {
   const { lookbackMonths, forwardMonths } = matrixConstraints.libraryTimeWindow;
   const { maxVersionsPerComponent } = matrixConstraints;
 
+  const verifiedKeys = new Set(
+    compatData.combinations
+      .filter((c) => c.status === "verified")
+      .map((c) => `${c.agp}-${c.kotlin}-${c.ksp}-${c.hilt}-${c.gradle}-${c.composeBom}`)
+  );
+
   // ── Layer 1: Toolchain pools ──────────────────────────────────────────────
 
-  const agpVersions = getLatestNPerMajor(
+  const agpVersions = getLatestNPerMinor(
     registry.agp || {},
     matrixConstraints.agpMajorVersions,
-    maxVersionsPerComponent.agpPerMajor,
+    1 // latest 1 per minor
   );
 
   const allGradleVersions = Object.keys(registry.gradle || {}).sort((a, b) =>
@@ -166,8 +167,8 @@ function generateCandidates(registry, compatData) {
     // Hilt: filter by Kotlin date window (AGP-Hilt boundary applied later, per-AGP, since
     // the same Kotlin/Hilt pairing can be valid for AGP 9 but invalid for AGP 8)
     const hiltVersionsByDate = allHiltVersions.filter((v) =>
-      isInKotlinWindow(
-        registry.hilt[v]?.releasedAt,
+      isInWindow(
+        getReleasedAt(registry.hilt, v),
         kotlinReleasedAt,
         lookbackMonths,
         forwardMonths,
@@ -177,8 +178,8 @@ function generateCandidates(registry, compatData) {
     // Compose BOM: filter by Kotlin date window
     const composeBomVersions = getLatestN(
       allComposeBomVersions.filter((v) =>
-        isInKotlinWindow(
-          registry.composeBom[v]?.releasedAt,
+        isInWindow(
+          getReleasedAt(registry.composeBom, v),
           kotlinReleasedAt,
           lookbackMonths,
           forwardMonths,
@@ -188,6 +189,14 @@ function generateCandidates(registry, compatData) {
     );
 
     for (const agp of agpVersions) {
+      const agpReleasedAt = getReleasedAt(registry.agp, agp);
+
+      // AGP date filter: check if AGP was released within window of Kotlin
+      // Using same window for now.
+      if (!isInWindow(agpReleasedAt, kotlinReleasedAt, lookbackMonths, forwardMonths)) {
+        prunedByConstraint++;
+        continue;
+      }
       const agpMajor = getMajor(agp);
       const minKotlin = matrixConstraints.agpKotlinMinimum[agpMajor] || "1.9.0";
       const maxKotlin =
@@ -212,10 +221,18 @@ function generateCandidates(registry, compatData) {
         continue;
       }
 
-      // Gradle: filtered by AGP min/max bounds
+      // Gradle: filtered by AGP min/max bounds and release date relative to AGP
       const gradleVersions = getLatestN(
         allGradleVersions.filter(
-          (v) => meetsMinimum(v, minGradle) && meetsMaximum(v, maxGradle),
+          (v) => 
+            meetsMinimum(v, minGradle) && 
+            meetsMaximum(v, maxGradle) &&
+            isInWindow(
+              getReleasedAt(registry.gradle, v),
+              agpReleasedAt,
+              lookbackMonths,
+              forwardMonths
+            )
         ),
         maxVersionsPerComponent.gradle,
       );
@@ -255,7 +272,8 @@ function generateCandidates(registry, compatData) {
             for (const composeBom of composeBomVersions) {
               const combo = { agp, kotlin, ksp, hilt, gradle, composeBom };
 
-              if (isAlreadyVerified(combo, compatData)) {
+              const comboKey = `${combo.agp}-${combo.kotlin}-${combo.ksp}-${combo.hilt}-${combo.gradle}-${combo.composeBom}`;
+              if (verifiedKeys.has(comboKey)) {
                 prunedByVerified++;
                 continue;
               }
