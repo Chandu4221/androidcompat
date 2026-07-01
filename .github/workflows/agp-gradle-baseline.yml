@@ -1,0 +1,111 @@
+name: AGP/Gradle Baseline Matrix
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  load-combos:
+    runs-on: ubuntu-latest
+    outputs:
+      combos: ${{ steps.set-matrix.outputs.combos }}
+    steps:
+      - uses: actions/checkout@v5
+      - id: set-matrix
+        run: |
+          COMBOS=$(cat data/combos-to-test.json | jq -c '.')
+          echo "combos=$COMBOS" >> $GITHUB_OUTPUT
+
+  compile:
+    needs: load-combos
+    runs-on: ubuntu-latest
+    if: ${{ needs.load-combos.outputs.combos != '[]' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        combo: ${{ fromJson(needs.load-combos.outputs.combos) }}
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup Java ${{ matrix.combo.java_version }}
+        uses: actions/setup-java@v5
+        with:
+          distribution: "temurin"
+          java-version: ${{ matrix.combo.java_version }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Inject versions
+        run: node scripts/inject-versions.js '${{ toJson(matrix.combo) }}'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+
+      - name: Stage - Sync
+        id: sync
+        run: |
+          cd stub-project
+          ./gradlew help --no-daemon
+
+      - name: Record Result
+        if: always()
+        run: |
+          if [ "${{ job.status }}" == "success" ]; then
+            node scripts/record-result.js '${{ toJson(matrix.combo) }}' success
+          else
+            node scripts/record-result.js '${{ toJson(matrix.combo) }}' failed
+          fi
+
+      - name: Upload result artifact
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: result-${{ matrix.combo.agp }}-${{ matrix.combo.gradle }}
+          path: result-*.json
+
+  merge-results:
+    needs: compile
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Download all result artifacts
+        uses: actions/download-artifact@v5
+        with:
+          path: results
+          pattern: result-*
+          merge-multiple: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Merge results
+        run: node scripts/merge-results.js
+
+      - name: Create Pull Request with new compat data
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: update compatibility matrix"
+          title: "Update Compatibility Matrix"
+          body: "Automated PR to update data/compat.json with latest test results."
+          branch: "update-compat-matrix"
+          delete-branch: true

@@ -27,10 +27,12 @@
       "8.13.2": "8.13"
     },
 
-    "hiltAgpCompatibility": {
-      "description": "Hard cutover boundary, not a gradual range. Hilt 2.58 is the LAST version supporting AGP 8.x. Hilt 2.59+ REQUIRES AGP 9.0+ and will fail to apply on AGP 8.x. Source: github.com/google/dagger releases, Hilt issue #5098.",
-      "maxHiltForAgp8": "2.58",
-      "minHiltForAgp9": "2.59"
+    "agpJdkRequirements": {
+      "description": "Strict JDK requirements enforced by Google for building with this AGP. Mapped by AGP major or major.minor.",
+      "7": "11",
+      "8": "17",
+      "8.13": "21",
+      "9": "21"
     },
 
     "agpGradleMaximum": {
@@ -40,39 +42,10 @@
       "9": "9.9.9"
     },
 
-    "agpKotlinMinimum": {
-      "description": "Minimum Kotlin version required per AGP major version.",
-      "7": "1.7.0",
-      "8": "1.9.0",
-      "9": "2.0.0"
-    },
-
-    "agpKotlinMaximum": {
-      "description": "Maximum Kotlin version that realistically coexisted with this AGP major. Prevents testing AGP 7 with Kotlin 2.4.0.",
-      "7": "1.9.99",
-      "8": "2.4.99",
-      "9": "9.9.99"
-    },
-
-    "kspIndependentFrom": {
-      "description": "KSP versions >= this value are independent of Kotlin version. Below this, KSP used a kotlin-prefixed format (e.g. 2.2.0-2.3.9). At and above this, format is just the KSP version (e.g. 2.3.9).",
-      "version": "2.3.0"
-    },
-
-    "libraryTimeWindow": {
-      "description": "Time window in months relative to Kotlin release date for filtering library versions. Lower bound = how far back to look. Upper bound = how far forward to look.",
-      "lookbackMonths": 24,
-      "forwardMonths": 12
-    },
-
     "maxVersionsPerComponent": {
       "description": "How many latest stable versions to pull per component into the matrix. Increase to expand coverage, decrease to save CI minutes.",
       "agpPerMajor": 2,
-      "kotlin": 2,
-      "ksp": 2,
-      "hilt": 2,
-      "gradle": 2,
-      "composeBom": 1
+      "gradle": 2
     }
   },
 
