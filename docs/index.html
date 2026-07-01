@@ -131,6 +131,131 @@
     .stat.blue .stat-value { color: var(--blue); }
     .stat.yellow .stat-value { color: var(--yellow); }
 
+    /* ── Tabs ────────────────────────────────────────────────────────────── */
+    .tabs {
+      display: flex;
+      padding: 0 32px;
+      border-bottom: 1px solid var(--border);
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 13px;
+      padding: 12px 0;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover { color: var(--text); }
+    
+    .tab-btn.active {
+      color: var(--green);
+      border-bottom-color: var(--green);
+      font-weight: 600;
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* ── Upgrade Calculator ──────────────────────────────────────────────── */
+    .upgrade-wrap {
+      padding: 32px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .upgrade-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .upgrade-panel h3 {
+      font-family: var(--mono);
+      color: var(--text);
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .upgrade-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .control-group label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .control-group select { width: 100%; }
+
+    .btn {
+      background: var(--green);
+      color: var(--bg);
+      border: none;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 13px;
+      transition: background 0.2s;
+      width: 100%;
+    }
+
+    .btn:hover { background: #46cf5a; }
+
+    /* Transition Card */
+    .transition-card {
+      border: 1px solid var(--green);
+      background: var(--green-dim);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .transition-card h4 {
+      font-family: var(--mono);
+      color: var(--green);
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    
+    .diff-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-family: var(--mono);
+      font-size: 14px;
+    }
+    
+    .diff-row:last-child { border-bottom: none; }
+    
+    .diff-lib { color: var(--text-muted); width: 120px; font-weight: 600; }
+    .diff-old { color: var(--red); background: var(--red-dim); padding: 4px 8px; border-radius: 4px; }
+    .diff-arrow { color: var(--text-muted); margin: 0 10px; }
+    .diff-new { color: var(--green); background: rgba(63, 185, 80, 0.15); padding: 4px 8px; border-radius: 4px; font-weight: 600; }
+    .diff-same { color: var(--text); background: var(--surface2); padding: 4px 8px; border-radius: 4px; }
+
     /* ── Filters ─────────────────────────────────────────────────────────── */
     .filters {
       padding: 16px 32px;
@@ -441,44 +566,86 @@
     </div>
   </section>
 
-  <section class="filters">
-    <span class="filter-label">Filter</span>
-    <select id="filter-agp"><option value="">All AGP</option></select>
-    <select id="filter-kotlin"><option value="">All Kotlin</option></select>
-    <select id="filter-status"><option value="">All Status</option>
-      <option value="verified">Verified</option>
-      <option value="broken_unit_test">Broken (Unit Test)</option>
-      <option value="broken_compile">Broken (Compile)</option>
-      <option value="broken_sync">Broken (Sync)</option>
-    </select>
-    <div class="filter-sep"></div>
-    <select id="sort-by">
-      <option value="confidence">Sort: Confidence ↓</option>
-      <option value="verified_at">Sort: Newest</option>
-      <option value="agp">Sort: AGP</option>
-      <option value="kotlin">Sort: Kotlin</option>
-    </select>
-  </section>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('tab-matrix')">Full Matrix</button>
+    <button class="tab-btn" onclick="switchTab('tab-upgrade')">Upgrade Path Calculator</button>
+  </div>
 
-  <div class="table-wrap">
-    <table id="compat-table">
-      <thead>
-        <tr>
-          <th>AGP</th>
-          <th>Kotlin</th>
-          <th>KSP</th>
-          <th>Hilt</th>
-          <th>Gradle</th>
-          <th>Compose BOM</th>
-          <th>Status</th>
-          <th>Confidence</th>
-          <th>Verified</th>
-        </tr>
-      </thead>
-      <tbody id="table-body">
-        <tr><td colspan="9" class="state-msg">Loading compatibility data...</td></tr>
-      </tbody>
-    </table>
+  <div id="tab-matrix" class="tab-content active">
+    <section class="filters">
+      <span class="filter-label">Filter</span>
+      <select id="filter-agp"><option value="">All AGP</option></select>
+      <select id="filter-kotlin"><option value="">All Kotlin</option></select>
+      <select id="filter-status"><option value="">All Status</option>
+        <option value="verified">Verified</option>
+        <option value="broken_unit_test">Broken (Unit Test)</option>
+        <option value="broken_compile">Broken (Compile)</option>
+        <option value="broken_sync">Broken (Sync)</option>
+      </select>
+      <div class="filter-sep"></div>
+      <select id="sort-by">
+        <option value="confidence">Sort: Confidence ↓</option>
+        <option value="verified_at">Sort: Newest</option>
+        <option value="agp">Sort: AGP</option>
+        <option value="kotlin">Sort: Kotlin</option>
+      </select>
+    </section>
+
+    <div class="table-wrap">
+      <table id="compat-table">
+        <thead>
+          <tr>
+            <th>AGP</th>
+            <th>Kotlin</th>
+            <th>KSP</th>
+            <th>Hilt</th>
+            <th>Gradle</th>
+            <th>Compose BOM</th>
+            <th>Status</th>
+            <th>Confidence</th>
+            <th>Verified</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr><td colspan="9" class="state-msg">Loading compatibility data...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="tab-upgrade" class="tab-content">
+    <div class="upgrade-wrap">
+      <div class="upgrade-panel">
+        <h3>1. Select Current Stack</h3>
+        <div class="upgrade-controls">
+          <div class="control-group">
+            <label>Current AGP</label>
+            <select id="upg-current-agp"><option value="">Loading...</option></select>
+          </div>
+          <div class="control-group">
+            <label>Current Kotlin</label>
+            <select id="upg-current-kotlin"><option value="">Loading...</option></select>
+          </div>
+        </div>
+        
+        <hr style="border: 0; border-top: 1px solid var(--border); margin: 24px 0;" />
+        
+        <h3>2. Select Target</h3>
+        <div class="upgrade-controls">
+          <div class="control-group">
+            <label>Target AGP</label>
+            <select id="upg-target-agp"><option value="">Loading...</option></select>
+          </div>
+          <div class="control-group" style="justify-content: flex-end;">
+            <button class="btn" onclick="calculateUpgrade()">Find Upgrade Path</button>
+          </div>
+        </div>
+      </div>
+      
+      <div id="upgrade-result">
+        <!-- Results rendered here -->
+      </div>
+    </div>
   </div>
 </main>
 
@@ -504,6 +671,7 @@
         'Updated ' + timeAgo(json.last_updated);
 
       populateFilters();
+      populateUpgradeFilters();
       updateStats();
       render();
     } catch (e) {
@@ -666,6 +834,95 @@
   function toggleExpand(id) {
     expandedId = expandedId === id ? null : id;
     render();
+  }
+
+  // ── Tabs ──────────────────────────────────────────────────────────────────
+  function switchTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    document.querySelector(`.tab-btn[onclick="switchTab('${tabId}')"]`).classList.add('active');
+  }
+
+  // ── Upgrade Calculator ────────────────────────────────────────────────────
+  function populateUpgradeFilters() {
+    const agpVals = [...new Set(allCombos.map(c => c.agp))].sort(semverDesc);
+    const kotlinVals = [...new Set(allCombos.map(c => c.kotlin))].sort(semverDesc);
+
+    fillSelect('upg-current-agp', agpVals, 'Select Current AGP');
+    fillSelect('upg-current-kotlin', kotlinVals, 'Select Current Kotlin');
+    fillSelect('upg-target-agp', agpVals, 'Select Target AGP');
+  }
+
+  function calculateUpgrade() {
+    const curAgp = document.getElementById('upg-current-agp').value;
+    const curKot = document.getElementById('upg-current-kotlin').value;
+    const tgtAgp = document.getElementById('upg-target-agp').value;
+    const resDiv = document.getElementById('upgrade-result');
+
+    if (!curAgp || !curKot || !tgtAgp) {
+      resDiv.innerHTML = `<div class="state-msg">Please select all required fields.</div>`;
+      return;
+    }
+
+    // Find current combo to establish baseline libraries
+    const curCombo = allCombos.find(c => c.agp === curAgp && c.kotlin === curKot && c.status === 'verified') 
+      || { agp: curAgp, kotlin: curKot, ksp: '?', hilt: '?', gradle: '?', composeBom: '?' };
+
+    // Find all verified combos for the target AGP
+    const validTargets = allCombos.filter(c => c.agp === tgtAgp && c.status === 'verified');
+
+    if (validTargets.length === 0) {
+      resDiv.innerHTML = `<div class="state-msg" style="color:var(--red)">No verified combinations exist for Target AGP ${tgtAgp}.</div>`;
+      return;
+    }
+
+    // Nearest Baseline Algorithm:
+    // Sort by Kotlin distance to current, then by confidence score
+    validTargets.sort((a, b) => {
+      const distA = Math.abs(semverDiffScore(a.kotlin, curKot));
+      const distB = Math.abs(semverDiffScore(b.kotlin, curKot));
+      
+      if (distA !== distB) return distA - distB; 
+      return (b.confidence?.score || 0) - (a.confidence?.score || 0);
+    });
+
+    const bestTarget = validTargets[0];
+    renderTransitionCard(curCombo, bestTarget, resDiv);
+  }
+
+  function semverDiffScore(v1, v2) {
+    const p1 = String(v1).split('.').map(Number);
+    const p2 = String(v2).split('.').map(Number);
+    const score1 = (p1[0] || 0) * 100 + (p1[1] || 0) * 10 + (p1[2] || 0);
+    const score2 = (p2[0] || 0) * 100 + (p2[1] || 0) * 10 + (p2[2] || 0);
+    return score1 - score2;
+  }
+
+  function renderTransitionCard(oldC, newC, container) {
+    const libs = ['agp', 'kotlin', 'ksp', 'hilt', 'gradle', 'composeBom'];
+    
+    let rowsHtml = libs.map(lib => {
+      const oVal = oldC[lib];
+      const nVal = newC[lib];
+      const label = lib === 'composeBom' ? 'BOM' : lib.toUpperCase();
+      
+      if (oVal === nVal) {
+        return `<div class="diff-row"><span class="diff-lib">${label}</span> <div><span class="diff-same">${nVal}</span></div></div>`;
+      } else {
+        return `<div class="diff-row"><span class="diff-lib">${label}</span> <div><span class="diff-old">${oVal}</span> <span class="diff-arrow">➔</span> <span class="diff-new">${nVal}</span></div></div>`;
+      }
+    }).join('');
+
+    container.innerHTML = `
+      <div class="transition-card">
+        <h4>Optimal Verified Upgrade Path Found!</h4>
+        <p style="color:var(--text-muted); font-size:12px; margin-bottom:20px;">
+          This configuration passed all CI stages with a confidence score of <strong>${newC.confidence?.score || 100}/100</strong>.
+        </p>
+        <div>${rowsHtml}</div>
+      </div>
+    `;
   }
 
   // ── Status HTML ───────────────────────────────────────────────────────────

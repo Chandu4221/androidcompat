@@ -18,6 +18,27 @@ const RULES = JSON.parse(fs.readFileSync(RULES_PATH, "utf8"));
 const { pinnedLibraries } = RULES;
 const REGISTRY = JSON.parse(fs.readFileSync(REGISTRY_PATH, "utf8"));
 
+// ── Legacy Kotlin Compose Compiler Map ────────────────────────────────────────
+// Maps Kotlin 1.x versions to their required Compose Compiler version.
+// Not needed for Kotlin 2.0+ which uses the 'org.jetbrains.kotlin.plugin.compose' Gradle plugin.
+const KOTLIN_TO_COMPOSE_COMPILER = {
+  "1.9.24": "1.5.14",
+  "1.9.23": "1.5.11",
+  "1.9.22": "1.5.10",
+  "1.9.21": "1.5.8",
+  "1.9.20": "1.5.4",
+  "1.9.10": "1.5.3",
+  "1.9.0": "1.5.1",
+  "1.8.22": "1.4.8",
+  "1.8.21": "1.4.7",
+  "1.8.20": "1.4.6",
+  "1.8.10": "1.4.3",
+  "1.8.0": "1.4.0",
+  "1.7.22": "1.3.2",
+  "1.7.21": "1.3.2",
+  "1.7.20": "1.3.2"
+};
+
 // Look up Gradle's canonical downloadUrl from the registry instead of
 // constructing it from the version string. Gradle distribution filenames
 // are inconsistent (e.g. "8.13" not "8.13.0"), so the registry — populated
@@ -122,6 +143,42 @@ zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
 `;
   fs.writeFileSync(WRAPPER_PATH, wrapperContent);
+
+  // ── Dynamic Polyfill for build.gradle.kts ─────────────────────────────
+  // Fixes the Kotlin 1.x compiler bug by stripping the modern plugin
+  // and injecting the legacy composeOptions block on the fly.
+  const BUILD_GRADLE_PATH = path.join(__dirname, "../stub-project/app/build.gradle.kts");
+  let buildGradle = fs.readFileSync(BUILD_GRADLE_PATH, "utf8");
+
+  if (combo.kotlin.startsWith("1.")) {
+    // Legacy Kotlin 1.x
+    // 1. Remove Kotlin 2.x Compose plugin
+    buildGradle = buildGradle.replace(/\s*alias\(libs\.plugins\.kotlin\.compose\)/g, "");
+    
+    // 2. Inject composeOptions into android block if not present
+    const compilerVersion = KOTLIN_TO_COMPOSE_COMPILER[combo.kotlin] || "1.5.14";
+    if (!buildGradle.includes("composeOptions {")) {
+      buildGradle = buildGradle.replace(
+        "    buildFeatures {", 
+        `    composeOptions {\n        kotlinCompilerExtensionVersion = "${compilerVersion}"\n    }\n    buildFeatures {`
+      );
+    } else {
+      buildGradle = buildGradle.replace(/kotlinCompilerExtensionVersion\s*=\s*"[^"]+"/, `kotlinCompilerExtensionVersion = "${compilerVersion}"`);
+    }
+  } else {
+    // Modern Kotlin 2.x
+    // 1. Ensure Kotlin 2.x Compose plugin is present
+    if (!buildGradle.includes("alias(libs.plugins.kotlin.compose)")) {
+      buildGradle = buildGradle.replace(
+        "    alias(libs.plugins.hilt)", 
+        "    alias(libs.plugins.hilt)\n    alias(libs.plugins.kotlin.compose)"
+      );
+    }
+    // 2. Remove any legacy composeOptions block
+    buildGradle = buildGradle.replace(/\s*composeOptions\s*\{[\s\S]*?\}/g, "");
+  }
+  
+  fs.writeFileSync(BUILD_GRADLE_PATH, buildGradle);
 
   console.log(
     `✅ Injected: AGP ${combo.agp} | Kotlin ${combo.kotlin} | KSP ${combo.ksp} | Hilt ${combo.hilt} | Gradle ${combo.gradle} | Compose BOM ${combo.composeBom}`,
