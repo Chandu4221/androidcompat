@@ -11,7 +11,7 @@ pluginManagement {
         gradlePluginPortal()
     }
     plugins {
-        id("org.jetbrains.kotlin.android") version "2.2.0"
+        id("org.jetbrains.kotlin.android") version "2.3.21"
         id("com.google.devtools.ksp") version "2.3.9"
         id("com.google.dagger.hilt.android") version "2.59.2"
     }

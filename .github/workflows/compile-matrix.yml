@@ -168,5 +168,5 @@ jobs:
           git config user.email "bot@androidcompat.dev"
           git add data/compat.json
           git diff --staged --quiet || git commit -m "data: update compat matrix from CI run [skip ci]"
-          git pull --rebase origin main
-          git push
+          git pull --rebase origin ${{ github.ref_name }}
+          git push origin HEAD:${{ github.ref_name }}
