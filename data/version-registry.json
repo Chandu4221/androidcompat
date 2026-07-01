@@ -2563,6 +2563,13 @@
       "detectedAt": "2026-06-24T09:24:28.915Z",
       "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml",
       "releasedAt": "2026-06-17T17:05:32.000Z"
+    },
+    "2026.06.01": {
+      "version": "2026.06.01",
+      "status": "NEW",
+      "detectedAt": "2026-07-01T21:55:50.760Z",
+      "releasedAt": "2026-07-01T17:06:39.000Z",
+      "source": "https://dl.google.com/android/maven2/androidx/compose/compose-bom/maven-metadata.xml"
     }
   },
   "kotlin": {
