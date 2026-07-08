@@ -1,0 +1,34 @@
+# Mac
+.DS_Store
+**/.DS_Store
+
+# Gradle
+.gradle/
+build/
+local.properties
+*.iml
+.idea/
+
+# Android
+stub-project/.idea/
+stub-project/local.properties
+stub-project/build/
+stub-project/app/build/
+
+.env
+node_modules/
+
+# Compiled binaries
+aggregate
+gencombos
+inject
+collect
+
+# Backup folders
+data.backup/
+
+# Test builds
+test-build/
+
+# MacOS
+.DS_Store

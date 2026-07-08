@@ -1,0 +1,125 @@
+name: Verify AGP 7.x
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-combos:
+    runs-on: ubuntu-latest
+    outputs:
+      combos: ${{ steps.combos.outputs.combos }}
+      agp-major: ${{ steps.combos.outputs.agp-major }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: "1.26"
+          cache: false
+
+      - name: Generate combos
+        id: combos
+        run: |
+          COMBOS=$(cat data/agp7/combos-to-test.json | jq -c '.combos')
+          echo "combos=$COMBOS" >> $GITHUB_OUTPUT
+          echo "agp-major=7" >> $GITHUB_OUTPUT
+
+  verify:
+    needs: generate-combos
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        combo: ${{ fromJson(needs.generate-combos.outputs.combos) }}
+      fail-fast: false
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: "temurin"
+          java-version: ${{ matrix.combo.jdk }}
+
+      - name: Setup Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: "1.26"
+          cache: false
+
+      - name: Prepare build directory and inject versions
+        run: |
+          mkdir -p tmp-build
+          cp -r stubs/agp7/* tmp-build/
+          go run cmd/inject/main.go \
+            --dir=tmp-build \
+            --agp=${{ matrix.combo.agp }} \
+            --gradle=${{ matrix.combo.gradle }} \
+            --kotlin=${{ matrix.combo.kotlin }} \
+            --ksp=${{ matrix.combo.ksp }} \
+            --agp-major=7
+
+      - name: Run Gradle build and capture output
+        id: build
+        run: |
+          cd tmp-build
+          chmod +x gradlew
+          ./gradlew build --no-daemon --stacktrace > stdout.log 2> stderr.log || true
+
+      - name: Collect result
+        run: |
+          go run cmd/collect/main.go \
+            --id=${{ matrix.combo.id }} \
+            --agp=${{ matrix.combo.agp }} \
+            --gradle=${{ matrix.combo.gradle }} \
+            --kotlin=${{ matrix.combo.kotlin }} \
+            --ksp=${{ matrix.combo.ksp }} \
+            --jdk=${{ matrix.combo.jdk }} \
+            --dir=tmp-build \
+            --out=.
+
+      - name: Upload result artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: result-${{ matrix.combo.id }}
+          path: result-${{ matrix.combo.id }}.json
+
+  aggregate:
+    needs: verify
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: "1.26"
+          cache: false
+
+      - name: Download all result artifacts
+        uses: actions/download-artifact@v8
+        with:
+          path: results/
+
+      - name: Merge results into compat.json
+        run: |
+          go run cmd/aggregate/main.go --agp=7 --results-dir=results/
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/data/agp7/compat.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update AGP7 compat results [skip ci]"
+            git push
+          else
+            echo "No changes to commit."
+          fi

@@ -1,0 +1,62 @@
+{
+  "agpMajor": 8,
+  "generatedAt": "2026-07-08T07:06:49Z",
+  "combos": [
+    {
+      "id": "agp802_gradle80_kotlin1925_ksp1925-1020_jdk17",
+      "agp": "8.0.2",
+      "gradle": "8.0",
+      "kotlin": "1.9.25",
+      "ksp": "1.9.25-1.0.20",
+      "jdk": "17"
+    },
+    {
+      "id": "agp8101_gradle8111_kotlin2221_ksp2221-205_jdk17",
+      "agp": "8.10.1",
+      "gradle": "8.11.1",
+      "kotlin": "2.2.21",
+      "ksp": "2.2.21-2.0.5",
+      "jdk": "17"
+    },
+    {
+      "id": "agp8112_gradle813_kotlin2221_ksp2221-205_jdk17",
+      "agp": "8.11.2",
+      "gradle": "8.13",
+      "kotlin": "2.2.21",
+      "ksp": "2.2.21-2.0.5",
+      "jdk": "17"
+    },
+    {
+      "id": "agp814_gradle80_kotlin1925_ksp1925-1020_jdk17",
+      "agp": "8.1.4",
+      "gradle": "8.0",
+      "kotlin": "1.9.25",
+      "ksp": "1.9.25-1.0.20",
+      "jdk": "17"
+    },
+    {
+      "id": "agp852_gradle87_kotlin2021_ksp2021-1028_jdk17",
+      "agp": "8.5.2",
+      "gradle": "8.7",
+      "kotlin": "2.0.21",
+      "ksp": "2.0.21-1.0.28",
+      "jdk": "17"
+    },
+    {
+      "id": "agp861_gradle87_kotlin2121_ksp2121-202_jdk17",
+      "agp": "8.6.1",
+      "gradle": "8.7",
+      "kotlin": "2.1.21",
+      "ksp": "2.1.21-2.0.2",
+      "jdk": "17"
+    },
+    {
+      "id": "agp873_gradle89_kotlin2121_ksp2121-202_jdk17",
+      "agp": "8.7.3",
+      "gradle": "8.9",
+      "kotlin": "2.1.21",
+      "ksp": "2.1.21-2.0.2",
+      "jdk": "17"
+    }
+  ]
+}
