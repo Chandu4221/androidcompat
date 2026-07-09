@@ -110,7 +110,9 @@ func parseResult(comboID, output string) storage.VerificationResult {
 
 	// Try to extract a more specific failure signature
 	if failed {
-		if strings.Contains(output, "dagger_metadata_error") || strings.Contains(output, "dagger") {
+		if strings.Contains(output, "Using kotlin.sourceSets DSL to add Kotlin sources is not allowed with built-in Kotlin") {
+			result.FailureSignature = "built_in_kotlin_sourceset_conflict"
+		} else if strings.Contains(output, "dagger_metadata_error") || strings.Contains(output, "dagger") {
 			result.FailureSignature = "dagger_metadata_error"
 		} else if strings.Contains(output, "ksp_version_mismatch") || strings.Contains(output, "KSP") {
 			result.FailureSignature = "ksp_version_mismatch"
