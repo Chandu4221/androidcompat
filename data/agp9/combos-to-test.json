@@ -1,6 +1,6 @@
 {
   "agpMajor": 9,
-  "generatedAt": "2026-07-09T15:26:51Z",
+  "generatedAt": "2026-07-09T15:36:33Z",
   "combos": [
     {
       "id": "agp901_gradle910_kotlin2210_ksp236_jdk17",
@@ -9,7 +9,7 @@
       "kotlin": "2.2.10",
       "ksp": "2.3.6",
       "jdk": "17",
-      "compileSdk": "36.1"
+      "compileSdk": "36"
     },
     {
       "id": "agp911_gradle931_kotlin2210_ksp236_jdk17",
