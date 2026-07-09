@@ -41,7 +41,6 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Setup JDK 17 for sdkmanager
-        id: setup-java-17
         uses: actions/setup-java@v5
         with:
           distribution: "temurin"
@@ -74,7 +73,7 @@ jobs:
 
       - name: Install Android SDK platform
         run: |
-          export JAVA_HOME=${{ steps.setup-java-17.outputs.java-home }}
+          export JAVA_HOME=$JAVA_HOME_17_X64
           $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-${{ matrix.combo.compileSdk }}"
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
