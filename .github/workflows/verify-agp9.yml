@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write # This grants the token permission to push
+  contents: write
 
 jobs:
   generate-combos:
@@ -62,7 +62,14 @@ jobs:
             --gradle=${{ matrix.combo.gradle }} \
             --kotlin=${{ matrix.combo.kotlin }} \
             --ksp=${{ matrix.combo.ksp }} \
+            --compile-sdk=${{ matrix.combo.compileSdk }} \
             --agp-major=9
+
+      - name: Install Android SDK platform
+        run: |
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-${{ matrix.combo.compileSdk }}"
+        env:
+          ANDROID_HOME: /usr/local/lib/android/sdk
 
       - name: Run Gradle build and capture output
         id: build
