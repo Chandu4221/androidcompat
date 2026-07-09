@@ -67,10 +67,8 @@ jobs:
 
       - name: Install Android SDK platform
         run: |
+          export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
           $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-${{ matrix.combo.compileSdk }}"
-        env:
-          JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
-          PATH: /usr/lib/jvm/java-17-openjdk-amd64/bin:$PATH
 
       - name: Run Gradle build and capture output
         id: build
