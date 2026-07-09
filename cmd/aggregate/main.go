@@ -15,7 +15,7 @@ import (
 func main() {
 	agpMajor := flag.Int("agp", 0, "AGP major version (e.g., 9)")
 	resultsDir := flag.String("results-dir", "results/", "Directory containing result artifacts")
-	outputFile := flag.String("output", "", "Output compat.json path (default: data/agpN/compat.json)")
+	outputFile := flag.String("output", "", "Output compat.json path (default: docs/data/agpN/compat.json)")
 	flag.Parse()
 
 	if *agpMajor == 0 {
@@ -32,14 +32,16 @@ func main() {
 	fmt.Printf("📁 Results directory: %s\n", *resultsDir)
 	fmt.Printf("📄 Output file: %s\n", output)
 
-	// 1. Load existing compat.json (if any)
-	existing, err := storage.LoadCompat(*agpMajor)
-	if err != nil {
-		log.Printf("⚠️  No existing compat.json found, starting fresh")
-		existing = &storage.CompatFile{
-			AGPMajor: *agpMajor,
-			Results:  []storage.VerificationResult{},
+	// 1. Load existing compat.json from output path (if it exists)
+	var existing storage.CompatFile
+	if data, err := os.ReadFile(output); err == nil {
+		if err := json.Unmarshal(data, &existing); err != nil {
+			log.Printf("⚠️  Failed to parse existing compat.json, starting fresh: %v", err)
+			existing = storage.CompatFile{AGPMajor: *agpMajor, Results: []storage.VerificationResult{}}
 		}
+	} else {
+		log.Printf("⚠️  No existing compat.json found, starting fresh")
+		existing = storage.CompatFile{AGPMajor: *agpMajor, Results: []storage.VerificationResult{}}
 	}
 
 	// Build map of existing results by ID
@@ -50,7 +52,7 @@ func main() {
 
 	// 2. Walk the results directory and collect all result files
 	var resultFiles []string
-	err = filepath.Walk(*resultsDir, func(path string, info os.FileInfo, err error) error {
+	err := filepath.Walk(*resultsDir, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}
@@ -94,12 +96,22 @@ func main() {
 		mergedResults = append(mergedResults, r)
 	}
 
-	// 5. Update the compat file and save
+	// 5. Write the merged results to the output file
 	existing.Results = mergedResults
 	existing.AGPMajor = *agpMajor
 
-	if err := storage.SaveCompat(*agpMajor, existing); err != nil {
-		log.Fatalf("❌ Failed to save compat.json: %v", err)
+	// Ensure output directory exists
+	outDir := filepath.Dir(output)
+	if err := os.MkdirAll(outDir, 0755); err != nil {
+		log.Fatalf("❌ Failed to create output directory: %v", err)
+	}
+
+	data, err := json.MarshalIndent(existing, "", "  ")
+	if err != nil {
+		log.Fatalf("❌ Failed to marshal compat.json: %v", err)
+	}
+	if err := os.WriteFile(output, data, 0644); err != nil {
+		log.Fatalf("❌ Failed to write compat.json: %v", err)
 	}
 
 	fmt.Printf("✅ Merged %d new results into %s\n", mergedCount, output)
