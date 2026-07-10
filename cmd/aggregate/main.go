@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 
 	"github.com/Chandu4221/androidcompat/internal/storage"
@@ -95,6 +96,11 @@ func main() {
 	for _, r := range existingMap {
 		mergedResults = append(mergedResults, r)
 	}
+
+	// Sort results by ID for deterministic output
+	sort.Slice(mergedResults, func(i, j int) bool {
+		return mergedResults[i].ID < mergedResults[j].ID
+	})
 
 	// 5. Write the merged results to the output file
 	existing.Results = mergedResults
