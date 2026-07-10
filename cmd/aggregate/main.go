@@ -99,6 +99,12 @@ func main() {
 
 	// Sort results by ID for deterministic output
 	sort.Slice(mergedResults, func(i, j int) bool {
+		// Descending: latest AGP first
+		cmp := compareAgpVersions(mergedResults[i].AGP, mergedResults[j].AGP)
+		if cmp != 0 {
+			return cmp > 0
+		}
+		// If same AGP, fallback to ID
 		return mergedResults[i].ID < mergedResults[j].ID
 	})
 
@@ -135,4 +141,27 @@ func main() {
 	}
 	fmt.Printf("   Verified: %d\n", verified)
 	fmt.Printf("   Failed: %d\n", failed)
+}
+
+// compareAgpVersions returns -1 if v1 < v2, 0 if equal, 1 if v1 > v2
+func compareAgpVersions(v1, v2 string) int {
+	parts1 := strings.Split(v1, ".")
+	parts2 := strings.Split(v2, ".")
+	maxLen := len(parts1)
+	if len(parts2) > maxLen {
+		maxLen = len(parts2)
+	}
+	for i := 0; i < maxLen; i++ {
+		var n1, n2 int
+		if i < len(parts1) {
+			fmt.Sscanf(parts1[i], "%d", &n1)
+		}
+		if i < len(parts2) {
+			fmt.Sscanf(parts2[i], "%d", &n2)
+		}
+		if n1 != n2 {
+			return n1 - n2
+		}
+	}
+	return 0
 }
