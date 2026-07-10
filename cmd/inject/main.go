@@ -189,7 +189,8 @@ func ensureKSPPluginKts(appGradleKts string) error {
 		return err
 	}
 	str := string(content)
-	if strings.Contains(str, "ksp") {
+	// Check for the exact plugin alias line (not a broad substring)
+	if strings.Contains(str, "alias(libs.plugins.ksp)") {
 		return nil
 	}
 	// Add alias(libs.plugins.ksp) to the plugins block
