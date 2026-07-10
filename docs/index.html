@@ -403,9 +403,13 @@
                 },
                 lastRunDate() {
                     if (this.allData.length === 0) return 'Loading...';
-                    const latest = this.allData[0].timestamp;
-                    if (!latest) return 'Unknown';
-                    return new Date(latest).toLocaleString(undefined, { 
+                    let maxTime = 0;
+                    for (const item of this.allData) {
+                        const t = new Date(item.timestamp || 0).getTime();
+                        if (t > maxTime) maxTime = t;
+                    }
+                    if (maxTime === 0) return 'Unknown';
+                    return new Date(maxTime).toLocaleString(undefined, { 
                         year: 'numeric', month: 'short', day: 'numeric', 
                         hour: '2-digit', minute: '2-digit' 
                     });
@@ -473,11 +477,9 @@
                         combinedData = combinedData.concat(res);
                     });
                     
-                    // Sort globally by timestamp descending
-                    combinedData.sort((a, b) => {
-                        return new Date(b.timestamp || 0) - new Date(a.timestamp || 0);
-                    });
-                    
+                    // Data is already sorted within the JSON files by AGP version.
+                    // Promise.all maintains the array order (agp9, agp8, agp7).
+                    // So combinedData is naturally sorted by AGP version!
                     this.allData = combinedData;
                     this.loading = false;
                 },
