@@ -82,7 +82,7 @@ func parseResult(comboID, output string) storage.VerificationResult {
 	}
 	result.Verification.Sync = "PASSED"
 	result.Verification.Compile = "SKIPPED"
-	result.Verification.UnitTest = "SKIPPED"
+	result.Verification.UnitTest = "NO_TESTS_ADDED" // honest default: no tests exist yet
 
 	// Check for build failure
 	failed := false
@@ -94,10 +94,10 @@ func parseResult(comboID, output string) storage.VerificationResult {
 		failed = true
 		result.FailureSignature = "dependency_resolution_failure"
 	} else if strings.Contains(output, "BUILD SUCCESSFUL") {
-		// Build succeeded fully
+		// Build succeeded fully – no tests are present
 		result.Verification.Sync = "PASSED"
 		result.Verification.Compile = "PASSED"
-		result.Verification.UnitTest = "PASSED"
+		result.Verification.UnitTest = "NO_TESTS_ADDED"
 		result.Status = "verified"
 		return result
 	} else if strings.Contains(output, "Compilation failed") {
