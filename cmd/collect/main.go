@@ -82,61 +82,89 @@ func parseResult(comboID, output string) storage.VerificationResult {
 	}
 	result.Verification.Sync = "PASSED"
 	result.Verification.Compile = "SKIPPED"
-	result.Verification.UnitTest = "NO_TESTS_ADDED" // honest default: no tests exist yet
+	result.Verification.UnitTest = "NO_TESTS_ADDED"
 
-	// Check for build failure
+	// Extract the error block (What went wrong / Caused by)
+	errorBlock := extractErrorBlock(output)
+	if errorBlock == "" {
+		// If no error block, fall back to scanning the whole log
+		errorBlock = output
+	}
+
 	failed := false
 
-	// Check for sync failure
-	if strings.Contains(output, "FAILURE: Build failed with an exception.") &&
-		strings.Contains(output, "Could not resolve all dependencies") {
-		result.Verification.Sync = "FAILED"
-		failed = true
-		result.FailureSignature = "dependency_resolution_failure"
-	} else if strings.Contains(output, "BUILD SUCCESSFUL") {
-		// Build succeeded fully – no tests are present
+	// 1. Check for specific, high‑confidence signatures FIRST
+	if strings.Contains(output, "BUILD SUCCESSFUL") {
 		result.Verification.Sync = "PASSED"
 		result.Verification.Compile = "PASSED"
 		result.Verification.UnitTest = "NO_TESTS_ADDED"
 		result.Status = "verified"
 		return result
-	} else if strings.Contains(output, "Compilation failed") {
-		result.Verification.Compile = "FAILED"
+	}
+
+	// 2. Sync failures (dependency resolution)
+	if strings.Contains(errorBlock, "Could not resolve all dependencies") ||
+		strings.Contains(errorBlock, "Could not find") {
+		result.Verification.Sync = "FAILED"
 		failed = true
-		result.FailureSignature = "compilation_failure"
-	} else if strings.Contains(output, "KotlinCompile") && strings.Contains(output, "FAILED") {
-		result.Verification.Compile = "FAILED"
-		failed = true
-		result.FailureSignature = "kotlin_compilation_failure"
-	} else if strings.Contains(output, "FAILURE: Build failed") {
-		// Generic build failure
+		result.FailureSignature = "dependency_resolution_failure"
+	}
+
+	// 3. Compile failures (compileSdk, Kotlin, Java)
+	if !failed {
+		if strings.Contains(errorBlock, "compileSdk") ||
+			strings.Contains(errorBlock, "failed to load include path") ||
+			strings.Contains(errorBlock, "android.jar") {
+			failed = true
+			result.Verification.Compile = "FAILED"
+			result.FailureSignature = "compile_sdk_mismatch"
+		} else if strings.Contains(errorBlock, "KotlinCompile") || strings.Contains(errorBlock, "kotlin") {
+			failed = true
+			result.Verification.Compile = "FAILED"
+			result.FailureSignature = "kotlin_compilation_failure"
+		} else if strings.Contains(errorBlock, "Compilation failed") ||
+			strings.Contains(errorBlock, "cannot find symbol") ||
+			strings.Contains(errorBlock, "Unresolved reference") {
+			failed = true
+			result.Verification.Compile = "FAILED"
+			if strings.Contains(errorBlock, "Unresolved reference") {
+				result.FailureSignature = "unresolved_reference"
+			} else if strings.Contains(errorBlock, "cannot find symbol") {
+				result.FailureSignature = "cannot_find_symbol"
+			} else {
+				result.FailureSignature = "compilation_failure"
+			}
+		}
+	}
+
+	// 4. If still not classified, try other known patterns (in order of specificity)
+	if !failed {
+		if strings.Contains(errorBlock, "Using kotlin.sourceSets DSL to add Kotlin sources is not allowed with built-in Kotlin") {
+			failed = true
+			result.FailureSignature = "built_in_kotlin_sourceset_conflict"
+		} else if strings.Contains(errorBlock, "dagger") && strings.Contains(errorBlock, "metadata") {
+			failed = true
+			result.FailureSignature = "dagger_metadata_error"
+		} else if strings.Contains(errorBlock, "KSP") && strings.Contains(errorBlock, "version") {
+			failed = true
+			result.FailureSignature = "ksp_version_mismatch"
+		} else if strings.Contains(errorBlock, "Compose") && strings.Contains(errorBlock, "compiler") {
+			failed = true
+			result.FailureSignature = "compose_compiler_mismatch"
+		} else if strings.Contains(errorBlock, "Could not find or load main class") {
+			failed = true
+			result.FailureSignature = "class_not_found"
+		}
+	}
+
+	// 5. Generic fallback
+	if !failed && strings.Contains(errorBlock, "FAILURE") {
 		failed = true
 		result.FailureSignature = "build_failure"
 	}
 
-	// Try to extract a more specific failure signature
+	// Extract error message
 	if failed {
-		if strings.Contains(output, "Using kotlin.sourceSets DSL to add Kotlin sources is not allowed with built-in Kotlin") {
-			result.FailureSignature = "built_in_kotlin_sourceset_conflict"
-		} else if strings.Contains(output, "dagger_metadata_error") || strings.Contains(output, "dagger") {
-			result.FailureSignature = "dagger_metadata_error"
-		} else if strings.Contains(output, "ksp_version_mismatch") || strings.Contains(output, "KSP") {
-			result.FailureSignature = "ksp_version_mismatch"
-		} else if strings.Contains(output, "compose_compiler_mismatch") || strings.Contains(output, "Compose") {
-			result.FailureSignature = "compose_compiler_mismatch"
-		} else if strings.Contains(output, "agp_gradle_incompatibility") || strings.Contains(output, "Gradle") {
-			result.FailureSignature = "agp_gradle_incompatibility"
-		} else if strings.Contains(output, "Unresolved reference") {
-			result.FailureSignature = "unresolved_reference"
-		} else if strings.Contains(output, "cannot find symbol") {
-			result.FailureSignature = "cannot_find_symbol"
-		} else if strings.Contains(output, "Could not find or load main class") {
-			result.FailureSignature = "class_not_found"
-		} else {
-			result.FailureSignature = "unknown_failure"
-		}
-
-		// Extract a meaningful error message
 		lines := strings.Split(output, "\n")
 		for _, line := range lines {
 			if strings.Contains(line, "What went wrong:") && len(line) > 20 {
@@ -146,8 +174,7 @@ func parseResult(comboID, output string) storage.VerificationResult {
 		}
 		if result.ErrorMessage == "" {
 			for _, line := range lines {
-				lower := strings.ToLower(line)
-				if strings.Contains(lower, "error:") || strings.Contains(lower, "failed:") {
+				if strings.Contains(strings.ToLower(line), "error:") || strings.Contains(strings.ToLower(line), "failed:") {
 					result.ErrorMessage = strings.TrimSpace(line)
 					break
 				}
@@ -159,4 +186,30 @@ func parseResult(comboID, output string) storage.VerificationResult {
 	}
 
 	return result
+}
+
+// extractErrorBlock attempts to find the "What went wrong" or "Caused by" section.
+func extractErrorBlock(output string) string {
+	lines := strings.Split(output, "\n")
+	var block []string
+	inError := false
+	for _, line := range lines {
+		if strings.Contains(line, "What went wrong:") || strings.Contains(line, "Caused by:") {
+			inError = true
+		}
+		if inError {
+			block = append(block, line)
+			// Stop at a blank line or after a certain number of lines
+			if strings.TrimSpace(line) == "" && len(block) > 5 {
+				break
+			}
+			if len(block) > 30 {
+				break
+			}
+		}
+	}
+	if len(block) == 0 {
+		return output
+	}
+	return strings.Join(block, "\n")
 }
