@@ -21,6 +21,8 @@ func main() {
 	kotlin := flag.String("kotlin", "", "Kotlin version")
 	ksp := flag.String("ksp", "", "KSP version")
 	jdk := flag.String("jdk", "", "JDK version")
+	compileSdk := flag.String("compile-sdk", "", "compileSdk version used in build.gradle")
+	sdkPackage := flag.String("sdk-package", "", "SDK platform package used in sdkmanager")
 	buildDir := flag.String("dir", "", "Build directory (contains build output)")
 	outputDir := flag.String("out", ".", "Output directory for result JSON")
 	flag.Parse()
@@ -49,6 +51,8 @@ func main() {
 	result.Kotlin = *kotlin
 	result.KSP = *ksp
 	result.JDK = *jdk
+	result.CompileSdk = *compileSdk
+	result.SdkPackage = *sdkPackage
 
 	// Write the result file
 	outPath := filepath.Join(*outputDir, "result-"+*comboID+".json")
@@ -65,6 +69,8 @@ func main() {
 	fmt.Printf("   Sync: %s\n", result.Verification.Sync)
 	fmt.Printf("   Compile: %s\n", result.Verification.Compile)
 	fmt.Printf("   UnitTest: %s\n", result.Verification.UnitTest)
+	fmt.Printf("   CompileSdk: %s\n", result.CompileSdk)
+	fmt.Printf("   SdkPackage: %s\n", result.SdkPackage)
 }
 
 func parseResult(comboID, output string) storage.VerificationResult {

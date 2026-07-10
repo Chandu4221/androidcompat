@@ -78,12 +78,14 @@ type Rules struct {
 
 // ---------- Combos (candidate generation output) ----------
 type Combo struct {
-	ID     string `json:"id"`
-	AGP    string `json:"agp"`
-	Gradle string `json:"gradle"`
-	Kotlin string `json:"kotlin"`
-	KSP    string `json:"ksp"`
-	JDK    string `json:"jdk"`
+	ID         string `json:"id"`
+	AGP        string `json:"agp"`
+	Gradle     string `json:"gradle"`
+	Kotlin     string `json:"kotlin"`
+	KSP        string `json:"ksp"`
+	JDK        string `json:"jdk"`
+	CompileSdk string `json:"compileSdk"`
+	SdkPackage string `json:"sdkPackage"`
 }
 
 type CombosFile struct {
@@ -100,6 +102,8 @@ type VerificationResult struct {
 	Kotlin       string `json:"kotlin"`
 	KSP          string `json:"ksp"`
 	JDK          string `json:"jdk"`
+	CompileSdk   string `json:"compileSdk"`
+	SdkPackage   string `json:"sdkPackage"`
 	Status       string `json:"status"` // "verified", "failed"
 	Verification struct {
 		Sync     string `json:"sync"`      // "PASSED", "FAILED", "SKIPPED"

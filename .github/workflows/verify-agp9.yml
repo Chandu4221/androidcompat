@@ -71,12 +71,10 @@ jobs:
             --compile-sdk=${{ matrix.combo.compileSdk }} \
             --agp-major=9
 
-      - name: Install Android SDK platform (AGP9 fallback for .0)
+      - name: Install Android SDK platform
         run: |
           export JAVA_HOME=$JAVA_HOME_17_X64
-          # Try with plain compileSdk first, if fails try with .0 suffix
-          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-${{ matrix.combo.compileSdk }}" || \
-          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-${{ matrix.combo.compileSdk }}.0"
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-${{ matrix.combo.sdkPackage }}"
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
 
@@ -96,6 +94,8 @@ jobs:
             --kotlin=${{ matrix.combo.kotlin }} \
             --ksp=${{ matrix.combo.ksp }} \
             --jdk=${{ matrix.combo.jdk }} \
+            --compile-sdk=${{ matrix.combo.compileSdk }} \
+            --sdk-package=${{ matrix.combo.sdkPackage }} \
             --dir=tmp-build \
             --out=.
 
