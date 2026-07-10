@@ -188,7 +188,7 @@ func parseResult(comboID, output string) storage.VerificationResult {
 	return result
 }
 
-// extractErrorBlock attempts to find the "What went wrong" or "Caused by" section.
+// extractErrorBlock captures everything from "What went wrong" / "Caused by" until the build failure summary.
 func extractErrorBlock(output string) string {
 	lines := strings.Split(output, "\n")
 	var block []string
@@ -198,14 +198,14 @@ func extractErrorBlock(output string) string {
 			inError = true
 		}
 		if inError {
+			// Stop when we hit the end of the error report
+			if strings.Contains(line, "BUILD FAILED") ||
+				strings.Contains(line, "FAILURE: Build failed") ||
+				strings.Contains(line, "* Try:") ||
+				strings.Contains(line, "* Get more help at") {
+				break
+			}
 			block = append(block, line)
-			// Stop at a blank line or after a certain number of lines
-			if strings.TrimSpace(line) == "" && len(block) > 5 {
-				break
-			}
-			if len(block) > 30 {
-				break
-			}
 		}
 	}
 	if len(block) == 0 {
