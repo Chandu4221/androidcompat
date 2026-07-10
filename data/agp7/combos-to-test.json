@@ -1,15 +1,16 @@
 {
   "agpMajor": 7,
-  "generatedAt": "2026-07-09T15:36:32Z",
+  "generatedAt": "2026-07-10T03:54:50Z",
   "combos": [
     {
-      "id": "agp742_gradle75_kotlin1822_ksp1822-1011_jdk11",
+      "id": "agp742_gradle75_kotlin1822_ksp1822-1011_jdk11_comp33_sdk33",
       "agp": "7.4.2",
       "gradle": "7.5",
       "kotlin": "1.8.22",
       "ksp": "1.8.22-1.0.11",
       "jdk": "11",
-      "compileSdk": "33"
+      "compileSdk": "33",
+      "sdkPackage": "33"
     }
   ]
 }
