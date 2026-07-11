@@ -128,12 +128,13 @@ func parseResult(comboID, output string) storage.VerificationResult {
 
 	// -------- SUB-CLASSIFY within the detected phase --------
 	if configPhaseFailed {
-		// Sync-phase failure: distinguish network/infra from real resolution issues
 		if matched, _ := regexp.MatchString(`Received status code \d{3}`, errorBlock); matched {
 			result.FailureSignature = "dependency_fetch_error"
+			result.Status = "inconclusive" // not a real incompatibility
 		} else {
 			result.FailureSignature = "dependency_resolution_failure"
 		}
+
 	} else if executionPhaseFailed {
 		// Compile-phase failure: use specific patterns
 		if strings.Contains(errorBlock, "KotlinCompile") || strings.Contains(errorBlock, "e: ") {
