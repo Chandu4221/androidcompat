@@ -72,7 +72,7 @@ jobs:
       - name: Install Android SDK platform
         run: |
           export JAVA_HOME=$JAVA_HOME_17_X64
-          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-${{ matrix.combo.compileSdk }}"
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-${{ matrix.combo.sdkPackage }}"
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
 
