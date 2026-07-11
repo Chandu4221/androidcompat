@@ -122,7 +122,6 @@ func parseResult(comboID, output string) storage.VerificationResult {
 		if sig != "" {
 			result.FailureSignature = sig
 		}
-		// If sig is empty, we'll fall back to prose-based detection below.
 
 		// Set status flags based on phase
 		if configPhaseFailed {
@@ -134,7 +133,7 @@ func parseResult(comboID, output string) storage.VerificationResult {
 			failed = true
 		}
 	} else {
-		// No structured data – fallback to old prose‑based phase detection
+		// No structured data – fallback to prose‑based phase detection
 		configPhaseFailed = strings.Contains(errorBlock, "A problem occurred configuring")
 		executionPhaseFailed = strings.Contains(errorBlock, "Execution failed for task")
 
@@ -151,14 +150,12 @@ func parseResult(comboID, output string) storage.VerificationResult {
 	// If we haven't yet set a signature, try to derive one from the phase and error block
 	if result.FailureSignature == "" {
 		if configPhaseFailed {
-			// Sync‑phase failure: distinguish network from real
 			if matched, _ := regexp.MatchString(`Received status code \d{3}`, errorBlock); matched {
 				result.FailureSignature = "dependency_fetch_error"
 			} else {
 				result.FailureSignature = "dependency_resolution_failure"
 			}
 		} else if executionPhaseFailed {
-			// Compile‑phase failure: use specific patterns
 			if strings.Contains(errorBlock, "KotlinCompile") || strings.Contains(errorBlock, "e: ") {
 				result.FailureSignature = "kotlin_compilation_failure"
 			} else if strings.Contains(errorBlock, "compileSdk") || strings.Contains(errorBlock, "android.jar") ||
@@ -174,41 +171,41 @@ func parseResult(comboID, output string) storage.VerificationResult {
 				result.FailureSignature = "build_failure"
 			}
 		} else {
-			// No phase marker – generic fallback
 			result.FailureSignature = "build_failure"
 		}
 	}
 
-	// Special handling: if we have structured data and the signature is dependency_fetch_error,
-	// mark as inconclusive so it can be skipped later.
+	// Special handling for dependency_fetch_error
 	if hasStructured && result.FailureSignature == "dependency_fetch_error" {
 		result.Status = "inconclusive"
 	} else if failed {
 		result.Status = "failed"
-	} else {
-		// If we detected failure but didn't set status, it might be a fallback case
-		if result.FailureSignature != "" {
-			result.Status = "failed"
-		}
+	} else if result.FailureSignature != "" {
+		result.Status = "failed"
 	}
 
-	// -------- FIXED ERROR MESSAGE EXTRACTION --------
+	// -------- EXTRACT ERROR MESSAGE (prefer structured data) --------
 	if failed || result.Status == "inconclusive" {
-		lines := strings.Split(output, "\n")
-		for i, line := range lines {
-			if strings.Contains(line, "What went wrong:") && i+1 < len(lines) {
-				// The actual message is on the NEXT line
-				result.ErrorMessage = strings.TrimSpace(lines[i+1])
-				break
-			}
-		}
-		if result.ErrorMessage == "" {
-			for _, line := range lines {
-				if strings.Contains(strings.ToLower(line), "error:") ||
-					strings.Contains(strings.ToLower(line), "failed:") ||
-					strings.Contains(strings.ToLower(line), "exception:") {
-					result.ErrorMessage = strings.TrimSpace(line)
+		if hasStructured && se.Cause != "" && !strings.Contains(se.Cause, "Execution failed for task") {
+			// Use the structured cause if it contains real error detail
+			result.ErrorMessage = se.Cause
+		} else {
+			// Fall back to prose extraction
+			lines := strings.Split(output, "\n")
+			for i, line := range lines {
+				if strings.Contains(line, "What went wrong:") && i+1 < len(lines) {
+					result.ErrorMessage = strings.TrimSpace(lines[i+1])
 					break
+				}
+			}
+			if result.ErrorMessage == "" {
+				for _, line := range lines {
+					if strings.Contains(strings.ToLower(line), "error:") ||
+						strings.Contains(strings.ToLower(line), "failed:") ||
+						strings.Contains(strings.ToLower(line), "exception:") {
+						result.ErrorMessage = strings.TrimSpace(line)
+						break
+					}
 				}
 			}
 		}
