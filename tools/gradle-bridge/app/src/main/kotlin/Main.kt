@@ -67,6 +67,10 @@ fun main(args: Array<String>) {
         // This is the correct way to target a specific JDK for the build
         javaHome?.let { buildLauncher.setJavaHome(File(it)) }
 
+          // --- CRITICAL: Redirect Gradle's output to stderr ---
+        buildLauncher.setStandardOutput(System.err)
+        buildLauncher.setStandardError(System.err)
+
         var capturedFailures: List<BridgeFailure>? = null
         var failingTask: String? = null
         var status = "success"
