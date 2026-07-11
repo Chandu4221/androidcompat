@@ -39,7 +39,8 @@ type RuleEntry struct {
 type AgpRules struct {
 	RequiredJdk          []RuleEntry `json:"requiredJdk"`
 	RequiredGradle       []RuleEntry `json:"requiredGradle"`
-	BuiltInKotlinMinimum []RuleEntry `json:"builtInKotlinMinimum"` // NEW
+	BuiltInKotlinMinimum []RuleEntry `json:"builtInKotlinMinimum"`
+	CompileSdkFloors     []RuleEntry `json:"compileSdkFloors"`
 }
 
 // NEW: Kotlin rules
@@ -69,11 +70,18 @@ type GradleRules struct {
 	// KotlinEmbedded removed (moved to agp.builtInKotlinMinimum)
 }
 
+type KspBuiltInKotlinCompatibility struct {
+	MinAgp string `json:"minAgp"`
+	MinKsp string `json:"minKsp"`
+	Note   string `json:"note,omitempty"`
+}
+
 type Rules struct {
-	Meta   interface{} `json:"meta"`
-	Agp    AgpRules    `json:"agp"`
-	Kotlin KotlinRules `json:"kotlin"` // NEW
-	Gradle GradleRules `json:"gradle"`
+	Meta                          interface{}                     `json:"meta"`
+	Agp                           AgpRules                        `json:"agp"`
+	Kotlin                        KotlinRules                     `json:"kotlin"`
+	Gradle                        GradleRules                     `json:"gradle"`
+	KspBuiltInKotlinCompatibility []KspBuiltInKotlinCompatibility `json:"kspBuiltInKotlinCompatibility"`
 }
 
 // ---------- Combos (candidate generation output) ----------
