@@ -192,18 +192,21 @@ func parseResult(comboID, output string) storage.VerificationResult {
 		}
 	}
 
-	// Extract error message (same as before)
+	// -------- FIXED ERROR MESSAGE EXTRACTION --------
 	if failed || result.Status == "inconclusive" {
 		lines := strings.Split(output, "\n")
-		for _, line := range lines {
-			if strings.Contains(line, "What went wrong:") && len(line) > 20 {
-				result.ErrorMessage = strings.TrimSpace(strings.TrimPrefix(line, "What went wrong:"))
+		for i, line := range lines {
+			if strings.Contains(line, "What went wrong:") && i+1 < len(lines) {
+				// The actual message is on the NEXT line
+				result.ErrorMessage = strings.TrimSpace(lines[i+1])
 				break
 			}
 		}
 		if result.ErrorMessage == "" {
 			for _, line := range lines {
-				if strings.Contains(strings.ToLower(line), "error:") || strings.Contains(strings.ToLower(line), "failed:") {
+				if strings.Contains(strings.ToLower(line), "error:") ||
+					strings.Contains(strings.ToLower(line), "failed:") ||
+					strings.Contains(strings.ToLower(line), "exception:") {
 					result.ErrorMessage = strings.TrimSpace(line)
 					break
 				}

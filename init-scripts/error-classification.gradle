@@ -4,6 +4,15 @@
 
 import groovy.json.JsonOutput
 
+// Helper to walk the exception cause chain to the root cause
+def rootCause(Throwable t) {
+    def current = t
+    while (current.cause != null && current.cause != current) {
+        current = current.cause
+    }
+    return current
+}
+
 // 1. Task execution failures (e.g., compilation, KSP, Dagger)
 gradle.taskGraph.whenReady { graph ->
     graph.addTaskExecutionListener(new TaskExecutionListener() {
@@ -15,12 +24,12 @@ gradle.taskGraph.whenReady { graph ->
         @Override
         void afterExecute(Task task, TaskState state) {
             if (state.failure != null) {
+                def rc = rootCause(state.failure)
                 def data = [
                     task: task.path,
-                    errorType: state.failure.class.name,
-                    cause: state.failure.message
+                    errorType: rc.class.name,
+                    cause: rc.message
                 ]
-                // Print with a fixed marker for easy grepping
                 println "[[ERROR_CLASSIFICATION]]" + JsonOutput.toJson(data)
             }
         }
@@ -28,14 +37,13 @@ gradle.taskGraph.whenReady { graph ->
 }
 
 // 2. Configuration-phase failures (e.g., dependency resolution, plugin errors)
-// These happen before any task executes.
 gradle.buildFinished { result ->
     if (result.failure != null) {
-        def failure = result.failure
+        def rc = rootCause(result.failure)
         def data = [
             task: "N/A",
-            errorType: failure.class.name,
-            cause: failure.message
+            errorType: rc.class.name,
+            cause: rc.message
         ]
         println "[[ERROR_CLASSIFICATION]]" + JsonOutput.toJson(data)
     }
