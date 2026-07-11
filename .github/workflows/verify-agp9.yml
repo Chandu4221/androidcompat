@@ -83,7 +83,7 @@ jobs:
         run: |
           cd tmp-build
           chmod +x gradlew
-          ./gradlew build --no-daemon --stacktrace > stdout.log 2> stderr.log || true
+          ./gradlew build --no-daemon --stacktrace --init-script ../init-scripts/error-classification.gradle > stdout.log 2> stderr.log || true
 
       - name: Collect result
         run: |

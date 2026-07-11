@@ -1,0 +1,42 @@
+// init-scripts/error-classification.gradle
+// Gradle init script to emit structured error data on build failures.
+// Applied via --init-script in CI workflows.
+
+import groovy.json.JsonOutput
+
+// 1. Task execution failures (e.g., compilation, KSP, Dagger)
+gradle.taskGraph.whenReady { graph ->
+    graph.addTaskExecutionListener(new TaskExecutionListener() {
+        @Override
+        void beforeExecute(Task task) {
+            // No-op
+        }
+
+        @Override
+        void afterExecute(Task task, TaskState state) {
+            if (state.failure != null) {
+                def data = [
+                    task: task.path,
+                    errorType: state.failure.class.name,
+                    cause: state.failure.message
+                ]
+                // Print with a fixed marker for easy grepping
+                println "[[ERROR_CLASSIFICATION]]" + JsonOutput.toJson(data)
+            }
+        }
+    })
+}
+
+// 2. Configuration-phase failures (e.g., dependency resolution, plugin errors)
+// These happen before any task executes.
+gradle.buildFinished { result ->
+    if (result.failure != null) {
+        def failure = result.failure
+        def data = [
+            task: "N/A",
+            errorType: failure.class.name,
+            cause: failure.message
+        ]
+        println "[[ERROR_CLASSIFICATION]]" + JsonOutput.toJson(data)
+    }
+}
