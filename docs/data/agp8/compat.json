@@ -17,8 +17,8 @@
         "unit_test": "NO_TESTS_ADDED"
       },
       "failureSignature": "build_failure",
-      "buildLog": "Error: Unable to access jarfile gradle-bridge.jar\n\n",
-      "timestamp": "2026-07-11T11:40:27Z"
+      "buildLog": "\n",
+      "timestamp": "2026-07-11T11:52:08Z"
     },
     {
       "id": "agp8101_gradle8111_kotlin2221_ksp2221-205_jdk17_comp36_sdk36",
@@ -36,8 +36,8 @@
         "unit_test": "NO_TESTS_ADDED"
       },
       "failureSignature": "build_failure",
-      "buildLog": "Error: Unable to access jarfile gradle-bridge.jar\n\n",
-      "timestamp": "2026-07-11T11:40:36Z"
+      "buildLog": "\n",
+      "timestamp": "2026-07-11T11:52:07Z"
     },
     {
       "id": "agp873_gradle89_kotlin2121_ksp2121-202_jdk17_comp35_sdk35",
@@ -55,8 +55,8 @@
         "unit_test": "NO_TESTS_ADDED"
       },
       "failureSignature": "build_failure",
-      "buildLog": "Error: Unable to access jarfile gradle-bridge.jar\n\n",
-      "timestamp": "2026-07-11T11:40:26Z"
+      "buildLog": "\n",
+      "timestamp": "2026-07-11T11:52:10Z"
     },
     {
       "id": "agp861_gradle87_kotlin2121_ksp2121-202_jdk17_comp35_sdk35",
@@ -74,8 +74,8 @@
         "unit_test": "NO_TESTS_ADDED"
       },
       "failureSignature": "build_failure",
-      "buildLog": "Error: Unable to access jarfile gradle-bridge.jar\n\n",
-      "timestamp": "2026-07-11T11:40:27Z"
+      "buildLog": "\n",
+      "timestamp": "2026-07-11T11:52:11Z"
     },
     {
       "id": "agp852_gradle87_kotlin2021_ksp2021-1028_jdk17_comp34_sdk34",
@@ -93,8 +93,8 @@
         "unit_test": "NO_TESTS_ADDED"
       },
       "failureSignature": "build_failure",
-      "buildLog": "Error: Unable to access jarfile gradle-bridge.jar\n\n",
-      "timestamp": "2026-07-11T11:40:32Z"
+      "buildLog": "\n",
+      "timestamp": "2026-07-11T11:51:15Z"
     },
     {
       "id": "agp814_gradle80_kotlin1925_ksp1925-1020_jdk17_comp34_sdk34",
@@ -112,8 +112,8 @@
         "unit_test": "NO_TESTS_ADDED"
       },
       "failureSignature": "build_failure",
-      "buildLog": "Error: Unable to access jarfile gradle-bridge.jar\n\n",
-      "timestamp": "2026-07-11T11:40:28Z"
+      "buildLog": "\n",
+      "timestamp": "2026-07-11T11:51:34Z"
     },
     {
       "id": "agp802_gradle80_kotlin1925_ksp1925-1020_jdk17_comp33_sdk33",
@@ -131,8 +131,8 @@
         "unit_test": "NO_TESTS_ADDED"
       },
       "failureSignature": "build_failure",
-      "buildLog": "Error: Unable to access jarfile gradle-bridge.jar\n\n",
-      "timestamp": "2026-07-11T11:40:32Z"
+      "buildLog": "\n",
+      "timestamp": "2026-07-11T11:51:36Z"
     }
   ]
 }
