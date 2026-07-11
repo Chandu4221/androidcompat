@@ -38,6 +38,7 @@ fun main(args: Array<String>) {
                     tasks.add(args[++i])
                 }
             }
+
             "--java-home" -> javaHome = args[++i]
             else -> {}
         }
@@ -63,11 +64,13 @@ fun main(args: Array<String>) {
         val buildLauncher = connection.newBuild()
             .forTasks(*tasks.toTypedArray())
             .withArguments("--info", "--stacktrace")
+            .setStandardOutput(System.err)   // redirect build output to stderr
+            .setStandardError(System.err)    // redirect errors to stderr
 
         // This is the correct way to target a specific JDK for the build
         javaHome?.let { buildLauncher.setJavaHome(File(it)) }
 
-          // --- CRITICAL: Redirect Gradle's output to stderr ---
+        // --- CRITICAL: Redirect Gradle's output to stderr ---
         buildLauncher.setStandardOutput(System.err)
         buildLauncher.setStandardError(System.err)
 
