@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"time"
 
@@ -80,6 +81,7 @@ func parseResult(comboID, output string) storage.VerificationResult {
 		Timestamp: time.Now().UTC().Format(time.RFC3339),
 		BuildLog:  output,
 	}
+	// Default statuses
 	result.Verification.Sync = "PASSED"
 	result.Verification.Compile = "SKIPPED"
 	result.Verification.UnitTest = "NO_TESTS_ADDED"
@@ -93,7 +95,7 @@ func parseResult(comboID, output string) storage.VerificationResult {
 
 	failed := false
 
-	// 1. Check for specific, high‑confidence signatures FIRST
+	// -------- EARLY SUCCESS DETECTION --------
 	if strings.Contains(output, "BUILD SUCCESSFUL") {
 		result.Verification.Sync = "PASSED"
 		result.Verification.Compile = "PASSED"
@@ -102,69 +104,57 @@ func parseResult(comboID, output string) storage.VerificationResult {
 		return result
 	}
 
-	// 2. Sync failures (dependency resolution)
-	if strings.Contains(errorBlock, "Could not resolve all dependencies") ||
-		strings.Contains(errorBlock, "Could not find") {
+	// -------- PHASE DETECTION (structural, not phrase-based) --------
+	configPhaseFailed := strings.Contains(errorBlock, "A problem occurred configuring")
+	executionPhaseFailed := strings.Contains(errorBlock, "Execution failed for task")
+
+	// Set sync/compile status based on phase
+	if configPhaseFailed {
 		result.Verification.Sync = "FAILED"
 		failed = true
-		result.FailureSignature = "dependency_resolution_failure"
+	} else {
+		result.Verification.Sync = "PASSED"
 	}
 
-	// 3. Compile failures (compileSdk, Kotlin, Java)
-	if !failed {
-		if strings.Contains(errorBlock, "compileSdk") ||
-			strings.Contains(errorBlock, "failed to load include path") ||
-			strings.Contains(errorBlock, "android.jar") {
-			failed = true
-			result.Verification.Compile = "FAILED"
-			result.FailureSignature = "compile_sdk_mismatch"
-		} else if strings.Contains(errorBlock, "KotlinCompile") ||
-			strings.Contains(errorBlock, "e: ") {
-			failed = true
-			result.Verification.Compile = "FAILED"
-			result.FailureSignature = "kotlin_compilation_failure"
-		} else if strings.Contains(errorBlock, "Compilation failed") ||
-			strings.Contains(errorBlock, "cannot find symbol") ||
-			strings.Contains(errorBlock, "Unresolved reference") {
-			failed = true
-			result.Verification.Compile = "FAILED"
-			if strings.Contains(errorBlock, "Unresolved reference") {
-				result.FailureSignature = "unresolved_reference"
-			} else if strings.Contains(errorBlock, "cannot find symbol") {
-				result.FailureSignature = "cannot_find_symbol"
-			} else {
-				result.FailureSignature = "compilation_failure"
-			}
+	if executionPhaseFailed {
+		result.Verification.Compile = "FAILED"
+		failed = true
+	} else if !configPhaseFailed && !executionPhaseFailed {
+		// No clear phase marker but we know build failed (since BUILD SUCCESSFUL was absent)
+		// Leave compile status as SKIPPED if not already set; we'll still mark failed.
+		// We'll treat it as a generic failure.
+		failed = true
+	}
+
+	// -------- SUB-CLASSIFY within the detected phase --------
+	if configPhaseFailed {
+		// Sync-phase failure: distinguish network/infra from real resolution issues
+		if matched, _ := regexp.MatchString(`Received status code \d{3}`, errorBlock); matched {
+			result.FailureSignature = "dependency_fetch_error"
+		} else {
+			result.FailureSignature = "dependency_resolution_failure"
 		}
-	}
-
-	// 4. If still not classified, try other known patterns (in order of specificity)
-	if !failed {
-		if strings.Contains(errorBlock, "Using kotlin.sourceSets DSL to add Kotlin sources is not allowed with built-in Kotlin") {
-			failed = true
-			result.FailureSignature = "built_in_kotlin_sourceset_conflict"
+	} else if executionPhaseFailed {
+		// Compile-phase failure: use specific patterns
+		if strings.Contains(errorBlock, "KotlinCompile") || strings.Contains(errorBlock, "e: ") {
+			result.FailureSignature = "kotlin_compilation_failure"
+		} else if strings.Contains(errorBlock, "compileSdk") || strings.Contains(errorBlock, "android.jar") {
+			result.FailureSignature = "compile_sdk_mismatch"
 		} else if strings.Contains(errorBlock, "dagger") && strings.Contains(errorBlock, "metadata") {
-			failed = true
 			result.FailureSignature = "dagger_metadata_error"
 		} else if strings.Contains(errorBlock, "KSP") && strings.Contains(errorBlock, "version") {
-			failed = true
 			result.FailureSignature = "ksp_version_mismatch"
 		} else if strings.Contains(errorBlock, "Compose") && strings.Contains(errorBlock, "compiler") {
-			failed = true
 			result.FailureSignature = "compose_compiler_mismatch"
-		} else if strings.Contains(errorBlock, "Could not find or load main class") {
-			failed = true
-			result.FailureSignature = "class_not_found"
+		} else {
+			result.FailureSignature = "build_failure"
 		}
-	}
-
-	// 5. Generic fallback
-	if !failed && strings.Contains(errorBlock, "FAILURE") {
-		failed = true
+	} else {
+		// No phase marker (should be rare) – fallback to generic failure
 		result.FailureSignature = "build_failure"
 	}
 
-	// Extract error message
+	// -------- EXTRACT ERROR MESSAGE (keep existing logic) --------
 	if failed {
 		lines := strings.Split(output, "\n")
 		for _, line := range lines {
