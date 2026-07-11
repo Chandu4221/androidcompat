@@ -117,7 +117,7 @@ jobs:
         run: |
           cd tmp-build
           # Run the bridge – JSON goes to bridge-output.json, build log goes to stdout.log
-          java -jar ../gradle-bridge.jar \
+          java -jar gradle-bridge.jar \
             --project-dir . \
             --tasks build \
             --java-home "$JAVA_HOME" \
@@ -137,7 +137,8 @@ jobs:
             --compile-sdk=${{ matrix.combo.compileSdk }} \
             --sdk-package=${{ matrix.combo.sdkPackage }} \
             --dir=tmp-build \
-            --out=.
+            --out=. \
+            --bridge-json bridge-output.json
 
       - name: Upload result artifact
         uses: actions/upload-artifact@v7
