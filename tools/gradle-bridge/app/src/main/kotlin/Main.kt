@@ -9,6 +9,9 @@ import org.gradle.tooling.events.OperationType
 import org.gradle.tooling.events.ProgressEvent
 import org.gradle.tooling.events.task.TaskFinishEvent
 import java.io.File
+import java.io.FileDescriptor
+import java.io.FileOutputStream
+import java.io.PrintStream
 
 @Serializable
 data class BridgeFailure(
@@ -39,7 +42,7 @@ fun main(args: Array<String>) {
                 }
             }
 
-            "--java-home" -> javaHome = args[++i]
+                        "--java-home" -> javaHome = args[++i]
             else -> {}
         }
         i++
@@ -56,23 +59,16 @@ fun main(args: Array<String>) {
         kotlin.system.exitProcess(1)
     }
 
-    // 1. Connector – do NOT use useInstallation (that's for Gradle distribution, not JDK)
     val connector = GradleConnector.newConnector().forProjectDirectory(projectDirFile)
 
     connector.connect().use { connection ->
-        // 2. Build launcher – set Java home here, NOT on the connector
         val buildLauncher = connection.newBuild()
             .forTasks(*tasks.toTypedArray())
-            .withArguments("--info", "--stacktrace")
-            .setStandardOutput(System.err)   // redirect build output to stderr
-            .setStandardError(System.err)    // redirect errors to stderr
+            .withArguments("--stacktrace")  // no --no-daemon, Tooling API doesn't accept it
+            .setStandardOutput(System.err)  // Gradle build logs → stderr
+            .setStandardError(System.err)   // Gradle errors → stderr
 
-        // This is the correct way to target a specific JDK for the build
         javaHome?.let { buildLauncher.setJavaHome(File(it)) }
-
-        // --- CRITICAL: Redirect Gradle's output to stderr ---
-        buildLauncher.setStandardOutput(System.err)
-        buildLauncher.setStandardError(System.err)
 
         var capturedFailures: List<BridgeFailure>? = null
         var failingTask: String? = null
@@ -96,14 +92,23 @@ fun main(args: Array<String>) {
             OperationType.TASK, OperationType.ROOT
         )
 
+        // --- CRITICAL: Redirect the real System.out to stderr for the entire build/provisioning phase ---
+        // This captures download progress (e.g., "Downloading https://...") which bypasses BuildLauncher.setStandardOutput()
+        val realOut = System.out
+        System.setOut(PrintStream(FileOutputStream(FileDescriptor.err)))
+
         try {
             buildLauncher.run()
         } catch (e: BuildException) {
             status = "failed"
             capturedFailures = listOf(toBridgeFailureFromThrowable(e))
             failingTask = null
+        } finally {
+            // Restore real stdout so our JSON prints to the correct stream
+            System.setOut(realOut)
         }
 
+        // Build final result and print JSON to stdout (clean, no Gradle noise)
         val bridgeResult = BridgeResult(
             status = status,
             task = failingTask,
