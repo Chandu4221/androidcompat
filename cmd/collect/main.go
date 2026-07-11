@@ -112,7 +112,7 @@ func main() {
 	fmt.Printf("   FailureSignature: %s\n", result.FailureSignature)
 }
 
-// ---------- Bridge Parser ----------
+// parseBridgeResult parses the bridge's JSON output and returns a VerificationResult.
 func parseBridgeResult(bridgePath, comboID string) (storage.VerificationResult, error) {
 	data, err := os.ReadFile(bridgePath)
 	if err != nil {
@@ -141,12 +141,17 @@ func parseBridgeResult(bridgePath, comboID string) (storage.VerificationResult, 
 		return result, nil
 	}
 
-	// Failure case
-	// Determine phase: if task != nil, it's execution phase; otherwise config phase
+	// -------- PHASE DETECTION (fixed) --------
+	// If a task is present, the failure happened during execution (task phase)
+	// If no task, the failure happened during configuration (sync phase)
 	if bridge.Task != nil && *bridge.Task != "" {
+		// A real task failed → sync succeeded, compilation/execution failed
+		result.Verification.Sync = "PASSED"
 		result.Verification.Compile = "FAILED"
 	} else {
+		// No task at all → failed before/during configuration
 		result.Verification.Sync = "FAILED"
+		result.Verification.Compile = "SKIPPED"
 	}
 
 	// Extract the deepest failure (walk the cause tree)
@@ -155,7 +160,6 @@ func parseBridgeResult(bridgePath, comboID string) (storage.VerificationResult, 
 		result.ErrorMessage = deepest.Message
 		result.FailureSignature = mapBridgeFailureToSignature(deepest)
 	} else {
-		// No failure details – generic
 		result.FailureSignature = "build_failure"
 	}
 
