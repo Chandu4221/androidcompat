@@ -7,6 +7,36 @@ permissions:
   contents: write
 
 jobs:
+  build-bridge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup JDK 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: wrapper
+
+      - name: Build bridge JAR
+        run: |
+          cd tools/gradle-bridge
+          chmod +x gradlew
+          ./gradlew shadowJar --no-daemon
+
+      - name: Upload bridge JAR
+        uses: actions/upload-artifact@v7
+        with:
+          name: gradle-bridge
+          path: tools/gradle-bridge/app/build/libs/gradle-bridge.jar
+          retention-days: 1
+
   generate-combos:
     runs-on: ubuntu-latest
     outputs:
@@ -30,7 +60,7 @@ jobs:
           echo "agp-major=8" >> $GITHUB_OUTPUT
 
   verify:
-    needs: generate-combos
+    needs: [build-bridge, generate-combos]
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -58,6 +88,12 @@ jobs:
           go-version: "1.26"
           cache: false
 
+      - name: Download bridge JAR
+        uses: actions/download-artifact@v8
+        with:
+          name: gradle-bridge
+          path: .
+
       - name: Prepare build directory and inject versions
         run: |
           mkdir -p tmp-build
@@ -78,12 +114,18 @@ jobs:
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
 
-      - name: Run Gradle build and capture output
+      - name: Run Gradle build with bridge
         id: build
         run: |
           cd tmp-build
-          chmod +x gradlew
-          ./gradlew build --no-daemon --stacktrace --init-script ../init-scripts/error-classification.gradle > stdout.log 2> stderr.log || true
+          # Run the bridge – JSON goes to bridge-output.json, build log goes to stdout.log
+          java -jar ../gradle-bridge.jar \
+            --project-dir . \
+            --tasks build \
+            --java-home "$JAVA_HOME" \
+            > bridge-output.json \
+            2> stdout.log \
+            || true
 
       - name: Collect result
         run: |
