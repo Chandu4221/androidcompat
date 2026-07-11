@@ -118,7 +118,8 @@ func parseResult(comboID, output string) storage.VerificationResult {
 			failed = true
 			result.Verification.Compile = "FAILED"
 			result.FailureSignature = "compile_sdk_mismatch"
-		} else if strings.Contains(errorBlock, "KotlinCompile") || (strings.Contains(errorBlock, "kotlin") && strings.Contains(errorBlock, "failed")) {
+		} else if strings.Contains(errorBlock, "KotlinCompile") ||
+			strings.Contains(errorBlock, "e: ") {
 			failed = true
 			result.Verification.Compile = "FAILED"
 			result.FailureSignature = "kotlin_compilation_failure"
