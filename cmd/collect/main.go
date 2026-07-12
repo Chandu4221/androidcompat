@@ -77,12 +77,11 @@ func main() {
 			result = parseResult(*comboID, combined)
 		}
 	} else {
-		// No bridge JSON – use legacy parser
 		fmt.Println("ℹ️ No bridge JSON provided, using legacy parser")
 		result = parseResult(*comboID, combined)
 	}
 
-	// Populate version fields from flags (override bridge’s metadata)
+	// Populate version fields from flags
 	result.AGP = *agp
 	result.Gradle = *gradle
 	result.Kotlin = *kotlin
@@ -93,6 +92,12 @@ func main() {
 	result.ID = *comboID
 	result.Timestamp = time.Now().UTC().Format(time.RFC3339)
 	result.BuildLog = combined
+
+	// Skip writing inconclusive results
+	if result.Status == "inconclusive" {
+		fmt.Printf("⚠️ Inconclusive (infra/network) — not writing result, will retry next run\n")
+		return
+	}
 
 	// Write the result file
 	outPath := filepath.Join(*outputDir, "result-"+*comboID+".json")
@@ -112,7 +117,7 @@ func main() {
 	fmt.Printf("   FailureSignature: %s\n", result.FailureSignature)
 }
 
-// parseBridgeResult parses the bridge's JSON output and returns a VerificationResult.
+// ---------- Bridge Parser ----------
 func parseBridgeResult(bridgePath, comboID string) (storage.VerificationResult, error) {
 	data, err := os.ReadFile(bridgePath)
 	if err != nil {
@@ -141,20 +146,16 @@ func parseBridgeResult(bridgePath, comboID string) (storage.VerificationResult, 
 		return result, nil
 	}
 
-	// -------- PHASE DETECTION (fixed) --------
-	// If a task is present, the failure happened during execution (task phase)
-	// If no task, the failure happened during configuration (sync phase)
+	// Phase detection: if task is present, it's execution phase; otherwise config phase
 	if bridge.Task != nil && *bridge.Task != "" {
-		// A real task failed → sync succeeded, compilation/execution failed
 		result.Verification.Sync = "PASSED"
 		result.Verification.Compile = "FAILED"
 	} else {
-		// No task at all → failed before/during configuration
 		result.Verification.Sync = "FAILED"
 		result.Verification.Compile = "SKIPPED"
 	}
 
-	// Extract the deepest failure (walk the cause tree)
+	// Extract the deepest failure
 	deepest := walkFailures(bridge.Failures)
 	if deepest != nil {
 		result.ErrorMessage = deepest.Message
@@ -163,8 +164,9 @@ func parseBridgeResult(bridgePath, comboID string) (storage.VerificationResult, 
 		result.FailureSignature = "build_failure"
 	}
 
-	// If the deepest failure is a network error, mark as inconclusive
-	if strings.Contains(result.FailureSignature, "fetch_error") {
+	// Mark infrastructure/network errors as inconclusive
+	if result.FailureSignature == "dependency_fetch_error" ||
+		result.FailureSignature == "infra_provisioning_error" {
 		result.Status = "inconclusive"
 	} else {
 		result.Status = "failed"
@@ -173,12 +175,11 @@ func parseBridgeResult(bridgePath, comboID string) (storage.VerificationResult, 
 	return result, nil
 }
 
-// walkFailures returns the deepest (last) failure in the cause chain.
+// walkFailures returns the deepest failure in the cause chain.
 func walkFailures(failures []BridgeFailure) *BridgeFailure {
 	if len(failures) == 0 {
 		return nil
 	}
-	// If there are multiple root failures, take the first one.
 	deepest := &failures[0]
 	for len(deepest.Causes) > 0 {
 		deepest = &deepest.Causes[0]
@@ -192,38 +193,50 @@ func mapBridgeFailureToSignature(f *BridgeFailure) string {
 	msg := f.Message
 
 	switch {
+	// Infrastructure / provisioning errors (network, connection)
+	case strings.Contains(desc, "ConnectException") ||
+		strings.Contains(desc, "SocketTimeoutException") ||
+		strings.Contains(desc, "UnknownHostException") ||
+		strings.Contains(msg, "Could not execute build using connection to Gradle distribution"):
+		return "infra_provisioning_error"
+
 	// KSP-related exceptions
 	case strings.Contains(desc, "KSP") || strings.Contains(msg, "KSP"):
 		return "ksp_version_mismatch"
+
 	// Dagger/Hilt
 	case strings.Contains(desc, "Dagger") || strings.Contains(msg, "dagger"):
 		return "dagger_metadata_error"
+
 	// Compose compiler
 	case strings.Contains(desc, "Compose") || strings.Contains(msg, "Compose"):
 		return "compose_compiler_mismatch"
+
 	// Kotlin compilation
 	case strings.Contains(desc, "KotlinCompile") || strings.Contains(msg, "KotlinCompile") ||
 		strings.Contains(msg, "e: ") || strings.Contains(desc, "Kotlin"):
 		return "kotlin_compilation_failure"
+
 	// compileSdk issues
 	case strings.Contains(msg, "compileSdk") || strings.Contains(msg, "requires libraries") ||
 		strings.Contains(msg, "android.jar"):
 		return "compile_sdk_mismatch"
+
 	// Network / fetch errors (HTTP status codes)
 	case regexp.MustCompile(`status code [45]\d\d`).MatchString(msg):
 		return "dependency_fetch_error"
+
 	// Gradle resolution errors
 	case strings.Contains(desc, "ResolveException") || strings.Contains(msg, "Could not resolve"):
 		return "dependency_resolution_failure"
+
 	default:
 		return "build_failure"
 	}
 }
 
-// ---------- Legacy Parser (kept as fallback) ----------
-
-// parseStructuredError scans the build output for the classification marker
-// from the init script and returns the first valid structured error found.
+// ---------- Legacy Parser (fallback) ----------
+// parseStructuredError scans for [[ERROR_CLASSIFICATION]] from the old init script.
 func parseStructuredError(output string) (structuredError, bool) {
 	lines := strings.Split(output, "\n")
 	for _, line := range lines {
@@ -239,8 +252,7 @@ func parseStructuredError(output string) (structuredError, bool) {
 	return structuredError{}, false
 }
 
-// mapErrorToSignature uses the Gradle exception type (and optionally the cause)
-// to return a stable failure signature.
+// mapErrorToSignature (legacy)
 func mapErrorToSignature(errorType, cause string) string {
 	switch {
 	case strings.Contains(errorType, "ResolveException"):
@@ -272,7 +284,7 @@ func mapErrorToSignature(errorType, cause string) string {
 	}
 }
 
-// extractErrorBlock captures everything from "What went wrong" / "Caused by" until the build failure summary.
+// extractErrorBlock (legacy)
 func extractErrorBlock(output string) string {
 	lines := strings.Split(output, "\n")
 	var block []string
@@ -297,8 +309,7 @@ func extractErrorBlock(output string) string {
 	return strings.Join(block, "\n")
 }
 
-// parseResult uses prose scanning and the old init script markers.
-// It is now a fallback when the bridge JSON is unavailable.
+// parseResult (legacy fallback)
 func parseResult(comboID, output string) storage.VerificationResult {
 	result := storage.VerificationResult{
 		ID:        comboID,
@@ -310,7 +321,6 @@ func parseResult(comboID, output string) storage.VerificationResult {
 	result.Verification.Compile = "SKIPPED"
 	result.Verification.UnitTest = "NO_TESTS_ADDED"
 
-	// Extract the error block (fallback for prose scanning)
 	errorBlock := extractErrorBlock(output)
 	if errorBlock == "" {
 		errorBlock = output
@@ -318,7 +328,6 @@ func parseResult(comboID, output string) storage.VerificationResult {
 
 	failed := false
 
-	// EARLY SUCCESS DETECTION
 	if strings.Contains(output, "BUILD SUCCESSFUL") {
 		result.Verification.Sync = "PASSED"
 		result.Verification.Compile = "PASSED"
@@ -327,28 +336,20 @@ func parseResult(comboID, output string) storage.VerificationResult {
 		return result
 	}
 
-	// Try to get structured error from Gradle init script
 	se, hasStructured := parseStructuredError(output)
-
-	// Determine phase and signature
 	configPhaseFailed := false
 	executionPhaseFailed := false
 
 	if hasStructured {
-		// Use structured data for phase detection
 		if se.Task != "N/A" {
 			executionPhaseFailed = true
 		} else {
 			configPhaseFailed = true
 		}
-
-		// Map errorType to signature
 		sig := mapErrorToSignature(se.ErrorType, se.Cause)
 		if sig != "" {
 			result.FailureSignature = sig
 		}
-
-		// Set status flags based on phase
 		if configPhaseFailed {
 			result.Verification.Sync = "FAILED"
 			failed = true
@@ -358,10 +359,8 @@ func parseResult(comboID, output string) storage.VerificationResult {
 			failed = true
 		}
 	} else {
-		// No structured data – fallback to prose‑based phase detection
 		configPhaseFailed = strings.Contains(errorBlock, "A problem occurred configuring")
 		executionPhaseFailed = strings.Contains(errorBlock, "Execution failed for task")
-
 		if configPhaseFailed {
 			result.Verification.Sync = "FAILED"
 			failed = true
@@ -372,7 +371,6 @@ func parseResult(comboID, output string) storage.VerificationResult {
 		}
 	}
 
-	// If we haven't yet set a signature, try to derive one from the phase and error block
 	if result.FailureSignature == "" {
 		if configPhaseFailed {
 			if matched, _ := regexp.MatchString(`Received status code \d{3}`, errorBlock); matched {
@@ -400,7 +398,6 @@ func parseResult(comboID, output string) storage.VerificationResult {
 		}
 	}
 
-	// Special handling for dependency_fetch_error
 	if hasStructured && result.FailureSignature == "dependency_fetch_error" {
 		result.Status = "inconclusive"
 	} else if failed {
@@ -409,7 +406,7 @@ func parseResult(comboID, output string) storage.VerificationResult {
 		result.Status = "failed"
 	}
 
-	// Extract error message (prefer structured cause if available)
+	// Error message extraction (legacy)
 	if failed || result.Status == "inconclusive" {
 		if hasStructured && se.Cause != "" && !strings.Contains(se.Cause, "Execution failed for task") {
 			result.ErrorMessage = se.Cause
