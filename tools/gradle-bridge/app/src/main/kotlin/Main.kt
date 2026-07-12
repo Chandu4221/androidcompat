@@ -42,7 +42,7 @@ fun main(args: Array<String>) {
                 }
             }
 
-                        "--java-home" -> javaHome = args[++i]
+            "--java-home" -> javaHome = args[++i]
             else -> {}
         }
         i++
@@ -79,6 +79,25 @@ fun main(args: Array<String>) {
         var failingTask: String? = null
         var status = "success"
 
+        // Register progress listener (re-register each attempt)
+        buildLauncher.addProgressListener(
+            { event: ProgressEvent ->
+                if (event is FinishEvent) {
+                    val result = event.result
+                    if (result is FailureResult) {
+                        status = "failed"
+                        failingTask = if (event is TaskFinishEvent) {
+                            event.descriptor.taskPath
+                        } else {
+                            null
+                        }
+                        capturedFailures = result.failures.map { toBridgeFailure(it) }
+                    }
+                }
+            },
+            OperationType.TASK, OperationType.ROOT
+        )
+
         while (attempt < maxAttempts) {
             attempt++
             // Reset state for each attempt
@@ -86,24 +105,6 @@ fun main(args: Array<String>) {
             failingTask = null
             status = "success"
 
-            // Register progress listener (re-register each attempt)
-            buildLauncher.addProgressListener(
-                { event: ProgressEvent ->
-                    if (event is FinishEvent) {
-                        val result = event.result
-                        if (result is FailureResult) {
-                            status = "failed"
-                            failingTask = if (event is TaskFinishEvent) {
-                                event.descriptor.taskPath
-                            } else {
-                                null
-                            }
-                            capturedFailures = result.failures.map { toBridgeFailure(it) }
-                        }
-                    }
-                },
-                OperationType.TASK, OperationType.ROOT
-            )
 
             // Redirect stdout to stderr for provisioning noise
             val realOut = System.out
