@@ -119,7 +119,7 @@ jobs:
         run: |
           cd tmp-build
           # Run the bridge – JSON goes to bridge-output.json, build log goes to stdout.log
-          java -jar ${GITHUB_WORKSPACE}/gradle-bridge.jar \
+          "$JAVA_HOME_17_X64/bin/java" -jar ${GITHUB_WORKSPACE}/gradle-bridge.jar \
             --project-dir . \
             --tasks build \
             --java-home "$JAVA_HOME" \
