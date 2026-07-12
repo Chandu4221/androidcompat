@@ -64,51 +64,90 @@ fun main(args: Array<String>) {
     connector.connect().use { connection ->
         val buildLauncher = connection.newBuild()
             .forTasks(*tasks.toTypedArray())
-            .withArguments("--stacktrace")  // no --no-daemon, Tooling API doesn't accept it
-            .setStandardOutput(System.err)  // Gradle build logs → stderr
-            .setStandardError(System.err)   // Gradle errors → stderr
+            .withArguments("--stacktrace")
+            .setStandardOutput(System.err)
+            .setStandardError(System.err)
 
         javaHome?.let { buildLauncher.setJavaHome(File(it)) }
+
+        // ---------- Retry logic ----------
+        val maxAttempts = 3
+        var attempt = 0
+        var lastException: BuildException? = null
 
         var capturedFailures: List<BridgeFailure>? = null
         var failingTask: String? = null
         var status = "success"
 
-        buildLauncher.addProgressListener(
-            { event: ProgressEvent ->
-                if (event is FinishEvent) {
-                    val result = event.result
-                    if (result is FailureResult) {
-                        status = "failed"
-                        failingTask = if (event is TaskFinishEvent) {
-                            event.descriptor.taskPath
-                        } else {
-                            null // config/root-phase failure
-                        }
-                        capturedFailures = result.failures.map { toBridgeFailure(it) }
-                    }
-                }
-            },
-            OperationType.TASK, OperationType.ROOT
-        )
-
-        // --- CRITICAL: Redirect the real System.out to stderr for the entire build/provisioning phase ---
-        // This captures download progress (e.g., "Downloading https://...") which bypasses BuildLauncher.setStandardOutput()
-        val realOut = System.out
-        System.setOut(PrintStream(FileOutputStream(FileDescriptor.err)))
-
-        try {
-            buildLauncher.run()
-        } catch (e: BuildException) {
-            status = "failed"
-            capturedFailures = listOf(toBridgeFailureFromThrowable(e))
+        while (attempt < maxAttempts) {
+            attempt++
+            // Reset state for each attempt
+            capturedFailures = null
             failingTask = null
-        } finally {
-            // Restore real stdout so our JSON prints to the correct stream
-            System.setOut(realOut)
+            status = "success"
+
+            // Register progress listener (re-register each attempt)
+            buildLauncher.addProgressListener(
+                { event: ProgressEvent ->
+                    if (event is FinishEvent) {
+                        val result = event.result
+                        if (result is FailureResult) {
+                            status = "failed"
+                            failingTask = if (event is TaskFinishEvent) {
+                                event.descriptor.taskPath
+                            } else {
+                                null
+                            }
+                            capturedFailures = result.failures.map { toBridgeFailure(it) }
+                        }
+                    }
+                },
+                OperationType.TASK, OperationType.ROOT
+            )
+
+            // Redirect stdout to stderr for provisioning noise
+            val realOut = System.out
+            System.setOut(PrintStream(FileOutputStream(FileDescriptor.err)))
+
+            try {
+                buildLauncher.run()
+                // Success – break out of retry loop
+                lastException = null
+                break
+            } catch (e: BuildException) {
+                val isProvisioningFailure = e.message?.contains(
+                    "Could not execute build using connection to Gradle distribution"
+                ) == true
+
+                if (isProvisioningFailure && attempt < maxAttempts) {
+                    System.err.println("⚠️ Provisioning failure (attempt $attempt/$maxAttempts), retrying in 8s...")
+                    Thread.sleep(8000)
+                    lastException = e
+                    // Loop continues – retry
+                } else {
+                    // Real failure or out of retries
+                    status = "failed"
+                    if (capturedFailures == null) {
+                        capturedFailures = listOf(toBridgeFailureFromThrowable(e))
+                        failingTask = null
+                    }
+                    lastException = null
+                    break
+                }
+            } finally {
+                // Restore stdout for JSON printing
+                System.setOut(realOut)
+            }
         }
 
-        // Build final result and print JSON to stdout (clean, no Gradle noise)
+        // If we exhausted retries without success, record the last provisioning failure
+        if (attempt == maxAttempts && lastException != null && status == "success") {
+            status = "failed"
+            capturedFailures = listOf(toBridgeFailureFromThrowable(lastException))
+            failingTask = null
+        }
+
+        // Build final result and print JSON to stdout
         val bridgeResult = BridgeResult(
             status = status,
             task = failingTask,
