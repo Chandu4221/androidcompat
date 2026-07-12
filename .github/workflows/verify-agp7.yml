@@ -125,6 +125,13 @@ jobs:
             2> stdout.log \
             || true
 
+      - name: Debug bridge output
+        if: always()
+        run: |
+          echo "=== bridge-output.json contents ==="
+          cat tmp-build/bridge-output.json || echo "File not found"
+          echo "=== end ==="
+
       - name: Collect result
         run: |
           go run cmd/collect/main.go \
