@@ -140,7 +140,7 @@ func main() {
 		}
 		// Compose Compiler App KTS injection
 		if *composeCompiler != "" {
-			appStr = injectAppPluginKts(appStr, "alias(libs.plugins.compose-compiler)")
+			appStr = injectAppPluginKts(appStr, "alias(libs.plugins.compose.compiler)")
 		}
 
 		if err := os.WriteFile(appGradleKts, []byte(appStr), 0644); err != nil {
