@@ -18,6 +18,10 @@ func main() {
 	ksp := flag.String("ksp", "", "KSP version")
 	compileSdk := flag.String("compile-sdk", "", "compileSdk version")
 	agpMajor := flag.Int("agp-major", 0, "AGP major version (7, 8, or 9)")
+	hilt := flag.String("hilt", "", "Hilt version (optional)")
+	room := flag.String("room", "", "Room version (optional)")
+	navigation := flag.String("navigation", "", "Navigation version (optional)")
+	composeCompiler := flag.String("compose-compiler", "", "Compose compiler version (optional)")
 	flag.Parse()
 
 	if *dir == "" || *agp == "" || *gradle == "" || *kotlin == "" || *ksp == "" || *agpMajor == 0 || *compileSdk == "" {
@@ -59,32 +63,90 @@ func main() {
 		fmt.Println("✅ Injection complete for AGP7 (Groovy DSL)")
 	} else {
 		// AGP8/9: Kotlin DSL with libs.versions.toml
-		// 1. Update libs.versions.toml
 		tomlPath := filepath.Join(*dir, "gradle", "libs.versions.toml")
-		if err := replaceInFile(tomlPath, map[string]string{
-			`agp\s*=\s*".*"`:    fmt.Sprintf(`agp = "%s"`, *agp),
-			`kotlin\s*=\s*".*"`: fmt.Sprintf(`kotlin = "%s"`, *kotlin),
-		}); err != nil {
-			log.Fatalf("Failed to update toml: %v", err)
+		content, err := os.ReadFile(tomlPath)
+		if err != nil {
+			log.Fatalf("Failed to read toml: %v", err)
 		}
-		// Add KSP version and plugin alias
-		if err := ensureKSPToml(tomlPath, *ksp); err != nil {
-			log.Fatalf("Failed to add KSP to toml: %v", err)
+		tomlStr := string(content)
+
+		// 1. Core updates
+		tomlStr = replaceInString(tomlStr, `agp\s*=\s*".*"`, fmt.Sprintf(`agp = "%s"`, *agp))
+		tomlStr = replaceInString(tomlStr, `kotlin\s*=\s*".*"`, fmt.Sprintf(`kotlin = "%s"`, *kotlin))
+
+		// 2. Phase B TOML injections
+		tomlStr = injectTomlVersion(tomlStr, "hilt", *hilt)
+		tomlStr = injectTomlPlugin(tomlStr, "hilt", "com.google.dagger.hilt.android", "hilt")
+
+		tomlStr = injectTomlVersion(tomlStr, "room", *room)
+		tomlStr = injectTomlPlugin(tomlStr, "room", "androidx.room", "room")
+
+		tomlStr = injectTomlVersion(tomlStr, "navigation", *navigation)
+		tomlStr = injectTomlPlugin(tomlStr, "navigation-safeargs", "androidx.navigation.safeargs.kotlin", "navigation")
+
+		// KSP (existing logic, adapted)
+		if *ksp != "" {
+			tomlStr = injectTomlVersion(tomlStr, "ksp", *ksp)
+			tomlStr = injectTomlPlugin(tomlStr, "ksp", "com.google.devtools.ksp", "ksp")
 		}
 
-		// 2. Update app/build.gradle.kts (compileSdk and add KSP plugin)
+		// Compose Compiler injection (if provided)
+		if *composeCompiler != "" {
+			tomlStr = injectTomlVersion(tomlStr, "composeCompiler", *composeCompiler)
+			tomlStr = injectTomlPlugin(tomlStr, "compose-compiler", "org.jetbrains.kotlin.plugin.compose", "composeCompiler")
+		}
+
+		if err := os.WriteFile(tomlPath, []byte(tomlStr), 0644); err != nil {
+			log.Fatalf("Failed to write toml: %v", err)
+		}
+
+		// 3. App build.gradle.kts injections
 		appGradleKts := filepath.Join(*dir, "app", "build.gradle.kts")
-		if err := replaceInFile(appGradleKts, map[string]string{
-			`compileSdk\s*=\s*\d+`: fmt.Sprintf(`compileSdk = %s`, *compileSdk),
-		}); err != nil {
+		appContent, _ := os.ReadFile(appGradleKts)
+		appStr := string(appContent)
+
+		appStr = replaceInString(appStr, `compileSdk\s*=\s*\d+`, fmt.Sprintf(`compileSdk = %s`, *compileSdk))
+		appStr = injectAppPluginKts(appStr, "alias(libs.plugins.ksp)") // Existing
+		appStr = injectAppPluginKts(appStr, "alias(libs.plugins.hilt)")
+		appStr = injectAppPluginKts(appStr, "alias(libs.plugins.room)")
+		appStr = injectAppPluginKts(appStr, "alias(libs.plugins.navigation.safeargs)")
+
+		// Dependencies
+		if *hilt != "" {
+			appStr = injectAppDependencyKts(appStr, fmt.Sprintf(`implementation("com.google.dagger:hilt-android:%s")`, *hilt))
+			appStr = injectAppDependencyKts(appStr, fmt.Sprintf(`ksp("com.google.dagger:hilt-compiler:%s")`, *hilt))
+		}
+		if *room != "" {
+			appStr = injectAppDependencyKts(appStr, fmt.Sprintf(`implementation("androidx.room:room-runtime:%s")`, *room))
+			appStr = injectAppDependencyKts(appStr, fmt.Sprintf(`ksp("androidx.room:room-compiler:%s")`, *room))
+		}
+		if *navigation != "" {
+			appStr = injectAppDependencyKts(appStr, fmt.Sprintf(`implementation("androidx.navigation:navigation-fragment-ktx:%s")`, *navigation))
+			appStr = injectAppDependencyKts(appStr, fmt.Sprintf(`implementation("androidx.navigation:navigation-ui-ktx:%s")`, *navigation))
+		}
+		// Compose Compiler App KTS injection
+		if *composeCompiler != "" {
+			appStr = injectAppPluginKts(appStr, "alias(libs.plugins.compose-compiler)")
+		}
+
+		if err := os.WriteFile(appGradleKts, []byte(appStr), 0644); err != nil {
 			log.Fatalf("Failed to update app/build.gradle.kts: %v", err)
 		}
-		// Add KSP plugin alias if not present
-		if err := ensureKSPPluginKts(appGradleKts); err != nil {
-			log.Fatalf("Failed to add KSP plugin: %v", err)
+
+		// 4. Root build.gradle.kts injections
+		rootGradleKts := filepath.Join(*dir, "build.gradle.kts")
+		rootContent, _ := os.ReadFile(rootGradleKts)
+		rootStr := string(rootContent)
+
+		rootStr = injectRootPluginKts(rootStr, "alias(libs.plugins.hilt)")
+		rootStr = injectRootPluginKts(rootStr, "alias(libs.plugins.room)")
+		rootStr = injectRootPluginKts(rootStr, "alias(libs.plugins.navigation.safeargs)")
+
+		if err := os.WriteFile(rootGradleKts, []byte(rootStr), 0644); err != nil {
+			log.Fatalf("Failed to update root build.gradle.kts: %v", err)
 		}
 
-		// 3. Update gradle-wrapper.properties
+		// 5. Update gradle-wrapper.properties (existing)
 		wrapperPath := filepath.Join(*dir, "gradle", "wrapper", "gradle-wrapper.properties")
 		if err := replaceInFile(wrapperPath, map[string]string{
 			`distributionUrl=.*`: fmt.Sprintf(`distributionUrl=https\://services.gradle.org/distributions/gradle-%s-bin.zip`, *gradle),
@@ -92,7 +154,7 @@ func main() {
 			log.Fatalf("Failed to update wrapper: %v", err)
 		}
 
-		fmt.Println("✅ Injection complete for AGP8/9 (Kotlin DSL with toml)")
+		fmt.Println("✅ Injection complete for AGP8/9 (Kotlin DSL with Phase B axes)")
 	}
 }
 
@@ -110,6 +172,11 @@ func replaceInFile(filePath string, replacements map[string]string) error {
 		newContent = re.ReplaceAllString(newContent, replacement)
 	}
 	return os.WriteFile(filePath, []byte(newContent), 0644)
+}
+
+func replaceInString(content, pattern, replacement string) string {
+	re := regexp.MustCompile(pattern)
+	return re.ReplaceAllString(content, replacement)
 }
 
 func ensureKSPPluginGroovy(filePath, kspVersion string) error {
@@ -200,4 +267,53 @@ func ensureKSPPluginKts(appGradleKts string) error {
 	}
 	newContent := re.ReplaceAllString(str, "plugins {\n    alias(libs.plugins.ksp)")
 	return os.WriteFile(appGradleKts, []byte(newContent), 0644)
+}
+
+func injectTomlVersion(content, key, version string) string {
+	if version == "" {
+		return content
+	}
+	re := regexp.MustCompile(`(?m)^\[versions\]\n`)
+	return re.ReplaceAllString(content, fmt.Sprintf("[versions]\n%s = \"%s\"\n", key, version))
+}
+
+func injectTomlPlugin(content, alias, id, versionRef string) string {
+	if versionRef == "" {
+		return content
+	}
+	if strings.Contains(content, fmt.Sprintf("%s = { id = \"%s\"", alias, id)) {
+		return content // Already exists
+	}
+	re := regexp.MustCompile(`(?m)^\[plugins\]\n`)
+	return re.ReplaceAllString(content, fmt.Sprintf("[plugins]\n%s = { id = \"%s\", version.ref = \"%s\" }\n", alias, id, versionRef))
+}
+
+func injectRootPluginKts(content, alias string) string {
+	if alias == "" {
+		return content
+	}
+	if strings.Contains(content, fmt.Sprintf("alias(%s) apply false", alias)) {
+		return content
+	}
+	re := regexp.MustCompile(`(?m)^plugins\s*\{`)
+	return re.ReplaceAllString(content, fmt.Sprintf("plugins {\n    %s apply false", alias))
+}
+
+func injectAppPluginKts(content, alias string) string {
+	if alias == "" {
+		return content
+	}
+	if strings.Contains(content, fmt.Sprintf("alias(%s)", alias)) {
+		return content
+	}
+	re := regexp.MustCompile(`(?m)^plugins\s*\{`)
+	return re.ReplaceAllString(content, fmt.Sprintf("plugins {\n    %s", alias))
+}
+
+func injectAppDependencyKts(content, dependency string) string {
+	if dependency == "" {
+		return content
+	}
+	re := regexp.MustCompile(`(?m)^dependencies\s*\{`)
+	return re.ReplaceAllString(content, fmt.Sprintf("dependencies {\n    %s", dependency))
 }

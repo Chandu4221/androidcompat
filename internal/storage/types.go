@@ -29,11 +29,12 @@ type VersionRegistry struct {
 
 // ---------- Rules (from tracker's rules.json) ----------
 type RuleEntry struct {
-	Min   string `json:"min"`
-	Max   string `json:"max"`
-	Value string `json:"value"`
-	Type  string `json:"type"`
-	Note  string `json:"note,omitempty"`
+	Min    string `json:"min"`
+	Max    string `json:"max"`
+	Value  string `json:"value"`
+	Type   string `json:"type"`
+	Note   string `json:"note,omitempty"`
+	Source string `json:"source,omitempty"`
 }
 
 type AgpRules struct {
@@ -82,6 +83,10 @@ type Rules struct {
 	Kotlin                        KotlinRules                     `json:"kotlin"`
 	Gradle                        GradleRules                     `json:"gradle"`
 	KspBuiltInKotlinCompatibility []KspBuiltInKotlinCompatibility `json:"kspBuiltInKotlinCompatibility"`
+	Hilt                          HiltRules                       `json:"hilt"`
+	Compose                       ComposeRules                    `json:"compose"`
+	Room                          RoomRules                       `json:"room"`
+	Navigation                    NavigationRules                 `json:"navigation"`
 }
 
 // ---------- Combos (candidate generation output) ----------
@@ -94,6 +99,11 @@ type Combo struct {
 	JDK        string `json:"jdk"`
 	CompileSdk string `json:"compileSdk"`
 	SdkPackage string `json:"sdkPackage"`
+	// Phase B — optional, empty string when this combo doesn't test that axis
+	HiltVersion       string `json:"hiltVersion,omitempty"`
+	ComposeCompiler   string `json:"composeCompiler,omitempty"`
+	RoomVersion       string `json:"roomVersion,omitempty"`
+	NavigationVersion string `json:"navigationVersion,omitempty"`
 }
 
 type CombosFile struct {
@@ -104,16 +114,21 @@ type CombosFile struct {
 
 // ---------- Compatibility Results ----------
 type VerificationResult struct {
-	ID           string `json:"id"`
-	AGP          string `json:"agp"`
-	Gradle       string `json:"gradle"`
-	Kotlin       string `json:"kotlin"`
-	KSP          string `json:"ksp"`
-	JDK          string `json:"jdk"`
-	CompileSdk   string `json:"compileSdk"`
-	SdkPackage   string `json:"sdkPackage"`
-	Status       string `json:"status"` // "verified", "failed"
-	Verification struct {
+	ID         string `json:"id"`
+	AGP        string `json:"agp"`
+	Gradle     string `json:"gradle"`
+	Kotlin     string `json:"kotlin"`
+	KSP        string `json:"ksp"`
+	JDK        string `json:"jdk"`
+	CompileSdk string `json:"compileSdk"`
+	SdkPackage string `json:"sdkPackage"`
+	// Phase B — optional fields as Combo, omitempty
+	HiltVersion       string `json:"hiltVersion,omitempty"`
+	ComposeCompiler   string `json:"composeCompiler,omitempty"`
+	RoomVersion       string `json:"roomVersion,omitempty"`
+	NavigationVersion string `json:"navigationVersion,omitempty"`
+	Status            string `json:"status"` // "verified", "failed"
+	Verification      struct {
 		Sync     string `json:"sync"`      // "PASSED", "FAILED", "SKIPPED"
 		Compile  string `json:"compile"`   // "PASSED", "FAILED", "SKIPPED"
 		UnitTest string `json:"unit_test"` // "PASSED", "FAILED", "SKIPPED"
@@ -127,4 +142,33 @@ type VerificationResult struct {
 type CompatFile struct {
 	AGPMajor int                  `json:"agpMajor"`
 	Results  []VerificationResult `json:"results"`
+}
+
+type HiltRules struct {
+	RequiredAgp []RuleEntry `json:"requiredAgp"`
+}
+
+type RoomRules struct {
+	GradlePluginRequiredAgp []RuleEntry `json:"gradlePluginRequiredAgp"`
+	MinKotlin               []RuleEntry `json:"minKotlin"`
+}
+
+type NavigationRules struct {
+	SafeArgsRequiredAgp []RuleEntry `json:"safeArgsRequiredAgp"`
+}
+
+type ComposeCompilerPin struct {
+	Compiler string `json:"compiler"`
+	Kotlin   string `json:"kotlin"`
+}
+
+type ComposeModernPin struct {
+	MinKotlin string `json:"minKotlin"`
+	Note      string `json:"note,omitempty"`
+	Source    string `json:"source,omitempty"`
+}
+
+type ComposeRules struct {
+	CompilerKotlinExactPinLegacy []ComposeCompilerPin `json:"compilerKotlinExactPin_legacy"`
+	CompilerKotlinExactPinModern ComposeModernPin     `json:"compilerKotlinExactPin_modern"`
 }
