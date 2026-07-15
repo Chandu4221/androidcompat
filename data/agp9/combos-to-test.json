@@ -1,11 +1,22 @@
 {
   "agpMajor": 9,
-  "generatedAt": "2026-07-10T03:54:50Z",
+  "generatedAt": "2026-07-15T09:14:19Z",
   "combos": [
     {
-      "id": "agp901_gradle910_kotlin2210_ksp236_jdk17_comp36_sdk36",
+      "id": "03c0277927623e82",
       "agp": "9.0.1",
       "gradle": "9.1.0",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "roomVersion": "2.8.4"
+    },
+    {
+      "id": "069bad7253791390",
+      "agp": "9.2.1",
+      "gradle": "9.4.1",
       "kotlin": "2.2.10",
       "ksp": "2.3.6",
       "jdk": "17",
@@ -13,7 +24,7 @@
       "sdkPackage": "36"
     },
     {
-      "id": "agp911_gradle931_kotlin2210_ksp236_jdk17_comp36_sdk36",
+      "id": "0bd422a1e5a9b3e7",
       "agp": "9.1.1",
       "gradle": "9.3.1",
       "kotlin": "2.2.10",
@@ -23,14 +34,233 @@
       "sdkPackage": "36"
     },
     {
-      "id": "agp921_gradle941_kotlin2210_ksp236_jdk17_comp36_sdk36",
+      "id": "16082bc87c4a48b0",
+      "agp": "9.1.1",
+      "gradle": "9.3.1",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "navigationVersion": "2.9.8"
+    },
+    {
+      "id": "1709d6acd338e5d3",
+      "agp": "9.3.0",
+      "gradle": "9.4.1",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "composeCompiler": "2.2.10"
+    },
+    {
+      "id": "258156b27b45cd7b",
+      "agp": "9.0.1",
+      "gradle": "9.1.0",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "navigationVersion": "2.9.8"
+    },
+    {
+      "id": "2c72dbc576e5fa78",
+      "agp": "9.3.0",
+      "gradle": "9.4.1",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "roomVersion": "2.8.4"
+    },
+    {
+      "id": "442450dd77f8a57d",
+      "agp": "9.1.1",
+      "gradle": "9.3.1",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "hiltVersion": "2.59.2"
+    },
+    {
+      "id": "496121c24d28af86",
+      "agp": "9.3.0",
+      "gradle": "9.4.1",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "navigationVersion": "2.9.8"
+    },
+    {
+      "id": "60075b2e323263bb",
+      "agp": "9.3.0",
+      "gradle": "9.4.1",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "hiltVersion": "2.59.2"
+    },
+    {
+      "id": "6452d413adc7bbf7",
+      "agp": "9.0.1",
+      "gradle": "9.1.0",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "hiltVersion": "2.59.2"
+    },
+    {
+      "id": "8c952db7828596c3",
       "agp": "9.2.1",
       "gradle": "9.4.1",
       "kotlin": "2.2.10",
       "ksp": "2.3.6",
       "jdk": "17",
       "compileSdk": "36",
+      "sdkPackage": "36",
+      "roomVersion": "2.8.4"
+    },
+    {
+      "id": "9201971782c94d3c",
+      "agp": "9.3.0",
+      "gradle": "9.4.1",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "hiltVersion": "2.60.1"
+    },
+    {
+      "id": "b09da7a3cf2887e0",
+      "agp": "9.2.1",
+      "gradle": "9.4.1",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "hiltVersion": "2.60.1"
+    },
+    {
+      "id": "b158f2199fd0d549",
+      "agp": "9.3.0",
+      "gradle": "9.4.1",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
       "sdkPackage": "36"
+    },
+    {
+      "id": "b3f0856aebd9458c",
+      "agp": "9.0.1",
+      "gradle": "9.1.0",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "hiltVersion": "2.60.1"
+    },
+    {
+      "id": "b6e238996970e3a6",
+      "agp": "9.2.1",
+      "gradle": "9.4.1",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "composeCompiler": "2.2.10"
+    },
+    {
+      "id": "ba62e92e6b327b70",
+      "agp": "9.1.1",
+      "gradle": "9.3.1",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "hiltVersion": "2.60.1"
+    },
+    {
+      "id": "c4127094b747adba",
+      "agp": "9.1.1",
+      "gradle": "9.3.1",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "composeCompiler": "2.2.10"
+    },
+    {
+      "id": "cd55c8b36054a795",
+      "agp": "9.1.1",
+      "gradle": "9.3.1",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "roomVersion": "2.8.4"
+    },
+    {
+      "id": "d00ced1bace42acf",
+      "agp": "9.2.1",
+      "gradle": "9.4.1",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "navigationVersion": "2.9.8"
+    },
+    {
+      "id": "de51003b3b6e23c9",
+      "agp": "9.0.1",
+      "gradle": "9.1.0",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36"
+    },
+    {
+      "id": "eec07aacca885bb0",
+      "agp": "9.2.1",
+      "gradle": "9.4.1",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "hiltVersion": "2.59.2"
+    },
+    {
+      "id": "fd3d8a63028f4554",
+      "agp": "9.0.1",
+      "gradle": "9.1.0",
+      "kotlin": "2.2.10",
+      "ksp": "2.3.6",
+      "jdk": "17",
+      "compileSdk": "36",
+      "sdkPackage": "36",
+      "composeCompiler": "2.2.10"
     }
   ]
 }
