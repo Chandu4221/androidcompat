@@ -120,11 +120,13 @@ func main() {
 		}
 		if *room != "" {
 			appStr = injectAppPluginKts(appStr, "alias(libs.plugins.room)")
+			// Room plugin mandates a schema directory configuration
+			appStr = injectRoomSchema(appStr)
 		}
 		if *navigation != "" {
-			appStr = injectAppPluginKts(appStr, "alias(libs.plugins.navigation.safeargs)")
+			// Inject AFTER kotlin plugin to avoid "must be used with kotlin plugin" error
+			appStr = injectAppPluginAfterKotlin(appStr, "alias(libs.plugins.navigation.safeargs)")
 		}
-
 		// Dependencies (already correctly gated)
 		if *hilt != "" {
 			appStr = injectAppDependencyKts(appStr, fmt.Sprintf(`implementation("com.google.dagger:hilt-android:%s")`, *hilt))
@@ -321,6 +323,36 @@ func injectAppPluginKts(content, alias string) string {
 	}
 	re := regexp.MustCompile(`(?m)^plugins\s*\{`)
 	return re.ReplaceAllString(content, fmt.Sprintf("plugins {\n    %s", alias))
+}
+
+func injectAppPluginAfterKotlin(content, alias string) string {
+	if alias == "" || strings.Contains(content, fmt.Sprintf("alias(%s)", alias)) {
+		return content
+	}
+	// Try to insert after the kotlin android plugin line
+	re := regexp.MustCompile(`(?m)^(.*alias\(libs\.plugins\.kotlin\.android\).*)$`)
+	if re.MatchString(content) {
+		return re.ReplaceAllString(content, "$1\n    "+alias)
+	}
+	// Fallback: insert at the end of the plugins block (before the closing brace)
+	re = regexp.MustCompile(`(?s)(plugins\s*\{.*?)(\n\})`)
+	if re.MatchString(content) {
+		return re.ReplaceAllString(content, "$1\n    "+alias+"$2")
+	}
+	return content
+}
+
+func injectRoomSchema(content string) string {
+	if strings.Contains(content, "schemaDirectory") {
+		return content
+	}
+	// Insert room { schemaDirectory("$projectDir/schemas") } right before the dependencies block
+	re := regexp.MustCompile(`(?m)^dependencies\s*\{`)
+	if re.MatchString(content) {
+		return re.ReplaceAllString(content, "room {\n    schemaDirectory(\"$projectDir/schemas\")\n}\n\ndependencies {")
+	}
+	// Fallback: append to the end of the file
+	return content + "\n\nroom {\n    schemaDirectory(\"$projectDir/schemas\")\n}\n"
 }
 
 func injectAppDependencyKts(content, dependency string) string {
