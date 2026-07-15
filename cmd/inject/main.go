@@ -273,8 +273,16 @@ func injectTomlVersion(content, key, version string) string {
 	if version == "" {
 		return content
 	}
-	re := regexp.MustCompile(`(?m)^\[versions\]\n`)
-	return re.ReplaceAllString(content, fmt.Sprintf("[versions]\n%s = \"%s\"\n", key, version))
+	// Strip UTF-8 BOM if present to ensure ^ matches the first line
+	content = strings.TrimPrefix(content, "\xef\xbb\xbf")
+
+	// Match [versions] with optional trailing whitespace and any newline style (\n or \r\n)
+	re := regexp.MustCompile(`(?m)^\[versions\][ \t]*\r?\n`)
+	if re.MatchString(content) {
+		return re.ReplaceAllString(content, fmt.Sprintf("[versions]\n%s = \"%s\"\n", key, version))
+	}
+	// Fallback: if [versions] header is missing or malformed, safely prepend it
+	return fmt.Sprintf("[versions]\n%s = \"%s\"\n\n%s", key, version, content)
 }
 
 func injectTomlPlugin(content, alias, id, versionRef string) string {
@@ -284,8 +292,13 @@ func injectTomlPlugin(content, alias, id, versionRef string) string {
 	if strings.Contains(content, fmt.Sprintf("%s = { id = \"%s\"", alias, id)) {
 		return content // Already exists
 	}
-	re := regexp.MustCompile(`(?m)^\[plugins\]\n`)
-	return re.ReplaceAllString(content, fmt.Sprintf("[plugins]\n%s = { id = \"%s\", version.ref = \"%s\" }\n", alias, id, versionRef))
+	// Match [plugins] with optional trailing whitespace and any newline style
+	re := regexp.MustCompile(`(?m)^\[plugins\][ \t]*\r?\n`)
+	if re.MatchString(content) {
+		return re.ReplaceAllString(content, fmt.Sprintf("[plugins]\n%s = { id = \"%s\", version.ref = \"%s\" }\n", alias, id, versionRef))
+	}
+	// Fallback: append to the end of the file if [plugins] isn't found cleanly
+	return content + fmt.Sprintf("\n[plugins]\n%s = { id = \"%s\", version.ref = \"%s\" }\n", alias, id, versionRef)
 }
 
 func injectRootPluginKts(content, alias string) string {
