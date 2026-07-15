@@ -45,6 +45,12 @@ func main() {
 	jdk := flag.String("jdk", "", "JDK version")
 	compileSdk := flag.String("compile-sdk", "", "compileSdk version")
 	sdkPackage := flag.String("sdk-package", "", "SDK platform package")
+
+	hilt := flag.String("hilt", "", "Hilt version (optional)")
+	room := flag.String("room", "", "Room version (optional)")
+	navigation := flag.String("navigation", "", "Navigation version (optional)")
+	composeCompiler := flag.String("compose-compiler", "", "Compose compiler version (optional)")
+
 	buildDir := flag.String("dir", "", "Build directory")
 	outputDir := flag.String("out", ".", "Output directory for result JSON")
 	bridgeJSON := flag.String("bridge-json", "", "Path to bridge-output.json (optional)")
@@ -89,6 +95,12 @@ func main() {
 	result.JDK = *jdk
 	result.CompileSdk = *compileSdk
 	result.SdkPackage = *sdkPackage
+	// Phase B fields
+	result.HiltVersion = *hilt
+	result.RoomVersion = *room
+	result.NavigationVersion = *navigation
+	result.ComposeCompiler = *composeCompiler
+
 	result.ID = *comboID
 	result.Timestamp = time.Now().UTC().Format(time.RFC3339)
 	result.BuildLog = combined

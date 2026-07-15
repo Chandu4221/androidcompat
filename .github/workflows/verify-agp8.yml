@@ -105,7 +105,11 @@ jobs:
             --kotlin=${{ matrix.combo.kotlin }} \
             --ksp=${{ matrix.combo.ksp }} \
             --compile-sdk=${{ matrix.combo.compileSdk }} \
-            --agp-major=8
+            --agp-major=8 \
+            --hilt="${{ matrix.combo.hiltVersion }}" \
+            --room="${{ matrix.combo.roomVersion }}" \
+            --navigation="${{ matrix.combo.navigationVersion }}" \
+            --compose-compiler="${{ matrix.combo.composeCompiler }}"
 
       - name: Install Android SDK platform
         run: |
@@ -145,6 +149,10 @@ jobs:
             --jdk=${{ matrix.combo.jdk }} \
             --compile-sdk=${{ matrix.combo.compileSdk }} \
             --sdk-package=${{ matrix.combo.sdkPackage }} \
+            --hilt="${{ matrix.combo.hiltVersion }}" \
+            --room="${{ matrix.combo.roomVersion }}" \
+            --navigation="${{ matrix.combo.navigationVersion }}" \
+            --compose-compiler="${{ matrix.combo.composeCompiler }}" \
             --dir=tmp-build \
             --out=. \
             --bridge-json tmp-build/bridge-output.json
