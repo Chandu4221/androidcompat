@@ -60,6 +60,7 @@ jobs:
           echo "agp-major=8" >> $GITHUB_OUTPUT
 
   verify:
+    name: "verify-${{ matrix.combo.id }}"
     needs: [build-bridge, generate-combos]
     runs-on: ubuntu-latest
     strategy:
