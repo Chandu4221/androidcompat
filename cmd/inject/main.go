@@ -74,15 +74,21 @@ func main() {
 		tomlStr = replaceInString(tomlStr, `agp\s*=\s*".*"`, fmt.Sprintf(`agp = "%s"`, *agp))
 		tomlStr = replaceInString(tomlStr, `kotlin\s*=\s*".*"`, fmt.Sprintf(`kotlin = "%s"`, *kotlin))
 
-		// 2. Phase B TOML injections
-		tomlStr = injectTomlVersion(tomlStr, "hilt", *hilt)
-		tomlStr = injectTomlPlugin(tomlStr, "hilt", "com.google.dagger.hilt.android", "hilt")
+		// 2. Phase B TOML injections (GATED)
+		if *hilt != "" {
+			tomlStr = injectTomlVersion(tomlStr, "hilt", *hilt)
+			tomlStr = injectTomlPlugin(tomlStr, "hilt", "com.google.dagger.hilt.android", "hilt")
+		}
 
-		tomlStr = injectTomlVersion(tomlStr, "room", *room)
-		tomlStr = injectTomlPlugin(tomlStr, "room", "androidx.room", "room")
+		if *room != "" {
+			tomlStr = injectTomlVersion(tomlStr, "room", *room)
+			tomlStr = injectTomlPlugin(tomlStr, "room", "androidx.room", "room")
+		}
 
-		tomlStr = injectTomlVersion(tomlStr, "navigation", *navigation)
-		tomlStr = injectTomlPlugin(tomlStr, "navigation-safeargs", "androidx.navigation.safeargs.kotlin", "navigation")
+		if *navigation != "" {
+			tomlStr = injectTomlVersion(tomlStr, "navigation", *navigation)
+			tomlStr = injectTomlPlugin(tomlStr, "navigation-safeargs", "androidx.navigation.safeargs.kotlin", "navigation")
+		}
 
 		// KSP (existing logic, adapted)
 		if *ksp != "" {
@@ -106,12 +112,20 @@ func main() {
 		appStr := string(appContent)
 
 		appStr = replaceInString(appStr, `compileSdk\s*=\s*\d+`, fmt.Sprintf(`compileSdk = %s`, *compileSdk))
-		appStr = injectAppPluginKts(appStr, "alias(libs.plugins.ksp)") // Existing
-		appStr = injectAppPluginKts(appStr, "alias(libs.plugins.hilt)")
-		appStr = injectAppPluginKts(appStr, "alias(libs.plugins.room)")
-		appStr = injectAppPluginKts(appStr, "alias(libs.plugins.navigation.safeargs)")
+		appStr = injectAppPluginKts(appStr, "alias(libs.plugins.ksp)") // Existing, always present
 
-		// Dependencies
+		// Phase B App Plugin Injections (GATED)
+		if *hilt != "" {
+			appStr = injectAppPluginKts(appStr, "alias(libs.plugins.hilt)")
+		}
+		if *room != "" {
+			appStr = injectAppPluginKts(appStr, "alias(libs.plugins.room)")
+		}
+		if *navigation != "" {
+			appStr = injectAppPluginKts(appStr, "alias(libs.plugins.navigation.safeargs)")
+		}
+
+		// Dependencies (already correctly gated)
 		if *hilt != "" {
 			appStr = injectAppDependencyKts(appStr, fmt.Sprintf(`implementation("com.google.dagger:hilt-android:%s")`, *hilt))
 			appStr = injectAppDependencyKts(appStr, fmt.Sprintf(`ksp("com.google.dagger:hilt-compiler:%s")`, *hilt))
@@ -133,14 +147,20 @@ func main() {
 			log.Fatalf("Failed to update app/build.gradle.kts: %v", err)
 		}
 
-		// 4. Root build.gradle.kts injections
+		// 4. Root build.gradle.kts injections (GATED)
 		rootGradleKts := filepath.Join(*dir, "build.gradle.kts")
 		rootContent, _ := os.ReadFile(rootGradleKts)
 		rootStr := string(rootContent)
 
-		rootStr = injectRootPluginKts(rootStr, "alias(libs.plugins.hilt)")
-		rootStr = injectRootPluginKts(rootStr, "alias(libs.plugins.room)")
-		rootStr = injectRootPluginKts(rootStr, "alias(libs.plugins.navigation.safeargs)")
+		if *hilt != "" {
+			rootStr = injectRootPluginKts(rootStr, "alias(libs.plugins.hilt)")
+		}
+		if *room != "" {
+			rootStr = injectRootPluginKts(rootStr, "alias(libs.plugins.room)")
+		}
+		if *navigation != "" {
+			rootStr = injectRootPluginKts(rootStr, "alias(libs.plugins.navigation.safeargs)")
+		}
 
 		if err := os.WriteFile(rootGradleKts, []byte(rootStr), 0644); err != nil {
 			log.Fatalf("Failed to update root build.gradle.kts: %v", err)
@@ -185,22 +205,14 @@ func ensureKSPPluginGroovy(filePath, kspVersion string) error {
 		return err
 	}
 	str := string(content)
-	// Check if KSP plugin is already present
 	if strings.Contains(str, "com.google.devtools.ksp") {
 		return nil
 	}
-	// Find the plugins block and insert the KSP plugin after the last plugin line
-	// For simplicity, we'll append it at the end of the plugins block or at the top.
-	// We'll add it after the kotlin-android plugin.
-	// Use regex to find the kotlin-android plugin line.
 	re := regexp.MustCompile(`(?m)^\s*id\s+'kotlin-android'[^\n]*\n`)
 	if !re.MatchString(str) {
-		// If not found, just prepend at top of file (after any header?)
-		// We'll add at the beginning of the file.
 		newContent := fmt.Sprintf("plugins {\n    id 'com.google.devtools.ksp' version '%s'\n}\n\n", kspVersion) + str
 		return os.WriteFile(filePath, []byte(newContent), 0644)
 	}
-	// Insert after the kotlin-android line
 	newContent := re.ReplaceAllString(str, "$0    id 'com.google.devtools.ksp' version '"+kspVersion+"'\n")
 	return os.WriteFile(filePath, []byte(newContent), 0644)
 }
@@ -211,39 +223,29 @@ func ensureKSPToml(tomlPath, kspVersion string) error {
 		return err
 	}
 	str := string(content)
-	// Check if [versions] already has ksp
 	if strings.Contains(str, "\nksp = ") {
-		// Replace existing version
 		re := regexp.MustCompile(`(?m)^ksp\s*=\s*".*"$`)
 		if re.MatchString(str) {
 			newContent := re.ReplaceAllString(str, fmt.Sprintf(`ksp = "%s"`, kspVersion))
-			// Also ensure [plugins] has ksp alias
 			return ensureKSPSection(newContent, tomlPath, kspVersion)
 		}
 	}
-	// Add to [versions]
-	// We need to locate [versions] and add ksp = ...
 	reVersions := regexp.MustCompile(`(?m)^\[versions\]\n`)
 	if !reVersions.MatchString(str) {
 		return fmt.Errorf("[versions] section not found")
 	}
 	newContent := reVersions.ReplaceAllString(str, "[versions]\nksp = \""+kspVersion+"\"\n")
-	// Now ensure [plugins] section has the alias
 	return ensureKSPSection(newContent, tomlPath, kspVersion)
 }
 
 func ensureKSPSection(content string, tomlPath, kspVersion string) error {
-	// Check if [plugins] exists
 	rePlugins := regexp.MustCompile(`(?m)^\[plugins\]\n`)
 	if !rePlugins.MatchString(content) {
-		// Add [plugins] at the end
 		content += "\n[plugins]\nksp = { id = \"com.google.devtools.ksp\", version.ref = \"ksp\" }\n"
 	} else {
-		// Check if ksp alias already exists
 		if strings.Contains(content, "ksp = { id = \"com.google.devtools.ksp\"") {
 			return nil
 		}
-		// Insert the alias after [plugins]
 		re := regexp.MustCompile(`(?m)^\[plugins\]\n`)
 		content = re.ReplaceAllString(content, "[plugins]\nksp = { id = \"com.google.devtools.ksp\", version.ref = \"ksp\" }\n")
 	}
@@ -256,11 +258,9 @@ func ensureKSPPluginKts(appGradleKts string) error {
 		return err
 	}
 	str := string(content)
-	// Check for the exact plugin alias line (not a broad substring)
 	if strings.Contains(str, "alias(libs.plugins.ksp)") {
 		return nil
 	}
-	// Add alias(libs.plugins.ksp) to the plugins block
 	re := regexp.MustCompile(`(?m)^plugins\s*\{`)
 	if !re.MatchString(str) {
 		return fmt.Errorf("plugins block not found")
