@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Android Compatibility Matrix</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -11,6 +15,9 @@
         darkMode: "class",
         theme: {
           extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
             colors: {
               android: {
                 DEFAULT: "#3DDC84",
@@ -359,34 +366,15 @@
                   <input type="checkbox" id="onlyCore" v-model="filters.onlyCore" @click.stop class="w-4 h-4 text-android bg-surface border-border rounded focus:ring-android focus:ring-2 cursor-pointer">
                   <label for="onlyCore" class="text-xs text-textMain font-bold cursor-pointer" @click.stop>Show Only Core Toolchain</label>
                 </div>
-                <div>
-                <label class="block text-xs text-textMuted mb-1 font-bold flex items-center gap-2"><i class="fas fa-cube text-[#E85A4F]"></i> Hilt</label>
-                <select v-model="filters.hilt" class="w-full bg-page border border-border rounded-lg p-2 text-sm text-textMain focus:ring-1 focus:ring-android focus:border-android outline-none cursor-pointer">
-                  <option value="">All Versions</option>
-                  <option v-for="v in uniqueValues('hiltVersion')" :key="v" :value="v">{{ v }}</option>
-                </select>
-              </div>
-              <div>
-                <label class="block text-xs text-textMuted mb-1 font-bold flex items-center gap-2"><i class="fas fa-database text-[#4A90E2]"></i> Room</label>
-                <select v-model="filters.room" class="w-full bg-page border border-border rounded-lg p-2 text-sm text-textMain focus:ring-1 focus:ring-android focus:border-android outline-none cursor-pointer">
-                  <option value="">All Versions</option>
-                  <option v-for="v in uniqueValues('roomVersion')" :key="v" :value="v">{{ v }}</option>
-                </select>
-              </div>
-              <div>
-                <label class="block text-xs text-textMuted mb-1 font-bold flex items-center gap-2"><i class="fas fa-route text-[#F5A623]"></i> Nav</label>
-                <select v-model="filters.navigation" class="w-full bg-page border border-border rounded-lg p-2 text-sm text-textMain focus:ring-1 focus:ring-android focus:border-android outline-none cursor-pointer">
-                  <option value="">All Versions</option>
-                  <option v-for="v in uniqueValues('navigationVersion')" :key="v" :value="v">{{ v }}</option>
-                </select>
-              </div>
-              <div>
-                <label class="block text-xs text-textMuted mb-1 font-bold flex items-center gap-2"><i class="fas fa-cube text-textMain"></i> Compose</label>
-                <select v-model="filters.composeCompiler" class="w-full bg-page border border-border rounded-lg p-2 text-sm text-textMain focus:ring-1 focus:ring-android focus:border-android outline-none cursor-pointer">
-                  <option value="">All Versions</option>
-                  <option v-for="v in uniqueValues('composeCompiler')" :key="v" :value="v">{{ v }}</option>
-                </select>
-              </div>
+                <div v-for="lib in availableLibraries" :key="lib">
+                  <label class="block text-xs text-textMuted mb-1 font-bold flex items-center gap-2 capitalize">
+                    <i :class="libraryIcons[lib] || 'fas fa-puzzle-piece text-textMuted'"></i> {{ lib }}
+                  </label>
+                  <select v-model="libraryFilters[lib]" class="w-full bg-page border border-border rounded-lg p-2 text-sm text-textMain focus:ring-1 focus:ring-android focus:border-android outline-none cursor-pointer">
+                    <option value="">All Versions</option>
+                    <option v-for="v in uniqueLibraryVersions(lib)" :key="v" :value="v">{{ v }}</option>
+                  </select>
+                </div>
             </div>
             </div>
 
@@ -451,7 +439,7 @@
         </div>
 
         <!-- Cards List -->
-        <transition-group name="list" tag="div" v-else class="flex flex-col gap-2 pb-4 relative">
+        <div v-else class="flex flex-col gap-2 pb-4 relative">
           <!-- Empty State -->
           <div v-if="filteredData.length === 0" class="bg-surface border border-border rounded-xl p-12 text-center text-textMuted shadow-lg mt-4">
             <div class="flex flex-col items-center justify-center gap-3">
@@ -479,10 +467,10 @@
               <div class="flex items-start justify-between">
                 <div>
                   <h3 class="text-textMain font-bold text-xl flex items-center gap-2">
-                    <i class="devicon-android-plain text-android"></i> AGP {{ item.agp }}
+                    <i class="devicon-android-plain text-android"></i> AGP <span class="font-mono">{{ item.agp }}</span>
                   </h3>
                   <div class="text-sm text-textMuted mt-1 flex items-center gap-2 font-medium">
-                    <i class="devicon-kotlin-plain text-[#7F52FF]"></i> Kotlin {{ item.kotlin }}
+                    <i class="devicon-kotlin-plain text-[#7F52FF]"></i> Kotlin <span class="font-mono">{{ item.kotlin }}</span>
                   </div>
                 </div>
               </div>
@@ -509,31 +497,31 @@
                   <div class="text-[9px] text-textMuted uppercase font-bold tracking-wider flex items-center gap-1">
                     <i class="fas fa-clock"></i> Last Run
                   </div>
-                  <div class="text-xs text-textMain font-medium">{{ formatDateOnly(item.timestamp) }}</div>
-                  <div class="text-[10px] text-textMuted">{{ formatTimeOnly(item.timestamp) }}</div>
+                  <div class="text-xs text-textMain font-medium font-mono">{{ formatDateOnly(item.timestamp) }}</div>
+                  <div class="text-[10px] text-textMuted font-mono">{{ formatTimeOnly(item.timestamp) }}</div>
                 </div>
               </div>
             </div>
 
             <!-- Middle Column 1: Specs -->
-            <div class="flex-1 flex flex-col gap-3 border-b lg:border-b-0 lg:border-r border-border pb-4 lg:pb-0 lg:pr-4">
+            <div class="flex-1 lg:flex-[1.2] flex flex-col gap-3 border-b lg:border-b-0 lg:border-r border-border pb-4 lg:pb-0 lg:pr-4">
                <h4 class="text-[10px] uppercase tracking-wider text-textMuted font-bold">Environment</h4>
                <ul class="text-sm text-textMain space-y-2.5 mt-1">
                  <li class="flex items-center gap-2">
                    <div class="w-5 text-center"><i class="devicon-gradle-plain text-[#02303A] text-base"></i></div>
-                   Gradle <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border">{{ item.gradle }}</span>
+                   Gradle <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border whitespace-nowrap">{{ item.gradle }}</span>
                  </li>
                  <li class="flex items-center gap-2">
                    <div class="w-5 text-center"><i class="fas fa-microchip text-textMuted text-sm"></i></div>
-                   KSP <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border">{{ item.ksp || '—' }}</span>
+                   KSP <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border whitespace-nowrap">{{ item.ksp || '—' }}</span>
                  </li>
                  <li class="flex items-center gap-2">
                    <div class="w-5 text-center"><i class="devicon-java-plain text-textMuted text-sm"></i></div>
-                   JDK <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border">{{ item.jdk }}</span>
+                   JDK <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border whitespace-nowrap">{{ item.jdk }}</span>
                  </li>
                  <li class="flex items-center gap-2">
                    <div class="w-5 text-center"><i class="devicon-android-plain text-textMuted text-sm"></i></div>
-                   API <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border">{{ item.compileSdk }}</span>
+                   API <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border whitespace-nowrap">{{ item.compileSdk }}</span>
                  </li>
                </ul>
             </div>
@@ -541,20 +529,16 @@
             <!-- Middle Column 2: Libraries -->
             <div class="flex-1 flex flex-col gap-3 border-b lg:border-b-0 lg:border-r border-border pb-4 lg:pb-0 lg:pr-4">
                <h4 class="text-[10px] uppercase tracking-wider text-textMuted font-bold">Libraries</h4>
-               <ul class="text-sm text-textMain space-y-2.5 mt-1">
-                 <li class="flex items-center gap-2">
-                   <div class="w-5 text-center"><i class="fas fa-cube text-[#E85A4F] text-sm"></i></div>
-                   Hilt <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border">{{ item.hiltVersion || '—' }}</span>
-                 </li>
-                 <li class="flex items-center gap-2">
-                   <div class="w-5 text-center"><i class="fas fa-database text-[#4A90E2] text-sm"></i></div>
-                   Room <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border">{{ item.roomVersion || '—' }}</span>
-                 </li>
-                 <li class="flex items-center gap-2">
-                   <div class="w-5 text-center"><i class="fas fa-route text-[#F5A623] text-sm"></i></div>
-                   Navigation <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border">{{ item.navigationVersion || '—' }}</span>
+               <ul v-if="item.libraries && item.libraries.length > 0" class="text-sm text-textMain space-y-2.5 mt-1">
+                 <li v-for="lib in item.libraries" :key="lib.name" class="flex items-center gap-2">
+                   <div class="w-5 text-center"><i :class="libraryIcons[lib.name] || 'fas fa-puzzle-piece text-textMuted text-sm'"></i></div>
+                   <span class="capitalize">{{ lib.name }}</span>
+                   <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border">{{ lib.version }}</span>
                  </li>
                </ul>
+               <div v-else class="text-xs text-textMuted italic mt-2">
+                 No libraries tested
+               </div>
             </div>
 
             <!-- Right Column: Results & Action -->
@@ -592,10 +576,40 @@
                </button>
             </div>
           </div>
-        </transition-group>
-
-
         </div>
+
+          <!-- Pagination Controls -->
+          <div v-if="totalPages > 1" class="mt-4 flex items-center justify-center pt-2 pb-2">
+            
+            <div class="flex items-center gap-2 sm:gap-3">
+              <button
+                v-if="currentPage > 1"
+                @click="currentPage--"
+                class="px-3 py-2 text-textMuted hover:text-textMain font-bold text-sm uppercase tracking-wider rounded-md transition-colors"
+              >
+                Prev
+              </button>
+              
+              <button
+                v-for="page in totalPages"
+                :key="page"
+                @click="currentPage = page"
+                class="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-bold font-mono transition-all"
+                :class="currentPage === page ? 'bg-textMain text-surface shadow-md' : 'text-textMuted hover:bg-surface hover:text-textMain'"
+              >
+                {{ page }}
+              </button>
+              
+              <button
+                v-if="currentPage < totalPages"
+                @click="currentPage++"
+                class="px-3 py-2 text-textMuted hover:text-textMain font-bold text-sm uppercase tracking-wider rounded-md transition-colors"
+              >
+                Next
+              </button>
+            </div>
+            
+          </div>        </div>
         </div>
       </main>
 
@@ -874,8 +888,15 @@
         },
         data() {
           return {
-            sources: ["agp9", "agp8", "agp7"],
+            sources: ["agp9", "agp8"],
             allData: [],
+            availableLibraries: [], // Dynamically populated
+            libraryIcons: {
+              hilt: "fas fa-cube text-[#E85A4F]",
+              room: "fas fa-database text-[#4A90E2]",
+              navigation: "fas fa-route text-[#F5A623]",
+              composeCompiler: "fas fa-cube text-textMain"
+            },
             currentPage: 1,
             itemsPerPage: 10,
             loading: true,
@@ -887,13 +908,10 @@
               ksp: "",
               jdk: "",
               apiLevel: "",
-              hilt: "",
-              room: "",
-              navigation: "",
-              composeCompiler: "",
               status: "",
               onlyCore: false,
             },
+            libraryFilters: {}, // Dynamically populated based on availableLibraries
             selectedItem: null,
             copied: false,
             showNavbar: true,
@@ -928,17 +946,17 @@
             if (this.filters.apiLevel)
               data = data.filter((i) => String(i.compileSdk) === String(this.filters.apiLevel));
             if (this.filters.onlyCore)
-              data = data.filter((i) => !i.hiltVersion && !i.roomVersion && !i.navigationVersion && !i.composeCompiler);
-            if (this.filters.hilt)
-              data = data.filter((i) => i.hiltVersion === this.filters.hilt);
-            if (this.filters.room)
-              data = data.filter((i) => i.roomVersion === this.filters.room);
-            if (this.filters.navigation)
-              data = data.filter(
-                (i) => i.navigationVersion === this.filters.navigation,
-              );
-            if (this.filters.composeCompiler)
-              data = data.filter((i) => i.composeCompiler === this.filters.composeCompiler);
+              data = data.filter((i) => !i.libraries || i.libraries.length === 0);
+            
+            for (const libName of this.availableLibraries) {
+              if (this.libraryFilters[libName]) {
+                data = data.filter((i) => {
+                  if (!i.libraries) return false;
+                  const lib = i.libraries.find(l => l.name === libName);
+                  return lib && lib.version === this.libraryFilters[libName];
+                });
+              }
+            }
             if (this.filters.status)
               data = data.filter((i) => i.status === this.filters.status);
             return data;
@@ -990,13 +1008,14 @@
               gradle: "",
               kotlin: "",
               ksp: "",
+              jdk: "",
               apiLevel: "",
-              hilt: "",
-              room: "",
-              navigation: "",
               status: "",
               onlyCore: false,
             };
+            this.availableLibraries.forEach(lib => {
+              this.libraryFilters[lib] = "";
+            });
           },
           uniqueValues(key) {
             const tabData = this.allData;
@@ -1004,8 +1023,29 @@
               ...new Set(tabData.map((item) => item[key])),
             ].filter(Boolean);
             return values.sort((a, b) => {
-              const pa = a.split(/[.-]/).map((n) => parseInt(n) || 0);
-              const pb = b.split(/[.-]/).map((n) => parseInt(n) || 0);
+              const pa = String(a).split(/[.-]/).map((n) => parseInt(n) || 0);
+              const pb = String(b).split(/[.-]/).map((n) => parseInt(n) || 0);
+              for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+                const numA = pa[i] || 0;
+                const numB = pb[i] || 0;
+                if (numA !== numB) return numB - numA;
+              }
+              return 0;
+            });
+          },
+          uniqueLibraryVersions(libName) {
+            const tabData = this.allData;
+            const versions = new Set();
+            tabData.forEach(item => {
+              if (item.libraries) {
+                const lib = item.libraries.find(l => l.name === libName);
+                if (lib) versions.add(lib.version);
+              }
+            });
+            const values = Array.from(versions).filter(Boolean);
+            return values.sort((a, b) => {
+              const pa = String(a).split(/[.-]/).map((n) => parseInt(n) || 0);
+              const pb = String(b).split(/[.-]/).map((n) => parseInt(n) || 0);
               for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
                 const numA = pa[i] || 0;
                 const numB = pb[i] || 0;
@@ -1024,7 +1064,11 @@
                 if (res.ok) {
                   const json = await res.json();
                   if (json && json.results) {
-                    return json.results.map((r) => ({ ...r, _source: source }));
+                    return json.results.map((r) => {
+                      // Flatten coreToolchain
+                      const flatItem = { ...r, ...r.coreToolchain, _source: source };
+                      return flatItem;
+                    });
                   }
                 }
               } catch (e) {
@@ -1040,8 +1084,44 @@
             const results = await Promise.all(fetchPromises);
 
             let combinedData = [];
+            const libsSet = new Set();
             results.forEach((res) => {
+              res.forEach((item) => {
+                if (item.libraries) {
+                  item.libraries.forEach(lib => libsSet.add(lib.name));
+                }
+              });
               combinedData = combinedData.concat(res);
+            });
+
+            this.availableLibraries = Array.from(libsSet).sort();
+            this.availableLibraries.forEach(lib => {
+              if (!(lib in this.libraryFilters)) {
+                this.libraryFilters[lib] = "";
+              }
+            });
+
+            combinedData.sort((a, b) => {
+              // Group by library name
+              const libA = a.libraries && a.libraries.length > 0 ? a.libraries[0].name : "zz_core";
+              const libB = b.libraries && b.libraries.length > 0 ? b.libraries[0].name : "zz_core";
+              if (libA !== libB) return libA.localeCompare(libB);
+              
+              // Then sort by AGP descending
+              const agpA = a.agp || "";
+              const agpB = b.agp || "";
+              if (agpA !== agpB) {
+                const pa = String(agpA).split(/[.-]/).map(n => parseInt(n) || 0);
+                const pb = String(agpB).split(/[.-]/).map(n => parseInt(n) || 0);
+                for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+                  const numA = pa[i] || 0;
+                  const numB = pb[i] || 0;
+                  if (numA !== numB) return numB - numA;
+                }
+              }
+              
+              // Finally by timestamp
+              return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
             });
 
             this.allData = combinedData;
