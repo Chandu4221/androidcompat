@@ -205,6 +205,11 @@ func mapBridgeFailureToSignature(f *BridgeFailure) string {
 	msg := f.Message
 
 	switch {
+	// 1. Hilt/KSP Scoping Error (dagger/dagger#3965) - MUST be checked BEFORE generic KSP
+	case (strings.Contains(desc, "Hilt") || strings.Contains(msg, "hilt") || strings.Contains(desc, "dagger")) &&
+		(strings.Contains(desc, "KSP") || strings.Contains(msg, "ksp") || strings.Contains(desc, "class loader") || strings.Contains(desc, "sub-project")):
+		return "hilt_ksp_scoping_error"
+
 	// Infrastructure / provisioning errors (network, connection)
 	case strings.Contains(desc, "ConnectException") ||
 		strings.Contains(desc, "SocketTimeoutException") ||

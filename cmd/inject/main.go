@@ -154,6 +154,10 @@ func main() {
 		rootContent, _ := os.ReadFile(rootGradleKts)
 		rootStr := string(rootContent)
 
+		// Ensure KSP is declared at root with 'apply false' to match Hilt's scoping
+		// and prevent classloader mismatches (dagger/dagger#3965)
+		rootStr = injectRootPluginKts(rootStr, "alias(libs.plugins.ksp)")
+
 		if *hilt != "" {
 			rootStr = injectRootPluginKts(rootStr, "alias(libs.plugins.hilt)")
 		}
