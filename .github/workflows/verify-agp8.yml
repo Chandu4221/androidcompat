@@ -143,8 +143,15 @@ jobs:
           echo "=== end ==="
 
       - name: Collect result
+        env:
+          GITHUB_SERVER_URL: ${{ github.server_url }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
         run: |
           COMBO='${{ toJson(matrix.combo) }}'
+
+           # Construct the direct URL to this specific job's log
+          WORKFLOW_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
           go run cmd/collect/main.go \
             --id=$(echo "$COMBO" | jq -r '.id') \
@@ -159,6 +166,7 @@ jobs:
             --room=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="room")) | .[0].version // ""') \
             --navigation=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="navigation")) | .[0].version // ""') \
             --compose-compiler=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="composeCompiler")) | .[0].version // ""') \
+            --workflow-url="$WORKFLOW_URL" \
             --dir=tmp-build \
             --out=. \
             --bridge-json tmp-build/bridge-output.json

@@ -45,6 +45,7 @@ func main() {
 	jdk := flag.String("jdk", "", "JDK version")
 	compileSdk := flag.String("compile-sdk", "", "compileSdk version")
 	sdkPackage := flag.String("sdk-package", "", "SDK platform package")
+	workflowURL := flag.String("workflow-url", "", "GitHub Actions workflow run URL")
 
 	hilt := flag.String("hilt", "", "Hilt version (optional)")
 	room := flag.String("room", "", "Room version (optional)")
@@ -95,6 +96,7 @@ func main() {
 	result.CoreToolchain.JDK = *jdk
 	result.CoreToolchain.CompileSdk = *compileSdk
 	result.CoreToolchain.SdkPackage = *sdkPackage
+	result.WorkflowURL = *workflowURL
 
 	result.Libraries = []storage.Library{}
 	if *hilt != "" {

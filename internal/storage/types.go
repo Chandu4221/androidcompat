@@ -126,6 +126,7 @@ type VerificationStatus struct {
 type VerificationResult struct {
 	ID               string             `json:"id"`
 	Timestamp        string             `json:"timestamp"`
+	WorkflowURL      string             `json:"workflowUrl,omitempty"` // <-- ADD THIS
 	CoreToolchain    CoreToolchain      `json:"coreToolchain"`
 	Libraries        []Library          `json:"libraries"`
 	Status           string             `json:"status"` // "verified", "failed"
