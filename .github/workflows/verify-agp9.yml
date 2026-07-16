@@ -1,4 +1,4 @@
-name: Verify AGP 8.x
+name: Verify AGP 9.x
 
 on:
   workflow_dispatch:
