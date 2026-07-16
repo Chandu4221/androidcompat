@@ -1,329 +1,511 @@
 {
   "agpMajor": 8,
-  "generatedAt": "2026-07-15T15:22:58Z",
+  "generatedAt": "2026-07-16T10:52:29Z",
   "combos": [
     {
-      "id": "01754f6bda2b7016",
-      "agp": "8.5.2",
-      "gradle": "8.7",
-      "kotlin": "2.0.21",
-      "ksp": "2.0.21-1.0.28",
-      "jdk": "17",
-      "compileSdk": "34",
-      "sdkPackage": "34"
+      "id": "0275543113052804",
+      "coreToolchain": {
+        "agp": "8.6.1",
+        "gradle": "8.7",
+        "kotlin": "2.1.21",
+        "ksp": "2.1.21-2.0.2",
+        "jdk": "17",
+        "compileSdk": "35",
+        "sdkPackage": "35"
+      },
+      "libraries": [
+        {
+          "name": "composeCompiler",
+          "version": "2.1.21"
+        }
+      ]
     },
     {
-      "id": "036c5d84f9b381cf",
-      "agp": "8.11.2",
-      "gradle": "8.13",
-      "kotlin": "2.2.21",
-      "ksp": "2.2.21-2.0.5",
-      "jdk": "17",
-      "compileSdk": "36",
-      "sdkPackage": "36",
-      "composeCompiler": "2.2.21"
+      "id": "14b7488425e66706",
+      "coreToolchain": {
+        "agp": "8.6.1",
+        "gradle": "8.7",
+        "kotlin": "2.1.21",
+        "ksp": "2.1.21-2.0.2",
+        "jdk": "17",
+        "compileSdk": "35",
+        "sdkPackage": "35"
+      },
+      "libraries": [
+        {
+          "name": "hilt",
+          "version": "2.58"
+        }
+      ]
     },
     {
-      "id": "1eef208ef6056bff",
-      "agp": "8.6.1",
-      "gradle": "8.7",
-      "kotlin": "2.1.21",
-      "ksp": "2.1.21-2.0.2",
-      "jdk": "17",
-      "compileSdk": "35",
-      "sdkPackage": "35",
-      "roomVersion": "2.8.4"
+      "id": "1c7d8b92914ec239",
+      "coreToolchain": {
+        "agp": "8.7.3",
+        "gradle": "8.9",
+        "kotlin": "2.1.21",
+        "ksp": "2.1.21-2.0.2",
+        "jdk": "17",
+        "compileSdk": "35",
+        "sdkPackage": "35"
+      },
+      "libraries": [
+        {
+          "name": "navigation",
+          "version": "2.9.8"
+        }
+      ]
     },
     {
-      "id": "2e2e47b46ccf2bc9",
-      "agp": "8.11.2",
-      "gradle": "8.13",
-      "kotlin": "2.2.21",
-      "ksp": "2.2.21-2.0.5",
-      "jdk": "17",
-      "compileSdk": "36",
-      "sdkPackage": "36",
-      "navigationVersion": "2.9.8"
+      "id": "34cb18b86fceec73",
+      "coreToolchain": {
+        "agp": "8.11.2",
+        "gradle": "8.13",
+        "kotlin": "2.2.21",
+        "ksp": "2.2.21-2.0.5",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36"
+      },
+      "libraries": [
+        {
+          "name": "navigation",
+          "version": "2.9.8"
+        }
+      ]
     },
     {
-      "id": "2e9c7394456f883f",
-      "agp": "8.7.3",
-      "gradle": "8.9",
-      "kotlin": "2.1.21",
-      "ksp": "2.1.21-2.0.2",
-      "jdk": "17",
-      "compileSdk": "35",
-      "sdkPackage": "35",
-      "navigationVersion": "2.9.8"
+      "id": "3773609089b0b7d9",
+      "coreToolchain": {
+        "agp": "8.0.2",
+        "gradle": "8.0",
+        "kotlin": "1.9.25",
+        "ksp": "1.9.25-1.0.20",
+        "jdk": "17",
+        "compileSdk": "33",
+        "sdkPackage": "33"
+      },
+      "libraries": [
+        {
+          "name": "composeCompiler",
+          "version": "1.5.15"
+        }
+      ]
     },
     {
-      "id": "30cd191cf79fc4f9",
-      "agp": "8.10.1",
-      "gradle": "8.11.1",
-      "kotlin": "2.2.21",
-      "ksp": "2.2.21-2.0.5",
-      "jdk": "17",
-      "compileSdk": "36",
-      "sdkPackage": "36"
+      "id": "3c8ce55b42c691e6",
+      "coreToolchain": {
+        "agp": "8.5.2",
+        "gradle": "8.7",
+        "kotlin": "2.0.21",
+        "ksp": "2.0.21-1.0.28",
+        "jdk": "17",
+        "compileSdk": "34",
+        "sdkPackage": "34"
+      },
+      "libraries": [
+        {
+          "name": "hilt",
+          "version": "2.58"
+        }
+      ]
     },
     {
-      "id": "37334ebe1475dc9d",
-      "agp": "8.6.1",
-      "gradle": "8.7",
-      "kotlin": "2.1.21",
-      "ksp": "2.1.21-2.0.2",
-      "jdk": "17",
-      "compileSdk": "35",
-      "sdkPackage": "35",
-      "composeCompiler": "2.1.21"
+      "id": "3e2effc3a8c4dee8",
+      "coreToolchain": {
+        "agp": "8.10.1",
+        "gradle": "8.11.1",
+        "kotlin": "2.2.21",
+        "ksp": "2.2.21-2.0.5",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36"
+      },
+      "libraries": [
+        {
+          "name": "composeCompiler",
+          "version": "2.2.21"
+        }
+      ]
     },
     {
-      "id": "3816f56bd0f1edc3",
-      "agp": "8.5.2",
-      "gradle": "8.7",
-      "kotlin": "2.0.21",
-      "ksp": "2.0.21-1.0.28",
-      "jdk": "17",
-      "compileSdk": "34",
-      "sdkPackage": "34",
-      "navigationVersion": "2.9.8"
+      "id": "3e48d35e1b7fb07e",
+      "coreToolchain": {
+        "agp": "8.10.1",
+        "gradle": "8.11.1",
+        "kotlin": "2.2.21",
+        "ksp": "2.2.21-2.0.5",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36"
+      },
+      "libraries": [
+        {
+          "name": "navigation",
+          "version": "2.9.8"
+        }
+      ]
     },
     {
-      "id": "41d4e14573e88aea",
-      "agp": "8.6.1",
-      "gradle": "8.7",
-      "kotlin": "2.1.21",
-      "ksp": "2.1.21-2.0.2",
-      "jdk": "17",
-      "compileSdk": "35",
-      "sdkPackage": "35",
-      "navigationVersion": "2.9.8"
+      "id": "53b70fad7a40cb95",
+      "coreToolchain": {
+        "agp": "8.1.4",
+        "gradle": "8.0",
+        "kotlin": "1.9.25",
+        "ksp": "1.9.25-1.0.20",
+        "jdk": "17",
+        "compileSdk": "34",
+        "sdkPackage": "34"
+      },
+      "libraries": [
+        {
+          "name": "composeCompiler",
+          "version": "1.5.15"
+        }
+      ]
     },
     {
-      "id": "43d58a4eb54be551",
-      "agp": "8.5.2",
-      "gradle": "8.7",
-      "kotlin": "2.0.21",
-      "ksp": "2.0.21-1.0.28",
-      "jdk": "17",
-      "compileSdk": "34",
-      "sdkPackage": "34",
-      "roomVersion": "2.8.4"
+      "id": "56af9615a1b11f1f",
+      "coreToolchain": {
+        "agp": "8.6.1",
+        "gradle": "8.7",
+        "kotlin": "2.1.21",
+        "ksp": "2.1.21-2.0.2",
+        "jdk": "17",
+        "compileSdk": "35",
+        "sdkPackage": "35"
+      },
+      "libraries": []
     },
     {
-      "id": "4b25546e6cfea8ac",
-      "agp": "8.0.2",
-      "gradle": "8.0",
-      "kotlin": "1.9.25",
-      "ksp": "1.9.25-1.0.20",
-      "jdk": "17",
-      "compileSdk": "33",
-      "sdkPackage": "33",
-      "composeCompiler": "1.5.15"
+      "id": "5a630d6b1c4964d2",
+      "coreToolchain": {
+        "agp": "8.7.3",
+        "gradle": "8.9",
+        "kotlin": "2.1.21",
+        "ksp": "2.1.21-2.0.2",
+        "jdk": "17",
+        "compileSdk": "35",
+        "sdkPackage": "35"
+      },
+      "libraries": [
+        {
+          "name": "room",
+          "version": "2.8.4"
+        }
+      ]
     },
     {
-      "id": "52e93e63a88f943e",
-      "agp": "8.7.3",
-      "gradle": "8.9",
-      "kotlin": "2.1.21",
-      "ksp": "2.1.21-2.0.2",
-      "jdk": "17",
-      "compileSdk": "35",
-      "sdkPackage": "35"
+      "id": "68ef663c3df93b17",
+      "coreToolchain": {
+        "agp": "8.0.2",
+        "gradle": "8.0",
+        "kotlin": "1.9.25",
+        "ksp": "1.9.25-1.0.20",
+        "jdk": "17",
+        "compileSdk": "33",
+        "sdkPackage": "33"
+      },
+      "libraries": []
     },
     {
-      "id": "61ee49c48706ee20",
-      "agp": "8.1.4",
-      "gradle": "8.0",
-      "kotlin": "1.9.25",
-      "ksp": "1.9.25-1.0.20",
-      "jdk": "17",
-      "compileSdk": "34",
-      "sdkPackage": "34"
+      "id": "6e29097237ded55d",
+      "coreToolchain": {
+        "agp": "8.10.1",
+        "gradle": "8.11.1",
+        "kotlin": "2.2.21",
+        "ksp": "2.2.21-2.0.5",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36"
+      },
+      "libraries": [
+        {
+          "name": "room",
+          "version": "2.8.4"
+        }
+      ]
     },
     {
-      "id": "6a5d98e251de6160",
-      "agp": "8.11.2",
-      "gradle": "8.13",
-      "kotlin": "2.2.21",
-      "ksp": "2.2.21-2.0.5",
-      "jdk": "17",
-      "compileSdk": "36",
-      "sdkPackage": "36"
+      "id": "7e0ae2161ac7911c",
+      "coreToolchain": {
+        "agp": "8.5.2",
+        "gradle": "8.7",
+        "kotlin": "2.0.21",
+        "ksp": "2.0.21-1.0.28",
+        "jdk": "17",
+        "compileSdk": "34",
+        "sdkPackage": "34"
+      },
+      "libraries": [
+        {
+          "name": "navigation",
+          "version": "2.9.8"
+        }
+      ]
     },
     {
-      "id": "6bae4b5c19f3d0bd",
-      "agp": "8.11.2",
-      "gradle": "8.13",
-      "kotlin": "2.2.21",
-      "ksp": "2.2.21-2.0.5",
-      "jdk": "17",
-      "compileSdk": "36",
-      "sdkPackage": "36",
-      "hiltVersion": "2.58"
+      "id": "88c4d838d4809002",
+      "coreToolchain": {
+        "agp": "8.5.2",
+        "gradle": "8.7",
+        "kotlin": "2.0.21",
+        "ksp": "2.0.21-1.0.28",
+        "jdk": "17",
+        "compileSdk": "34",
+        "sdkPackage": "34"
+      },
+      "libraries": [
+        {
+          "name": "composeCompiler",
+          "version": "2.0.21"
+        }
+      ]
     },
     {
-      "id": "73d357a162b41ebb",
-      "agp": "8.5.2",
-      "gradle": "8.7",
-      "kotlin": "2.0.21",
-      "ksp": "2.0.21-1.0.28",
-      "jdk": "17",
-      "compileSdk": "34",
-      "sdkPackage": "34",
-      "hiltVersion": "2.58"
+      "id": "b72837d858a262b8",
+      "coreToolchain": {
+        "agp": "8.11.2",
+        "gradle": "8.13",
+        "kotlin": "2.2.21",
+        "ksp": "2.2.21-2.0.5",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36"
+      },
+      "libraries": [
+        {
+          "name": "room",
+          "version": "2.8.4"
+        }
+      ]
     },
     {
-      "id": "78a03644cd16404e",
-      "agp": "8.10.1",
-      "gradle": "8.11.1",
-      "kotlin": "2.2.21",
-      "ksp": "2.2.21-2.0.5",
-      "jdk": "17",
-      "compileSdk": "36",
-      "sdkPackage": "36",
-      "composeCompiler": "2.2.21"
+      "id": "b7614bbeccb1c562",
+      "coreToolchain": {
+        "agp": "8.6.1",
+        "gradle": "8.7",
+        "kotlin": "2.1.21",
+        "ksp": "2.1.21-2.0.2",
+        "jdk": "17",
+        "compileSdk": "35",
+        "sdkPackage": "35"
+      },
+      "libraries": [
+        {
+          "name": "navigation",
+          "version": "2.9.8"
+        }
+      ]
     },
     {
-      "id": "9127d9ec47468c92",
-      "agp": "8.1.4",
-      "gradle": "8.0",
-      "kotlin": "1.9.25",
-      "ksp": "1.9.25-1.0.20",
-      "jdk": "17",
-      "compileSdk": "34",
-      "sdkPackage": "34",
-      "hiltVersion": "2.58"
+      "id": "b772fd44a6e0285c",
+      "coreToolchain": {
+        "agp": "8.6.1",
+        "gradle": "8.7",
+        "kotlin": "2.1.21",
+        "ksp": "2.1.21-2.0.2",
+        "jdk": "17",
+        "compileSdk": "35",
+        "sdkPackage": "35"
+      },
+      "libraries": [
+        {
+          "name": "room",
+          "version": "2.8.4"
+        }
+      ]
     },
     {
-      "id": "9f126b02d5395105",
-      "agp": "8.0.2",
-      "gradle": "8.0",
-      "kotlin": "1.9.25",
-      "ksp": "1.9.25-1.0.20",
-      "jdk": "17",
-      "compileSdk": "33",
-      "sdkPackage": "33"
+      "id": "b838a8f335db04c8",
+      "coreToolchain": {
+        "agp": "8.10.1",
+        "gradle": "8.11.1",
+        "kotlin": "2.2.21",
+        "ksp": "2.2.21-2.0.5",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36"
+      },
+      "libraries": []
     },
     {
-      "id": "b66179d534f14cfa",
-      "agp": "8.10.1",
-      "gradle": "8.11.1",
-      "kotlin": "2.2.21",
-      "ksp": "2.2.21-2.0.5",
-      "jdk": "17",
-      "compileSdk": "36",
-      "sdkPackage": "36",
-      "navigationVersion": "2.9.8"
+      "id": "c43292d63eaf8dda",
+      "coreToolchain": {
+        "agp": "8.7.3",
+        "gradle": "8.9",
+        "kotlin": "2.1.21",
+        "ksp": "2.1.21-2.0.2",
+        "jdk": "17",
+        "compileSdk": "35",
+        "sdkPackage": "35"
+      },
+      "libraries": [
+        {
+          "name": "hilt",
+          "version": "2.58"
+        }
+      ]
     },
     {
-      "id": "c14a72f73eba15b0",
-      "agp": "8.10.1",
-      "gradle": "8.11.1",
-      "kotlin": "2.2.21",
-      "ksp": "2.2.21-2.0.5",
-      "jdk": "17",
-      "compileSdk": "36",
-      "sdkPackage": "36",
-      "hiltVersion": "2.58"
+      "id": "c65145418a4f18a6",
+      "coreToolchain": {
+        "agp": "8.7.3",
+        "gradle": "8.9",
+        "kotlin": "2.1.21",
+        "ksp": "2.1.21-2.0.2",
+        "jdk": "17",
+        "compileSdk": "35",
+        "sdkPackage": "35"
+      },
+      "libraries": [
+        {
+          "name": "composeCompiler",
+          "version": "2.1.21"
+        }
+      ]
     },
     {
-      "id": "c6205a8c5fff1d53",
-      "agp": "8.7.3",
-      "gradle": "8.9",
-      "kotlin": "2.1.21",
-      "ksp": "2.1.21-2.0.2",
-      "jdk": "17",
-      "compileSdk": "35",
-      "sdkPackage": "35",
-      "hiltVersion": "2.58"
+      "id": "c86cc4fe6b16336a",
+      "coreToolchain": {
+        "agp": "8.7.3",
+        "gradle": "8.9",
+        "kotlin": "2.1.21",
+        "ksp": "2.1.21-2.0.2",
+        "jdk": "17",
+        "compileSdk": "35",
+        "sdkPackage": "35"
+      },
+      "libraries": []
     },
     {
-      "id": "d88da2feb5c6773a",
-      "agp": "8.6.1",
-      "gradle": "8.7",
-      "kotlin": "2.1.21",
-      "ksp": "2.1.21-2.0.2",
-      "jdk": "17",
-      "compileSdk": "35",
-      "sdkPackage": "35"
+      "id": "d070b13bc7ae3c5d",
+      "coreToolchain": {
+        "agp": "8.11.2",
+        "gradle": "8.13",
+        "kotlin": "2.2.21",
+        "ksp": "2.2.21-2.0.5",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36"
+      },
+      "libraries": [
+        {
+          "name": "hilt",
+          "version": "2.58"
+        }
+      ]
     },
     {
-      "id": "dd278737bbf89bc6",
-      "agp": "8.6.1",
-      "gradle": "8.7",
-      "kotlin": "2.1.21",
-      "ksp": "2.1.21-2.0.2",
-      "jdk": "17",
-      "compileSdk": "35",
-      "sdkPackage": "35",
-      "hiltVersion": "2.58"
+      "id": "d8a24845dad04c1f",
+      "coreToolchain": {
+        "agp": "8.5.2",
+        "gradle": "8.7",
+        "kotlin": "2.0.21",
+        "ksp": "2.0.21-1.0.28",
+        "jdk": "17",
+        "compileSdk": "34",
+        "sdkPackage": "34"
+      },
+      "libraries": []
     },
     {
-      "id": "ec4f93dfc38c8118",
-      "agp": "8.1.4",
-      "gradle": "8.0",
-      "kotlin": "1.9.25",
-      "ksp": "1.9.25-1.0.20",
-      "jdk": "17",
-      "compileSdk": "34",
-      "sdkPackage": "34",
-      "composeCompiler": "1.5.15"
+      "id": "da15d700df3921dc",
+      "coreToolchain": {
+        "agp": "8.5.2",
+        "gradle": "8.7",
+        "kotlin": "2.0.21",
+        "ksp": "2.0.21-1.0.28",
+        "jdk": "17",
+        "compileSdk": "34",
+        "sdkPackage": "34"
+      },
+      "libraries": [
+        {
+          "name": "room",
+          "version": "2.8.4"
+        }
+      ]
     },
     {
-      "id": "f22bffd1a2e507fe",
-      "agp": "8.10.1",
-      "gradle": "8.11.1",
-      "kotlin": "2.2.21",
-      "ksp": "2.2.21-2.0.5",
-      "jdk": "17",
-      "compileSdk": "36",
-      "sdkPackage": "36",
-      "roomVersion": "2.8.4"
+      "id": "e67f2bc1011ac7ed",
+      "coreToolchain": {
+        "agp": "8.11.2",
+        "gradle": "8.13",
+        "kotlin": "2.2.21",
+        "ksp": "2.2.21-2.0.5",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36"
+      },
+      "libraries": [
+        {
+          "name": "composeCompiler",
+          "version": "2.2.21"
+        }
+      ]
     },
     {
-      "id": "f4078c818d39aaab",
-      "agp": "8.7.3",
-      "gradle": "8.9",
-      "kotlin": "2.1.21",
-      "ksp": "2.1.21-2.0.2",
-      "jdk": "17",
-      "compileSdk": "35",
-      "sdkPackage": "35",
-      "roomVersion": "2.8.4"
+      "id": "e97ab1c5119c9967",
+      "coreToolchain": {
+        "agp": "8.11.2",
+        "gradle": "8.13",
+        "kotlin": "2.2.21",
+        "ksp": "2.2.21-2.0.5",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36"
+      },
+      "libraries": []
     },
     {
-      "id": "f78d88a89af3408d",
-      "agp": "8.11.2",
-      "gradle": "8.13",
-      "kotlin": "2.2.21",
-      "ksp": "2.2.21-2.0.5",
-      "jdk": "17",
-      "compileSdk": "36",
-      "sdkPackage": "36",
-      "roomVersion": "2.8.4"
+      "id": "f37704b401a351d1",
+      "coreToolchain": {
+        "agp": "8.1.4",
+        "gradle": "8.0",
+        "kotlin": "1.9.25",
+        "ksp": "1.9.25-1.0.20",
+        "jdk": "17",
+        "compileSdk": "34",
+        "sdkPackage": "34"
+      },
+      "libraries": []
     },
     {
-      "id": "fd8c80b4fac8e84f",
-      "agp": "8.7.3",
-      "gradle": "8.9",
-      "kotlin": "2.1.21",
-      "ksp": "2.1.21-2.0.2",
-      "jdk": "17",
-      "compileSdk": "35",
-      "sdkPackage": "35",
-      "composeCompiler": "2.1.21"
+      "id": "f5961e3e14264763",
+      "coreToolchain": {
+        "agp": "8.1.4",
+        "gradle": "8.0",
+        "kotlin": "1.9.25",
+        "ksp": "1.9.25-1.0.20",
+        "jdk": "17",
+        "compileSdk": "34",
+        "sdkPackage": "34"
+      },
+      "libraries": [
+        {
+          "name": "hilt",
+          "version": "2.58"
+        }
+      ]
     },
     {
-      "id": "ffb68c17ac219533",
-      "agp": "8.5.2",
-      "gradle": "8.7",
-      "kotlin": "2.0.21",
-      "ksp": "2.0.21-1.0.28",
-      "jdk": "17",
-      "compileSdk": "34",
-      "sdkPackage": "34",
-      "composeCompiler": "2.0.21"
+      "id": "fe19863fb3cabc09",
+      "coreToolchain": {
+        "agp": "8.10.1",
+        "gradle": "8.11.1",
+        "kotlin": "2.2.21",
+        "ksp": "2.2.21-2.0.5",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36"
+      },
+      "libraries": [
+        {
+          "name": "hilt",
+          "version": "2.58"
+        }
+      ]
     }
   ]
 }
