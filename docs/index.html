@@ -17,8 +17,18 @@
                 dark: "#073042",
                 light: "#EAF6F6",
               },
-              surface: "#1E1E1E",
-              background: "#121212",
+              page: "var(--color-page)",
+              surface: "var(--color-surface)",
+              card: "var(--color-card)",
+              border: "var(--color-border)",
+              textMain: "var(--color-text-main)",
+              textMuted: "var(--color-text-muted)",
+              successText: "var(--color-success-text)",
+              successBg: "var(--color-success-bg)",
+              errorText: "var(--color-error-text)",
+              errorBg: "var(--color-error-bg)",
+              warningText: "var(--color-warning-text)",
+              warningBg: "var(--color-warning-bg)"
             },
           },
         },
@@ -39,12 +49,43 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <style>
+      :root {
+        /* Light Theme Default */
+        --color-page: #F9FAFB;
+        --color-surface: #FFFFFF;
+        --color-card: #F3F4F6;
+        --color-border: #E5E7EB;
+        --color-text-main: #111827;
+        --color-text-muted: #4B5563; /* Improved contrast */
+        --color-success-text: #15803D;
+        --color-success-bg: #DCFCE7;
+        --color-error-text: #B91C1C;
+        --color-error-bg: #FEE2E2;
+        --color-warning-text: #B45309; /* amber-700 */
+        --color-warning-bg: #FEF3C7; /* amber-100 */
+      }
+      .dark {
+        /* Dark Theme - lighter shades than pure black */
+        --color-page: #0B0F19;
+        --color-surface: #111827;
+        --color-card: #1F2937;
+        --color-border: #374151;
+        --color-text-main: #F9FAFB;
+        --color-text-muted: #D1D5DB; /* Improved contrast */
+        --color-success-text: #4ADE80;
+        --color-success-bg: rgba(34, 197, 94, 0.1);
+        --color-error-text: #F87171;
+        --color-error-bg: rgba(239, 68, 68, 0.1);
+        --color-warning-text: #FCD34D; /* amber-300 */
+        --color-warning-bg: rgba(245, 158, 11, 0.1);
+      }
       body {
-        background-color: #121212;
-        color: #e0e0e0;
+        background-color: var(--color-page);
+        color: var(--color-text-main);
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
       .bg-surface {
-        background-color: #1e1e1e;
+        background-color: var(--color-surface);
       }
       /* Custom scrollbar for tables/modals */
       ::-webkit-scrollbar {
@@ -52,14 +93,29 @@
         height: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #1e1e1e;
+        background: var(--color-page);
       }
       ::-webkit-scrollbar-thumb {
-        background: #3ddc84;
+        background: var(--color-border);
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #2cb869;
+        background: var(--color-text-muted);
+      }
+
+      /* Hover-only scrollbar for sidebar */
+      .hover-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .hover-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .hover-scrollbar::-webkit-scrollbar-thumb {
+        background: transparent;
+        border-radius: 4px;
+      }
+      .hover-scrollbar:hover::-webkit-scrollbar-thumb {
+        background: var(--color-border);
       }
       .modal-enter-active,
       .modal-leave-active {
@@ -74,6 +130,19 @@
       }
       .animate-fade-in-up {
         animation: fadeInUp 0.4s ease-out;
+      }
+      .list-move {
+        transition: transform 0.4s ease;
+      }
+      .list-enter-active {
+        transition: opacity 0.4s ease, transform 0.4s ease;
+      }
+      .list-leave-active {
+        display: none;
+      }
+      .list-enter-from {
+        opacity: 0;
+        transform: translateY(15px);
       }
       @keyframes fadeInUp {
         from {
@@ -91,7 +160,7 @@
     <div id="app" class="flex-grow flex flex-col" v-cloak>
       <!-- Header -->
       <header
-        class="bg-surface border-b border-gray-800 shadow-md p-4 sticky top-0 z-10"
+        :class="['bg-surface border-b border-border shadow-md p-4 sticky top-0 z-10 transition-transform duration-300', showNavbar ? 'translate-y-0' : '-translate-y-full']"
       >
         <div class="max-w-7xl mx-auto flex items-center justify-between">
           <div class="flex items-center gap-4">
@@ -102,34 +171,23 @@
             </div>
             <div>
               <h1
-                class="text-xl md:text-2xl font-bold text-white leading-tight"
+                class="text-xl md:text-2xl font-bold text-textMain leading-tight"
               >
                 Android Compatibility Matrix
               </h1>
               <div class="flex items-center gap-3">
-                <p class="text-xs md:text-sm text-gray-400">
-                  AGP, Gradle, Kotlin, KSP, Hilt, Room, Navigation & Compose
+                <p class="text-xs md:text-sm text-textMuted">
+                  Tracking compatibility across core toolchains and libraries.
                 </p>
-                <span
-                  class="text-xs bg-gray-800 px-2 py-0.5 rounded text-gray-300 border border-gray-700 shadow-inner flex items-center gap-1.5"
-                  ><i class="fas fa-clock text-gray-400"></i> Last Run: {{
-                  lastRunDate }}</span
-                >
+
               </div>
             </div>
           </div>
           <div
-            class="hidden md:flex items-center gap-6 text-sm text-gray-300 font-medium bg-background px-4 py-2 rounded-lg border border-gray-800"
+            class="hidden md:flex items-center gap-6 text-xs text-textMain font-medium bg-page px-4 py-2 rounded-lg border border-border"
           >
             <div class="flex items-center gap-2">
-              <div class="relative flex h-3 w-3">
-                <span
-                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
-                ></span>
-                <span
-                  class="relative inline-flex rounded-full h-3 w-3 bg-green-500"
-                ></span>
-              </div>
+              <span class="w-3 h-3 rounded-full bg-green-500"></span>
               Verified ({{ stats.verified }})
             </div>
             <div class="flex items-center gap-2">
@@ -141,157 +199,206 @@
       </header>
 
       <!-- Main Content -->
-      <main class="max-w-[95vw] w-full p-4 flex-grow flex flex-col gap-6 mt-4">
-        <!-- Tabs -->
-        <div class="flex gap-1 border-b border-gray-800">
-          <button
-            v-for="source in sources"
-            :key="source"
-            @click="activeTab = source; resetFilters()"
-            :class="['px-6 py-3 font-bold uppercase tracking-wider text-sm transition-all border-b-2 rounded-t-lg', 
-                             activeTab === source ? 'border-android text-android bg-android/5' : 'border-transparent text-gray-500 hover:text-gray-300 hover:border-gray-600 hover:bg-gray-800/30']"
-          >
-            {{ source.toUpperCase().replace('AGP', 'AGP ') }}
-          </button>
-        </div>
+      <main class="w-full p-2 flex-grow flex flex-col gap-2 mt-2">
+        
+<!-- Filters Header -->
+          <div class="flex flex-col md:flex-row md:items-center gap-2">
+            <div
+              v-if="!loading"
+              class="text-sm text-textMuted font-bold shrink-0 flex items-center justify-between w-full md:w-auto"
+            >
+              <div>
+                Showing <span class="text-textMain">{{ filteredData.length }}</span> of <span class="text-textMain">{{ allData.length }}</span> results
+              </div>
+              
+              <!-- Mobile Filters Toggle -->
+              <button @click="isMobileFiltersOpen = !isMobileFiltersOpen" class="md:hidden text-android bg-surface border border-border px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 shadow-sm transition-colors hover:bg-card">
+                <i class="fas fa-filter"></i> Filters
+              </button>
+            </div>
+            
+            <!-- Active Filter Pills -->
+            <div class="flex flex-wrap gap-2 items-center">
+              <span v-if="filters.agp" class="bg-surface border border-border px-3 py-1 rounded-full text-xs text-textMain flex items-center gap-2">
+                <i class="devicon-android-plain text-android"></i> {{ filters.agp }}
+                <button @click="filters.agp = ''" class="hover:text-textMain"><i class="fas fa-times"></i></button>
+              </span>
+              <span v-if="filters.gradle" class="bg-surface border border-border px-3 py-1 rounded-full text-xs text-textMain flex items-center gap-2">
+                <i class="devicon-gradle-plain text-[#02303A]"></i> {{ filters.gradle }}
+                <button @click="filters.gradle = ''" class="hover:text-textMain"><i class="fas fa-times"></i></button>
+              </span>
+              <span v-if="filters.kotlin" class="bg-surface border border-border px-3 py-1 rounded-full text-xs text-textMain flex items-center gap-2">
+                <i class="devicon-kotlin-plain text-[#7F52FF]"></i> {{ filters.kotlin }}
+                <button @click="filters.kotlin = ''" class="hover:text-textMain"><i class="fas fa-times"></i></button>
+              </span>
+              <span v-if="filters.ksp" class="bg-surface border border-border px-3 py-1 rounded-full text-xs text-textMain flex items-center gap-2">
+                <i class="fas fa-microchip text-textMain"></i> {{ filters.ksp }}
+                <button @click="filters.ksp = ''" class="hover:text-textMain"><i class="fas fa-times"></i></button>
+              </span>
+              <span v-if="filters.apiLevel" class="bg-surface border border-border px-3 py-1 rounded-full text-xs text-textMain flex items-center gap-2">
+                <i class="fas fa-layer-group text-textMain"></i> API {{ filters.apiLevel }}
+                <button @click="filters.apiLevel = ''" class="hover:text-textMain"><i class="fas fa-times"></i></button>
+              </span>
+              <span v-if="filters.onlyCore" class="bg-surface border border-border px-3 py-1 rounded-full text-xs text-textMain flex items-center gap-2">
+                <i class="fas fa-shield-alt text-android"></i> Core Only
+                <button @click="filters.onlyCore = false" class="hover:text-textMain"><i class="fas fa-times"></i></button>
+              </span>
+              <span v-if="filters.hilt" class="bg-surface border border-border px-3 py-1 rounded-full text-xs text-textMain flex items-center gap-2">
+                <i class="fas fa-cube text-[#E85A4F]"></i> {{ filters.hilt }}
+                <button @click="filters.hilt = ''" class="hover:text-textMain"><i class="fas fa-times"></i></button>
+              </span>
+              <span v-if="filters.room" class="bg-surface border border-border px-3 py-1 rounded-full text-xs text-textMain flex items-center gap-2">
+                <i class="fas fa-database text-[#4A90E2]"></i> {{ filters.room }}
+                <button @click="filters.room = ''" class="hover:text-textMain"><i class="fas fa-times"></i></button>
+              </span>
+              <span v-if="filters.navigation" class="bg-surface border border-border px-3 py-1 rounded-full text-xs text-textMain flex items-center gap-2">
+                <i class="fas fa-route text-[#F5A623]"></i> {{ filters.navigation }}
+                <button @click="filters.navigation = ''" class="hover:text-textMain"><i class="fas fa-times"></i></button>
+              </span>
+              <span v-if="filters.status" class="bg-surface border border-border px-3 py-1 rounded-full text-xs text-textMain flex items-center gap-2">
+                <i class="fas fa-heart-pulse text-textMuted"></i> {{ filters.status }}
+                <button @click="filters.status = ''" class="hover:text-textMain"><i class="fas fa-times"></i></button>
+              </span>
+            </div>
+          </div>
 
-        <!-- Filters -->
-        <div
-          class="bg-surface p-5 rounded-xl shadow-lg border border-gray-800 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 transition-all"
-        >
-          <div>
-            <label
-              class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"
-              ><i class="devicon-android-plain text-android"></i> AGP</label
-            >
-            <select
-              v-model="filters.agp"
-              class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer"
-            >
-              <option value="">All</option>
-              <option v-for="v in uniqueValues('agp')" :key="v" :value="v">
-                {{ v }}
-              </option>
-            </select>
-          </div>
-          <div>
-            <label
-              class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"
-              ><i class="devicon-gradle-plain text-[#02303A]"></i> Gradle</label
-            >
-            <select
-              v-model="filters.gradle"
-              class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer"
-            >
-              <option value="">All</option>
-              <option v-for="v in uniqueValues('gradle')" :key="v" :value="v">
-                {{ v }}
-              </option>
-            </select>
-          </div>
-          <div>
-            <label
-              class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"
-              ><i class="devicon-kotlin-plain text-[#7F52FF]"></i> Kotlin</label
-            >
-            <select
-              v-model="filters.kotlin"
-              class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer"
-            >
-              <option value="">All</option>
-              <option v-for="v in uniqueValues('kotlin')" :key="v" :value="v">
-                {{ v }}
-              </option>
-            </select>
-          </div>
-          <div>
-            <label
-              class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"
-              ><i class="devicon-kotlin-plain text-[#7F52FF]"></i> KSP</label
-            >
-            <select
-              v-model="filters.ksp"
-              class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer"
-            >
-              <option value="">All</option>
-              <option v-for="v in uniqueValues('ksp')" :key="v" :value="v">
-                {{ v }}
-              </option>
-            </select>
-          </div>
-          <div>
-            <label
-              class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"
-              ><i class="fas fa-cube text-[#E85A4F]"></i> Hilt</label
-            >
-            <select
-              v-model="filters.hilt"
-              class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer"
-            >
-              <option value="">All</option>
-              <option
-                v-for="v in uniqueValues('hiltVersion')"
-                :key="v"
-                :value="v"
-              >
-                {{ v }}
-              </option>
-            </select>
-          </div>
-          <div>
-            <label
-              class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"
-              ><i class="fas fa-database text-[#4A90E2]"></i> Room</label
-            >
-            <select
-              v-model="filters.room"
-              class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer"
-            >
-              <option value="">All</option>
-              <option
-                v-for="v in uniqueValues('roomVersion')"
-                :key="v"
-                :value="v"
-              >
-                {{ v }}
-              </option>
-            </select>
-          </div>
-          <div>
-            <label
-              class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"
-              ><i class="fas fa-route text-[#F5A623]"></i> Nav</label
-            >
-            <select
-              v-model="filters.navigation"
-              class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer"
-            >
-              <option value="">All</option>
-              <option
-                v-for="v in uniqueValues('navigationVersion')"
-                :key="v"
-                :value="v"
-              >
-                {{ v }}
-              </option>
-            </select>
-          </div>
-          <div>
-            <label
-              class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"
-              ><i class="fas fa-filter text-gray-400"></i> Status</label
-            >
-            <select
-              v-model="filters.status"
-              class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer"
-            >
-              <option value="">All</option>
-              <option value="verified">Verified</option>
-              <option value="failed">Failed</option>
-            </select>
-          </div>
-        </div>
+        <!-- Mobile Filters Backdrop -->
+        <div v-show="isMobileFiltersOpen" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden transition-opacity" @click="isMobileFiltersOpen = false"></div>
 
+        <div class="flex flex-col md:flex-row gap-2 relative">
+                <!-- Sidebar Filters -->
+        <aside :class="[
+            'flex-shrink-0 flex-col gap-4 transition-transform duration-300 z-50 flex',
+            'fixed inset-y-0 left-0 w-[85vw] max-w-sm shadow-2xl bg-surface',
+            'md:relative md:inset-auto md:w-64 lg:w-72 md:shadow-none md:bg-transparent md:translate-x-0',
+            isMobileFiltersOpen ? 'translate-x-0' : '-translate-x-full'
+          ]">
+          <div :class="['bg-surface p-5 rounded-xl border-border flex flex-col gap-4 overflow-y-auto hover-scrollbar transition-all duration-300', isMobileFiltersOpen ? 'h-full border-r' : 'shadow-lg border sticky h-[calc(100vh-2rem)]', showNavbar && !isMobileFiltersOpen ? 'top-24 !h-[calc(100vh-7rem)]' : 'top-4']">
+            <div class="flex items-center justify-between border-b border-border pb-3">
+              <h2 class="text-textMain font-bold text-base flex items-center gap-2">
+                <i class="fas fa-filter text-android"></i> Filters
+              </h2>
+              <div class="flex items-center gap-4">
+                <button @click="resetFilters" class="text-xs text-textMuted hover:text-textMain transition-colors" title="Reset all filters">
+                  <i class="fas fa-undo"></i> Reset
+                </button>
+                <button @click="isMobileFiltersOpen = false" class="md:hidden text-textMuted hover:text-textMain transition-colors" title="Close filters">
+                  <i class="fas fa-times text-lg"></i>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Toolchain Section -->
+            <div class="space-y-3">
+              <button @click="isCoreOpen = !isCoreOpen" class="w-full flex items-center justify-between text-[10px] uppercase tracking-wider text-textMuted font-bold mb-2 hover:text-textMain transition-colors">
+                <span>Core Toolchain</span>
+                <i :class="isCoreOpen ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+              </button>
+              <div v-show="isCoreOpen" class="space-y-3">
+                <div>
+                <label class="block text-xs text-textMuted mb-1 font-bold flex items-center gap-2"><i class="devicon-android-plain text-android"></i> AGP</label>
+                <select v-model="filters.agp" class="w-full bg-page border border-border rounded-lg p-2 text-sm text-textMain focus:ring-1 focus:ring-android focus:border-android outline-none cursor-pointer">
+                  <option value="">All Versions</option>
+                  <option v-for="v in uniqueValues('agp')" :key="v" :value="v">{{ v }}</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs text-textMuted mb-1 font-bold flex items-center gap-2"><i class="devicon-gradle-plain text-[#02303A]"></i> Gradle</label>
+                <select v-model="filters.gradle" class="w-full bg-page border border-border rounded-lg p-2 text-sm text-textMain focus:ring-1 focus:ring-android focus:border-android outline-none cursor-pointer">
+                  <option value="">All Versions</option>
+                  <option v-for="v in uniqueValues('gradle')" :key="v" :value="v">{{ v }}</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs text-textMuted mb-1 font-bold flex items-center gap-2"><i class="devicon-kotlin-plain text-[#7F52FF]"></i> Kotlin</label>
+                <select v-model="filters.kotlin" class="w-full bg-page border border-border rounded-lg p-2 text-sm text-textMain focus:ring-1 focus:ring-android focus:border-android outline-none cursor-pointer">
+                  <option value="">All Versions</option>
+                  <option v-for="v in uniqueValues('kotlin')" :key="v" :value="v">{{ v }}</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs text-textMuted mb-1 font-bold flex items-center gap-2"><i class="fas fa-microchip text-textMain"></i> KSP</label>
+                <select v-model="filters.ksp" class="w-full bg-page border border-border rounded-lg p-2 text-sm text-textMain focus:ring-1 focus:ring-android focus:border-android outline-none cursor-pointer">
+                  <option value="">All Versions</option>
+                  <option v-for="v in uniqueValues('ksp')" :key="v" :value="v">{{ v }}</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs text-textMuted mb-1 font-bold flex items-center gap-2"><i class="fas fa-layer-group text-textMain"></i> API Level</label>
+                <select v-model="filters.apiLevel" class="w-full bg-page border border-border rounded-lg p-2 text-sm text-textMain focus:ring-1 focus:ring-android focus:border-android outline-none cursor-pointer">
+                  <option value="">All Versions</option>
+                  <option v-for="v in uniqueValues('compileSdk')" :key="v" :value="v">{{ v }}</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Libraries Section -->
+            <div class="space-y-3 pt-3 border-t border-border">
+              <button @click="isLibsOpen = !isLibsOpen" class="w-full flex items-center justify-between text-[10px] uppercase tracking-wider text-textMuted font-bold mb-2 hover:text-textMain transition-colors">
+                <span class="flex items-center gap-1.5">
+                  Libraries
+                  <div class="relative group flex items-center" @click.stop>
+                    <i class="fas fa-info-circle text-textMuted hover:text-android transition-colors cursor-help"></i>
+                    <div class="absolute bottom-full -left-8 mb-2 w-48 p-2.5 bg-textMain text-surface text-[10.5px] leading-snug font-medium normal-case rounded-lg shadow-xl opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200 z-[60] text-center">
+                      Currently, only one library is tested at a time alongside the core toolchain. Combinations of multiple libraries are not yet supported.
+                      <div class="absolute -bottom-1 left-[2.25rem] w-2.5 h-2.5 bg-textMain rotate-45"></div>
+                    </div>
+                  </div>
+                </span>
+                <i :class="isLibsOpen ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+              </button>
+              <div v-show="isLibsOpen" class="space-y-3">
+                <div class="flex items-center gap-2 p-2 bg-page border border-border rounded-lg hover:border-android/50 transition-colors cursor-pointer" @click="filters.onlyCore = !filters.onlyCore">
+                  <input type="checkbox" id="onlyCore" v-model="filters.onlyCore" @click.stop class="w-4 h-4 text-android bg-surface border-border rounded focus:ring-android focus:ring-2 cursor-pointer">
+                  <label for="onlyCore" class="text-xs text-textMain font-bold cursor-pointer" @click.stop>Show Only Core Toolchain</label>
+                </div>
+                <div>
+                <label class="block text-xs text-textMuted mb-1 font-bold flex items-center gap-2"><i class="fas fa-cube text-[#E85A4F]"></i> Hilt</label>
+                <select v-model="filters.hilt" class="w-full bg-page border border-border rounded-lg p-2 text-sm text-textMain focus:ring-1 focus:ring-android focus:border-android outline-none cursor-pointer">
+                  <option value="">All Versions</option>
+                  <option v-for="v in uniqueValues('hiltVersion')" :key="v" :value="v">{{ v }}</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs text-textMuted mb-1 font-bold flex items-center gap-2"><i class="fas fa-database text-[#4A90E2]"></i> Room</label>
+                <select v-model="filters.room" class="w-full bg-page border border-border rounded-lg p-2 text-sm text-textMain focus:ring-1 focus:ring-android focus:border-android outline-none cursor-pointer">
+                  <option value="">All Versions</option>
+                  <option v-for="v in uniqueValues('roomVersion')" :key="v" :value="v">{{ v }}</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs text-textMuted mb-1 font-bold flex items-center gap-2"><i class="fas fa-route text-[#F5A623]"></i> Nav</label>
+                <select v-model="filters.navigation" class="w-full bg-page border border-border rounded-lg p-2 text-sm text-textMain focus:ring-1 focus:ring-android focus:border-android outline-none cursor-pointer">
+                  <option value="">All Versions</option>
+                  <option v-for="v in uniqueValues('navigationVersion')" :key="v" :value="v">{{ v }}</option>
+                </select>
+              </div>
+            </div>
+            </div>
+
+            <!-- Status Section -->
+            <div class="space-y-3 pt-3 border-t border-border">
+              <button @click="isStatusOpen = !isStatusOpen" class="w-full flex items-center justify-between text-[10px] uppercase tracking-wider text-textMuted font-bold mb-2 hover:text-textMain transition-colors">
+                <span>Status</span>
+                <i :class="isStatusOpen ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+              </button>
+              <div v-show="isStatusOpen" class="space-y-3">
+                <div>
+                  <label class="block text-xs text-textMuted mb-1 font-bold flex items-center gap-2"><i class="fas fa-heart-pulse text-textMuted"></i> Status Filter</label>
+                <select v-model="filters.status" class="w-full bg-page border border-border rounded-lg p-2 text-sm text-textMain focus:ring-1 focus:ring-android focus:border-android outline-none cursor-pointer">
+                  <option value="">All</option>
+                  <option value="verified">Verified</option>
+                  <option value="failed">Failed</option>
+                </select>
+              </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Data Area -->
+        <div class="flex-grow flex flex-col gap-2 min-w-0">
+          
         <!-- Loader -->
         <div
           v-if="loading"
@@ -299,13 +406,13 @@
         >
           <div class="relative w-16 h-16">
             <div
-              class="absolute inset-0 border-4 border-gray-800 rounded-full"
+              class="absolute inset-0 border-4 border-border rounded-full"
             ></div>
             <div
               class="absolute inset-0 border-4 border-android border-t-transparent rounded-full animate-spin"
             ></div>
           </div>
-          <p class="text-gray-400 font-medium animate-pulse">
+          <p class="text-textMuted font-medium animate-pulse">
             Loading matrix data...
           </p>
         </div>
@@ -313,225 +420,163 @@
         <!-- Error Message -->
         <div
           v-else-if="errorMessage"
-          class="bg-red-900/20 border border-red-500/30 rounded-xl p-6 text-center shadow-lg"
+          class="bg-red-900/20 border border-errorText/30 rounded-xl p-6 text-center shadow-lg"
         >
           <i class="fas fa-exclamation-circle text-red-500 text-4xl mb-3"></i>
-          <h2 class="text-xl font-bold text-red-400 mb-2">
+          <h2 class="text-xl font-bold text-errorText mb-2">
             Failed to Load Data
           </h2>
           <p class="text-red-300">{{ errorMessage }}</p>
-          <div class="mt-4 text-sm text-gray-400">
+          <div class="mt-4 text-sm text-textMuted">
             <p>Try running this locally with:</p>
             <code
-              class="bg-black/50 px-3 py-1.5 rounded inline-block mt-2 font-mono text-gray-300 border border-gray-700"
+              class="bg-black/50 px-3 py-1.5 rounded inline-block mt-2 font-mono text-textMain border border-border"
               >python3 -m http.server 8000</code
             >
           </div>
         </div>
 
-        <!-- Table -->
-        <div
-          v-else
-          class="bg-surface rounded-xl shadow-lg border border-gray-800 flex-grow flex flex-col"
-        >
-          <div class="overflow-x-auto rounded-xl">
-            <table class="w-full text-left text-xs whitespace-nowrap">
-              <thead
-                class="text-[11px] md:text-xs uppercase bg-[#161616] text-gray-400 border-b border-gray-700 sticky top-0"
+        <!-- Cards List -->
+        <transition-group name="list" tag="div" v-else class="flex flex-col gap-2 pb-4 relative">
+          <!-- Empty State -->
+          <div v-if="filteredData.length === 0" class="bg-surface border border-border rounded-xl p-12 text-center text-textMuted shadow-lg mt-4">
+            <div class="flex flex-col items-center justify-center gap-3">
+              <i class="fas fa-search text-4xl text-gray-600 mb-2"></i>
+              <p class="font-medium text-base text-textMuted">
+                No compatibility records found for the selected filters.
+              </p>
+              <button
+                @click="resetFilters"
+                class="mt-3 text-android hover:text-successText text-sm font-semibold hover:underline bg-card px-4 py-2 rounded-lg border border-border transition-colors"
               >
-                <tr>
-                  <th class="px-2 py-3 font-bold text-center" title="AGP">
-                    <i
-                      class="devicon-android-plain mr-1 text-android text-sm"
-                    ></i>
-                    AGP
-                  </th>
-                  <th class="px-2 py-3 font-bold text-center" title="Gradle">
-                    <i class="devicon-gradle-plain mr-1 text-sm"></i> Gradle
-                  </th>
-                  <th class="px-2 py-3 font-bold text-center" title="Kotlin">
-                    <i class="devicon-kotlin-plain mr-1 text-sm"></i> Kotlin
-                  </th>
-                  <th class="px-2 py-3 font-bold text-center" title="KSP">
-                    <i class="devicon-kotlin-plain mr-1 text-sm"></i> KSP
-                  </th>
-                  <th class="px-2 py-3 font-bold text-center" title="Hilt">
-                    <i class="fas fa-cube mr-1 text-sm text-[#E85A4F]"></i> Hilt
-                  </th>
-                  <th class="px-2 py-3 font-bold text-center" title="Room">
-                    <i class="fas fa-database mr-1 text-sm text-[#4A90E2]"></i>
-                    Room
-                  </th>
-                  <th
-                    class="px-2 py-3 font-bold text-center"
-                    title="Navigation"
-                  >
-                    <i class="fas fa-route mr-1 text-sm text-[#F5A623]"></i> Nav
-                  </th>
-                  <th class="px-2 py-3 font-bold text-center" title="JDK">
-                    <i class="devicon-java-plain mr-1 text-sm"></i> JDK
-                  </th>
-                  <th class="px-2 py-3 font-bold text-center" title="API Level">
-                    <i class="fas fa-layer-group mr-1 text-sm"></i> API
-                  </th>
-                  <th class="px-2 py-3 font-bold text-center" title="Status">
-                    <i class="fas fa-heart-pulse mr-1 text-sm"></i> Stat
-                  </th>
-                  <th class="px-2 py-3 font-bold text-center" title="Sync">
-                    <i class="fas fa-rotate mr-1 text-sm"></i> Sync
-                  </th>
-                  <th class="px-2 py-3 font-bold text-center" title="Compile">
-                    <i class="fas fa-cogs mr-1 text-sm"></i> Comp
-                  </th>
-                  <th class="px-2 py-3 font-bold text-center" title="Test">
-                    <i class="fas fa-vial mr-1 text-sm"></i> Test
-                  </th>
-                  <th class="px-2 py-3 font-bold text-center" title="Date">
-                    <i
-                      class="fas fa-calendar-alt mr-1 text-gray-500 text-sm"
-                    ></i>
-                    Date
-                  </th>
-                  <th class="px-2 py-3 font-bold text-center" title="Details">
-                    <i class="fas fa-info-circle mr-1 text-sm"></i> Log
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="divide-y-[0.5px] divide-white/10">
-                <tr v-if="filteredData.length === 0">
-                  <td colspan="15" class="px-5 py-12 text-center text-gray-500">
-                    <div
-                      class="flex flex-col items-center justify-center gap-3"
-                    >
-                      <i class="fas fa-search text-3xl text-gray-600"></i>
-                      <p class="font-medium">
-                        No compatibility records found for the selected filters.
-                      </p>
-                      <button
-                        @click="resetFilters"
-                        class="mt-2 text-android hover:text-green-400 text-sm font-semibold hover:underline"
-                      >
-                        Reset Filters
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr
-                  v-for="item in filteredData"
-                  :key="item.id"
-                  :class="['transition-colors group', item.status === 'verified' ? 'bg-green-500/5 hover:bg-green-500/10' : 'bg-red-500/5 hover:bg-red-500/10']"
-                >
-                  <td
-                    class="px-2 py-2 font-mono text-android font-medium text-center"
-                  >
-                    {{ item.agp }}
-                  </td>
-                  <td class="px-2 py-2 font-mono text-gray-300 text-center">
-                    {{ item.gradle }}
-                  </td>
-                  <td class="px-2 py-2 font-mono text-gray-300 text-center">
-                    {{ item.kotlin }}
-                  </td>
-                  <td
-                    class="px-2 py-2 font-mono text-[11px] text-gray-400 text-center"
-                  >
-                    {{ item.ksp || '—' }}
-                  </td>
-                  <td
-                    class="px-2 py-2 font-mono text-[11px] text-gray-400 text-center"
-                  >
-                    {{ item.hiltVersion || '—' }}
-                  </td>
-                  <td
-                    class="px-2 py-2 font-mono text-[11px] text-gray-400 text-center"
-                  >
-                    {{ item.roomVersion || '—' }}
-                  </td>
-                  <td
-                    class="px-2 py-2 font-mono text-[11px] text-gray-400 text-center"
-                  >
-                    {{ item.navigationVersion || '—' }}
-                  </td>
-                  <td class="px-2 py-2 font-mono text-gray-300 text-center">
-                    {{ item.jdk }}
-                  </td>
-                  <td class="px-2 py-2 font-mono text-gray-300 text-center">
-                    {{ item.compileSdk }}
-                  </td>
-                  <td class="px-2 py-2 text-center">
-                    <span
-                      v-if="item.status === 'verified'"
-                      class="inline-flex items-center justify-center w-6 h-6 rounded-md text-[13px] font-bold bg-green-500/10 text-green-400 border border-green-500/20 shadow-sm"
-                      title="Verified"
-                    >
-                      <i class="fas fa-heart"></i>
-                    </span>
-                    <span
-                      v-else
-                      class="inline-flex items-center justify-center w-6 h-6 rounded-md text-[13px] font-bold bg-red-500/10 text-red-400 border border-red-500/20 shadow-sm"
-                      title="Failed"
-                    >
-                      <i class="fas fa-heart-crack"></i>
-                    </span>
-                  </td>
-                  <td class="px-1 py-2 text-center">
-                    <status-badge
-                      :status="item.verification?.sync"
-                    ></status-badge>
-                  </td>
-                  <td class="px-1 py-2 text-center">
-                    <status-badge
-                      :status="item.verification?.compile"
-                    ></status-badge>
-                  </td>
-                  <td class="px-1 py-2 text-center">
-                    <status-badge
-                      :status="item.verification?.unit_test"
-                    ></status-badge>
-                  </td>
-                  <td
-                    class="px-2 py-2 text-[10px] text-gray-400 text-center whitespace-nowrap"
-                  >
-                    <div
-                      class="flex flex-col items-center justify-center gap-0.5"
-                    >
-                      <div
-                        class="flex items-center gap-1.5 text-gray-400"
-                        title="Date"
-                      >
-                        <i class="fas fa-calendar-alt opacity-70"></i>
-                        <span>{{ formatDateOnly(item.timestamp) }}</span>
-                      </div>
-                      <div
-                        class="flex items-center gap-1.5 text-gray-500"
-                        title="Time"
-                      >
-                        <i class="fas fa-clock opacity-70"></i>
-                        <span>{{ formatTimeOnly(item.timestamp) }}</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-2 py-2 text-center">
-                    <button
-                      @click="showLog(item)"
-                      class="text-gray-500 group-hover:text-android group-hover:bg-android/10 p-1.5 rounded-lg transition-all"
-                      title="View Details"
-                    >
-                      <i class="fab fa-readme text-base"></i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                Clear All Filters
+              </button>
+            </div>
           </div>
-        </div>
 
-        <div
-          v-if="!loading"
-          class="text-xs text-gray-500 font-medium text-center pb-4 flex items-center justify-center gap-2"
-        >
-          Showing <span class="text-white">{{ filteredData.length }}</span> of
-          <span class="text-white">{{ allData.length }}</span> records
+          <!-- Card -->
+          <div
+            v-for="item in paginatedData"
+            :key="item.id"
+            :class="['bg-surface border border-border rounded-xl shadow-lg p-5 flex flex-col lg:flex-row gap-6 transition-all', item.status === 'verified' ? 'hover:border-successText/30 hover:shadow-green-900/10' : 'hover:border-errorText/30 hover:shadow-red-900/10']"
+          >
+            <!-- Left Column: Title & Status -->
+            <div class="flex-1 flex flex-col gap-3 border-b lg:border-b-0 lg:border-r border-border pb-4 lg:pb-0 lg:pr-4">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="text-textMain font-bold text-xl flex items-center gap-2">
+                    <i class="devicon-android-plain text-android"></i> AGP {{ item.agp }}
+                  </h3>
+                  <div class="text-sm text-textMuted mt-1 flex items-center gap-2 font-medium">
+                    <i class="devicon-kotlin-plain text-[#7F52FF]"></i> Kotlin {{ item.kotlin }}
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-2 w-full flex flex-row justify-between items-end lg:flex-col lg:items-start">
+                <div>
+                  <span
+                    v-if="item.status === 'verified'"
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-successBg text-successText border border-successText/30"
+                    title="Verified"
+                  >
+                    <i class="fas fa-check-circle"></i> PASSED
+                  </span>
+                  <span
+                    v-else
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-errorBg text-errorText border border-errorText/30"
+                    title="Failed"
+                  >
+                    <i class="fas fa-times-circle"></i> FAILED
+                  </span>
+                </div>
+                
+                <div class="mt-auto lg:pt-4 flex flex-col gap-0.5 leading-tight items-end lg:items-start text-right lg:text-left">
+                  <div class="text-[9px] text-textMuted uppercase font-bold tracking-wider flex items-center gap-1">
+                    <i class="fas fa-clock"></i> Last Run
+                  </div>
+                  <div class="text-xs text-textMain font-medium">{{ formatDateOnly(item.timestamp) }}</div>
+                  <div class="text-[10px] text-textMuted">{{ formatTimeOnly(item.timestamp) }}</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Middle Column 1: Specs -->
+            <div class="flex-1 flex flex-col gap-3 border-b lg:border-b-0 lg:border-r border-border pb-4 lg:pb-0 lg:pr-4">
+               <h4 class="text-[10px] uppercase tracking-wider text-textMuted font-bold">Environment</h4>
+               <ul class="text-sm text-textMain space-y-2.5 mt-1">
+                 <li class="flex items-center gap-2">
+                   <div class="w-5 text-center"><i class="devicon-gradle-plain text-[#02303A] text-base"></i></div>
+                   Gradle <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border">{{ item.gradle }}</span>
+                 </li>
+                 <li class="flex items-center gap-2">
+                   <div class="w-5 text-center"><i class="fas fa-microchip text-textMuted text-sm"></i></div>
+                   KSP <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border">{{ item.ksp || '—' }}</span>
+                 </li>
+                 <li class="flex items-center gap-2">
+                   <div class="w-5 text-center"><i class="devicon-java-plain text-textMuted text-sm"></i></div>
+                   JDK <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border">{{ item.jdk }}</span>
+                 </li>
+                 <li class="flex items-center gap-2">
+                   <div class="w-5 text-center"><i class="devicon-android-plain text-textMuted text-sm"></i></div>
+                   API <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border">{{ item.compileSdk }}</span>
+                 </li>
+               </ul>
+            </div>
+
+            <!-- Middle Column 2: Libraries -->
+            <div class="flex-1 flex flex-col gap-3 border-b lg:border-b-0 lg:border-r border-border pb-4 lg:pb-0 lg:pr-4">
+               <h4 class="text-[10px] uppercase tracking-wider text-textMuted font-bold">Libraries</h4>
+               <ul class="text-sm text-textMain space-y-2.5 mt-1">
+                 <li class="flex items-center gap-2">
+                   <div class="w-5 text-center"><i class="fas fa-cube text-[#E85A4F] text-sm"></i></div>
+                   Hilt <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border">{{ item.hiltVersion || '—' }}</span>
+                 </li>
+                 <li class="flex items-center gap-2">
+                   <div class="w-5 text-center"><i class="fas fa-database text-[#4A90E2] text-sm"></i></div>
+                   Room <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border">{{ item.roomVersion || '—' }}</span>
+                 </li>
+                 <li class="flex items-center gap-2">
+                   <div class="w-5 text-center"><i class="fas fa-route text-[#F5A623] text-sm"></i></div>
+                   Navigation <span class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border">{{ item.navigationVersion || '—' }}</span>
+                 </li>
+               </ul>
+            </div>
+
+            <!-- Right Column: Results & Action -->
+            <div class="flex-1 flex flex-col justify-between gap-4">
+               <div>
+                 <h4 class="text-[10px] uppercase tracking-wider text-textMuted font-bold mb-3 text-center lg:text-left">Test Breakdown</h4>
+                 <div class="flex items-center gap-2 bg-card p-2.5 rounded-lg border border-border justify-between">
+                   <div class="flex flex-col items-center gap-1.5 w-1/3" title="Sync">
+                     <span class="text-[9px] text-textMuted uppercase font-bold tracking-wider">Sync</span>
+                     <status-badge :status="item.verification?.sync"></status-badge>
+                   </div>
+                   <div class="w-px h-8 bg-border"></div>
+                   <div class="flex flex-col items-center gap-1.5 w-1/3" title="Compile">
+                     <span class="text-[9px] text-textMuted uppercase font-bold tracking-wider">Comp</span>
+                     <status-badge :status="item.verification?.compile"></status-badge>
+                   </div>
+                   <div class="w-px h-8 bg-border"></div>
+                   <div class="flex flex-col items-center gap-1.5 w-1/3" title="Test">
+                     <span class="text-[9px] text-textMuted uppercase font-bold tracking-wider">Test</span>
+                     <status-badge :status="item.verification?.unit_test"></status-badge>
+                   </div>
+                 </div>
+               </div>
+
+               <button
+                 @click="showLog(item)"
+                 class="w-full bg-card hover:bg-border text-textMain border border-border px-4 py-2.5 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors shadow-sm"
+               >
+                 <i class="fas fa-terminal"></i> View Build Log
+               </button>
+            </div>
+          </div>
+        </transition-group>
+
+
+        </div>
         </div>
       </main>
 
@@ -543,37 +588,37 @@
           @click.self="selectedItem = null"
         >
           <div
-            class="bg-surface border border-gray-700 rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] flex flex-col transform transition-all"
+            class="bg-surface border border-border rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] flex flex-col transform transition-all"
           >
             <!-- Modal Header -->
             <div
-              class="p-5 border-b border-gray-700 flex justify-between items-center bg-[#161616] rounded-t-2xl"
+              class="p-5 border-b border-border flex justify-between items-center bg-card rounded-t-2xl"
             >
               <div>
                 <h3
-                  class="text-xl font-bold text-white flex items-center gap-3"
+                  class="text-xl font-bold text-textMain flex items-center gap-3"
                 >
                   <i class="fas fa-laptop-code text-android"></i> Build Details
                   <span
                     v-if="selectedItem.status === 'verified'"
-                    class="text-sm font-bold text-green-400 ml-2 px-3 py-1 rounded bg-green-500/10 border border-green-500/20 uppercase tracking-wide"
+                    class="text-sm font-bold text-successText ml-2 px-3 py-1 rounded bg-successBg border border-successText/30 uppercase tracking-wide"
                     >Verified</span
                   >
                   <span
                     v-else
-                    class="text-sm font-bold text-red-400 ml-2 px-3 py-1 rounded bg-red-500/10 border border-red-500/20 uppercase tracking-wide"
+                    class="text-sm font-bold text-errorText ml-2 px-3 py-1 rounded bg-errorBg border border-errorText/30 uppercase tracking-wide"
                     >Failed</span
                   >
                 </h3>
                 <p
-                  class="text-xs text-gray-500 font-mono mt-1.5 flex items-center gap-2"
+                  class="text-xs text-textMuted font-mono mt-1.5 flex items-center gap-2"
                 >
                   <i class="fas fa-fingerprint"></i> {{ selectedItem.id }}
                 </p>
               </div>
               <button
                 @click="selectedItem = null"
-                class="text-gray-400 hover:text-white hover:bg-gray-700/80 rounded-full w-10 h-10 flex items-center justify-center transition-colors"
+                class="text-textMuted hover:text-textMain hover:bg-gray-700/80 rounded-full w-10 h-10 flex items-center justify-center transition-colors"
               >
                 <i class="fas fa-times text-xl"></i>
               </button>
@@ -581,134 +626,134 @@
 
             <!-- Modal Body -->
             <div
-              class="p-6 overflow-y-auto flex-grow bg-background custom-scrollbar"
+              class="p-6 overflow-y-auto flex-grow bg-page custom-scrollbar"
             >
               <!-- Version Grid -->
               <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
                 <div
-                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                  class="bg-surface p-4 rounded-xl border border-border shadow-sm"
                 >
                   <div
-                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                    class="text-xs text-textMuted mb-1.5 font-bold uppercase tracking-wider"
                   >
                     <i class="devicon-android-plain text-android mr-1.5"></i>AGP
                   </div>
-                  <div class="font-mono text-base font-semibold text-white">
+                  <div class="font-mono text-base font-semibold text-textMain">
                     {{ selectedItem.agp }}
                   </div>
                 </div>
                 <div
-                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                  class="bg-surface p-4 rounded-xl border border-border shadow-sm"
                 >
                   <div
-                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                    class="text-xs text-textMuted mb-1.5 font-bold uppercase tracking-wider"
                   >
-                    <i class="devicon-gradle-plain text-gray-300 mr-1.5"></i
+                    <i class="devicon-gradle-plain text-textMain mr-1.5"></i
                     >Gradle
                   </div>
-                  <div class="font-mono text-base font-semibold text-white">
+                  <div class="font-mono text-base font-semibold text-textMain">
                     {{ selectedItem.gradle }}
                   </div>
                 </div>
                 <div
-                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                  class="bg-surface p-4 rounded-xl border border-border shadow-sm"
                 >
                   <div
-                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                    class="text-xs text-textMuted mb-1.5 font-bold uppercase tracking-wider"
                   >
-                    <i class="devicon-kotlin-plain text-gray-300 mr-1.5"></i
+                    <i class="devicon-kotlin-plain text-textMain mr-1.5"></i
                     >Kotlin
                   </div>
-                  <div class="font-mono text-base font-semibold text-white">
+                  <div class="font-mono text-base font-semibold text-textMain">
                     {{ selectedItem.kotlin }}
                   </div>
                 </div>
                 <div
-                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                  class="bg-surface p-4 rounded-xl border border-border shadow-sm"
                 >
                   <div
-                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                    class="text-xs text-textMuted mb-1.5 font-bold uppercase tracking-wider"
                   >
-                    <i class="fas fa-microchip text-gray-300 mr-1.5"></i>KSP
+                    <i class="fas fa-microchip text-textMain mr-1.5"></i>KSP
                   </div>
                   <div
-                    class="font-mono text-sm font-semibold text-white truncate"
+                    class="font-mono text-sm font-semibold text-textMain truncate"
                     :title="selectedItem.ksp"
                   >
                     {{ selectedItem.ksp || '—' }}
                   </div>
                 </div>
                 <div
-                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                  class="bg-surface p-4 rounded-xl border border-border shadow-sm"
                 >
                   <div
-                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                    class="text-xs text-textMuted mb-1.5 font-bold uppercase tracking-wider"
                   >
-                    <i class="devicon-java-plain text-gray-300 mr-1.5"></i>JDK
+                    <i class="devicon-java-plain text-textMain mr-1.5"></i>JDK
                   </div>
-                  <div class="font-mono text-base font-semibold text-white">
+                  <div class="font-mono text-base font-semibold text-textMain">
                     {{ selectedItem.jdk }}
                   </div>
                 </div>
                 <div
-                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                  class="bg-surface p-4 rounded-xl border border-border shadow-sm"
                 >
                   <div
-                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                    class="text-xs text-textMuted mb-1.5 font-bold uppercase tracking-wider"
                   >
-                    <i class="fas fa-layer-group text-gray-300 mr-1.5"></i>API
+                    <i class="fas fa-layer-group text-textMain mr-1.5"></i>API
                     LEVEL
                   </div>
-                  <div class="font-mono text-base font-semibold text-white">
+                  <div class="font-mono text-base font-semibold text-textMain">
                     {{ selectedItem.compileSdk }}
                   </div>
                 </div>
                 <div
-                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                  class="bg-surface p-4 rounded-xl border border-border shadow-sm"
                 >
                   <div
-                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                    class="text-xs text-textMuted mb-1.5 font-bold uppercase tracking-wider"
                   >
                     <i class="fas fa-cube text-[#E85A4F] mr-1.5"></i>HILT
                   </div>
-                  <div class="font-mono text-sm font-semibold text-white">
+                  <div class="font-mono text-sm font-semibold text-textMain">
                     {{ selectedItem.hiltVersion || '—' }}
                   </div>
                 </div>
                 <div
-                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                  class="bg-surface p-4 rounded-xl border border-border shadow-sm"
                 >
                   <div
-                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                    class="text-xs text-textMuted mb-1.5 font-bold uppercase tracking-wider"
                   >
                     <i class="fas fa-database text-[#4A90E2] mr-1.5"></i>ROOM
                   </div>
-                  <div class="font-mono text-sm font-semibold text-white">
+                  <div class="font-mono text-sm font-semibold text-textMain">
                     {{ selectedItem.roomVersion || '—' }}
                   </div>
                 </div>
                 <div
-                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                  class="bg-surface p-4 rounded-xl border border-border shadow-sm"
                 >
                   <div
-                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                    class="text-xs text-textMuted mb-1.5 font-bold uppercase tracking-wider"
                   >
                     <i class="fas fa-route text-[#F5A623] mr-1.5"></i>NAV
                   </div>
-                  <div class="font-mono text-sm font-semibold text-white">
+                  <div class="font-mono text-sm font-semibold text-textMain">
                     {{ selectedItem.navigationVersion || '—' }}
                   </div>
                 </div>
                 <div
-                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                  class="bg-surface p-4 rounded-xl border border-border shadow-sm"
                 >
                   <div
-                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                    class="text-xs text-textMuted mb-1.5 font-bold uppercase tracking-wider"
                   >
                     <i class="fas fa-paint-brush text-[#4285F4] mr-1.5"></i
                     >COMPOSE
                   </div>
-                  <div class="font-mono text-sm font-semibold text-white">
+                  <div class="font-mono text-sm font-semibold text-textMain">
                     {{ selectedItem.composeCompiler || '—' }}
                   </div>
                 </div>
@@ -720,12 +765,12 @@
                 class="mb-6 animate-fade-in-up"
               >
                 <h4
-                  class="text-sm font-bold text-red-400 mb-2.5 flex items-center gap-2 uppercase tracking-wide"
+                  class="text-sm font-bold text-errorText mb-2.5 flex items-center gap-2 uppercase tracking-wide"
                 >
                   <i class="fas fa-exclamation-triangle"></i> Error Message
                 </h4>
                 <div
-                  class="bg-red-900/20 border border-red-500/30 p-4 rounded-xl text-sm text-red-300 font-mono whitespace-pre-wrap shadow-inner"
+                  class="bg-errorBg border border-errorText/30 p-4 rounded-xl text-sm text-errorText font-mono whitespace-pre-wrap shadow-inner"
                 >
                   {{ selectedItem.errorMessage }}
                 </div>
@@ -738,7 +783,7 @@
                   <i class="fas fa-bug"></i> Failure Signature
                 </h4>
                 <div
-                  class="bg-amber-900/20 border border-amber-500/30 p-3.5 rounded-xl text-sm text-amber-300 font-mono font-medium shadow-inner"
+                  class="bg-warningBg border border-warningText/30 p-3.5 rounded-xl text-sm text-warningText font-mono font-medium shadow-inner"
                 >
                   {{ selectedItem.failureSignature }}
                 </div>
@@ -748,26 +793,26 @@
               <div class="flex flex-col h-[400px]">
                 <div class="flex justify-between items-center mb-2.5">
                   <h4
-                    class="text-sm font-bold text-gray-300 flex items-center gap-2 uppercase tracking-wide"
+                    class="text-sm font-bold text-textMain flex items-center gap-2 uppercase tracking-wide"
                   >
-                    <i class="fas fa-terminal text-gray-400"></i> Build Log
+                    <i class="fas fa-terminal text-textMuted"></i> Build Log
                   </h4>
                   <button
                     @click="copyLog"
-                    class="text-xs font-semibold text-gray-300 hover:text-white flex items-center gap-2 bg-[#1E1E1E] hover:bg-gray-700 px-3 py-1.5 rounded-lg border border-gray-700 transition-colors shadow-sm"
+                    class="text-xs font-semibold text-textMain flex items-center gap-2 bg-card hover:bg-border px-3 py-1.5 rounded-lg border border-border transition-colors shadow-sm"
                   >
                     <i
                       class="fas"
-                      :class="copied ? 'fa-check text-green-400' : 'fa-copy'"
+                      :class="copied ? 'fa-check text-successText' : 'fa-copy'"
                     ></i>
                     {{ copied ? 'Copied to clipboard' : 'Copy Log' }}
                   </button>
                 </div>
                 <div
-                  class="relative flex-grow bg-[#0d1117] border border-gray-700 rounded-xl overflow-hidden shadow-inner"
+                  class="relative flex-grow bg-card border border-border rounded-xl overflow-hidden shadow-inner"
                 >
                   <pre
-                    class="absolute inset-0 p-5 text-xs text-gray-300 font-mono overflow-auto custom-scrollbar whitespace-pre-wrap leading-relaxed"
+                    class="absolute inset-0 p-5 text-xs text-textMain font-mono overflow-auto custom-scrollbar whitespace-pre-wrap leading-relaxed"
                     style="tab-size: 4"
                   >
 {{ selectedItem.buildLog }}</pre
@@ -788,16 +833,16 @@
         props: ["status"],
         template: `
                 <div class="flex justify-center">
-                    <span v-if="status === 'PASSED'" class="inline-flex items-center justify-center w-6 h-6 rounded-md text-[13px] font-bold bg-green-500/10 text-green-400 border border-green-500/20 shadow-sm" title="Passed">
+                    <span v-if="status === 'PASSED'" class="inline-flex items-center justify-center w-6 h-6 rounded-md text-[13px] font-bold bg-successBg text-successText border border-successText/30 shadow-sm" title="Passed">
                         <i class="fas fa-rotate"></i>
                     </span>
-                    <span v-else-if="status === 'FAILED'" class="inline-flex items-center justify-center w-6 h-6 rounded-md text-[13px] font-bold bg-red-500/10 text-red-400 border border-red-500/20 shadow-sm" title="Failed">
+                    <span v-else-if="status === 'FAILED'" class="inline-flex items-center justify-center w-6 h-6 rounded-md text-[13px] font-bold bg-errorBg text-errorText border border-errorText/30 shadow-sm" title="Failed">
                         <i class="fas fa-info-circle"></i>
                     </span>
-                    <span v-else-if="status === 'SKIPPED'" class="inline-flex items-center justify-center w-6 h-6 rounded-md text-[13px] font-bold bg-gray-500/10 text-gray-400 border border-gray-500/20 shadow-sm" title="Skipped">
+                    <span v-else-if="status === 'SKIPPED'" class="inline-flex items-center justify-center w-6 h-6 rounded-md text-[13px] font-bold bg-gray-500/10 text-textMuted border border-gray-500/20 shadow-sm" title="Skipped">
                         <i class="fas fa-minus"></i>
                     </span>
-                    <span v-else class="inline-flex items-center justify-center w-6 h-6 rounded-md text-[13px] font-bold bg-gray-500/10 text-gray-500 border border-gray-500/20 shadow-sm" title="N/A">
+                    <span v-else class="inline-flex items-center justify-center w-6 h-6 rounded-md text-[13px] font-bold bg-gray-500/10 text-textMuted border border-gray-500/20 shadow-sm" title="N/A">
                         <i class="fas fa-question"></i>
                     </span>
                 </div>
@@ -811,8 +856,9 @@
         data() {
           return {
             sources: ["agp9", "agp8", "agp7"],
-            activeTab: "agp9",
             allData: [],
+            currentPage: 1,
+            itemsPerPage: 10,
             loading: true,
             errorMessage: null,
             filters: {
@@ -820,20 +866,34 @@
               gradle: "",
               kotlin: "",
               ksp: "",
+              apiLevel: "",
               hilt: "",
               room: "",
               navigation: "",
               status: "",
+              onlyCore: false,
             },
             selectedItem: null,
             copied: false,
+            showNavbar: true,
+            isCoreOpen: true,
+            isMobileFiltersOpen: false,
+            isLibsOpen: true,
+            isStatusOpen: true,
+            lastScrollPosition: 0,
           };
         },
         computed: {
+          paginatedData() {
+            const start = (this.currentPage - 1) * this.itemsPerPage;
+            const end = start + this.itemsPerPage;
+            return this.filteredData.slice(start, end);
+          },
+          totalPages() {
+            return Math.ceil(this.filteredData.length / this.itemsPerPage);
+          },
           filteredData() {
-            let data = this.allData.filter(
-              (item) => item._source === this.activeTab,
-            );
+            let data = this.allData;
             if (this.filters.agp)
               data = data.filter((i) => i.agp === this.filters.agp);
             if (this.filters.gradle)
@@ -842,6 +902,10 @@
               data = data.filter((i) => i.kotlin === this.filters.kotlin);
             if (this.filters.ksp)
               data = data.filter((i) => i.ksp === this.filters.ksp);
+            if (this.filters.apiLevel)
+              data = data.filter((i) => String(i.compileSdk) === String(this.filters.apiLevel));
+            if (this.filters.onlyCore)
+              data = data.filter((i) => !i.hiltVersion && !i.roomVersion && !i.navigationVersion);
             if (this.filters.hilt)
               data = data.filter((i) => i.hiltVersion === this.filters.hilt);
             if (this.filters.room)
@@ -855,12 +919,9 @@
             return data;
           },
           stats() {
-            const tabData = this.allData.filter(
-              (item) => item._source === this.activeTab,
-            );
             return {
-              verified: tabData.filter((i) => i.status === "verified").length,
-              failed: tabData.filter((i) => i.status === "failed").length,
+              verified: this.filteredData.filter((i) => i.status === "verified").length,
+              failed: this.filteredData.filter((i) => i.status === "failed").length,
             };
           },
           lastRunDate() {
@@ -883,11 +944,11 @@
         methods: {
           formatDateOnly(dateStr) {
             if (!dateStr) return "N/A";
-            return new Date(dateStr).toLocaleDateString(undefined, {
-              year: "2-digit",
-              month: "2-digit",
-              day: "2-digit",
-            });
+            const date = new Date(dateStr);
+            const day = date.getDate().toString().padStart(2, '0');
+            const month = date.toLocaleString('en-US', { month: 'short' });
+            const year = date.getFullYear().toString().slice(-2);
+            return `${day}-${month}-${year}`;
           },
           formatTimeOnly(dateStr) {
             if (!dateStr) return "N/A";
@@ -904,16 +965,16 @@
               gradle: "",
               kotlin: "",
               ksp: "",
+              apiLevel: "",
               hilt: "",
               room: "",
               navigation: "",
               status: "",
+              onlyCore: false,
             };
           },
           uniqueValues(key) {
-            const tabData = this.allData.filter(
-              (item) => item._source === this.activeTab,
-            );
+            const tabData = this.allData;
             const values = [
               ...new Set(tabData.map((item) => item[key])),
             ].filter(Boolean);
@@ -978,6 +1039,12 @@
           },
         },
         watch: {
+          filters: {
+            handler() {
+              this.currentPage = 1;
+            },
+            deep: true
+          },
           selectedItem(newVal) {
             if (!newVal) {
               document.body.style.overflow = "";
@@ -986,6 +1053,13 @@
         },
         mounted() {
           this.loadData();
+          window.addEventListener('scroll', () => {
+            const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScrollPosition < 0) return;
+            if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 60) return;
+            this.showNavbar = currentScrollPosition < this.lastScrollPosition;
+            this.lastScrollPosition = currentScrollPosition;
+          });
         },
       }).mount("#app");
     </script>
