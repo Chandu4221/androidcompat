@@ -1,350 +1,792 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Android Compatibility Matrix</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        android: {
-                            DEFAULT: '#3DDC84',
-                            dark: '#073042',
-                            light: '#EAF6F6'
-                        },
-                        surface: '#1E1E1E',
-                        background: '#121212'
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              android: {
+                DEFAULT: "#3DDC84",
+                dark: "#073042",
+                light: "#EAF6F6",
+              },
+              surface: "#1E1E1E",
+              background: "#121212",
+            },
+          },
+        },
+      };
     </script>
     <!-- DevIcons & FontAwesome -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
     <!-- Vue 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    
+
     <style>
-        body {
-            background-color: #121212;
-            color: #e0e0e0;
+      body {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+      .bg-surface {
+        background-color: #1e1e1e;
+      }
+      /* Custom scrollbar for tables/modals */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1e1e1e;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #3ddc84;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #2cb869;
+      }
+      .modal-enter-active,
+      .modal-leave-active {
+        transition: opacity 0.3s ease;
+      }
+      .modal-enter-from,
+      .modal-leave-to {
+        opacity: 0;
+      }
+      [v-cloak] {
+        display: none !important;
+      }
+      .animate-fade-in-up {
+        animation: fadeInUp 0.4s ease-out;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
         }
-        .bg-surface {
-            background-color: #1E1E1E;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        /* Custom scrollbar for tables/modals */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1e1e1e;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #3DDC84;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #2cb869;
-        }
-        .modal-enter-active, .modal-leave-active {
-            transition: opacity 0.3s ease;
-        }
-        .modal-enter-from, .modal-leave-to {
-            opacity: 0;
-        }
+      }
     </style>
-</head>
-<body class="antialiased min-h-screen flex flex-col">
+  </head>
+  <body class="antialiased min-h-screen flex flex-col">
     <div id="app" class="flex-grow flex flex-col" v-cloak>
-        <!-- Header -->
-        <header class="bg-surface border-b border-gray-800 shadow-md p-4 sticky top-0 z-10">
-            <div class="max-w-7xl mx-auto flex items-center justify-between">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-android/10 flex items-center justify-center border border-android/20">
-                        <i class="devicon-android-plain text-android text-3xl"></i>
+      <!-- Header -->
+      <header
+        class="bg-surface border-b border-gray-800 shadow-md p-4 sticky top-0 z-10"
+      >
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <div
+              class="w-12 h-12 rounded-full bg-android/10 flex items-center justify-center border border-android/20"
+            >
+              <i class="devicon-android-plain text-android text-3xl"></i>
+            </div>
+            <div>
+              <h1
+                class="text-xl md:text-2xl font-bold text-white leading-tight"
+              >
+                Android Compatibility Matrix
+              </h1>
+              <div class="flex items-center gap-3">
+                <p class="text-xs md:text-sm text-gray-400">
+                  AGP, Gradle, Kotlin, KSP, Hilt, Room, Navigation & Compose
+                </p>
+                <span
+                  class="text-xs bg-gray-800 px-2 py-0.5 rounded text-gray-300 border border-gray-700 shadow-inner flex items-center gap-1.5"
+                  ><i class="fas fa-clock text-gray-400"></i> Last Run: {{
+                  lastRunDate }}</span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="hidden md:flex items-center gap-6 text-sm text-gray-300 font-medium bg-background px-4 py-2 rounded-lg border border-gray-800"
+          >
+            <div class="flex items-center gap-2">
+              <div class="relative flex h-3 w-3">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+                ></span>
+                <span
+                  class="relative inline-flex rounded-full h-3 w-3 bg-green-500"
+                ></span>
+              </div>
+              Verified ({{ stats.verified }})
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500"></span> Failed ({{
+              stats.failed }})
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="max-w-[95vw] w-full p-4 flex-grow flex flex-col gap-6 mt-4">
+        <!-- Tabs -->
+        <div class="flex gap-1 border-b border-gray-800">
+          <button
+            v-for="source in sources"
+            :key="source"
+            @click="activeTab = source; resetFilters()"
+            :class="['px-6 py-3 font-bold uppercase tracking-wider text-sm transition-all border-b-2 rounded-t-lg', 
+                             activeTab === source ? 'border-android text-android bg-android/5' : 'border-transparent text-gray-500 hover:text-gray-300 hover:border-gray-600 hover:bg-gray-800/30']"
+          >
+            {{ source.toUpperCase().replace('AGP', 'AGP ') }}
+          </button>
+        </div>
+
+        <!-- Filters -->
+        <div
+          class="bg-surface p-5 rounded-xl shadow-lg border border-gray-800 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 transition-all"
+        >
+          <div>
+            <label
+              class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"
+              ><i class="devicon-android-plain text-android"></i> AGP</label
+            >
+            <select
+              v-model="filters.agp"
+              class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer"
+            >
+              <option value="">All</option>
+              <option v-for="v in uniqueValues('agp')" :key="v" :value="v">
+                {{ v }}
+              </option>
+            </select>
+          </div>
+          <div>
+            <label
+              class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"
+              ><i class="devicon-gradle-plain text-[#02303A]"></i> Gradle</label
+            >
+            <select
+              v-model="filters.gradle"
+              class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer"
+            >
+              <option value="">All</option>
+              <option v-for="v in uniqueValues('gradle')" :key="v" :value="v">
+                {{ v }}
+              </option>
+            </select>
+          </div>
+          <div>
+            <label
+              class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"
+              ><i class="devicon-kotlin-plain text-[#7F52FF]"></i> Kotlin</label
+            >
+            <select
+              v-model="filters.kotlin"
+              class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer"
+            >
+              <option value="">All</option>
+              <option v-for="v in uniqueValues('kotlin')" :key="v" :value="v">
+                {{ v }}
+              </option>
+            </select>
+          </div>
+          <div>
+            <label
+              class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"
+              ><i class="devicon-kotlin-plain text-[#7F52FF]"></i> KSP</label
+            >
+            <select
+              v-model="filters.ksp"
+              class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer"
+            >
+              <option value="">All</option>
+              <option v-for="v in uniqueValues('ksp')" :key="v" :value="v">
+                {{ v }}
+              </option>
+            </select>
+          </div>
+          <div>
+            <label
+              class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"
+              ><i class="fas fa-cube text-[#E85A4F]"></i> Hilt</label
+            >
+            <select
+              v-model="filters.hilt"
+              class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer"
+            >
+              <option value="">All</option>
+              <option
+                v-for="v in uniqueValues('hiltVersion')"
+                :key="v"
+                :value="v"
+              >
+                {{ v }}
+              </option>
+            </select>
+          </div>
+          <div>
+            <label
+              class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"
+              ><i class="fas fa-database text-[#4A90E2]"></i> Room</label
+            >
+            <select
+              v-model="filters.room"
+              class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer"
+            >
+              <option value="">All</option>
+              <option
+                v-for="v in uniqueValues('roomVersion')"
+                :key="v"
+                :value="v"
+              >
+                {{ v }}
+              </option>
+            </select>
+          </div>
+          <div>
+            <label
+              class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"
+              ><i class="fas fa-route text-[#F5A623]"></i> Nav</label
+            >
+            <select
+              v-model="filters.navigation"
+              class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer"
+            >
+              <option value="">All</option>
+              <option
+                v-for="v in uniqueValues('navigationVersion')"
+                :key="v"
+                :value="v"
+              >
+                {{ v }}
+              </option>
+            </select>
+          </div>
+          <div>
+            <label
+              class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"
+              ><i class="fas fa-filter text-gray-400"></i> Status</label
+            >
+            <select
+              v-model="filters.status"
+              class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer"
+            >
+              <option value="">All</option>
+              <option value="verified">Verified</option>
+              <option value="failed">Failed</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Loader -->
+        <div
+          v-if="loading"
+          class="flex justify-center items-center py-24 flex-col gap-5"
+        >
+          <div class="relative w-16 h-16">
+            <div
+              class="absolute inset-0 border-4 border-gray-800 rounded-full"
+            ></div>
+            <div
+              class="absolute inset-0 border-4 border-android border-t-transparent rounded-full animate-spin"
+            ></div>
+          </div>
+          <p class="text-gray-400 font-medium animate-pulse">
+            Loading matrix data...
+          </p>
+        </div>
+
+        <!-- Error Message -->
+        <div
+          v-else-if="errorMessage"
+          class="bg-red-900/20 border border-red-500/30 rounded-xl p-6 text-center shadow-lg"
+        >
+          <i class="fas fa-exclamation-circle text-red-500 text-4xl mb-3"></i>
+          <h2 class="text-xl font-bold text-red-400 mb-2">
+            Failed to Load Data
+          </h2>
+          <p class="text-red-300">{{ errorMessage }}</p>
+          <div class="mt-4 text-sm text-gray-400">
+            <p>Try running this locally with:</p>
+            <code
+              class="bg-black/50 px-3 py-1.5 rounded inline-block mt-2 font-mono text-gray-300 border border-gray-700"
+              >python3 -m http.server 8000</code
+            >
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div
+          v-else
+          class="bg-surface rounded-xl shadow-lg border border-gray-800 flex-grow flex flex-col"
+        >
+          <div class="overflow-x-auto rounded-xl">
+            <table class="w-full text-left text-xs whitespace-nowrap">
+              <thead
+                class="text-[11px] md:text-xs uppercase bg-[#161616] text-gray-400 border-b border-gray-700 sticky top-0"
+              >
+                <tr>
+                  <th class="px-2 py-3 font-bold text-center" title="AGP">
+                    <i
+                      class="devicon-android-plain mr-1 text-android text-sm"
+                    ></i>
+                    AGP
+                  </th>
+                  <th class="px-2 py-3 font-bold text-center" title="Gradle">
+                    <i class="devicon-gradle-plain mr-1 text-sm"></i> Gradle
+                  </th>
+                  <th class="px-2 py-3 font-bold text-center" title="Kotlin">
+                    <i class="devicon-kotlin-plain mr-1 text-sm"></i> Kotlin
+                  </th>
+                  <th class="px-2 py-3 font-bold text-center" title="KSP">
+                    <i class="devicon-kotlin-plain mr-1 text-sm"></i> KSP
+                  </th>
+                  <th class="px-2 py-3 font-bold text-center" title="Hilt">
+                    <i class="fas fa-cube mr-1 text-sm text-[#E85A4F]"></i> Hilt
+                  </th>
+                  <th class="px-2 py-3 font-bold text-center" title="Room">
+                    <i class="fas fa-database mr-1 text-sm text-[#4A90E2]"></i>
+                    Room
+                  </th>
+                  <th
+                    class="px-2 py-3 font-bold text-center"
+                    title="Navigation"
+                  >
+                    <i class="fas fa-route mr-1 text-sm text-[#F5A623]"></i> Nav
+                  </th>
+                  <th class="px-2 py-3 font-bold text-center" title="JDK">
+                    <i class="devicon-java-plain mr-1 text-sm"></i> JDK
+                  </th>
+                  <th class="px-2 py-3 font-bold text-center" title="API Level">
+                    <i class="fas fa-layer-group mr-1 text-sm"></i> API
+                  </th>
+                  <th class="px-2 py-3 font-bold text-center" title="Status">
+                    <i class="fas fa-heart-pulse mr-1 text-sm"></i> Stat
+                  </th>
+                  <th class="px-2 py-3 font-bold text-center" title="Sync">
+                    <i class="fas fa-rotate mr-1 text-sm"></i> Sync
+                  </th>
+                  <th class="px-2 py-3 font-bold text-center" title="Compile">
+                    <i class="fas fa-cogs mr-1 text-sm"></i> Comp
+                  </th>
+                  <th class="px-2 py-3 font-bold text-center" title="Test">
+                    <i class="fas fa-vial mr-1 text-sm"></i> Test
+                  </th>
+                  <th class="px-2 py-3 font-bold text-center" title="Date">
+                    <i
+                      class="fas fa-calendar-alt mr-1 text-gray-500 text-sm"
+                    ></i>
+                    Date
+                  </th>
+                  <th class="px-2 py-3 font-bold text-center" title="Details">
+                    <i class="fas fa-info-circle mr-1 text-sm"></i> Log
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y-[0.5px] divide-white/10">
+                <tr v-if="filteredData.length === 0">
+                  <td colspan="15" class="px-5 py-12 text-center text-gray-500">
+                    <div
+                      class="flex flex-col items-center justify-center gap-3"
+                    >
+                      <i class="fas fa-search text-3xl text-gray-600"></i>
+                      <p class="font-medium">
+                        No compatibility records found for the selected filters.
+                      </p>
+                      <button
+                        @click="resetFilters"
+                        class="mt-2 text-android hover:text-green-400 text-sm font-semibold hover:underline"
+                      >
+                        Reset Filters
+                      </button>
                     </div>
-                    <div>
-                        <h1 class="text-xl md:text-2xl font-bold text-white leading-tight">Android Compatibility Matrix</h1>
-                        <div class="flex items-center gap-3">
-                            <p class="text-xs md:text-sm text-gray-400">AGP, Gradle, Kotlin, and KSP versions tested together</p>
-                            <span class="text-xs bg-gray-800 px-2 py-0.5 rounded text-gray-300 border border-gray-700 shadow-inner flex items-center gap-1.5"><i class="fas fa-clock text-gray-400"></i> Last Run: {{ lastRunDate }}</span>
-                        </div>
+                  </td>
+                </tr>
+                <tr
+                  v-for="item in filteredData"
+                  :key="item.id"
+                  :class="['transition-colors group', item.status === 'verified' ? 'bg-green-500/5 hover:bg-green-500/10' : 'bg-red-500/5 hover:bg-red-500/10']"
+                >
+                  <td
+                    class="px-2 py-2 font-mono text-android font-medium text-center"
+                  >
+                    {{ item.agp }}
+                  </td>
+                  <td class="px-2 py-2 font-mono text-gray-300 text-center">
+                    {{ item.gradle }}
+                  </td>
+                  <td class="px-2 py-2 font-mono text-gray-300 text-center">
+                    {{ item.kotlin }}
+                  </td>
+                  <td
+                    class="px-2 py-2 font-mono text-[11px] text-gray-400 text-center"
+                  >
+                    {{ item.ksp || '—' }}
+                  </td>
+                  <td
+                    class="px-2 py-2 font-mono text-[11px] text-gray-400 text-center"
+                  >
+                    {{ item.hiltVersion || '—' }}
+                  </td>
+                  <td
+                    class="px-2 py-2 font-mono text-[11px] text-gray-400 text-center"
+                  >
+                    {{ item.roomVersion || '—' }}
+                  </td>
+                  <td
+                    class="px-2 py-2 font-mono text-[11px] text-gray-400 text-center"
+                  >
+                    {{ item.navigationVersion || '—' }}
+                  </td>
+                  <td class="px-2 py-2 font-mono text-gray-300 text-center">
+                    {{ item.jdk }}
+                  </td>
+                  <td class="px-2 py-2 font-mono text-gray-300 text-center">
+                    {{ item.compileSdk }}
+                  </td>
+                  <td class="px-2 py-2 text-center">
+                    <span
+                      v-if="item.status === 'verified'"
+                      class="inline-flex items-center justify-center w-6 h-6 rounded-md text-[13px] font-bold bg-green-500/10 text-green-400 border border-green-500/20 shadow-sm"
+                      title="Verified"
+                    >
+                      <i class="fas fa-heart"></i>
+                    </span>
+                    <span
+                      v-else
+                      class="inline-flex items-center justify-center w-6 h-6 rounded-md text-[13px] font-bold bg-red-500/10 text-red-400 border border-red-500/20 shadow-sm"
+                      title="Failed"
+                    >
+                      <i class="fas fa-heart-crack"></i>
+                    </span>
+                  </td>
+                  <td class="px-1 py-2 text-center">
+                    <status-badge
+                      :status="item.verification?.sync"
+                    ></status-badge>
+                  </td>
+                  <td class="px-1 py-2 text-center">
+                    <status-badge
+                      :status="item.verification?.compile"
+                    ></status-badge>
+                  </td>
+                  <td class="px-1 py-2 text-center">
+                    <status-badge
+                      :status="item.verification?.unit_test"
+                    ></status-badge>
+                  </td>
+                  <td
+                    class="px-2 py-2 text-[10px] text-gray-400 text-center whitespace-nowrap"
+                  >
+                    <div
+                      class="flex flex-col items-center justify-center gap-0.5"
+                    >
+                      <div
+                        class="flex items-center gap-1.5 text-gray-400"
+                        title="Date"
+                      >
+                        <i class="fas fa-calendar-alt opacity-70"></i>
+                        <span>{{ formatDateOnly(item.timestamp) }}</span>
+                      </div>
+                      <div
+                        class="flex items-center gap-1.5 text-gray-500"
+                        title="Time"
+                      >
+                        <i class="fas fa-clock opacity-70"></i>
+                        <span>{{ formatTimeOnly(item.timestamp) }}</span>
+                      </div>
                     </div>
-                </div>
-                <div class="hidden md:flex items-center gap-6 text-sm text-gray-300 font-medium bg-background px-4 py-2 rounded-lg border border-gray-800">
-                    <div class="flex items-center gap-2">
-                        <div class="relative flex h-3 w-3">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                        </div>
-                        Verified ({{ stats.verified }})
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="w-3 h-3 rounded-full bg-red-500"></span> Failed ({{ stats.failed }})
-                    </div>
-                </div>
-            </div>
-        </header>
+                  </td>
+                  <td class="px-2 py-2 text-center">
+                    <button
+                      @click="showLog(item)"
+                      class="text-gray-500 group-hover:text-android group-hover:bg-android/10 p-1.5 rounded-lg transition-all"
+                      title="View Details"
+                    >
+                      <i class="fab fa-readme text-base"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-        <!-- Main Content -->
-        <main class="max-w-7xl mx-auto w-full p-4 flex-grow flex flex-col gap-6 mt-4">
-            <!-- Tabs -->
-            <div class="flex gap-1 border-b border-gray-800">
-                <button v-for="source in sources" :key="source" 
-                    @click="activeTab = source; resetFilters()" 
-                    :class="['px-6 py-3 font-bold uppercase tracking-wider text-sm transition-all border-b-2 rounded-t-lg', 
-                             activeTab === source ? 'border-android text-android bg-android/5' : 'border-transparent text-gray-500 hover:text-gray-300 hover:border-gray-600 hover:bg-gray-800/30']">
-                    {{ source.toUpperCase().replace('AGP', 'AGP ') }}
-                </button>
-            </div>
+        <div
+          v-if="!loading"
+          class="text-xs text-gray-500 font-medium text-center pb-4 flex items-center justify-center gap-2"
+        >
+          Showing <span class="text-white">{{ filteredData.length }}</span> of
+          <span class="text-white">{{ allData.length }}</span> records
+        </div>
+      </main>
 
-            <!-- Filters -->
-            <div class="bg-surface p-5 rounded-xl shadow-lg border border-gray-800 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 transition-all">
-                <div>
-                    <label class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"><i class="devicon-android-plain text-android"></i> AGP Version</label>
-                    <select v-model="filters.agp" class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer">
-                        <option value="">All Versions</option>
-                        <option v-for="v in uniqueValues('agp')" :key="v" :value="v">{{ v }}</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"><i class="devicon-gradle-plain text-[#02303A]"></i> Gradle Version</label>
-                    <select v-model="filters.gradle" class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer">
-                        <option value="">All Versions</option>
-                        <option v-for="v in uniqueValues('gradle')" :key="v" :value="v">{{ v }}</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"><i class="devicon-kotlin-plain text-[#7F52FF]"></i> Kotlin Version</label>
-                    <select v-model="filters.kotlin" class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer">
-                        <option value="">All Versions</option>
-                        <option v-for="v in uniqueValues('kotlin')" :key="v" :value="v">{{ v }}</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"><i class="devicon-kotlin-plain text-[#7F52FF]"></i> KSP Version</label>
-                    <select v-model="filters.ksp" class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer">
-                        <option value="">All Versions</option>
-                        <option v-for="v in uniqueValues('ksp')" :key="v" :value="v">{{ v }}</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs text-gray-400 mb-1.5 font-bold uppercase tracking-wider flex items-center gap-2"><i class="fas fa-filter text-gray-400"></i> Status</label>
-                    <select v-model="filters.status" class="w-full bg-background border border-gray-700 rounded-lg p-2.5 text-sm text-white focus:ring-1 focus:ring-android focus:border-android outline-none transition-all cursor-pointer">
-                        <option value="">All Statuses</option>
-                        <option value="verified">Verified</option>
-                        <option value="failed">Failed</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Loader -->
-            <div v-if="loading" class="flex justify-center items-center py-24 flex-col gap-5">
-                <div class="relative w-16 h-16">
-                    <div class="absolute inset-0 border-4 border-gray-800 rounded-full"></div>
-                    <div class="absolute inset-0 border-4 border-android border-t-transparent rounded-full animate-spin"></div>
-                </div>
-                <p class="text-gray-400 font-medium animate-pulse">Loading matrix data...</p>
+      <!-- Log Modal -->
+      <Transition name="modal">
+        <div
+          v-if="selectedItem"
+          class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
+          @click.self="selectedItem = null"
+        >
+          <div
+            class="bg-surface border border-gray-700 rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] flex flex-col transform transition-all"
+          >
+            <!-- Modal Header -->
+            <div
+              class="p-5 border-b border-gray-700 flex justify-between items-center bg-[#161616] rounded-t-2xl"
+            >
+              <div>
+                <h3
+                  class="text-xl font-bold text-white flex items-center gap-3"
+                >
+                  <i class="fas fa-laptop-code text-android"></i> Build Details
+                  <span
+                    v-if="selectedItem.status === 'verified'"
+                    class="text-sm font-bold text-green-400 ml-2 px-3 py-1 rounded bg-green-500/10 border border-green-500/20 uppercase tracking-wide"
+                    >Verified</span
+                  >
+                  <span
+                    v-else
+                    class="text-sm font-bold text-red-400 ml-2 px-3 py-1 rounded bg-red-500/10 border border-red-500/20 uppercase tracking-wide"
+                    >Failed</span
+                  >
+                </h3>
+                <p
+                  class="text-xs text-gray-500 font-mono mt-1.5 flex items-center gap-2"
+                >
+                  <i class="fas fa-fingerprint"></i> {{ selectedItem.id }}
+                </p>
+              </div>
+              <button
+                @click="selectedItem = null"
+                class="text-gray-400 hover:text-white hover:bg-gray-700/80 rounded-full w-10 h-10 flex items-center justify-center transition-colors"
+              >
+                <i class="fas fa-times text-xl"></i>
+              </button>
             </div>
 
-            <!-- Error Message -->
-            <div v-else-if="errorMessage" class="bg-red-900/20 border border-red-500/30 rounded-xl p-6 text-center shadow-lg">
-                <i class="fas fa-exclamation-circle text-red-500 text-4xl mb-3"></i>
-                <h2 class="text-xl font-bold text-red-400 mb-2">Failed to Load Data</h2>
-                <p class="text-red-300">{{ errorMessage }}</p>
-                <div class="mt-4 text-sm text-gray-400">
-                    <p>Try running this locally with:</p>
-                    <code class="bg-black/50 px-3 py-1.5 rounded inline-block mt-2 font-mono text-gray-300 border border-gray-700">python3 -m http.server 8000</code>
+            <!-- Modal Body -->
+            <div
+              class="p-6 overflow-y-auto flex-grow bg-background custom-scrollbar"
+            >
+              <!-- Version Grid -->
+              <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+                <div
+                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                >
+                  <div
+                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                  >
+                    <i class="devicon-android-plain text-android mr-1.5"></i>AGP
+                  </div>
+                  <div class="font-mono text-base font-semibold text-white">
+                    {{ selectedItem.agp }}
+                  </div>
                 </div>
-            </div>
-
-            <!-- Table -->
-            <div v-else class="bg-surface rounded-xl shadow-lg border border-gray-800 flex-grow flex flex-col">
-                <div class="overflow-x-auto rounded-xl">
-                    <table class="w-full text-left text-xs whitespace-nowrap">
-                        <thead class="text-[11px] md:text-xs uppercase bg-[#161616] text-gray-400 border-b border-gray-700 sticky top-0">
-                            <tr>
-                                <th class="px-2 py-3 font-bold text-center"><i class="devicon-android-plain mr-1 text-android text-sm"></i> AGP</th>
-                                <th class="px-2 py-3 font-bold text-center"><i class="devicon-gradle-plain mr-1 text-sm"></i> Gradle</th>
-                                <th class="px-2 py-3 font-bold text-center"><i class="devicon-kotlin-plain mr-1 text-sm"></i> Kotlin</th>
-                                <th class="px-2 py-3 font-bold text-center"><i class="devicon-kotlin-plain mr-1 text-sm"></i> KSP</th>
-                                <th class="px-2 py-3 font-bold text-center"><i class="devicon-java-plain mr-1 text-sm"></i> JDK</th>
-                                <th class="px-2 py-3 font-bold text-center" title="API Level"><i class="fas fa-layer-group mr-1 text-sm"></i> API</th>
-                                <th class="px-2 py-3 font-bold text-center" title="Status"><i class="fas fa-heart-pulse mr-1 text-sm"></i> Stat</th>
-                                <th class="px-2 py-3 font-bold text-center" title="Sync"><i class="fas fa-rotate mr-1 text-sm"></i> Sync</th>
-                                <th class="px-2 py-3 font-bold text-center" title="Compile"><i class="fas fa-cogs mr-1 text-sm"></i> Comp</th>
-                                <th class="px-2 py-3 font-bold text-center" title="Test"><i class="fas fa-vial mr-1 text-sm"></i> Test</th>
-                                <th class="px-2 py-3 font-bold text-center"><i class="fas fa-calendar-alt mr-1 text-gray-500 text-sm"></i> Date</th>
-                                <th class="px-2 py-3 font-bold text-center" title="Details"><i class="fas fa-info-circle mr-1 text-sm"></i> Log</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y-[0.5px] divide-white/10">
-                            <tr v-if="filteredData.length === 0">
-                                <td colspan="12" class="px-5 py-12 text-center text-gray-500">
-                                    <div class="flex flex-col items-center justify-center gap-3">
-                                        <i class="fas fa-search text-3xl text-gray-600"></i>
-                                        <p class="font-medium">No compatibility records found for the selected filters.</p>
-                                        <button @click="resetFilters" class="mt-2 text-android hover:text-green-400 text-sm font-semibold hover:underline">Reset Filters</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr v-for="item in filteredData" :key="item.id" :class="['transition-colors group', item.status === 'verified' ? 'bg-green-500/5 hover:bg-green-500/10' : 'bg-red-500/5 hover:bg-red-500/10']">
-                                <td class="px-2 py-2 font-mono text-android font-medium text-center">{{ item.agp }}</td>
-                                <td class="px-2 py-2 font-mono text-gray-300 text-center">{{ item.gradle }}</td>
-                                <td class="px-2 py-2 font-mono text-gray-300 text-center">{{ item.kotlin }}</td>
-                                <td class="px-2 py-2 font-mono text-[11px] text-gray-400 text-center">{{ item.ksp }}</td>
-                                <td class="px-2 py-2 font-mono text-gray-300 text-center">{{ item.jdk }}</td>
-                                <td class="px-2 py-2 font-mono text-gray-300 text-center">{{ item.compileSdk }}</td>
-                                <td class="px-2 py-2 text-center">
-                                    <span v-if="item.status === 'verified'" class="inline-flex items-center justify-center w-6 h-6 rounded-md text-[13px] font-bold bg-green-500/10 text-green-400 border border-green-500/20 shadow-sm" title="Verified">
-                                        <i class="fas fa-heart"></i>
-                                    </span>
-                                    <span v-else class="inline-flex items-center justify-center w-6 h-6 rounded-md text-[13px] font-bold bg-red-500/10 text-red-400 border border-red-500/20 shadow-sm" title="Failed">
-                                        <i class="fas fa-heart-crack"></i>
-                                    </span>
-                                </td>
-                                <td class="px-1 py-2 text-center">
-                                    <status-badge :status="item.verification?.sync"></status-badge>
-                                </td>
-                                <td class="px-1 py-2 text-center">
-                                    <status-badge :status="item.verification?.compile"></status-badge>
-                                </td>
-                                <td class="px-1 py-2 text-center">
-                                    <status-badge :status="item.verification?.unit_test"></status-badge>
-                                </td>
-                                <td class="px-2 py-2 text-[10px] text-gray-400 text-center whitespace-nowrap">
-                                    <div class="flex flex-col items-center justify-center gap-0.5">
-                                        <div class="flex items-center gap-1.5 text-gray-400" title="Date">
-                                            <i class="fas fa-calendar-alt opacity-70"></i>
-                                            <span>{{ formatDateOnly(item.timestamp) }}</span>
-                                        </div>
-                                        <div class="flex items-center gap-1.5 text-gray-500" title="Time">
-                                            <i class="fas fa-clock opacity-70"></i>
-                                            <span>{{ formatTimeOnly(item.timestamp) }}</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-2 py-2 text-center">
-                                    <button @click="showLog(item)" class="text-gray-500 group-hover:text-android group-hover:bg-android/10 p-1.5 rounded-lg transition-all" title="View Details">
-                                        <i class="fab fa-readme text-base"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div
+                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                >
+                  <div
+                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                  >
+                    <i class="devicon-gradle-plain text-gray-300 mr-1.5"></i
+                    >Gradle
+                  </div>
+                  <div class="font-mono text-base font-semibold text-white">
+                    {{ selectedItem.gradle }}
+                  </div>
                 </div>
-            </div>
-            
-            <div v-if="!loading" class="text-xs text-gray-500 font-medium text-center pb-4 flex items-center justify-center gap-2">
-                Showing <span class="text-white">{{ filteredData.length }}</span> of <span class="text-white">{{ allData.length }}</span> records
-            </div>
-        </main>
-
-        <!-- Log Modal -->
-        <Transition name="modal">
-            <div v-if="selectedItem" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm" @click.self="selectedItem = null">
-                <div class="bg-surface border border-gray-700 rounded-2xl shadow-2xl w-full max-w-5xl max-h-[90vh] flex flex-col transform transition-all">
-                    <!-- Modal Header -->
-                    <div class="p-5 border-b border-gray-700 flex justify-between items-center bg-[#161616] rounded-t-2xl">
-                        <div>
-                            <h3 class="text-xl font-bold text-white flex items-center gap-3">
-                                <i class="fas fa-laptop-code text-android"></i> Build Details
-                                <span v-if="selectedItem.status === 'verified'" class="text-sm font-bold text-green-400 ml-2 px-3 py-1 rounded bg-green-500/10 border border-green-500/20 uppercase tracking-wide">Verified</span>
-                                <span v-else class="text-sm font-bold text-red-400 ml-2 px-3 py-1 rounded bg-red-500/10 border border-red-500/20 uppercase tracking-wide">Failed</span>
-                            </h3>
-                            <p class="text-xs text-gray-500 font-mono mt-1.5 flex items-center gap-2">
-                                <i class="fas fa-fingerprint"></i> {{ selectedItem.id }}
-                            </p>
-                        </div>
-                        <button @click="selectedItem = null" class="text-gray-400 hover:text-white hover:bg-gray-700/80 rounded-full w-10 h-10 flex items-center justify-center transition-colors">
-                            <i class="fas fa-times text-xl"></i>
-                        </button>
-                    </div>
-                    
-                    <!-- Modal Body -->
-                    <div class="p-6 overflow-y-auto flex-grow bg-background custom-scrollbar">
-                        <!-- Version Grid -->
-                        <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mb-6">
-                            <div class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm">
-                                <div class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"><i class="devicon-android-plain text-android mr-1.5"></i>AGP</div>
-                                <div class="font-mono text-base font-semibold text-white">{{ selectedItem.agp }}</div>
-                            </div>
-                            <div class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm">
-                                <div class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"><i class="devicon-gradle-plain text-gray-300 mr-1.5"></i>Gradle</div>
-                                <div class="font-mono text-base font-semibold text-white">{{ selectedItem.gradle }}</div>
-                            </div>
-                            <div class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm">
-                                <div class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"><i class="devicon-kotlin-plain text-gray-300 mr-1.5"></i>Kotlin</div>
-                                <div class="font-mono text-base font-semibold text-white">{{ selectedItem.kotlin }}</div>
-                            </div>
-                            <div class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm">
-                                <div class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"><i class="fas fa-microchip text-gray-300 mr-1.5"></i>KSP</div>
-                                <div class="font-mono text-sm font-semibold text-white truncate" :title="selectedItem.ksp">{{ selectedItem.ksp }}</div>
-                            </div>
-                            <div class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm">
-                                <div class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"><i class="devicon-java-plain text-gray-300 mr-1.5"></i>JDK</div>
-                                <div class="font-mono text-base font-semibold text-white">{{ selectedItem.jdk }}</div>
-                            </div>
-                            <div class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm">
-                                <div class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"><i class="fas fa-layer-group text-gray-300 mr-1.5"></i>API LEVEL</div>
-                                <div class="font-mono text-base font-semibold text-white">{{ selectedItem.compileSdk }}</div>
-                            </div>
-                        </div>
-
-                        <!-- Errors & Signatures -->
-                        <div v-if="selectedItem.errorMessage" class="mb-6 animate-fade-in-up">
-                            <h4 class="text-sm font-bold text-red-400 mb-2.5 flex items-center gap-2 uppercase tracking-wide">
-                                <i class="fas fa-exclamation-triangle"></i> Error Message
-                            </h4>
-                            <div class="bg-red-900/20 border border-red-500/30 p-4 rounded-xl text-sm text-red-300 font-mono whitespace-pre-wrap shadow-inner">
-                                {{ selectedItem.errorMessage }}
-                            </div>
-                        </div>
-                        
-                        <div v-if="selectedItem.failureSignature" class="mb-6">
-                             <h4 class="text-sm font-bold text-amber-400 mb-2.5 flex items-center gap-2 uppercase tracking-wide">
-                                <i class="fas fa-bug"></i> Failure Signature
-                            </h4>
-                            <div class="bg-amber-900/20 border border-amber-500/30 p-3.5 rounded-xl text-sm text-amber-300 font-mono font-medium shadow-inner">
-                                {{ selectedItem.failureSignature }}
-                            </div>
-                        </div>
-
-                        <!-- Build Log -->
-                        <div class="flex flex-col h-[400px]">
-                            <div class="flex justify-between items-center mb-2.5">
-                                <h4 class="text-sm font-bold text-gray-300 flex items-center gap-2 uppercase tracking-wide">
-                                    <i class="fas fa-terminal text-gray-400"></i> Build Log
-                                </h4>
-                                <button @click="copyLog" class="text-xs font-semibold text-gray-300 hover:text-white flex items-center gap-2 bg-[#1E1E1E] hover:bg-gray-700 px-3 py-1.5 rounded-lg border border-gray-700 transition-colors shadow-sm">
-                                    <i class="fas" :class="copied ? 'fa-check text-green-400' : 'fa-copy'"></i> {{ copied ? 'Copied to clipboard' : 'Copy Log' }}
-                                </button>
-                            </div>
-                            <div class="relative flex-grow bg-[#0d1117] border border-gray-700 rounded-xl overflow-hidden shadow-inner">
-                                <pre class="absolute inset-0 p-5 text-xs text-gray-300 font-mono overflow-auto custom-scrollbar whitespace-pre-wrap leading-relaxed" style="tab-size: 4;">{{ selectedItem.buildLog }}</pre>
-                            </div>
-                        </div>
-                    </div>
+                <div
+                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                >
+                  <div
+                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                  >
+                    <i class="devicon-kotlin-plain text-gray-300 mr-1.5"></i
+                    >Kotlin
+                  </div>
+                  <div class="font-mono text-base font-semibold text-white">
+                    {{ selectedItem.kotlin }}
+                  </div>
                 </div>
+                <div
+                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                >
+                  <div
+                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                  >
+                    <i class="fas fa-microchip text-gray-300 mr-1.5"></i>KSP
+                  </div>
+                  <div
+                    class="font-mono text-sm font-semibold text-white truncate"
+                    :title="selectedItem.ksp"
+                  >
+                    {{ selectedItem.ksp || '—' }}
+                  </div>
+                </div>
+                <div
+                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                >
+                  <div
+                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                  >
+                    <i class="devicon-java-plain text-gray-300 mr-1.5"></i>JDK
+                  </div>
+                  <div class="font-mono text-base font-semibold text-white">
+                    {{ selectedItem.jdk }}
+                  </div>
+                </div>
+                <div
+                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                >
+                  <div
+                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                  >
+                    <i class="fas fa-layer-group text-gray-300 mr-1.5"></i>API
+                    LEVEL
+                  </div>
+                  <div class="font-mono text-base font-semibold text-white">
+                    {{ selectedItem.compileSdk }}
+                  </div>
+                </div>
+                <div
+                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                >
+                  <div
+                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                  >
+                    <i class="fas fa-cube text-[#E85A4F] mr-1.5"></i>HILT
+                  </div>
+                  <div class="font-mono text-sm font-semibold text-white">
+                    {{ selectedItem.hiltVersion || '—' }}
+                  </div>
+                </div>
+                <div
+                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                >
+                  <div
+                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                  >
+                    <i class="fas fa-database text-[#4A90E2] mr-1.5"></i>ROOM
+                  </div>
+                  <div class="font-mono text-sm font-semibold text-white">
+                    {{ selectedItem.roomVersion || '—' }}
+                  </div>
+                </div>
+                <div
+                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                >
+                  <div
+                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                  >
+                    <i class="fas fa-route text-[#F5A623] mr-1.5"></i>NAV
+                  </div>
+                  <div class="font-mono text-sm font-semibold text-white">
+                    {{ selectedItem.navigationVersion || '—' }}
+                  </div>
+                </div>
+                <div
+                  class="bg-surface p-4 rounded-xl border border-gray-800 shadow-sm"
+                >
+                  <div
+                    class="text-xs text-gray-500 mb-1.5 font-bold uppercase tracking-wider"
+                  >
+                    <i class="fas fa-paint-brush text-[#4285F4] mr-1.5"></i
+                    >COMPOSE
+                  </div>
+                  <div class="font-mono text-sm font-semibold text-white">
+                    {{ selectedItem.composeCompiler || '—' }}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Errors & Signatures -->
+              <div
+                v-if="selectedItem.errorMessage"
+                class="mb-6 animate-fade-in-up"
+              >
+                <h4
+                  class="text-sm font-bold text-red-400 mb-2.5 flex items-center gap-2 uppercase tracking-wide"
+                >
+                  <i class="fas fa-exclamation-triangle"></i> Error Message
+                </h4>
+                <div
+                  class="bg-red-900/20 border border-red-500/30 p-4 rounded-xl text-sm text-red-300 font-mono whitespace-pre-wrap shadow-inner"
+                >
+                  {{ selectedItem.errorMessage }}
+                </div>
+              </div>
+
+              <div v-if="selectedItem.failureSignature" class="mb-6">
+                <h4
+                  class="text-sm font-bold text-amber-400 mb-2.5 flex items-center gap-2 uppercase tracking-wide"
+                >
+                  <i class="fas fa-bug"></i> Failure Signature
+                </h4>
+                <div
+                  class="bg-amber-900/20 border border-amber-500/30 p-3.5 rounded-xl text-sm text-amber-300 font-mono font-medium shadow-inner"
+                >
+                  {{ selectedItem.failureSignature }}
+                </div>
+              </div>
+
+              <!-- Build Log -->
+              <div class="flex flex-col h-[400px]">
+                <div class="flex justify-between items-center mb-2.5">
+                  <h4
+                    class="text-sm font-bold text-gray-300 flex items-center gap-2 uppercase tracking-wide"
+                  >
+                    <i class="fas fa-terminal text-gray-400"></i> Build Log
+                  </h4>
+                  <button
+                    @click="copyLog"
+                    class="text-xs font-semibold text-gray-300 hover:text-white flex items-center gap-2 bg-[#1E1E1E] hover:bg-gray-700 px-3 py-1.5 rounded-lg border border-gray-700 transition-colors shadow-sm"
+                  >
+                    <i
+                      class="fas"
+                      :class="copied ? 'fa-check text-green-400' : 'fa-copy'"
+                    ></i>
+                    {{ copied ? 'Copied to clipboard' : 'Copy Log' }}
+                  </button>
+                </div>
+                <div
+                  class="relative flex-grow bg-[#0d1117] border border-gray-700 rounded-xl overflow-hidden shadow-inner"
+                >
+                  <pre
+                    class="absolute inset-0 p-5 text-xs text-gray-300 font-mono overflow-auto custom-scrollbar whitespace-pre-wrap leading-relaxed"
+                    style="tab-size: 4"
+                  >
+{{ selectedItem.buildLog }}</pre
+                  >
+                </div>
+              </div>
             </div>
-        </Transition>
+          </div>
+        </div>
+      </Transition>
     </div>
 
     <script>
-        const { createApp } = Vue
+      const { createApp } = Vue;
 
-        // Component for Status Badges (No Pills)
-        const StatusBadge = {
-            props: ['status'],
-            template: `
+      // Component for Status Badges
+      const StatusBadge = {
+        props: ["status"],
+        template: `
                 <div class="flex justify-center">
                     <span v-if="status === 'PASSED'" class="inline-flex items-center justify-center w-6 h-6 rounded-md text-[13px] font-bold bg-green-500/10 text-green-400 border border-green-500/20 shadow-sm" title="Passed">
                         <i class="fas fa-rotate"></i>
@@ -359,189 +801,211 @@
                         <i class="fas fa-question"></i>
                     </span>
                 </div>
-            `
-        }
+            `,
+      };
 
-        createApp({
-            components: {
-                'status-badge': StatusBadge
+      createApp({
+        components: {
+          "status-badge": StatusBadge,
+        },
+        data() {
+          return {
+            sources: ["agp9", "agp8", "agp7"],
+            activeTab: "agp9",
+            allData: [],
+            loading: true,
+            errorMessage: null,
+            filters: {
+              agp: "",
+              gradle: "",
+              kotlin: "",
+              ksp: "",
+              hilt: "",
+              room: "",
+              navigation: "",
+              status: "",
             },
-            data() {
-                return {
-                    sources: ['agp9', 'agp8', 'agp7'],
-                    activeTab: 'agp9',
-                    allData: [],
-                    loading: true,
-                    errorMessage: null,
-                    filters: {
-                        agp: '',
-                        gradle: '',
-                        kotlin: '',
-                        ksp: '',
-                        status: ''
-                    },
-                    selectedItem: null,
-                    copied: false
-                }
-            },
-            computed: {
-                filteredData() {
-                    let data = this.allData.filter(item => item._source === this.activeTab);
-                    if (this.filters.agp) data = data.filter(i => i.agp === this.filters.agp);
-                    if (this.filters.gradle) data = data.filter(i => i.gradle === this.filters.gradle);
-                    if (this.filters.kotlin) data = data.filter(i => i.kotlin === this.filters.kotlin);
-                    if (this.filters.ksp) data = data.filter(i => i.ksp === this.filters.ksp);
-                    if (this.filters.status) data = data.filter(i => i.status === this.filters.status);
-                    return data;
-                },
-                stats() {
-                    const tabData = this.allData.filter(item => item._source === this.activeTab);
-                    return {
-                        verified: tabData.filter(i => i.status === 'verified').length,
-                        failed: tabData.filter(i => i.status === 'failed').length
-                    }
-                },
-                lastRunDate() {
-                    if (this.allData.length === 0) return 'Loading...';
-                    let maxTime = 0;
-                    for (const item of this.allData) {
-                        const t = new Date(item.timestamp || 0).getTime();
-                        if (t > maxTime) maxTime = t;
-                    }
-                    if (maxTime === 0) return 'Unknown';
-                    return new Date(maxTime).toLocaleString(undefined, { 
-                        year: 'numeric', month: 'short', day: 'numeric', 
-                        hour: '2-digit', minute: '2-digit' 
-                    });
-                }
-            },
-            methods: {
-                formatDateOnly(dateStr) {
-                    if (!dateStr) return 'N/A';
-                    return new Date(dateStr).toLocaleDateString(undefined, {
-                        year: '2-digit', month: '2-digit', day: '2-digit'
-                    });
-                },
-                formatTimeOnly(dateStr) {
-                    if (!dateStr) return 'N/A';
-                    return new Date(dateStr).toLocaleTimeString(undefined, {
-                        hour: '2-digit', minute: '2-digit', hour12: true, timeZoneName: 'short'
-                    });
-                },
-                resetFilters() {
-                    this.filters = { agp: '', gradle: '', kotlin: '', ksp: '', status: '' };
-                },
-                uniqueValues(key) {
-                    const tabData = this.allData.filter(item => item._source === this.activeTab);
-                    // Extract unique values and filter out empties
-                    const values = [...new Set(tabData.map(item => item[key]))].filter(Boolean);
-                    
-                    // Semantic version sorting (descending)
-                    return values.sort((a, b) => {
-                        const pa = a.split(/[.-]/).map(n => parseInt(n) || 0);
-                        const pb = b.split(/[.-]/).map(n => parseInt(n) || 0);
-                        for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
-                            const numA = pa[i] || 0;
-                            const numB = pb[i] || 0;
-                            if (numA !== numB) return numB - numA; // Descending
-                        }
-                        return 0;
-                    });
-                },
-                async loadData() {
-                    this.loading = true;
-                    this.errorMessage = null; // Clear any previous errors
-                    
-                    const fetchPromises = this.sources.map(async (source) => {
-                        try {
-                            const res = await fetch(`data/${source}/compat.json`);
-                            if (res.ok) {
-                                const json = await res.json();
-                                if (json && json.results) {
-                                    return json.results.map(r => ({...r, _source: source}));
-                                }
-                            }
-                        } catch (e) {
-                            console.warn(`Failed to load data for ${source}`, e);
-                            if (window.location.protocol === 'file:') {
-                                this.errorMessage = "It looks like you are opening this file locally directly in the browser (file:// protocol). Browsers block fetching local JSON files for security reasons. Please serve this folder using a local web server (e.g., `python3 -m http.server`) or push it to GitHub Pages.";
-                            }
-                        }
-                        return [];
-                    });
-
-                    const results = await Promise.all(fetchPromises);
-                    
-                    let combinedData = [];
-                    results.forEach(res => {
-                        combinedData = combinedData.concat(res);
-                    });
-                    
-                    // Data is already sorted within the JSON files by AGP version.
-                    // Promise.all maintains the array order (agp9, agp8, agp7).
-                    // So combinedData is naturally sorted by AGP version!
-                    this.allData = combinedData;
-                    this.loading = false;
-                },
-                showLog(item) {
-                    this.selectedItem = item;
-                    this.copied = false;
-                    document.body.style.overflow = 'hidden'; // prevent background scrolling
-                },
-                copyLog() {
-                    if (this.selectedItem && this.selectedItem.buildLog) {
-                        navigator.clipboard.writeText(this.selectedItem.buildLog).then(() => {
-                            this.copied = true;
-                            setTimeout(() => this.copied = false, 2500);
-                        });
-                    }
-                }
-            },
-            watch: {
-                selectedItem(newVal) {
-                    if (!newVal) {
-                        document.body.style.overflow = '';
-                    }
-                }
-            },
-            mounted() {
-                this.loadData();
+            selectedItem: null,
+            copied: false,
+          };
+        },
+        computed: {
+          filteredData() {
+            let data = this.allData.filter(
+              (item) => item._source === this.activeTab,
+            );
+            if (this.filters.agp)
+              data = data.filter((i) => i.agp === this.filters.agp);
+            if (this.filters.gradle)
+              data = data.filter((i) => i.gradle === this.filters.gradle);
+            if (this.filters.kotlin)
+              data = data.filter((i) => i.kotlin === this.filters.kotlin);
+            if (this.filters.ksp)
+              data = data.filter((i) => i.ksp === this.filters.ksp);
+            if (this.filters.hilt)
+              data = data.filter((i) => i.hiltVersion === this.filters.hilt);
+            if (this.filters.room)
+              data = data.filter((i) => i.roomVersion === this.filters.room);
+            if (this.filters.navigation)
+              data = data.filter(
+                (i) => i.navigationVersion === this.filters.navigation,
+              );
+            if (this.filters.status)
+              data = data.filter((i) => i.status === this.filters.status);
+            return data;
+          },
+          stats() {
+            const tabData = this.allData.filter(
+              (item) => item._source === this.activeTab,
+            );
+            return {
+              verified: tabData.filter((i) => i.status === "verified").length,
+              failed: tabData.filter((i) => i.status === "failed").length,
+            };
+          },
+          lastRunDate() {
+            if (this.allData.length === 0) return "Loading...";
+            let maxTime = 0;
+            for (const item of this.allData) {
+              const t = new Date(item.timestamp || 0).getTime();
+              if (t > maxTime) maxTime = t;
             }
-        }).mount('#app')
+            if (maxTime === 0) return "Unknown";
+            return new Date(maxTime).toLocaleString(undefined, {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            });
+          },
+        },
+        methods: {
+          formatDateOnly(dateStr) {
+            if (!dateStr) return "N/A";
+            return new Date(dateStr).toLocaleDateString(undefined, {
+              year: "2-digit",
+              month: "2-digit",
+              day: "2-digit",
+            });
+          },
+          formatTimeOnly(dateStr) {
+            if (!dateStr) return "N/A";
+            return new Date(dateStr).toLocaleTimeString(undefined, {
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: true,
+              timeZoneName: "short",
+            });
+          },
+          resetFilters() {
+            this.filters = {
+              agp: "",
+              gradle: "",
+              kotlin: "",
+              ksp: "",
+              hilt: "",
+              room: "",
+              navigation: "",
+              status: "",
+            };
+          },
+          uniqueValues(key) {
+            const tabData = this.allData.filter(
+              (item) => item._source === this.activeTab,
+            );
+            const values = [
+              ...new Set(tabData.map((item) => item[key])),
+            ].filter(Boolean);
+            return values.sort((a, b) => {
+              const pa = a.split(/[.-]/).map((n) => parseInt(n) || 0);
+              const pb = b.split(/[.-]/).map((n) => parseInt(n) || 0);
+              for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+                const numA = pa[i] || 0;
+                const numB = pb[i] || 0;
+                if (numA !== numB) return numB - numA;
+              }
+              return 0;
+            });
+          },
+          async loadData() {
+            this.loading = true;
+            this.errorMessage = null;
+
+            const fetchPromises = this.sources.map(async (source) => {
+              try {
+                const res = await fetch(`data/${source}/compat.json`);
+                if (res.ok) {
+                  const json = await res.json();
+                  if (json && json.results) {
+                    return json.results.map((r) => ({ ...r, _source: source }));
+                  }
+                }
+              } catch (e) {
+                console.warn(`Failed to load data for ${source}`, e);
+                if (window.location.protocol === "file:") {
+                  this.errorMessage =
+                    "It looks like you are opening this file locally directly in the browser (file:// protocol). Browsers block fetching local JSON files for security reasons. Please serve this folder using a local web server (e.g., `python3 -m http.server`) or push it to GitHub Pages.";
+                }
+              }
+              return [];
+            });
+
+            const results = await Promise.all(fetchPromises);
+
+            let combinedData = [];
+            results.forEach((res) => {
+              combinedData = combinedData.concat(res);
+            });
+
+            this.allData = combinedData;
+            this.loading = false;
+          },
+          showLog(item) {
+            this.selectedItem = item;
+            this.copied = false;
+            document.body.style.overflow = "hidden";
+          },
+          copyLog() {
+            if (this.selectedItem && this.selectedItem.buildLog) {
+              navigator.clipboard
+                .writeText(this.selectedItem.buildLog)
+                .then(() => {
+                  this.copied = true;
+                  setTimeout(() => (this.copied = false), 2500);
+                });
+            }
+          },
+        },
+        watch: {
+          selectedItem(newVal) {
+            if (!newVal) {
+              document.body.style.overflow = "";
+            }
+          },
+        },
+        mounted() {
+          this.loadData();
+        },
+      }).mount("#app");
     </script>
-    <style>
-        [v-cloak] { display: none !important; }
-        .animate-fade-in-up {
-            animation: fadeInUp 0.4s ease-out;
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
 
     <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyD1lA2l7ZITxm-kca2u-2o-_RbhAA1XbTM",
-    authDomain: "android-compat-github.firebaseapp.com",
-    projectId: "android-compat-github",
-    storageBucket: "android-compat-github.firebasestorage.app",
-    messagingSenderId: "670711176665",
-    appId: "1:670711176665:web:3c64ba3e813e661ae1cdc8",
-    measurementId: "G-XL5P0KWTQL"
-  };
+      const firebaseConfig = {
+        apiKey: "AIzaSyD1lA2l7ZITxm-kca2u-2o-_RbhAA1XbTM",
+        authDomain: "android-compat-github.firebaseapp.com",
+        projectId: "android-compat-github",
+        storageBucket: "android-compat-github.firebasestorage.app",
+        messagingSenderId: "670711176665",
+        appId: "1:670711176665:web:3c64ba3e813e661ae1cdc8",
+        measurementId: "G-XL5P0KWTQL",
+      };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
-</body>
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+  </body>
 </html>
