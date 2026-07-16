@@ -544,11 +544,24 @@
             <!-- Right Column: Results & Action -->
             <div class="flex-1 flex flex-col justify-between gap-4">
                <div>
-                 <h4 class="text-[10px] uppercase tracking-wider text-textMuted font-bold mb-3 flex items-center justify-between">
-                   <span>Test Breakdown</span>
-                   <span class="font-mono bg-textMain text-surface px-2 py-0.5 rounded-md shadow-sm normal-case text-[10px] tracking-normal inline-flex items-center gap-1.5" title="Combo ID">
-                     <i class="fas fa-fingerprint opacity-90"></i> {{ item.id.substring(0, 8) }}
-                   </span>
+                 <div class="mb-3 flex justify-end">
+                   <div class="inline-flex shadow-sm rounded-md">
+                     <button @click="copyId(item.id)" :class="['font-mono bg-textMain hover:bg-gray-800 text-surface px-2 py-1 normal-case text-xs tracking-normal inline-flex items-center gap-1.5 transition-colors cursor-pointer', item.workflowUrl ? 'rounded-l-md border-r border-white/20' : 'rounded-md']" title="Copy Combo ID">
+                       <i class="fas" :class="copiedId === item.id ? 'fa-check text-green-400' : 'fa-fingerprint opacity-90'"></i> {{ item.id }}
+                     </button>
+                     <a
+                       v-if="item.workflowUrl"
+                       :href="item.workflowUrl"
+                       target="_blank"
+                       class="bg-textMain hover:bg-gray-800 text-surface px-2.5 py-1 rounded-r-md flex items-center justify-center transition-colors"
+                       title="View GitHub Workflow"
+                     >
+                       <i class="fab fa-github"></i>
+                     </a>
+                   </div>
+                 </div>
+                 <h4 class="text-[10px] uppercase tracking-wider text-textMuted font-bold mb-3">
+                   Test Breakdown
                  </h4>
                  <div class="flex items-center gap-2 bg-card p-2.5 rounded-lg border border-border justify-between">
                    <div class="flex flex-col items-center gap-1.5 w-1/3" title="Sync">
@@ -644,9 +657,9 @@
                   >
                 </h3>
                 <p class="mt-2 flex items-center">
-                   <span class="font-mono bg-textMain text-surface px-2 py-0.5 rounded-md shadow-sm text-xs inline-flex items-center gap-2" title="Combo ID">
-                     <i class="fas fa-fingerprint opacity-90"></i> {{ selectedItem.id }}
-                   </span>
+                   <button @click="copyId(selectedItem.id)" class="font-mono bg-textMain hover:bg-gray-800 text-surface px-2 py-0.5 rounded-md shadow-sm text-xs inline-flex items-center gap-2 transition-colors cursor-pointer" title="Copy Combo ID">
+                     <i class="fas" :class="copiedId === selectedItem.id ? 'fa-check text-green-400' : 'fa-fingerprint opacity-90'"></i> {{ selectedItem.id }}
+                   </button>
                 </p>
               </div>
               <button
@@ -830,16 +843,26 @@
                   >
                     <i class="fas fa-terminal text-textMuted"></i> Build Log
                   </h4>
-                  <button
-                    @click="copyLog"
-                    class="text-xs font-semibold text-textMain flex items-center gap-2 bg-card hover:bg-border px-3 py-1.5 rounded-lg border border-border transition-colors shadow-sm"
-                  >
-                    <i
-                      class="fas"
-                      :class="copied ? 'fa-check text-successText' : 'fa-copy'"
-                    ></i>
-                    {{ copied ? 'Copied to clipboard' : 'Copy Log' }}
-                  </button>
+                  <div class="flex items-center gap-2">
+                    <a
+                      v-if="selectedItem.workflowUrl"
+                      :href="selectedItem.workflowUrl"
+                      target="_blank"
+                      class="text-xs font-semibold text-textMain flex items-center gap-2 bg-card hover:bg-border px-3 py-1.5 rounded-lg border border-border transition-colors shadow-sm"
+                    >
+                      <i class="fab fa-github"></i> Workflow
+                    </a>
+                    <button
+                      @click="copyLog"
+                      class="text-xs font-semibold text-textMain flex items-center gap-2 bg-card hover:bg-border px-3 py-1.5 rounded-lg border border-border transition-colors shadow-sm"
+                    >
+                      <i
+                        class="fas"
+                        :class="copied ? 'fa-check text-successText' : 'fa-copy'"
+                      ></i>
+                      {{ copied ? 'Copied to clipboard' : 'Copy Log' }}
+                    </button>
+                  </div>
                 </div>
                 <div
                   class="relative flex-grow bg-card border border-border rounded-xl overflow-hidden shadow-inner"
@@ -901,6 +924,7 @@
             itemsPerPage: 10,
             loading: true,
             errorMessage: null,
+            copiedId: null,
             filters: {
               agp: "",
               gradle: "",
@@ -1131,6 +1155,14 @@
             this.selectedItem = item;
             this.copied = false;
             document.body.style.overflow = "hidden";
+          },
+          copyId(id) {
+            navigator.clipboard.writeText(id).then(() => {
+              this.copiedId = id;
+              setTimeout(() => {
+                if (this.copiedId === id) this.copiedId = null;
+              }, 2000);
+            });
           },
           copyLog() {
             if (this.selectedItem && this.selectedItem.buildLog) {
