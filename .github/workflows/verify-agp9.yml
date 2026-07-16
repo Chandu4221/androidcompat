@@ -1,4 +1,4 @@
-name: Verify AGP 9.x
+name: Verify AGP 8.x
 
 on:
   workflow_dispatch:
@@ -52,7 +52,7 @@ jobs:
           go-version: "1.26"
           cache: false
 
-      - name: Read combos from file
+      - name: Generate combos
         id: combos
         run: |
           COMBOS=$(cat data/agp9/combos-to-test.json | jq -c '.combos')
@@ -81,7 +81,7 @@ jobs:
         uses: actions/setup-java@v5
         with:
           distribution: "temurin"
-          java-version: ${{ matrix.combo.jdk }}
+          java-version: ${{ matrix.combo.coreToolchain.jdk }}
 
       - name: Setup Go
         uses: actions/setup-go@v6
@@ -99,23 +99,27 @@ jobs:
         run: |
           mkdir -p tmp-build
           cp -r stubs/agp9/* tmp-build/
+
+          # Parse the nested combo JSON to extract flat flags for the Go tools
+          COMBO='${{ toJson(matrix.combo) }}'
+
           go run cmd/inject/main.go \
             --dir=tmp-build \
-            --agp=${{ matrix.combo.agp }} \
-            --gradle=${{ matrix.combo.gradle }} \
-            --kotlin=${{ matrix.combo.kotlin }} \
-            --ksp=${{ matrix.combo.ksp }} \
-            --compile-sdk=${{ matrix.combo.compileSdk }} \
+            --agp=$(echo "$COMBO" | jq -r '.coreToolchain.agp') \
+            --gradle=$(echo "$COMBO" | jq -r '.coreToolchain.gradle') \
+            --kotlin=$(echo "$COMBO" | jq -r '.coreToolchain.kotlin') \
+            --ksp=$(echo "$COMBO" | jq -r '.coreToolchain.ksp') \
+            --compile-sdk=$(echo "$COMBO" | jq -r '.coreToolchain.compileSdk') \
             --agp-major=9 \
-            --hilt="${{ matrix.combo.hiltVersion }}" \
-            --room="${{ matrix.combo.roomVersion }}" \
-            --navigation="${{ matrix.combo.navigationVersion }}" \
-            --compose-compiler="${{ matrix.combo.composeCompiler }}"
+            --hilt=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="hilt")) | .[0].version // ""') \
+            --room=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="room")) | .[0].version // ""') \
+            --navigation=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="navigation")) | .[0].version // ""') \
+            --compose-compiler=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="composeCompiler")) | .[0].version // ""')
 
       - name: Install Android SDK platform
         run: |
           export JAVA_HOME=$JAVA_HOME_17_X64
-          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-${{ matrix.combo.sdkPackage }}"
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-${{ matrix.combo.coreToolchain.sdkPackage }}"
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
 
@@ -123,7 +127,6 @@ jobs:
         id: build
         run: |
           cd tmp-build
-          # Run the bridge – JSON goes to bridge-output.json, build log goes to stdout.log
           "$JAVA_HOME_17_X64/bin/java" -jar ${GITHUB_WORKSPACE}/gradle-bridge.jar \
             --project-dir . \
             --tasks build \
@@ -141,19 +144,21 @@ jobs:
 
       - name: Collect result
         run: |
+          COMBO='${{ toJson(matrix.combo) }}'
+
           go run cmd/collect/main.go \
-            --id=${{ matrix.combo.id }} \
-            --agp=${{ matrix.combo.agp }} \
-            --gradle=${{ matrix.combo.gradle }} \
-            --kotlin=${{ matrix.combo.kotlin }} \
-            --ksp=${{ matrix.combo.ksp }} \
-            --jdk=${{ matrix.combo.jdk }} \
-            --compile-sdk=${{ matrix.combo.compileSdk }} \
-            --sdk-package=${{ matrix.combo.sdkPackage }} \
-            --hilt="${{ matrix.combo.hiltVersion }}" \
-            --room="${{ matrix.combo.roomVersion }}" \
-            --navigation="${{ matrix.combo.navigationVersion }}" \
-            --compose-compiler="${{ matrix.combo.composeCompiler }}" \
+            --id=$(echo "$COMBO" | jq -r '.id') \
+            --agp=$(echo "$COMBO" | jq -r '.coreToolchain.agp') \
+            --gradle=$(echo "$COMBO" | jq -r '.coreToolchain.gradle') \
+            --kotlin=$(echo "$COMBO" | jq -r '.coreToolchain.kotlin') \
+            --ksp=$(echo "$COMBO" | jq -r '.coreToolchain.ksp') \
+            --jdk=$(echo "$COMBO" | jq -r '.coreToolchain.jdk') \
+            --compile-sdk=$(echo "$COMBO" | jq -r '.coreToolchain.compileSdk') \
+            --sdk-package=$(echo "$COMBO" | jq -r '.coreToolchain.sdkPackage') \
+            --hilt=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="hilt")) | .[0].version // ""') \
+            --room=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="room")) | .[0].version // ""') \
+            --navigation=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="navigation")) | .[0].version // ""') \
+            --compose-compiler=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="composeCompiler")) | .[0].version // ""') \
             --dir=tmp-build \
             --out=. \
             --bridge-json tmp-build/bridge-output.json
