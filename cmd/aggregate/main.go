@@ -100,7 +100,7 @@ func main() {
 	// Sort results by ID for deterministic output
 	sort.Slice(mergedResults, func(i, j int) bool {
 		// Descending: latest AGP first
-		cmp := compareAgpVersions(mergedResults[i].AGP, mergedResults[j].AGP)
+		cmp := compareAgpVersions(mergedResults[i].CoreToolchain.AGP, mergedResults[j].CoreToolchain.AGP)
 		if cmp != 0 {
 			return cmp > 0
 		}

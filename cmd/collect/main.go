@@ -88,18 +88,27 @@ func main() {
 	}
 
 	// Populate version fields from flags
-	result.AGP = *agp
-	result.Gradle = *gradle
-	result.Kotlin = *kotlin
-	result.KSP = *ksp
-	result.JDK = *jdk
-	result.CompileSdk = *compileSdk
-	result.SdkPackage = *sdkPackage
-	// Phase B fields
-	result.HiltVersion = *hilt
-	result.RoomVersion = *room
-	result.NavigationVersion = *navigation
-	result.ComposeCompiler = *composeCompiler
+	result.CoreToolchain.AGP = *agp
+	result.CoreToolchain.Gradle = *gradle
+	result.CoreToolchain.Kotlin = *kotlin
+	result.CoreToolchain.KSP = *ksp
+	result.CoreToolchain.JDK = *jdk
+	result.CoreToolchain.CompileSdk = *compileSdk
+	result.CoreToolchain.SdkPackage = *sdkPackage
+
+	result.Libraries = []storage.Library{}
+	if *hilt != "" {
+		result.Libraries = append(result.Libraries, storage.Library{Name: "hilt", Version: *hilt})
+	}
+	if *room != "" {
+		result.Libraries = append(result.Libraries, storage.Library{Name: "room", Version: *room})
+	}
+	if *navigation != "" {
+		result.Libraries = append(result.Libraries, storage.Library{Name: "navigation", Version: *navigation})
+	}
+	if *composeCompiler != "" {
+		result.Libraries = append(result.Libraries, storage.Library{Name: "composeCompiler", Version: *composeCompiler})
+	}
 
 	result.ID = *comboID
 	result.Timestamp = time.Now().UTC().Format(time.RFC3339)

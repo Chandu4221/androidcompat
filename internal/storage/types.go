@@ -44,7 +44,6 @@ type AgpRules struct {
 	CompileSdkFloors     []RuleEntry `json:"compileSdkFloors"`
 }
 
-// NEW: Kotlin rules
 type KotlinAgpR8Entry struct {
 	KotlinVersion string `json:"kotlinVersion"`
 	MinAgp        string `json:"minAgp"`
@@ -68,7 +67,6 @@ type KotlinRules struct {
 
 type GradleRules struct {
 	TestedAgpRange interface{} `json:"testedAgpRange"`
-	// KotlinEmbedded removed (moved to agp.builtInKotlinMinimum)
 }
 
 type KspBuiltInKotlinCompatibility struct {
@@ -89,9 +87,8 @@ type Rules struct {
 	Navigation                    NavigationRules                 `json:"navigation"`
 }
 
-// ---------- Combos (candidate generation output) ----------
-type Combo struct {
-	ID         string `json:"id"`
+// ---------- Shared Core & Library Structures ----------
+type CoreToolchain struct {
 	AGP        string `json:"agp"`
 	Gradle     string `json:"gradle"`
 	Kotlin     string `json:"kotlin"`
@@ -99,11 +96,18 @@ type Combo struct {
 	JDK        string `json:"jdk"`
 	CompileSdk string `json:"compileSdk"`
 	SdkPackage string `json:"sdkPackage"`
-	// Phase B — optional, empty string when this combo doesn't test that axis
-	HiltVersion       string `json:"hiltVersion,omitempty"`
-	ComposeCompiler   string `json:"composeCompiler,omitempty"`
-	RoomVersion       string `json:"roomVersion,omitempty"`
-	NavigationVersion string `json:"navigationVersion,omitempty"`
+}
+
+type Library struct {
+	Name    string `json:"name"`
+	Version string `json:"version"`
+}
+
+// ---------- Combos (candidate generation output) ----------
+type Combo struct {
+	ID            string        `json:"id"`
+	CoreToolchain CoreToolchain `json:"coreToolchain"`
+	Libraries     []Library     `json:"libraries"`
 }
 
 type CombosFile struct {
@@ -113,30 +117,22 @@ type CombosFile struct {
 }
 
 // ---------- Compatibility Results ----------
+type VerificationStatus struct {
+	Sync     string `json:"sync"`      // "PASSED", "FAILED", "SKIPPED"
+	Compile  string `json:"compile"`   // "PASSED", "FAILED", "SKIPPED"
+	UnitTest string `json:"unit_test"` // "PASSED", "FAILED", "SKIPPED"
+}
+
 type VerificationResult struct {
-	ID         string `json:"id"`
-	AGP        string `json:"agp"`
-	Gradle     string `json:"gradle"`
-	Kotlin     string `json:"kotlin"`
-	KSP        string `json:"ksp"`
-	JDK        string `json:"jdk"`
-	CompileSdk string `json:"compileSdk"`
-	SdkPackage string `json:"sdkPackage"`
-	// Phase B — optional fields as Combo, omitempty
-	HiltVersion       string `json:"hiltVersion,omitempty"`
-	ComposeCompiler   string `json:"composeCompiler,omitempty"`
-	RoomVersion       string `json:"roomVersion,omitempty"`
-	NavigationVersion string `json:"navigationVersion,omitempty"`
-	Status            string `json:"status"` // "verified", "failed"
-	Verification      struct {
-		Sync     string `json:"sync"`      // "PASSED", "FAILED", "SKIPPED"
-		Compile  string `json:"compile"`   // "PASSED", "FAILED", "SKIPPED"
-		UnitTest string `json:"unit_test"` // "PASSED", "FAILED", "SKIPPED"
-	} `json:"verification"`
-	FailureSignature string `json:"failureSignature,omitempty"`
-	ErrorMessage     string `json:"errorMessage,omitempty"`
-	BuildLog         string `json:"buildLog,omitempty"`
-	Timestamp        string `json:"timestamp"`
+	ID               string             `json:"id"`
+	Timestamp        string             `json:"timestamp"`
+	CoreToolchain    CoreToolchain      `json:"coreToolchain"`
+	Libraries        []Library          `json:"libraries"`
+	Status           string             `json:"status"` // "verified", "failed"
+	FailureSignature string             `json:"failureSignature,omitempty"`
+	ErrorMessage     string             `json:"errorMessage,omitempty"`
+	Verification     VerificationStatus `json:"verification"`
+	BuildLog         string             `json:"buildLog,omitempty"`
 }
 
 type CompatFile struct {
@@ -144,6 +140,7 @@ type CompatFile struct {
 	Results  []VerificationResult `json:"results"`
 }
 
+// ---------- Phase B Rule Structs ----------
 type HiltRules struct {
 	RequiredAgp []RuleEntry `json:"requiredAgp"`
 }
