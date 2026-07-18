@@ -1,6 +1,6 @@
 {
   "agpMajor": 7,
-  "generatedAt": "2026-07-16T10:52:28Z",
+  "generatedAt": "2026-07-18T03:30:25Z",
   "combos": [
     {
       "id": "6d6d515f7ec976cd",
@@ -16,7 +16,7 @@
       "libraries": []
     },
     {
-      "id": "6ef1512609ced90a",
+      "id": "db6d7d83e1463c5d",
       "coreToolchain": {
         "agp": "7.4.2",
         "gradle": "7.5",
@@ -28,7 +28,7 @@
       },
       "libraries": [
         {
-          "name": "composeCompiler",
+          "name": "compose",
           "version": "1.4.8"
         }
       ]
