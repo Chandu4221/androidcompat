@@ -78,6 +78,7 @@ func main() {
 		// Inject core-ktx version (ZERO branching logic, just injection)
 		if *coreKtx != "" {
 			tomlStr = injectTomlVersion(tomlStr, "core", *coreKtx)
+			tomlStr = injectTomlVersion(tomlStr, "core-ktx", *coreKtx)
 		}
 
 		// 2. Phase B TOML injections (GATED)
@@ -292,15 +293,19 @@ func injectTomlVersion(content, key, version string) string {
 	if version == "" {
 		return content
 	}
-	// Strip UTF-8 BOM if present to ensure ^ matches the first line
-	content = strings.TrimPrefix(content, "\xef\xbb\xbf")
 
-	// Match [versions] with optional trailing whitespace and any newline style (\n or \r\n)
+	// 1. FIRST: Try to replace the existing key (e.g., core = "1.15.0" -> core = "1.13.1")
+	reReplace := regexp.MustCompile(fmt.Sprintf(`(?m)^%s\s*=\s*".*"$`, regexp.QuoteMeta(key)))
+	if reReplace.MatchString(content) {
+		return reReplace.ReplaceAllString(content, fmt.Sprintf(`%s = "%s"`, key, version))
+	}
+
+	// 2. FALLBACK: Prepend to [versions] if the key doesn't exist yet
+	content = strings.TrimPrefix(content, "\xef\xbb\xbf")
 	re := regexp.MustCompile(`(?m)^\[versions\][ \t]*\r?\n`)
 	if re.MatchString(content) {
 		return re.ReplaceAllString(content, fmt.Sprintf("[versions]\n%s = \"%s\"\n", key, version))
 	}
-	// Fallback: if [versions] header is missing or malformed, safely prepend it
 	return fmt.Sprintf("[versions]\n%s = \"%s\"\n\n%s", key, version, content)
 }
 
