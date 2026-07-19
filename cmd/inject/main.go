@@ -77,8 +77,7 @@ func main() {
 
 		// Inject core-ktx version (ZERO branching logic, just injection)
 		if *coreKtx != "" {
-			tomlStr = injectTomlVersion(tomlStr, "core", *coreKtx)
-			tomlStr = injectTomlVersion(tomlStr, "core-ktx", *coreKtx)
+			tomlStr = injectTomlVersion(tomlStr, "coreKtx", *coreKtx)
 		}
 
 		// 2. Phase B TOML injections (GATED)
