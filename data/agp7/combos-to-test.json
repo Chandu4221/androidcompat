@@ -1,9 +1,9 @@
 {
   "agpMajor": 7,
-  "generatedAt": "2026-07-18T03:30:25Z",
+  "generatedAt": "2026-07-19T09:25:13Z",
   "combos": [
     {
-      "id": "6d6d515f7ec976cd",
+      "id": "12135c5b8fbd94b7",
       "coreToolchain": {
         "agp": "7.4.2",
         "gradle": "7.5",
@@ -11,12 +11,13 @@
         "ksp": "1.8.22-1.0.11",
         "jdk": "11",
         "compileSdk": "33",
-        "sdkPackage": "33"
+        "sdkPackage": "33",
+        "coreKtx": "1.10.1"
       },
       "libraries": []
     },
     {
-      "id": "db6d7d83e1463c5d",
+      "id": "30e34f5ce9d1dafc",
       "coreToolchain": {
         "agp": "7.4.2",
         "gradle": "7.5",
@@ -24,7 +25,8 @@
         "ksp": "1.8.22-1.0.11",
         "jdk": "11",
         "compileSdk": "33",
-        "sdkPackage": "33"
+        "sdkPackage": "33",
+        "coreKtx": "1.10.1"
       },
       "libraries": [
         {
