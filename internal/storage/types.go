@@ -42,6 +42,7 @@ type AgpRules struct {
 	RequiredGradle       []RuleEntry `json:"requiredGradle"`
 	BuiltInKotlinMinimum []RuleEntry `json:"builtInKotlinMinimum"`
 	CompileSdkFloors     []RuleEntry `json:"compileSdkFloors"`
+	CoreKtxFloors        []RuleEntry `json:"coreKtxFloors"`
 }
 
 type KotlinAgpR8Entry struct {
@@ -96,6 +97,7 @@ type CoreToolchain struct {
 	JDK        string `json:"jdk"`
 	CompileSdk string `json:"compileSdk"`
 	SdkPackage string `json:"sdkPackage"`
+	CoreKtx    string `json:"coreKtx,omitempty"`
 }
 
 type Library struct {

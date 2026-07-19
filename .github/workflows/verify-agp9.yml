@@ -110,11 +110,12 @@ jobs:
             --kotlin=$(echo "$COMBO" | jq -r '.coreToolchain.kotlin') \
             --ksp=$(echo "$COMBO" | jq -r '.coreToolchain.ksp') \
             --compile-sdk=$(echo "$COMBO" | jq -r '.coreToolchain.compileSdk') \
+            --core-ktx=$(echo "$COMBO" | jq -r '.coreToolchain.coreKtx // "1.13.1"') \
             --agp-major=9 \
             --hilt=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="hilt")) | .[0].version // ""') \
             --room=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="room")) | .[0].version // ""') \
             --navigation=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="navigation")) | .[0].version // ""') \
-            --compose-compiler=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="composeCompiler")) | .[0].version // ""')
+            --compose=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="compose")) | .[0].version // ""')
 
       - name: Install Android SDK platform
         run: |
@@ -162,10 +163,11 @@ jobs:
             --jdk=$(echo "$COMBO" | jq -r '.coreToolchain.jdk') \
             --compile-sdk=$(echo "$COMBO" | jq -r '.coreToolchain.compileSdk') \
             --sdk-package=$(echo "$COMBO" | jq -r '.coreToolchain.sdkPackage') \
+            --core-ktx=$(echo "$COMBO" | jq -r '.coreToolchain.coreKtx // "1.13.1"') \
             --hilt=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="hilt")) | .[0].version // ""') \
             --room=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="room")) | .[0].version // ""') \
             --navigation=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="navigation")) | .[0].version // ""') \
-            --compose-compiler=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="composeCompiler")) | .[0].version // ""') \
+            --compose=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="compose")) | .[0].version // ""') \
             --workflow-url="$WORKFLOW_URL" \
             --dir=tmp-build \
             --out=. \

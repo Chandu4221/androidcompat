@@ -43,6 +43,7 @@ func main() {
 	kotlin := flag.String("kotlin", "", "Kotlin version")
 	ksp := flag.String("ksp", "", "KSP version")
 	jdk := flag.String("jdk", "", "JDK version")
+	coreKtx := flag.String("core-ktx", "", "Core KTX version")
 	compileSdk := flag.String("compile-sdk", "", "compileSdk version")
 	sdkPackage := flag.String("sdk-package", "", "SDK platform package")
 	workflowURL := flag.String("workflow-url", "", "GitHub Actions workflow run URL")
@@ -50,7 +51,7 @@ func main() {
 	hilt := flag.String("hilt", "", "Hilt version (optional)")
 	room := flag.String("room", "", "Room version (optional)")
 	navigation := flag.String("navigation", "", "Navigation version (optional)")
-	composeCompiler := flag.String("compose-compiler", "", "Compose compiler version (optional)")
+	compose := flag.String("compose", "", "Compose version (optional)")
 
 	buildDir := flag.String("dir", "", "Build directory")
 	outputDir := flag.String("out", ".", "Output directory for result JSON")
@@ -97,6 +98,7 @@ func main() {
 	result.CoreToolchain.CompileSdk = *compileSdk
 	result.CoreToolchain.SdkPackage = *sdkPackage
 	result.WorkflowURL = *workflowURL
+	result.CoreToolchain.CoreKtx = *coreKtx
 
 	result.Libraries = []storage.Library{}
 	if *hilt != "" {
@@ -108,8 +110,8 @@ func main() {
 	if *navigation != "" {
 		result.Libraries = append(result.Libraries, storage.Library{Name: "navigation", Version: *navigation})
 	}
-	if *composeCompiler != "" {
-		result.Libraries = append(result.Libraries, storage.Library{Name: "composeCompiler", Version: *composeCompiler})
+	if *compose != "" {
+		result.Libraries = append(result.Libraries, storage.Library{Name: "compose", Version: *compose})
 	}
 
 	result.ID = *comboID

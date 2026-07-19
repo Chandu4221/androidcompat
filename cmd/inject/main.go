@@ -21,7 +21,8 @@ func main() {
 	hilt := flag.String("hilt", "", "Hilt version (optional)")
 	room := flag.String("room", "", "Room version (optional)")
 	navigation := flag.String("navigation", "", "Navigation version (optional)")
-	composeCompiler := flag.String("compose-compiler", "", "Compose compiler version (optional)")
+	compose := flag.String("compose", "", "Compose compiler version (optional)")
+	coreKtx := flag.String("core-ktx", "", "Core KTX version")
 	flag.Parse()
 
 	if *dir == "" || *agp == "" || *gradle == "" || *kotlin == "" || *ksp == "" || *agpMajor == 0 || *compileSdk == "" {
@@ -74,6 +75,11 @@ func main() {
 		tomlStr = replaceInString(tomlStr, `agp\s*=\s*".*"`, fmt.Sprintf(`agp = "%s"`, *agp))
 		tomlStr = replaceInString(tomlStr, `kotlin\s*=\s*".*"`, fmt.Sprintf(`kotlin = "%s"`, *kotlin))
 
+		// Inject core-ktx version (ZERO branching logic, just injection)
+		if *coreKtx != "" {
+			tomlStr = injectTomlVersion(tomlStr, "core", *coreKtx)
+		}
+
 		// 2. Phase B TOML injections (GATED)
 		if *hilt != "" {
 			tomlStr = injectTomlVersion(tomlStr, "hilt", *hilt)
@@ -97,9 +103,14 @@ func main() {
 		}
 
 		// Compose Compiler injection (if provided)
-		if *composeCompiler != "" {
-			tomlStr = injectTomlVersion(tomlStr, "composeCompiler", *composeCompiler)
-			tomlStr = injectTomlPlugin(tomlStr, "compose-compiler", "org.jetbrains.kotlin.plugin.compose", "composeCompiler")
+		if *compose != "" {
+			tomlStr = injectTomlVersion(tomlStr, "compose", *compose)
+
+			// CLUSTER B FIX: Only apply the modern compose-compiler plugin for Kotlin 2.0.0+
+			// For legacy Kotlin (1.9.x), the compiler is bundled/handled differently
+			if strings.HasPrefix(*kotlin, "2.") {
+				tomlStr = injectTomlPlugin(tomlStr, "compose-compiler", "org.jetbrains.kotlin.plugin.compose", "compose")
+			}
 		}
 
 		if err := os.WriteFile(tomlPath, []byte(tomlStr), 0644); err != nil {
@@ -127,6 +138,7 @@ func main() {
 			// Inject AFTER kotlin plugin to avoid "must be used with kotlin plugin" error
 			appStr = injectAppPluginAfterKotlin(appStr, "alias(libs.plugins.navigation.safeargs)")
 		}
+
 		// Dependencies (already correctly gated)
 		if *hilt != "" {
 			appStr = injectAppDependencyKts(appStr, fmt.Sprintf(`implementation("com.google.dagger:hilt-android:%s")`, *hilt))
@@ -140,8 +152,9 @@ func main() {
 			appStr = injectAppDependencyKts(appStr, fmt.Sprintf(`implementation("androidx.navigation:navigation-fragment-ktx:%s")`, *navigation))
 			appStr = injectAppDependencyKts(appStr, fmt.Sprintf(`implementation("androidx.navigation:navigation-ui-ktx:%s")`, *navigation))
 		}
-		// Compose Compiler App KTS injection
-		if *composeCompiler != "" {
+
+		// Compose Compiler App KTS injection (CLUSTER B FIX: only for Kotlin 2.0.0+)
+		if *compose != "" && strings.HasPrefix(*kotlin, "2.") {
 			appStr = injectAppPluginKts(appStr, "alias(libs.plugins.compose.compiler)")
 		}
 
