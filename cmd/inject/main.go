@@ -123,6 +123,7 @@ func main() {
 		appStr := string(appContent)
 
 		appStr = replaceInString(appStr, `compileSdk\s*=\s*\d+`, fmt.Sprintf(`compileSdk = %s`, *compileSdk))
+		appStr = replaceInString(appStr, `targetSdk\s*=\s*\d+`, fmt.Sprintf(`targetSdk = %s`, *compileSdk))
 		appStr = injectAppPluginKts(appStr, "alias(libs.plugins.ksp)") // Existing, always present
 
 		// Phase B App Plugin Injections (GATED)
