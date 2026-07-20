@@ -569,6 +569,27 @@
                         >Show Only Core Toolchain</label
                       >
                     </div>
+                    
+                    <div>
+                      <label
+                        class="block text-xs text-textMuted mb-1 font-bold flex items-center gap-2"
+                      >
+                        <i class="fas fa-puzzle-piece text-[#4A90E2]"></i> Core KTX
+                      </label>
+                      <select
+                        v-model="filters.coreKtx"
+                        class="w-full bg-page border border-border rounded-lg p-2 text-sm text-textMain focus:ring-1 focus:ring-android focus:border-android outline-none cursor-pointer"
+                      >
+                        <option value="">All Versions</option>
+                        <option
+                          v-for="v in uniqueValues('coreKtx')"
+                          :key="v"
+                          :value="v"
+                        >
+                          {{ v }}
+                        </option>
+                      </select>
+                    </div>
                     <div v-for="lib in availableLibraries" :key="lib">
                       <label
                         class="block text-xs text-textMuted mb-1 font-bold flex items-center gap-2 capitalize"
@@ -824,9 +845,19 @@
                     Libraries
                   </h4>
                   <ul
-                    v-if="item.libraries && item.libraries.length > 0"
+                    v-if="item.coreKtx || (item.libraries && item.libraries.length > 0)"
                     class="text-sm text-textMain space-y-2.5 mt-1"
                   >
+                    <li v-if="item.coreKtx" class="flex items-center gap-2">
+                      <div class="w-5 text-center">
+                        <i class="fas fa-puzzle-piece text-[#4A90E2] text-sm"></i>
+                      </div>
+                      <span class="capitalize">Core KTX</span>
+                      <span
+                        class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border whitespace-nowrap"
+                        >{{ item.coreKtx }}</span
+                      >
+                    </li>
                     <li
                       v-for="lib in item.libraries"
                       :key="lib.name"
@@ -1106,6 +1137,20 @@
                     {{ selectedItem.compileSdk }}
                   </div>
                 </div>
+
+                <div
+                  v-if="selectedItem.coreKtx"
+                  class="bg-surface p-4 rounded-xl border border-border shadow-sm"
+                >
+                  <div
+                    class="text-xs text-textMuted mb-1.5 font-bold uppercase tracking-wider"
+                  >
+                    <i class="fas fa-puzzle-piece text-textMain mr-1.5"></i>CORE KTX
+                  </div>
+                  <div class="font-mono text-base font-semibold text-textMain">
+                    {{ selectedItem.coreKtx }}
+                  </div>
+                </div>
                 <div
                   class="bg-surface p-4 rounded-xl border border-border shadow-sm"
                 >
@@ -1286,6 +1331,7 @@
               apiLevel: "",
               status: "",
               onlyCore: false,
+              coreKtx: "",
             },
             libraryFilters: {}, // Dynamically populated based on availableLibraries
             selectedItem: null,
@@ -1325,6 +1371,8 @@
               data = data.filter(
                 (i) => String(i.compileSdk) === String(this.filters.apiLevel),
               );
+            if (this.filters.coreKtx)
+              data = data.filter((i) => i.coreKtx === this.filters.coreKtx);
             if (this.filters.onlyCore)
               data = data.filter(
                 (i) => !i.libraries || i.libraries.length === 0,
@@ -1396,6 +1444,7 @@
               apiLevel: "",
               status: "",
               onlyCore: false,
+              coreKtx: "",
             };
             this.availableLibraries.forEach((lib) => {
               this.libraryFilters[lib] = "";
