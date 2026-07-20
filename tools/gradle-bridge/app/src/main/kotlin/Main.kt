@@ -59,52 +59,70 @@ fun main(args: Array<String>) {
         kotlin.system.exitProcess(1)
     }
 
-    val connector = GradleConnector.newConnector().forProjectDirectory(projectDirFile)
+    // ---------- Retry logic (OUTSIDE the connection) ----------
+    val maxAttempts = 3
+    var attempt = 0
+    var lastException: BuildException? = null
+    var capturedFailures: List<BridgeFailure>? = null
+    var failingTask: String? = null
+    var status = "success"
 
-    connector.connect().use { connection ->
-        val buildLauncher = connection.newBuild()
-            .forTasks(*tasks.toTypedArray())
-            .withArguments("--stacktrace")
-            .setStandardOutput(System.err)
-            .setStandardError(System.err)
+    while (attempt < maxAttempts) {
+        attempt++
 
-        javaHome?.let { buildLauncher.setJavaHome(File(it)) }
+        // Reset state for each attempt
+        capturedFailures = null
+        failingTask = null
+        status = "success"
+        lastException = null
 
-        // ---------- Retry logic ----------
-        val maxAttempts = 3
-        var attempt = 0
-        var lastException: BuildException? = null
+        // --- NEW: Cache invalidation step (Runs BEFORE connecting) ---
+        if (attempt > 1) {
+            System.err.println("⚠️ Attempt $attempt/$maxAttempts. Clearing Gradle caches before fresh connection...")
+            val gradleHome = System.getProperty("user.home") + "/.gradle"
+            val clearCaches = ProcessBuilder("rm", "-rf", "$gradleHome/caches/", "$gradleHome/wrapper/dists/")
+                .redirectErrorStream(true)
+                .start()
+            val exitCode = clearCaches.waitFor()
+            if (exitCode != 0) {
+                System.err.println("⚠️ Cache clear failed with exit code $exitCode")
+            } else {
+                System.err.println("✅ Gradle caches cleared successfully.")
+            }
+        }
+        // ----------------------------------------------------------
 
-        var capturedFailures: List<BridgeFailure>? = null
-        var failingTask: String? = null
-        var status = "success"
+        // Create a BRAND NEW connector and connection for THIS attempt
+        val connector = GradleConnector.newConnector().forProjectDirectory(projectDirFile)
 
-        // Register progress listener (re-register each attempt)
-        buildLauncher.addProgressListener(
-            { event: ProgressEvent ->
-                if (event is FinishEvent) {
-                    val result = event.result
-                    if (result is FailureResult) {
-                        status = "failed"
-                        failingTask = if (event is TaskFinishEvent) {
-                            event.descriptor.taskPath
-                        } else {
-                            null
+        // .use {} ensures the connection is safely closed even if it crashes
+        connector.connect().use { connection ->
+            val buildLauncher = connection.newBuild()
+                .forTasks(*tasks.toTypedArray())
+                .withArguments("--stacktrace")
+                .setStandardOutput(System.err)
+                .setStandardError(System.err)
+
+            javaHome?.let { buildLauncher.setJavaHome(File(it)) }
+
+            // Register progress listener for this specific connection
+            buildLauncher.addProgressListener(
+                { event: ProgressEvent ->
+                    if (event is FinishEvent) {
+                        val result = event.result
+                        if (result is FailureResult) {
+                            status = "failed"
+                            failingTask = if (event is TaskFinishEvent) {
+                                event.descriptor.taskPath
+                            } else {
+                                null
+                            }
+                            capturedFailures = result.failures.map { toBridgeFailure(it) }
                         }
-                        capturedFailures = result.failures.map { toBridgeFailure(it) }
                     }
-                }
-            },
-            OperationType.TASK, OperationType.ROOT
-        )
-
-        while (attempt < maxAttempts) {
-            attempt++
-            // Reset state for each attempt
-            capturedFailures = null
-            failingTask = null
-            status = "success"
-
+                },
+                OperationType.TASK, OperationType.ROOT
+            )
 
             // Redirect stdout to stderr for provisioning noise
             val realOut = System.out
@@ -113,34 +131,18 @@ fun main(args: Array<String>) {
             try {
                 buildLauncher.run()
                 // Success – break out of retry loop
-                lastException = null
                 break
             } catch (e: BuildException) {
-                val isProvisioningFailure = e.message?.contains(
-                    "Could not execute build using connection to Gradle distribution"
-                ) == true
+                // Check for BOTH distribution connection failures AND protobuf wire corruption
+                val isProvisioningFailure =
+                    e.message?.contains("Could not execute build using connection to Gradle distribution") == true ||
+                            e.message?.contains("Protocol message contained an invalid tag") == true
 
                 if (isProvisioningFailure && attempt < maxAttempts) {
-                    System.err.println("⚠️ Provisioning failure (attempt $attempt/$maxAttempts), retrying in 8s...")
-
-                    // --- NEW: Cache invalidation step ---
-                    val gradleHome = System.getProperty("user.home") + "/.gradle"
-                    val clearCaches = ProcessBuilder("rm", "-rf", "$gradleHome/caches/", "$gradleHome/wrapper/dists/")
-                        .redirectErrorStream(true)
-                        .start()
-                    val exitCode = clearCaches.waitFor()
-                    if (exitCode != 0) {
-                        System.err.println("⚠️ Cache clear failed with exit code $exitCode — retry may reuse corrupted state")
-                    } else {
-                        System.err.println("✅ Gradle caches cleared successfully.")
-                    }
-                    // ------------------------------------
-
-                    System.err.println("Retrying in 8s...")
-
-                    Thread.sleep(8000)
+                    System.err.println("⚠️ Provisioning/Protocol failure (attempt $attempt/$maxAttempts). Will retry...")
                     lastException = e
-                    // Loop continues – retry
+                    Thread.sleep(8000)
+                    // Loop continues – connection will be closed by .use {}, cache cleared, and new connection made
                 } else {
                     // Real failure or out of retries
                     status = "failed"
@@ -148,30 +150,29 @@ fun main(args: Array<String>) {
                         capturedFailures = listOf(toBridgeFailureFromThrowable(e))
                         failingTask = null
                     }
-                    lastException = null
                     break
                 }
             } finally {
                 // Restore stdout for JSON printing
                 System.setOut(realOut)
             }
-        }
-
-        // If we exhausted retries without success, record the last provisioning failure
-        if (attempt == maxAttempts && lastException != null && status == "success") {
-            status = "failed"
-            capturedFailures = listOf(toBridgeFailureFromThrowable(lastException))
-            failingTask = null
-        }
-
-        // Build final result and print JSON to stdout
-        val bridgeResult = BridgeResult(
-            status = status,
-            task = failingTask,
-            failures = capturedFailures ?: emptyList()
-        )
-        println(Json.encodeToString(BridgeResult.serializer(), bridgeResult))
+        } // connection safely closed here by .use {}
     }
+
+    // If we exhausted retries without success, record the last provisioning failure
+    if (attempt == maxAttempts && lastException != null && status == "success") {
+        status = "failed"
+        capturedFailures = listOf(toBridgeFailureFromThrowable(lastException))
+        failingTask = null
+    }
+
+    // Build final result and print JSON to stdout
+    val bridgeResult = BridgeResult(
+        status = status,
+        task = failingTask,
+        failures = capturedFailures ?: emptyList()
+    )
+    println(Json.encodeToString(BridgeResult.serializer(), bridgeResult))
 }
 
 fun toBridgeFailure(failure: Failure): BridgeFailure {
