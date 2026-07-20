@@ -122,6 +122,22 @@ fun main(args: Array<String>) {
 
                 if (isProvisioningFailure && attempt < maxAttempts) {
                     System.err.println("⚠️ Provisioning failure (attempt $attempt/$maxAttempts), retrying in 8s...")
+
+                    // --- NEW: Cache invalidation step ---
+                    val gradleHome = System.getProperty("user.home") + "/.gradle"
+                    val clearCaches = ProcessBuilder("rm", "-rf", "$gradleHome/caches/", "$gradleHome/wrapper/dists/")
+                        .redirectErrorStream(true)
+                        .start()
+                    val exitCode = clearCaches.waitFor()
+                    if (exitCode != 0) {
+                        System.err.println("⚠️ Cache clear failed with exit code $exitCode — retry may reuse corrupted state")
+                    } else {
+                        System.err.println("✅ Gradle caches cleared successfully.")
+                    }
+                    // ------------------------------------
+
+                    System.err.println("Retrying in 8s...")
+
                     Thread.sleep(8000)
                     lastException = e
                     // Loop continues – retry
