@@ -27,6 +27,14 @@ func TestMapBridgeFailureToSignature(t *testing.T) {
 			expected: "hilt_ksp_scoping_error",
 		},
 		{
+			name: "lint_target_sdk_inversion",
+			failure: &BridgeFailure{
+				Description: "Lint found errors in the following tasks: [GradleCompatible]",
+				Message:     "The compileSdkVersion (34) should not be lower than the targetSdkVersion (35) [GradleCompatible]",
+			},
+			expected: "lint_target_sdk_inversion",
+		},
+		{
 			name: "compile_sdk_mismatch",
 			failure: &BridgeFailure{
 				Description: "Compilation failed",
@@ -35,12 +43,20 @@ func TestMapBridgeFailureToSignature(t *testing.T) {
 			expected: "compile_sdk_mismatch",
 		},
 		{
-			name: "lint_target_sdk_inversion",
+			name: "ksp_version_mismatch",
 			failure: &BridgeFailure{
-				Description: "Lint found errors",
-				Message:     "The compileSdkVersion (34) should not be lower than the targetSdkVersion (35) [GradleCompatible]",
+				Description: "KSP execution failed",
+				Message:     "e: [ksp] Unable to find KSP processor",
 			},
-			expected: "compile_sdk_mismatch", // Maps to compile_sdk_mismatch based on current logic
+			expected: "ksp_version_mismatch",
+		},
+		{
+			name: "dependency_fetch_error",
+			failure: &BridgeFailure{
+				Description: "Network failure",
+				Message:     "Could not download core-ktx.aar: Received status code 403 from server: Forbidden",
+			},
+			expected: "dependency_fetch_error",
 		},
 		{
 			name: "infra_provisioning_error",
@@ -49,6 +65,14 @@ func TestMapBridgeFailureToSignature(t *testing.T) {
 				Message:     "Could not execute build using connection to Gradle distribution",
 			},
 			expected: "infra_provisioning_error",
+		},
+		{
+			name: "build_failure_fallback",
+			failure: &BridgeFailure{
+				Description: "Some random gradle error",
+				Message:     "Something went wrong but no specific signature matched",
+			},
+			expected: "build_failure",
 		},
 	}
 

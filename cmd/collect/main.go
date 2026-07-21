@@ -228,6 +228,11 @@ func mapBridgeFailureToSignature(f *BridgeFailure) string {
 		strings.Contains(desc, "Protocol message contained an invalid tag"):
 		return "hilt_gradle_kotlin_metadata_floor"
 
+	// 3. Lint targetSdk inversion (GradleCompatible) - MUST be checked BEFORE generic compileSdk
+	case strings.Contains(desc, "GradleCompatible") ||
+		(strings.Contains(msg, "compileSdkVersion") && strings.Contains(msg, "should not be lower than") && strings.Contains(msg, "targetSdkVersion")):
+		return "lint_target_sdk_inversion"
+
 	// Infrastructure / provisioning errors (network, connection)
 	case strings.Contains(desc, "ConnectException") ||
 		strings.Contains(desc, "SocketTimeoutException") ||
@@ -252,7 +257,7 @@ func mapBridgeFailureToSignature(f *BridgeFailure) string {
 		strings.Contains(msg, "e: ") || strings.Contains(desc, "Kotlin"):
 		return "kotlin_compilation_failure"
 
-	// compileSdk issues
+	// compileSdk issues (AAR metadata)
 	case strings.Contains(msg, "compileSdk") || strings.Contains(msg, "requires libraries") ||
 		strings.Contains(msg, "android.jar"):
 		return "compile_sdk_mismatch"
