@@ -19,10 +19,10 @@ stub-project/app/build/
 node_modules/
 
 # Compiled binaries
-aggregate
-gencombos
-inject
-collect
+/aggregate
+/gencombos
+/inject
+/collect
 
 # Backup folders
 data.backup/
