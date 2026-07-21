@@ -223,9 +223,10 @@ func mapBridgeFailureToSignature(f *BridgeFailure) string {
 		(strings.Contains(desc, "KSP") || strings.Contains(msg, "ksp") || strings.Contains(desc, "class loader") || strings.Contains(desc, "sub-project")):
 		return "hilt_ksp_scoping_error"
 
-	// 2. Hilt / Gradle 8.0 Embedded Kotlin Metadata Mismatch (NEW)
-	case strings.Contains(desc, "InvalidProtocolBufferException") && strings.Contains(desc, "JvmModuleProtoBuf"):
-		return "hilt_gradle_embedded_kotlin_metadata_mismatch"
+	// 2. Hilt / Gradle Kotlin Metadata Floor (Gradle 8.x + Kotlin 2.0+ plugin metadata)
+	case strings.Contains(desc, "InvalidProtocolBufferException") &&
+		strings.Contains(desc, "Protocol message contained an invalid tag"):
+		return "hilt_gradle_kotlin_metadata_floor"
 
 	// Infrastructure / provisioning errors (network, connection)
 	case strings.Contains(desc, "ConnectException") ||
@@ -408,8 +409,8 @@ func parseResult(comboID, output string) storage.VerificationResult {
 	if result.FailureSignature == "" {
 		if configPhaseFailed {
 			// NEW: Hilt / Gradle 8.0 Embedded Kotlin Metadata Mismatch
-			if strings.Contains(errorBlock, "InvalidProtocolBufferException") && strings.Contains(errorBlock, "JvmModuleProtoBuf") {
-				result.FailureSignature = "hilt_gradle_embedded_kotlin_metadata_mismatch"
+			if strings.Contains(errorBlock, "InvalidProtocolBufferException") && strings.Contains(errorBlock, "Protocol message contained an invalid tag") {
+				result.FailureSignature = "hilt_gradle_kotlin_metadata_floor"
 			} else if matched, _ := regexp.MatchString(`Received status code \d{3}`, errorBlock); matched {
 				result.FailureSignature = "dependency_fetch_error"
 			} else {

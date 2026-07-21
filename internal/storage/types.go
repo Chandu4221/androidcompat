@@ -145,7 +145,8 @@ type CompatFile struct {
 
 // ---------- Phase B Rule Structs ----------
 type HiltRules struct {
-	RequiredAgp []RuleEntry `json:"requiredAgp"`
+	RequiredAgp      []RuleEntry `json:"requiredAgp"`
+	HiltGradleFloors []RuleEntry `json:"hiltGradleFloors"`
 }
 
 type RoomRules struct {
