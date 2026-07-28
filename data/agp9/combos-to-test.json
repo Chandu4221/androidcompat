@@ -1,21 +1,7 @@
 {
   "agpMajor": 9,
-  "generatedAt": "2026-07-19T09:25:13Z",
+  "generatedAt": "2026-07-28T06:03:29Z",
   "combos": [
-    {
-      "id": "04428a83f66e0577",
-      "coreToolchain": {
-        "agp": "9.3.0",
-        "gradle": "9.5.0",
-        "kotlin": "2.2.10",
-        "ksp": "2.3.6",
-        "jdk": "17",
-        "compileSdk": "36",
-        "sdkPackage": "36",
-        "coreKtx": "1.18.0"
-      },
-      "libraries": []
-    },
     {
       "id": "08762a4e56a7d6c9",
       "coreToolchain": {
@@ -64,9 +50,9 @@
       "libraries": []
     },
     {
-      "id": "266e39ea307ec4bb",
+      "id": "1695946de044b8eb",
       "coreToolchain": {
-        "agp": "9.3.0",
+        "agp": "9.3.1",
         "gradle": "9.5.0",
         "kotlin": "2.2.10",
         "ksp": "2.3.6",
@@ -77,8 +63,27 @@
       },
       "libraries": [
         {
-          "name": "navigation",
-          "version": "2.9.8"
+          "name": "room",
+          "version": "2.8.4"
+        }
+      ]
+    },
+    {
+      "id": "18152a57130dbe63",
+      "coreToolchain": {
+        "agp": "9.3.1",
+        "gradle": "9.5.0",
+        "kotlin": "2.2.10",
+        "ksp": "2.3.6",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36",
+        "coreKtx": "1.18.0"
+      },
+      "libraries": [
+        {
+          "name": "hilt",
+          "version": "2.59.2"
         }
       ]
     },
@@ -102,9 +107,9 @@
       ]
     },
     {
-      "id": "5ca7bcc4fc54b169",
+      "id": "6520abfd689ce253",
       "coreToolchain": {
-        "agp": "9.3.0",
+        "agp": "9.3.1",
         "gradle": "9.5.0",
         "kotlin": "2.2.10",
         "ksp": "2.3.6",
@@ -216,9 +221,9 @@
       ]
     },
     {
-      "id": "9a9a2f2db7a6e59f",
+      "id": "a8970acc15c8c3f0",
       "coreToolchain": {
-        "agp": "9.3.0",
+        "agp": "9.3.1",
         "gradle": "9.5.0",
         "kotlin": "2.2.10",
         "ksp": "2.3.6",
@@ -227,31 +232,7 @@
         "sdkPackage": "36",
         "coreKtx": "1.18.0"
       },
-      "libraries": [
-        {
-          "name": "room",
-          "version": "2.8.4"
-        }
-      ]
-    },
-    {
-      "id": "9d9f9db3854bd8e8",
-      "coreToolchain": {
-        "agp": "9.3.0",
-        "gradle": "9.5.0",
-        "kotlin": "2.2.10",
-        "ksp": "2.3.6",
-        "jdk": "17",
-        "compileSdk": "36",
-        "sdkPackage": "36",
-        "coreKtx": "1.18.0"
-      },
-      "libraries": [
-        {
-          "name": "hilt",
-          "version": "2.59.2"
-        }
-      ]
+      "libraries": []
     },
     {
       "id": "ada27c3d2d8ae75b",
@@ -269,25 +250,6 @@
         {
           "name": "navigation",
           "version": "2.9.8"
-        }
-      ]
-    },
-    {
-      "id": "ae153d3314e64a50",
-      "coreToolchain": {
-        "agp": "9.3.0",
-        "gradle": "9.5.0",
-        "kotlin": "2.2.10",
-        "ksp": "2.3.6",
-        "jdk": "17",
-        "compileSdk": "36",
-        "sdkPackage": "36",
-        "coreKtx": "1.18.0"
-      },
-      "libraries": [
-        {
-          "name": "hilt",
-          "version": "2.60.1"
         }
       ]
     },
@@ -359,6 +321,44 @@
         {
           "name": "compose",
           "version": "2.2.10"
+        }
+      ]
+    },
+    {
+      "id": "c62273874b2ebbcb",
+      "coreToolchain": {
+        "agp": "9.3.1",
+        "gradle": "9.5.0",
+        "kotlin": "2.2.10",
+        "ksp": "2.3.6",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36",
+        "coreKtx": "1.18.0"
+      },
+      "libraries": [
+        {
+          "name": "navigation",
+          "version": "2.9.8"
+        }
+      ]
+    },
+    {
+      "id": "c883c1ad0816fc68",
+      "coreToolchain": {
+        "agp": "9.3.1",
+        "gradle": "9.5.0",
+        "kotlin": "2.2.10",
+        "ksp": "2.3.6",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36",
+        "coreKtx": "1.18.0"
+      },
+      "libraries": [
+        {
+          "name": "hilt",
+          "version": "2.60.1"
         }
       ]
     },
