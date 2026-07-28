@@ -15,7 +15,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        darkMode: "class",
+        darkMode: "media",
         theme: {
           extend: {
             fontFamily: {
@@ -74,20 +74,22 @@
         --color-warning-text: #b45309; /* amber-700 */
         --color-warning-bg: #fef3c7; /* amber-100 */
       }
-      .dark {
-        /* Dark Theme - lighter shades than pure black */
-        --color-page: #0b0f19;
-        --color-surface: #111827;
-        --color-card: #1f2937;
-        --color-border: #374151;
-        --color-text-main: #f9fafb;
-        --color-text-muted: #d1d5db; /* Improved contrast */
-        --color-success-text: #4ade80;
-        --color-success-bg: rgba(34, 197, 94, 0.1);
-        --color-error-text: #f87171;
-        --color-error-bg: rgba(239, 68, 68, 0.1);
-        --color-warning-text: #fcd34d; /* amber-300 */
-        --color-warning-bg: rgba(245, 158, 11, 0.1);
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* Dark Theme - lighter shades than pure black */
+          --color-page: #0b0f19;
+          --color-surface: #111827;
+          --color-card: #1f2937;
+          --color-border: #374151;
+          --color-text-main: #f9fafb;
+          --color-text-muted: #d1d5db; /* Improved contrast */
+          --color-success-text: #4ade80;
+          --color-success-bg: rgba(34, 197, 94, 0.1);
+          --color-error-text: #f87171;
+          --color-error-bg: rgba(239, 68, 68, 0.1);
+          --color-warning-text: #fcd34d; /* amber-300 */
+          --color-warning-bg: rgba(245, 158, 11, 0.1);
+        }
       }
       body {
         background-color: var(--color-page);
