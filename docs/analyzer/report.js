@@ -9,7 +9,7 @@
 // Diagnostics (conflicts, parse warnings, untracked/informational deps,
 // missing axes) ride alongside — honesty over a clean-looking score.
 
-import { missingAxes } from "./axis-map.js";
+import { missingAxes, CORE_AXES } from "./axis-map.js";
 
 export function buildReport({
   lookupResults,
@@ -19,17 +19,32 @@ export function buildReport({
   input,
   gradleSource,
 }) {
+  // Attach the display context the engine results don't carry (versions,
+  // toml origins). Done here — not in app.js — so the report is always
+  // self-describing regardless of caller.
+  for (const res of lookupResults) {
+    if (res.axis === "core") {
+      res.coreSnapshot = { ...input.core };
+      res.origin = CORE_AXES.filter((a) => input.core[a])
+        .map((a) => originFor(a, classified))
+        .filter(Boolean)
+        .join(" · ");
+    } else {
+      res.version = input.libs[res.axis] || "";
+      res.origin = originFor(res.axis, classified);
+    }
+  }
+
   const knownIssues = [];
   const attention = []; // UNVERIFIED + LOW
   const unverified = []; // UNVERIFIED + MEDIUM/HIGH
   const verified = [];
 
   for (const res of lookupResults) {
-    const finding = { ...res, origin: originFor(res.axis, classified) };
-    if (res.status === "KNOWN_ISSUE") knownIssues.push(finding);
-    else if (res.status === "VERIFIED") verified.push(finding);
-    else if (res.confidence === "LOW") attention.push(finding);
-    else unverified.push(finding);
+    if (res.status === "KNOWN_ISSUE") knownIssues.push(res);
+    else if (res.status === "VERIFIED") verified.push(res);
+    else if (res.confidence === "LOW") attention.push(res);
+    else unverified.push(res);
   }
 
   const informational = classified.filter((c) => c.bucket === "informational");

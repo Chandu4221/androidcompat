@@ -48,9 +48,10 @@ const ARTIFACT_MAP = {
   "org.jetbrains.kotlin:kotlin-gradle-plugin": "kotlin",
   "com.google.devtools.ksp:symbol-processing-gradle-plugin": "ksp",
   "com.google.devtools.ksp:symbol-processing-api": "ksp",
-  // hilt — plugin and runtime release in lockstep (same 2.x version)
+  // hilt — plugin, runtime, and compiler release in lockstep (same 2.x version)
   "com.google.dagger:hilt-android-gradle-plugin": "hilt",
   "com.google.dagger:hilt-android": "hilt",
+  "com.google.dagger:hilt-compiler": "hilt",
   // room — tracker's axis stand-in is room-gradle-plugin; artifacts are lockstep
   "androidx.room:room-gradle-plugin": "room",
   "androidx.room:room-runtime": "room",
@@ -63,7 +64,6 @@ const ARTIFACT_MAP = {
   "androidx.navigation:navigation-compose": "navigation",
   // coreKtx — tracked axis, but see OBSERVED_AXES above
   "androidx.core:core-ktx": "coreKtx",
-  "com.google.dagger:hilt-compiler": "hilt",
 };
 
 // Entries that matter to a real project but are NOT graph axes. Reported in

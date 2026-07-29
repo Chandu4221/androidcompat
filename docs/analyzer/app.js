@@ -143,6 +143,7 @@ function analyze() {
   const classified = classifyPicks(picks);
   const { input, conflicts } = buildLookupInput(classified);
 
+  // Gradle never lives in a version catalog.
   const gradle = resolveGradle();
   if (gradle.version) {
     input.core.gradle = gradle.version;
@@ -153,14 +154,34 @@ function analyze() {
     );
   }
 
+  // Honesty notes: rules that CANNOT be checked because a required axis is
+  // absent from the catalog. Absence is never a violation — say so explicitly.
+  const libs = input.libs;
+  if (libs.compose && !input.core.kotlin) {
+    warnings.push(
+      `Compose compiler ${libs.compose} declared but the Kotlin version is unknown — ` +
+        "the compose↔kotlin exact pin could not be checked. Is org.jetbrains.kotlin.android " +
+        "declared outside the catalog?",
+    );
+  }
+  if ((libs.hilt || libs.room || libs.navigation) && !input.core.agp) {
+    warnings.push(
+      "Library AGP requirements could not be checked — no AGP version in the catalog.",
+    );
+  }
+  if (libs.hilt && !input.core.gradle) {
+    warnings.push(
+      `Hilt ${libs.hilt} declared but the Gradle version is unknown — the Hilt Gradle floor could not be checked.`,
+    );
+  }
+  if (libs.room && !input.core.kotlin) {
+    warnings.push(
+      `Room ${libs.room} declared but the Kotlin version is unknown — room.minKotlin could not be checked.`,
+    );
+  }
+
   // Step 2.3: the EXISTING engine, untouched.
   const results = lookup(input, indexes);
-
-  // Attach the versions the engine results don't carry (report display only).
-  for (const res of results) {
-    if (res.axis === "core") res.coreSnapshot = { ...input.core };
-    else res.version = input.libs[res.axis] || "";
-  }
 
   const report = buildReport({
     lookupResults: results,
@@ -263,14 +284,12 @@ function renderSummary(sum) {
 
 function sectionBlock(title, icon, colorClass, cards) {
   const el = document.createElement("section");
-  el.className = "bg-surface border border-border p-5 rounded-xl shadow-sm";
+  el.className = "flex flex-col gap-3 mt-6";
   el.innerHTML =
-    `<h2 class="text-lg font-bold text-textMain mb-4 flex items-center gap-2">` +
+    `<h2 class="text-lg font-bold text-textMain flex items-center gap-2">` +
     `<i class="fas ${icon} ${colorClass}"></i> ${title} ` +
-    `<span class="text-textMuted text-sm font-mono font-normal">(${cards.length})</span></h2>` +
-    `<div class="flex flex-col gap-3">` +
-    cards.join("") +
-    `</div>`;
+    `<span class="text-textMuted text-sm font-mono">(${cards.length})</span></h2>` +
+    cards.join("");
   return el;
 }
 
@@ -415,8 +434,8 @@ function renderDiagnostics(d, container) {
   const rows = [];
 
   if (d.parseWarnings.length) {
-    rows.push(`<div class="bg-surface border border-border p-5 rounded-xl shadow-sm">
-      <p class="text-xs uppercase tracking-wider font-bold text-textMuted mb-3 flex items-center gap-2"><i class="fas fa-triangle-exclamation text-warningText"></i> Parse warnings</p>
+    rows.push(`<div class="p-4 rounded-xl border border-border bg-surface">
+      <p class="text-xs uppercase tracking-wider font-bold text-textMuted mb-2"><i class="fas fa-triangle-exclamation"></i> Parse warnings</p>
       <ul class="flex flex-col gap-1">${d.parseWarnings.map((w) => `<li class="text-xs font-mono text-textMain">• ${escapeHtml(w)}</li>`).join("")}</ul>
     </div>`);
   }
@@ -427,10 +446,11 @@ function renderDiagnostics(d, container) {
     (d.gradleSource
       ? ` Gradle taken from: <span class="font-mono">${d.gradleSource}</span>.`
       : "");
-  rows.push(`<div class="bg-surface border border-border p-5 rounded-xl shadow-sm">
-    <p class="text-xs uppercase tracking-wider font-bold text-textMuted mb-3 flex items-center gap-2"><i class="fas fa-map text-textMuted"></i> Coverage</p>
-    <p class="text-sm text-textMain leading-relaxed">${coverage}</p>
+  rows.push(`<div class="p-4 rounded-xl border border-border bg-surface">
+    <p class="text-xs uppercase tracking-wider font-bold text-textMuted mb-2"><i class="fas fa-map"></i> Coverage</p>
+    <p class="text-xs text-textMain leading-relaxed">${coverage}</p>
   </div>`);
+
   const infoLists = [
     ["Informational — relevant but not graph axes", d.informational],
     ["Not tracked by AndroidCompat", d.untracked],
@@ -438,8 +458,8 @@ function renderDiagnostics(d, container) {
   ];
   for (const [title, list] of infoLists) {
     if (!list.length) continue;
-    rows.push(`<div class="bg-surface border border-border p-5 rounded-xl shadow-sm">
-      <p class="text-xs uppercase tracking-wider font-bold text-textMuted mb-3 flex items-center gap-2">${title} <span class="font-mono font-normal">(${list.length})</span></p>
+    rows.push(`<div class="p-4 rounded-xl border border-border bg-surface">
+      <p class="text-xs uppercase tracking-wider font-bold text-textMuted mb-2">${title} <span class="font-mono">(${list.length})</span></p>
       <ul class="flex flex-col gap-2">${list
         .map(
           (c) => `

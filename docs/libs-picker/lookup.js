@@ -1,6 +1,13 @@
 // docs/libs-picker/lookup.js
+//
 // Core 3-state lookup engine, powered by the public compat-graph.json.
 // Step 3 adds query-time confidence scoring for UNVERIFIED combos.
+//
+// Shared by libs-picker and the Build File Analyzer — do not fork.
+// Honesty discipline: an ABSENT axis means "cannot check", never a
+// violation. Every rule comparison guards its operands — the picker UI
+// always supplies full input, but the analyzer routinely sees partial
+// catalogs, and absence of data must never surface as a KNOWN_ISSUE.
 
 export function buildIndexes({ compat, graph }) {
   // 1. compatIndex: "agp|gradle|kotlin|ksp|hilt|..." -> compat entry
@@ -107,10 +114,11 @@ function evaluateCore(core, indexes) {
 
 function checkCoreRules(core, rulesByRef) {
   // agp.requiredGradle (exact pin per AGP version)
+  // Guard: if gradle is absent we cannot check the pin — skip, never flag.
   for (const edge of rulesByRef["agp.requiredGradle"] || []) {
     const edgeAgp = edge.from.split(":")[1];
     const reqGradle = edge.to.split(":")[1];
-    if (edgeAgp === core.agp && core.gradle !== reqGradle) {
+    if (edgeAgp === core.agp && core.gradle && core.gradle !== reqGradle) {
       return {
         status: "KNOWN_ISSUE",
         ruleName: "agp.requiredGradle",
@@ -124,7 +132,11 @@ function checkCoreRules(core, rulesByRef) {
   for (const edge of rulesByRef["agp.builtInKotlinMinimum"] || []) {
     const edgeAgp = edge.from.split(":")[1];
     const minKotlin = edge.to.split(":")[1];
-    if (edgeAgp === core.agp && compareVersions(core.kotlin, minKotlin) < 0) {
+    if (
+      edgeAgp === core.agp &&
+      core.kotlin &&
+      compareVersions(core.kotlin, minKotlin) < 0
+    ) {
       return {
         status: "KNOWN_ISSUE",
         ruleName: "agp.builtInKotlinMinimum",
@@ -181,12 +193,17 @@ function evaluateLibrary(libName, libVersion, core, indexes) {
 }
 
 function checkLibraryRules(libName, libVersion, core, rulesByRef) {
+  // Guards throughout: each rule compares a library version against a core
+  // axis. If that core axis is absent, the check is skipped — "cannot
+  // check", never a violation.
+
   if (libName === "hilt") {
     for (const edge of rulesByRef["hilt.hiltGradleFloors"] || []) {
       const edgeHilt = edge.from.split(":")[1];
       const reqGradle = edge.to.split(":")[1];
       if (
         edgeHilt === libVersion &&
+        core.gradle &&
         compareVersions(core.gradle, reqGradle) < 0
       ) {
         return {
@@ -200,7 +217,11 @@ function checkLibraryRules(libName, libVersion, core, rulesByRef) {
     for (const edge of rulesByRef["hilt.requiredAgp"] || []) {
       const edgeHilt = edge.from.split(":")[1];
       const reqAgp = edge.to.split(":")[1];
-      if (edgeHilt === libVersion && compareVersions(core.agp, reqAgp) < 0) {
+      if (
+        edgeHilt === libVersion &&
+        core.agp &&
+        compareVersions(core.agp, reqAgp) < 0
+      ) {
         return {
           status: "KNOWN_ISSUE",
           ruleName: "hilt.requiredAgp",
@@ -215,7 +236,11 @@ function checkLibraryRules(libName, libVersion, core, rulesByRef) {
     for (const edge of rulesByRef["room.gradlePluginRequiredAgp"] || []) {
       const edgeRoom = edge.from.split(":")[1];
       const reqAgp = edge.to.split(":")[1];
-      if (edgeRoom === libVersion && compareVersions(core.agp, reqAgp) < 0) {
+      if (
+        edgeRoom === libVersion &&
+        core.agp &&
+        compareVersions(core.agp, reqAgp) < 0
+      ) {
         return {
           status: "KNOWN_ISSUE",
           ruleName: "room.gradlePluginRequiredAgp",
@@ -229,6 +254,7 @@ function checkLibraryRules(libName, libVersion, core, rulesByRef) {
       const reqKotlin = edge.to.split(":")[1];
       if (
         edgeRoom === libVersion &&
+        core.kotlin &&
         compareVersions(core.kotlin, reqKotlin) < 0
       ) {
         return {
@@ -245,7 +271,11 @@ function checkLibraryRules(libName, libVersion, core, rulesByRef) {
     for (const edge of rulesByRef["navigation.safeArgsRequiredAgp"] || []) {
       const edgeNav = edge.from.split(":")[1];
       const reqAgp = edge.to.split(":")[1];
-      if (edgeNav === libVersion && compareVersions(core.agp, reqAgp) < 0) {
+      if (
+        edgeNav === libVersion &&
+        core.agp &&
+        compareVersions(core.agp, reqAgp) < 0
+      ) {
         return {
           status: "KNOWN_ISSUE",
           ruleName: "navigation.safeArgsRequiredAgp",
@@ -264,13 +294,15 @@ function checkLibraryRules(libName, libVersion, core, rulesByRef) {
     for (const edge of composePins) {
       const edgeCompose = edge.from.split(":")[1];
       const pinnedKotlin = edge.to.split(":")[1];
-      if (edgeCompose === libVersion && core.kotlin !== pinnedKotlin) {
+      if (
+        edgeCompose === libVersion &&
+        core.kotlin &&
+        core.kotlin !== pinnedKotlin
+      ) {
         return {
           status: "KNOWN_ISSUE",
           ruleName: "compose.compilerKotlinExactPin",
-          ruleNote:
-            edge.note ||
-            `Compose ${libVersion} requires exactly Kotlin ${pinnedKotlin}.`,
+          ruleNote: `Compose compiler ${libVersion} requires exactly Kotlin ${pinnedKotlin}.${edge.note ? " " + edge.note : ""}`,
           ruleSource: edge.source || null,
         };
       }
