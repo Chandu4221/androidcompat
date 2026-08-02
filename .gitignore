@@ -34,3 +34,5 @@ test-build/
 .DS_Store
 
 .agents
+
+on-demand-build.http
