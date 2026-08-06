@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-06T07:04:44Z",
+  "generatedAt": "2026-08-06T13:42:22Z",
   "nodes": {
     "agp:3.4.3": {
       "id": "agp:3.4.3",
@@ -682,11 +682,6 @@
       "type": "combo",
       "version": "fb25c93f0a4a330d"
     },
-    "compileSdk:31": {
-      "id": "compileSdk:31",
-      "type": "compileSdk",
-      "version": "31"
-    },
     "compileSdk:33": {
       "id": "compileSdk:33",
       "type": "compileSdk",
@@ -711,11 +706,6 @@
       "id": "compileSdk:36.1",
       "type": "compileSdk",
       "version": "36.1"
-    },
-    "compileSdk:37": {
-      "id": "compileSdk:37",
-      "type": "compileSdk",
-      "version": "37"
     },
     "compose:1.4.0": {
       "id": "compose:1.4.0",
@@ -931,36 +921,6 @@
       "id": "compose:2.4.10",
       "type": "compose",
       "version": "2.4.10"
-    },
-    "coreKtx:1.10.1": {
-      "id": "coreKtx:1.10.1",
-      "type": "coreKtx",
-      "version": "1.10.1"
-    },
-    "coreKtx:1.13.1": {
-      "id": "coreKtx:1.13.1",
-      "type": "coreKtx",
-      "version": "1.13.1"
-    },
-    "coreKtx:1.16.0": {
-      "id": "coreKtx:1.16.0",
-      "type": "coreKtx",
-      "version": "1.16.0"
-    },
-    "coreKtx:1.18.0": {
-      "id": "coreKtx:1.18.0",
-      "type": "coreKtx",
-      "version": "1.18.0"
-    },
-    "coreKtx:1.19.0": {
-      "id": "coreKtx:1.19.0",
-      "type": "coreKtx",
-      "version": "1.19.0"
-    },
-    "coreKtx:1.8.0": {
-      "id": "coreKtx:1.8.0",
-      "type": "coreKtx",
-      "version": "1.8.0"
     },
     "gradle:6.1.1": {
       "id": "gradle:6.1.1",
@@ -3599,60 +3559,6 @@
       "sourceRef": "agp.compileSdkFloors",
       "note": "Open floor: AGP 9.1.1+ requires compileSdk 36+",
       "source": "https://developer.android.com/build/releases/about-agp"
-    },
-    {
-      "from": "compileSdk:31",
-      "to": "coreKtx:1.8.0",
-      "relation": "requires",
-      "sourceType": "knowledge",
-      "sourceRef": "agp.coreKtxFloors",
-      "note": "CEILING not floor: compileSdk 31 caps coreKtx at max 1.8.0. CEILING not floor: compileSdk 31 caps coreKtx at max 1.8.0.",
-      "source": "aar-metadata.properties"
-    },
-    {
-      "from": "compileSdk:33",
-      "to": "coreKtx:1.10.1",
-      "relation": "requires",
-      "sourceType": "knowledge",
-      "sourceRef": "agp.coreKtxFloors",
-      "note": "CEILING not floor: compileSdk 33 caps coreKtx at max 1.10.1. CEILING not floor: compileSdk 33 caps coreKtx at max 1.10.1.",
-      "source": "aar-metadata.properties"
-    },
-    {
-      "from": "compileSdk:34",
-      "to": "coreKtx:1.13.1",
-      "relation": "requires",
-      "sourceType": "knowledge",
-      "sourceRef": "agp.coreKtxFloors",
-      "note": "CEILING not floor: compileSdk 34 caps coreKtx at max 1.13.1. CEILING not floor: compileSdk 34 caps coreKtx at max 1.13.1.",
-      "source": "aar-metadata.properties"
-    },
-    {
-      "from": "compileSdk:35",
-      "to": "coreKtx:1.16.0",
-      "relation": "requires",
-      "sourceType": "knowledge",
-      "sourceRef": "agp.coreKtxFloors",
-      "note": "CEILING not floor: compileSdk 35 caps coreKtx at max 1.16.0. CEILING not floor: compileSdk 35 caps coreKtx at max 1.16.0.",
-      "source": "aar-metadata.properties"
-    },
-    {
-      "from": "compileSdk:36",
-      "to": "coreKtx:1.18.0",
-      "relation": "requires",
-      "sourceType": "knowledge",
-      "sourceRef": "agp.coreKtxFloors",
-      "note": "CEILING not floor: compileSdk 36 caps coreKtx at max 1.18.0. CEILING not floor: compileSdk 36 caps coreKtx at max 1.18.0.",
-      "source": "aar-metadata.properties"
-    },
-    {
-      "from": "compileSdk:37",
-      "to": "coreKtx:1.19.0",
-      "relation": "requires",
-      "sourceType": "knowledge",
-      "sourceRef": "agp.coreKtxFloors",
-      "note": "CEILING not floor: compileSdk 37 caps coreKtx at max 1.19.0. CEILING not floor: compileSdk 37 caps coreKtx at max 1.19.0.",
-      "source": "aar-metadata.properties"
     },
     {
       "from": "kotlin:1.5.0",
@@ -6422,22 +6328,6 @@
     },
     {
       "from": "combo:b216d65fc3793a47",
-      "to": "kotlin:2.2.21",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "b216d65fc3793a47",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:b216d65fc3793a47",
-      "to": "ksp:2.2.21-2.0.5",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "b216d65fc3793a47",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:b216d65fc3793a47",
       "to": "agp:8.11.2",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -6447,6 +6337,22 @@
     {
       "from": "combo:b216d65fc3793a47",
       "to": "gradle:8.13",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "b216d65fc3793a47",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:b216d65fc3793a47",
+      "to": "kotlin:2.2.21",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "b216d65fc3793a47",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:b216d65fc3793a47",
+      "to": "ksp:2.2.21-2.0.5",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "b216d65fc3793a47",
@@ -6542,14 +6448,6 @@
     },
     {
       "from": "combo:6a8f1658c40dc8fb",
-      "to": "ksp:2.2.21-2.0.5",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "6a8f1658c40dc8fb",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:6a8f1658c40dc8fb",
       "to": "agp:8.10.1",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -6567,6 +6465,14 @@
     {
       "from": "combo:6a8f1658c40dc8fb",
       "to": "kotlin:2.2.21",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "6a8f1658c40dc8fb",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:6a8f1658c40dc8fb",
+      "to": "ksp:2.2.21-2.0.5",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "6a8f1658c40dc8fb",
@@ -6654,6 +6560,14 @@
     },
     {
       "from": "combo:a8baf4f0a8a70452",
+      "to": "ksp:2.2.21-2.0.5",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "a8baf4f0a8a70452",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:a8baf4f0a8a70452",
       "to": "agp:8.10.1",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -6671,14 +6585,6 @@
     {
       "from": "combo:a8baf4f0a8a70452",
       "to": "kotlin:2.2.21",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "a8baf4f0a8a70452",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:a8baf4f0a8a70452",
-      "to": "ksp:2.2.21-2.0.5",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "a8baf4f0a8a70452",
@@ -6694,22 +6600,6 @@
     },
     {
       "from": "combo:c98a9151c64c7e3b",
-      "to": "kotlin:2.2.21",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "c98a9151c64c7e3b",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:c98a9151c64c7e3b",
-      "to": "ksp:2.2.21-2.0.5",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "c98a9151c64c7e3b",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:c98a9151c64c7e3b",
       "to": "agp:8.10.1",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -6719,6 +6609,22 @@
     {
       "from": "combo:c98a9151c64c7e3b",
       "to": "gradle:8.11.1",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "c98a9151c64c7e3b",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:c98a9151c64c7e3b",
+      "to": "kotlin:2.2.21",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "c98a9151c64c7e3b",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:c98a9151c64c7e3b",
+      "to": "ksp:2.2.21-2.0.5",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "c98a9151c64c7e3b",
@@ -6774,22 +6680,6 @@
     },
     {
       "from": "combo:743a8e897344a30c",
-      "to": "agp:8.7.3",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "743a8e897344a30c",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:743a8e897344a30c",
-      "to": "gradle:8.9",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "743a8e897344a30c",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:743a8e897344a30c",
       "to": "kotlin:2.1.21",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -6799,6 +6689,22 @@
     {
       "from": "combo:743a8e897344a30c",
       "to": "ksp:2.1.21-2.0.2",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "743a8e897344a30c",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:743a8e897344a30c",
+      "to": "agp:8.7.3",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "743a8e897344a30c",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:743a8e897344a30c",
+      "to": "gradle:8.9",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "743a8e897344a30c",
@@ -6814,6 +6720,14 @@
     },
     {
       "from": "combo:ad49b8143ab5ee15",
+      "to": "agp:8.7.3",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "ad49b8143ab5ee15",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:ad49b8143ab5ee15",
       "to": "gradle:8.9",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -6831,14 +6745,6 @@
     {
       "from": "combo:ad49b8143ab5ee15",
       "to": "ksp:2.1.21-2.0.2",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "ad49b8143ab5ee15",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:ad49b8143ab5ee15",
-      "to": "agp:8.7.3",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "ad49b8143ab5ee15",
@@ -6886,6 +6792,14 @@
     },
     {
       "from": "combo:ea2d03f3ca6e2eb7",
+      "to": "gradle:8.9",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "ea2d03f3ca6e2eb7",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:ea2d03f3ca6e2eb7",
       "to": "kotlin:2.1.21",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -6903,14 +6817,6 @@
     {
       "from": "combo:ea2d03f3ca6e2eb7",
       "to": "agp:8.7.3",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "ea2d03f3ca6e2eb7",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:ea2d03f3ca6e2eb7",
-      "to": "gradle:8.9",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "ea2d03f3ca6e2eb7",
@@ -6958,6 +6864,14 @@
     },
     {
       "from": "combo:179a3b53dc34bc7f",
+      "to": "agp:8.6.1",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "179a3b53dc34bc7f",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:179a3b53dc34bc7f",
       "to": "gradle:8.7",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -6975,14 +6889,6 @@
     {
       "from": "combo:179a3b53dc34bc7f",
       "to": "ksp:2.1.21-2.0.2",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "179a3b53dc34bc7f",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:179a3b53dc34bc7f",
-      "to": "agp:8.6.1",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "179a3b53dc34bc7f",
@@ -7038,14 +6944,6 @@
     },
     {
       "from": "combo:b87fdac472c3660e",
-      "to": "ksp:2.1.21-2.0.2",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "b87fdac472c3660e",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:b87fdac472c3660e",
       "to": "agp:8.6.1",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -7063,6 +6961,14 @@
     {
       "from": "combo:b87fdac472c3660e",
       "to": "kotlin:2.1.21",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "b87fdac472c3660e",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:b87fdac472c3660e",
+      "to": "ksp:2.1.21-2.0.2",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "b87fdac472c3660e",
@@ -7078,6 +6984,14 @@
     },
     {
       "from": "combo:e738ad58fc392283",
+      "to": "ksp:2.1.21-2.0.2",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "e738ad58fc392283",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:e738ad58fc392283",
       "to": "agp:8.6.1",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -7095,14 +7009,6 @@
     {
       "from": "combo:e738ad58fc392283",
       "to": "kotlin:2.1.21",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "e738ad58fc392283",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:e738ad58fc392283",
-      "to": "ksp:2.1.21-2.0.2",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "e738ad58fc392283",
@@ -7238,14 +7144,6 @@
     },
     {
       "from": "combo:de69223000468b65",
-      "to": "agp:8.5.2",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "de69223000468b65",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:de69223000468b65",
       "to": "gradle:8.7",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -7263,6 +7161,14 @@
     {
       "from": "combo:de69223000468b65",
       "to": "ksp:2.0.21-1.0.28",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "de69223000468b65",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:de69223000468b65",
+      "to": "agp:8.5.2",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "de69223000468b65",
@@ -7382,14 +7288,6 @@
     },
     {
       "from": "combo:e90703eb89081e0b",
-      "to": "ksp:1.9.25-1.0.20",
-      "relation": "known_incompatible",
-      "sourceType": "compat_json",
-      "sourceRef": "e90703eb89081e0b",
-      "note": "Failed in CI. Signature: hilt_gradle_kotlin_metadata_floor"
-    },
-    {
-      "from": "combo:e90703eb89081e0b",
       "to": "agp:8.1.4",
       "relation": "known_incompatible",
       "sourceType": "compat_json",
@@ -7407,6 +7305,14 @@
     {
       "from": "combo:e90703eb89081e0b",
       "to": "kotlin:1.9.25",
+      "relation": "known_incompatible",
+      "sourceType": "compat_json",
+      "sourceRef": "e90703eb89081e0b",
+      "note": "Failed in CI. Signature: hilt_gradle_kotlin_metadata_floor"
+    },
+    {
+      "from": "combo:e90703eb89081e0b",
+      "to": "ksp:1.9.25-1.0.20",
       "relation": "known_incompatible",
       "sourceType": "compat_json",
       "sourceRef": "e90703eb89081e0b",
@@ -7646,6 +7552,14 @@
     },
     {
       "from": "combo:9d9f9db3854bd8e8",
+      "to": "kotlin:2.2.10",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "9d9f9db3854bd8e8",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:9d9f9db3854bd8e8",
       "to": "ksp:2.3.6",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -7663,14 +7577,6 @@
     {
       "from": "combo:9d9f9db3854bd8e8",
       "to": "gradle:9.5.0",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "9d9f9db3854bd8e8",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:9d9f9db3854bd8e8",
-      "to": "kotlin:2.2.10",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "9d9f9db3854bd8e8",
@@ -7686,14 +7592,6 @@
     },
     {
       "from": "combo:ae153d3314e64a50",
-      "to": "agp:9.3.0",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "ae153d3314e64a50",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:ae153d3314e64a50",
       "to": "gradle:9.5.0",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -7718,26 +7616,18 @@
     },
     {
       "from": "combo:ae153d3314e64a50",
-      "to": "hilt:2.60.1",
+      "to": "agp:9.3.0",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "ae153d3314e64a50",
       "note": "Verified by CI build"
     },
     {
-      "from": "combo:11f1ae8581925cc1",
-      "to": "agp:9.2.1",
+      "from": "combo:ae153d3314e64a50",
+      "to": "hilt:2.60.1",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
-      "sourceRef": "11f1ae8581925cc1",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:11f1ae8581925cc1",
-      "to": "gradle:9.4.1",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "11f1ae8581925cc1",
+      "sourceRef": "ae153d3314e64a50",
       "note": "Verified by CI build"
     },
     {
@@ -7751,6 +7641,22 @@
     {
       "from": "combo:11f1ae8581925cc1",
       "to": "ksp:2.3.6",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "11f1ae8581925cc1",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:11f1ae8581925cc1",
+      "to": "agp:9.2.1",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "11f1ae8581925cc1",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:11f1ae8581925cc1",
+      "to": "gradle:9.4.1",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "11f1ae8581925cc1",
@@ -7838,6 +7744,14 @@
     },
     {
       "from": "combo:81f0730598d91ea5",
+      "to": "gradle:9.4.1",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "81f0730598d91ea5",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:81f0730598d91ea5",
       "to": "kotlin:2.2.10",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -7855,14 +7769,6 @@
     {
       "from": "combo:81f0730598d91ea5",
       "to": "agp:9.2.1",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "81f0730598d91ea5",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:81f0730598d91ea5",
-      "to": "gradle:9.4.1",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "81f0730598d91ea5",
@@ -7958,14 +7864,6 @@
     },
     {
       "from": "combo:08762a4e56a7d6c9",
-      "to": "agp:9.1.1",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "08762a4e56a7d6c9",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:08762a4e56a7d6c9",
       "to": "gradle:9.3.1",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -7983,6 +7881,14 @@
     {
       "from": "combo:08762a4e56a7d6c9",
       "to": "ksp:2.3.6",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "08762a4e56a7d6c9",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:08762a4e56a7d6c9",
+      "to": "agp:9.1.1",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "08762a4e56a7d6c9",
@@ -8030,22 +7936,6 @@
     },
     {
       "from": "combo:ba663f9e84db1e10",
-      "to": "kotlin:2.2.10",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "ba663f9e84db1e10",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:ba663f9e84db1e10",
-      "to": "ksp:2.3.6",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "ba663f9e84db1e10",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:ba663f9e84db1e10",
       "to": "agp:9.1.1",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -8055,6 +7945,22 @@
     {
       "from": "combo:ba663f9e84db1e10",
       "to": "gradle:9.3.1",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "ba663f9e84db1e10",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:ba663f9e84db1e10",
+      "to": "kotlin:2.2.10",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "ba663f9e84db1e10",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:ba663f9e84db1e10",
+      "to": "ksp:2.3.6",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "ba663f9e84db1e10",
@@ -8150,14 +8056,6 @@
     },
     {
       "from": "combo:f982c913fdeff305",
-      "to": "ksp:2.3.6",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "f982c913fdeff305",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:f982c913fdeff305",
       "to": "agp:9.1.1",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -8182,6 +8080,14 @@
     },
     {
       "from": "combo:f982c913fdeff305",
+      "to": "ksp:2.3.6",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "f982c913fdeff305",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:f982c913fdeff305",
       "to": "hilt:2.59.2",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -8230,14 +8136,6 @@
     },
     {
       "from": "combo:711170ee33ca8a89",
-      "to": "ksp:2.3.6",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "711170ee33ca8a89",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:711170ee33ca8a89",
       "to": "agp:9.0.1",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -8255,6 +8153,14 @@
     {
       "from": "combo:711170ee33ca8a89",
       "to": "kotlin:2.2.10",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "711170ee33ca8a89",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:711170ee33ca8a89",
+      "to": "ksp:2.3.6",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "711170ee33ca8a89",
@@ -8270,6 +8176,14 @@
     },
     {
       "from": "combo:ada27c3d2d8ae75b",
+      "to": "kotlin:2.2.10",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "ada27c3d2d8ae75b",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:ada27c3d2d8ae75b",
       "to": "ksp:2.3.6",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -8287,14 +8201,6 @@
     {
       "from": "combo:ada27c3d2d8ae75b",
       "to": "gradle:9.1.0",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "ada27c3d2d8ae75b",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:ada27c3d2d8ae75b",
-      "to": "kotlin:2.2.10",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "ada27c3d2d8ae75b",
@@ -8310,14 +8216,6 @@
     },
     {
       "from": "combo:b0b40f65ec06f15f",
-      "to": "ksp:2.3.6",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "b0b40f65ec06f15f",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:b0b40f65ec06f15f",
       "to": "agp:9.0.1",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -8335,6 +8233,14 @@
     {
       "from": "combo:b0b40f65ec06f15f",
       "to": "kotlin:2.2.10",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "b0b40f65ec06f15f",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:b0b40f65ec06f15f",
+      "to": "ksp:2.3.6",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "b0b40f65ec06f15f",
@@ -8350,6 +8256,14 @@
     },
     {
       "from": "combo:bb0e66d188c29d36",
+      "to": "gradle:9.1.0",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "bb0e66d188c29d36",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:bb0e66d188c29d36",
       "to": "kotlin:2.2.10",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
@@ -8373,11 +8287,19 @@
       "note": "Verified by CI build"
     },
     {
-      "from": "combo:bb0e66d188c29d36",
-      "to": "gradle:9.1.0",
+      "from": "combo:e215bc395687e809",
+      "to": "kotlin:2.2.10",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
-      "sourceRef": "bb0e66d188c29d36",
+      "sourceRef": "e215bc395687e809",
+      "note": "Verified by CI build"
+    },
+    {
+      "from": "combo:e215bc395687e809",
+      "to": "ksp:2.3.6",
+      "relation": "verified_compatible",
+      "sourceType": "compat_json",
+      "sourceRef": "e215bc395687e809",
       "note": "Verified by CI build"
     },
     {
@@ -8391,22 +8313,6 @@
     {
       "from": "combo:e215bc395687e809",
       "to": "gradle:9.1.0",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "e215bc395687e809",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:e215bc395687e809",
-      "to": "kotlin:2.2.10",
-      "relation": "verified_compatible",
-      "sourceType": "compat_json",
-      "sourceRef": "e215bc395687e809",
-      "note": "Verified by CI build"
-    },
-    {
-      "from": "combo:e215bc395687e809",
-      "to": "ksp:2.3.6",
       "relation": "verified_compatible",
       "sourceType": "compat_json",
       "sourceRef": "e215bc395687e809",
