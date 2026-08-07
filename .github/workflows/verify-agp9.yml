@@ -119,7 +119,6 @@ jobs:
             --kotlin=$(echo "$COMBO" | jq -r '.coreToolchain.kotlin') \
             --ksp=$(echo "$COMBO" | jq -r '.coreToolchain.ksp') \
             --compile-sdk=$COMPILE_SDK \
-            --core-ktx=$CORE_KTX \
             --agp-major=9 \
             --hilt=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="hilt")) | .[0].version // ""') \
             --room=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="room")) | .[0].version // ""') \
@@ -162,14 +161,6 @@ jobs:
           WORKFLOW_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
           COMPILE_SDK=$(echo "$COMBO" | jq -r '.coreToolchain.compileSdk')
-          case "$COMPILE_SDK" in
-            37*) CORE_KTX="1.19.0" ;;
-            36*) CORE_KTX="1.18.0" ;;
-            35)  CORE_KTX="1.16.0" ;;
-            34)  CORE_KTX="1.13.1" ;;
-            33)  CORE_KTX="1.10.1" ;;
-            *)   CORE_KTX="1.8.0" ;;
-          esac
 
           go run cmd/collect/main.go \
             --id=$(echo "$COMBO" | jq -r '.id') \
@@ -180,7 +171,6 @@ jobs:
             --jdk=$(echo "$COMBO" | jq -r '.coreToolchain.jdk') \
             --compile-sdk=$COMPILE_SDK \
             --sdk-package=$(echo "$COMBO" | jq -r '.coreToolchain.sdkPackage') \
-            --core-ktx=$CORE_KTX \
             --hilt=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="hilt")) | .[0].version // ""') \
             --room=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="room")) | .[0].version // ""') \
             --navigation=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="navigation")) | .[0].version // ""') \
