@@ -96,8 +96,8 @@ func main() {
 			tomlStr = injectTomlPlugin(tomlStr, "navigation-safeargs", "androidx.navigation.safeargs.kotlin", "navigation")
 		}
 
-		// KSP (existing logic, adapted)
-		if *ksp != "" {
+		// KSP — skip for AGP 9 (built-in Kotlin conflicts with external KSP plugin)
+		if *ksp != "" && *agpMajor != 9 {
 			tomlStr = injectTomlVersion(tomlStr, "ksp", *ksp)
 			tomlStr = injectTomlPlugin(tomlStr, "ksp", "com.google.devtools.ksp", "ksp")
 		}
@@ -124,8 +124,9 @@ func main() {
 
 		appStr = replaceInString(appStr, `compileSdk\s*=\s*\d+`, fmt.Sprintf(`compileSdk = %s`, *compileSdk))
 		appStr = replaceInString(appStr, `targetSdk\s*=\s*\d+`, fmt.Sprintf(`targetSdk = %s`, *compileSdk))
-		appStr = injectAppPluginKts(appStr, "alias(libs.plugins.ksp)") // Existing, always present
-
+		if *agpMajor != 9 {
+			appStr = injectAppPluginKts(appStr, "alias(libs.plugins.ksp)")
+		}
 		// Phase B App Plugin Injections (GATED)
 		if *hilt != "" {
 			appStr = injectAppPluginKts(appStr, "alias(libs.plugins.hilt)")
@@ -170,7 +171,9 @@ func main() {
 
 		// Ensure KSP is declared at root with 'apply false' to match Hilt's scoping
 		// and prevent classloader mismatches (dagger/dagger#3965)
-		rootStr = injectRootPluginKts(rootStr, "alias(libs.plugins.ksp)")
+		if *agpMajor != 9 {
+			rootStr = injectRootPluginKts(rootStr, "alias(libs.plugins.ksp)")
+		}
 
 		if *hilt != "" {
 			rootStr = injectRootPluginKts(rootStr, "alias(libs.plugins.hilt)")
