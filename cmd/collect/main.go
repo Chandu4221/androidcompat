@@ -98,9 +98,11 @@ func main() {
 	result.CoreToolchain.CompileSdk = *compileSdk
 	result.CoreToolchain.SdkPackage = *sdkPackage
 	result.WorkflowURL = *workflowURL
-	result.CoreToolchain.CoreKtx = *coreKtx
-
 	result.Libraries = []storage.Library{}
+	if *coreKtx != "" {
+		result.Libraries = append(result.Libraries, storage.Library{Name: "coreKtx", Version: *coreKtx})
+	}
+
 	if *hilt != "" {
 		result.Libraries = append(result.Libraries, storage.Library{Name: "hilt", Version: *hilt})
 	}

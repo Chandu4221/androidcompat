@@ -99,9 +99,18 @@ jobs:
         run: |
           mkdir -p tmp-build
           cp -r stubs/agp8/* tmp-build/
-
-          # Parse the nested combo JSON to extract flat flags for the Go tools
           COMBO='${{ toJson(matrix.combo) }}'
+
+          # Resolve coreKtx based on compileSdk (addon rule: corektx.requiredCompileSdk)
+          COMPILE_SDK=$(echo "$COMBO" | jq -r '.coreToolchain.compileSdk')
+          case "$COMPILE_SDK" in
+            37*) CORE_KTX="1.19.0" ;;
+            36*) CORE_KTX="1.18.0" ;;
+            35)  CORE_KTX="1.16.0" ;;
+            34)  CORE_KTX="1.13.1" ;;
+            33)  CORE_KTX="1.10.1" ;;
+            *)   CORE_KTX="1.8.0" ;;
+          esac
 
           go run cmd/inject/main.go \
             --dir=tmp-build \
@@ -109,8 +118,8 @@ jobs:
             --gradle=$(echo "$COMBO" | jq -r '.coreToolchain.gradle') \
             --kotlin=$(echo "$COMBO" | jq -r '.coreToolchain.kotlin') \
             --ksp=$(echo "$COMBO" | jq -r '.coreToolchain.ksp') \
-            --compile-sdk=$(echo "$COMBO" | jq -r '.coreToolchain.compileSdk') \
-            --core-ktx=$(echo "$COMBO" | jq -r '.coreToolchain.coreKtx // "1.13.1"') \
+            --compile-sdk=$COMPILE_SDK \
+            --core-ktx=$CORE_KTX \
             --agp-major=8 \
             --hilt=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="hilt")) | .[0].version // ""') \
             --room=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="room")) | .[0].version // ""') \
@@ -150,9 +159,17 @@ jobs:
           GITHUB_RUN_ID: ${{ github.run_id }}
         run: |
           COMBO='${{ toJson(matrix.combo) }}'
-
-           # Construct the direct URL to this specific job's log
           WORKFLOW_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+          COMPILE_SDK=$(echo "$COMBO" | jq -r '.coreToolchain.compileSdk')
+          case "$COMPILE_SDK" in
+            37*) CORE_KTX="1.19.0" ;;
+            36*) CORE_KTX="1.18.0" ;;
+            35)  CORE_KTX="1.16.0" ;;
+            34)  CORE_KTX="1.13.1" ;;
+            33)  CORE_KTX="1.10.1" ;;
+            *)   CORE_KTX="1.8.0" ;;
+          esac
 
           go run cmd/collect/main.go \
             --id=$(echo "$COMBO" | jq -r '.id') \
@@ -161,9 +178,9 @@ jobs:
             --kotlin=$(echo "$COMBO" | jq -r '.coreToolchain.kotlin') \
             --ksp=$(echo "$COMBO" | jq -r '.coreToolchain.ksp') \
             --jdk=$(echo "$COMBO" | jq -r '.coreToolchain.jdk') \
-            --compile-sdk=$(echo "$COMBO" | jq -r '.coreToolchain.compileSdk') \
+            --compile-sdk=$COMPILE_SDK \
             --sdk-package=$(echo "$COMBO" | jq -r '.coreToolchain.sdkPackage') \
-            --core-ktx=$(echo "$COMBO" | jq -r '.coreToolchain.coreKtx // "1.13.1"') \
+            --core-ktx=$CORE_KTX \
             --hilt=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="hilt")) | .[0].version // ""') \
             --room=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="room")) | .[0].version // ""') \
             --navigation=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="navigation")) | .[0].version // ""') \
