@@ -43,7 +43,7 @@ func main() {
 	kotlin := flag.String("kotlin", "", "Kotlin version")
 	ksp := flag.String("ksp", "", "KSP version")
 	jdk := flag.String("jdk", "", "JDK version")
-	coreKtx := flag.String("core-ktx", "", "Core KTX version")
+
 	compileSdk := flag.String("compile-sdk", "", "compileSdk version")
 	sdkPackage := flag.String("sdk-package", "", "SDK platform package")
 	workflowURL := flag.String("workflow-url", "", "GitHub Actions workflow run URL")
@@ -99,9 +99,6 @@ func main() {
 	result.CoreToolchain.SdkPackage = *sdkPackage
 	result.WorkflowURL = *workflowURL
 	result.Libraries = []storage.Library{}
-	if *coreKtx != "" {
-		result.Libraries = append(result.Libraries, storage.Library{Name: "coreKtx", Version: *coreKtx})
-	}
 
 	if *hilt != "" {
 		result.Libraries = append(result.Libraries, storage.Library{Name: "hilt", Version: *hilt})
