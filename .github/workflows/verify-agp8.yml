@@ -108,11 +108,7 @@ jobs:
             --kotlin=$(echo "$COMBO" | jq -r '.coreToolchain.kotlin') \
             --ksp=$(echo "$COMBO" | jq -r '.coreToolchain.ksp') \
             --compile-sdk=$COMPILE_SDK \
-            --agp-major=8 \
-            --hilt=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="hilt")) | .[0].version // ""') \
-            --room=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="room")) | .[0].version // ""') \
-            --navigation=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="navigation")) | .[0].version // ""') \
-            --compose=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="compose")) | .[0].version // ""')
+            --agp-major=8
 
       - name: Install Android SDK platform
         run: |
@@ -160,10 +156,6 @@ jobs:
             --jdk=$(echo "$COMBO" | jq -r '.coreToolchain.jdk') \
             --compile-sdk=$COMPILE_SDK \
             --sdk-package=$(echo "$COMBO" | jq -r '.coreToolchain.sdkPackage') \
-            --hilt=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="hilt")) | .[0].version // ""') \
-            --room=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="room")) | .[0].version // ""') \
-            --navigation=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="navigation")) | .[0].version // ""') \
-            --compose=$(echo "$COMBO" | jq -r '.libraries | map(select(.name=="compose")) | .[0].version // ""') \
             --workflow-url="$WORKFLOW_URL" \
             --dir=tmp-build \
             --out=. \

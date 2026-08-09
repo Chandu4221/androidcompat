@@ -48,11 +48,6 @@ func main() {
 	sdkPackage := flag.String("sdk-package", "", "SDK platform package")
 	workflowURL := flag.String("workflow-url", "", "GitHub Actions workflow run URL")
 
-	hilt := flag.String("hilt", "", "Hilt version (optional)")
-	room := flag.String("room", "", "Room version (optional)")
-	navigation := flag.String("navigation", "", "Navigation version (optional)")
-	compose := flag.String("compose", "", "Compose version (optional)")
-
 	buildDir := flag.String("dir", "", "Build directory")
 	outputDir := flag.String("out", ".", "Output directory for result JSON")
 	bridgeJSON := flag.String("bridge-json", "", "Path to bridge-output.json (optional)")
@@ -99,19 +94,6 @@ func main() {
 	result.CoreToolchain.SdkPackage = *sdkPackage
 	result.WorkflowURL = *workflowURL
 	result.Libraries = []storage.Library{}
-
-	if *hilt != "" {
-		result.Libraries = append(result.Libraries, storage.Library{Name: "hilt", Version: *hilt})
-	}
-	if *room != "" {
-		result.Libraries = append(result.Libraries, storage.Library{Name: "room", Version: *room})
-	}
-	if *navigation != "" {
-		result.Libraries = append(result.Libraries, storage.Library{Name: "navigation", Version: *navigation})
-	}
-	if *compose != "" {
-		result.Libraries = append(result.Libraries, storage.Library{Name: "compose", Version: *compose})
-	}
 
 	result.ID = *comboID
 	result.Timestamp = time.Now().UTC().Format(time.RFC3339)
