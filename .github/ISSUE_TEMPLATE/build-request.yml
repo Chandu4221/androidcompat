@@ -1,0 +1,37 @@
+name: 🛠️ Request Compatibility Build
+description: Trigger a manual build for a specific Foundation + Addons combination.
+title: "[Build Request]: "
+labels: ["build-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Compatibility Build Request
+        Please provide the **Foundation ID** (from the dashboard) and the list of **addons** you want to test.
+
+        *   **Foundation ID**: The unique ID of a verified foundation combo (e.g., `1c2632308bf10577`).
+        *   **Addons**: List of libraries to add, one per line. Format: `group:artifact:version`.
+  - type: input
+    id: foundation_id
+    attributes:
+      label: Foundation ID
+      description: The ID of the verified foundation combo.
+      placeholder: "1c2632308bf10577"
+    validations:
+      required: true
+  - type: textarea
+    id: addons
+    attributes:
+      label: Addons
+      description: |
+        List of libraries to add, one per line.
+        Format: `group:artifact:version`
+
+        **Example:**
+        ```text
+        androidx.room:room-runtime:2.6.1
+        com.squareup.retrofit2:retrofit:2.9.0
+        ```
+      placeholder: "group:artifact:version"
+    validations:
+      required: true
