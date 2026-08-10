@@ -1,0 +1,247 @@
+name: On-Demand Compatibility Build
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  process-request:
+    # Only run if the issue has the build-request label (added automatically by the form)
+    if: contains(github.event.issue.labels.*.name, 'build-request')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Parse and Validate Request
+        id: parse
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body;
+            const issueNumber = context.payload.issue.number;
+
+            // 1. Extract Foundation ID (matches hex string after the header)
+            const foundationMatch = body.match(/### Foundation ID\s+([a-f0-9]+)/i);
+            if (!foundationMatch) {
+              core.setFailed("Could not find Foundation ID in issue body.");
+              return;
+            }
+            const foundationId = foundationMatch[1].trim();
+
+            // 2. Extract Addons (captures everything under the header until the next header or EOF)
+            const addonsMatch = body.match(/### Addons\s+([\s\S]*?)(?=\n###|$)/i);
+            if (!addonsMatch) {
+              core.setFailed("Could not find Addons in issue body.");
+              return;
+            }
+
+            const addonsText = addonsMatch[1].trim();
+            const addons = [];
+            const lines = addonsText.split('\n');
+            // Regex for group:artifact:version
+            const coordRegex = /^([a-zA-Z0-9._-]+):([a-zA-Z0-9._-]+):([0-9A-Za-z._+-]+)$/;
+
+            for (const line of lines) {
+              const trimmed = line.trim();
+              if (!trimmed || trimmed.startsWith('```') || trimmed.startsWith('#')) continue;
+              
+              const match = trimmed.match(coordRegex);
+              if (!match) {
+                core.setFailed(`Invalid addon format: "${trimmed}". Expected group:artifact:version`);
+                return;
+              }
+              addons.push({
+                group: match[1],
+                artifact: match[2],
+                version: match[3]
+              });
+            }
+
+            if (addons.length === 0) {
+              core.setFailed("No valid addons found.");
+              return;
+            }
+
+            if (addons.length > 5) {
+              core.setFailed("Maximum 5 addons allowed per request.");
+              return;
+            }
+
+            // 3. Verify Foundation ID exists in compat.json
+            const fs = require('fs');
+            let validFoundation = false;
+            let combo = null;
+            const searchDirs = ['docs/data/agp8', 'docs/data/agp9'];
+
+            for (const dir of searchDirs) {
+              const filePath = `${dir}/compat.json`;
+              if (fs.existsSync(filePath)) {
+                const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+                if (data.results) {
+                  const found = data.results.find(r => r.id === foundationId);
+                  if (found) {
+                    validFoundation = true;
+                    combo = found;
+                    break;
+                  }
+                }
+              }
+            }
+
+            if (!validFoundation) {
+              core.setFailed(`Foundation ID "${foundationId}" not found in verified results.`);
+              return;
+            }
+
+            const agpMajor = combo.coreToolchain.agp.startsWith('9') ? '9' : '8';
+
+            core.setOutput('issue_number', issueNumber);
+            core.setOutput('foundation_id', foundationId);
+            core.setOutput('agp_major', agpMajor);
+            core.setOutput('combo_json', JSON.stringify(combo));
+            core.setOutput('addons_json', JSON.stringify(addons));
+            console.log(`✅ Validated request: Foundation ${foundationId} (AGP ${agpMajor}), Addons: ${JSON.stringify(addons)}`);
+
+      - name: Comment Validation Failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issueNumber = '${{ steps.parse.outputs.issue_number }}';
+            if (!issueNumber) return; // Parse failed before finding issue number
+
+            github.rest.issues.createComment({
+              issue_number: parseInt(issueNumber),
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "### ❌ Validation Failed\n\nThe request could not be processed. Please check the format of your Foundation ID and Addons.\n\n*   **Foundation ID**: Must be a valid hex ID from the dashboard.\n*   **Addons**: Must be in `group:artifact:version` format, one per line.\n*   **Max Addons**: 5 per request."
+            });
+            github.rest.issues.update({
+              issue_number: parseInt(issueNumber),
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed',
+              labels: ['build-request', 'invalid']
+            });
+
+      - name: Setup JDK 17
+        if: success()
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Setup Go
+        if: success()
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.26"
+
+      - name: Build Bridge JAR
+        if: success()
+        run: |
+          cd tools/gradle-bridge
+          chmod +x gradlew
+          ./gradlew shadowJar --no-daemon
+
+      - name: Prepare and Run Build
+        if: success()
+        id: build
+        env:
+          FOUNDATION_JSON: ${{ steps.parse.outputs.combo_json }}
+          ADDONS_JSON: ${{ steps.parse.outputs.addons_json }}
+          AGP_MAJOR: ${{ steps.parse.outputs.agp_major }}
+        run: |
+          mkdir -p tmp-build
+          cp -r stubs/agp${AGP_MAJOR}/* tmp-build/
+
+          COMPILE_SDK=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.compileSdk')
+          # Handle missing KSP key in AGP 9 combos
+          KSP_VER=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.ksp // "null"')
+
+          # Inject foundation + dynamic addons
+          go run cmd/inject/main.go \
+            --dir=tmp-build \
+            --agp=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.agp') \
+            --gradle=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.gradle') \
+            --kotlin=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.kotlin') \
+            --ksp=$KSP_VER \
+            --compile-sdk=$COMPILE_SDK \
+            --agp-major=$AGP_MAJOR \
+            --libs="$ADDONS_JSON"
+            
+          # Install SDK platform
+          export JAVA_HOME=$JAVA_HOME_17_X64
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-${COMPILE_SDK}" || true
+
+          # Run bridge build
+          cd tmp-build
+          "$JAVA_HOME_17_X64/bin/java" -jar ${GITHUB_WORKSPACE}/tools/gradle-bridge/app/build/libs/gradle-bridge.jar \
+            --project-dir . \
+            --tasks build \
+            --java-home "$JAVA_HOME" \
+            > bridge-output.json \
+            2> stdout.log \
+            || true
+          cd ..
+
+          # Collect result
+          go run cmd/collect/main.go \
+            --id="${{ steps.parse.outputs.foundation_id }}-ondemand" \
+            --agp=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.agp') \
+            --gradle=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.gradle') \
+            --kotlin=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.kotlin') \
+            --ksp=$KSP_VER \
+            --jdk=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.jdk') \
+            --compile-sdk=$COMPILE_SDK \
+            --sdk-package=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.sdkPackage') \
+            --workflow-url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --dir=tmp-build \
+            --out=. \
+            --bridge-json tmp-build/bridge-output.json \
+            --libs="$ADDONS_JSON"
+
+      - name: Comment Result on Issue
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const issueNumber = '${{ steps.parse.outputs.issue_number }}';
+            if (!issueNumber) return;
+
+            let commentBody = "";
+            let resultStatus = "failed";
+
+            const resultFile = "result-${{ steps.parse.outputs.foundation_id }}-ondemand.json";
+            if (fs.existsSync(resultFile)) {
+              const result = JSON.parse(fs.readFileSync(resultFile, 'utf8'));
+              resultStatus = result.status;
+              if (result.status === "verified") {
+                commentBody = `### ✅ Build Successful\n\nThe combination of Foundation \`${{ steps.parse.outputs.foundation_id }}\` and your selected addons compiled successfully!\n\n**Status:** ${result.status}\n**Sync:** ${result.verification.sync}\n**Compile:** ${result.verification.compile}`;
+              } else {
+                commentBody = `### ❌ Build Failed\n\nThe combination failed to build.\n\n**Status:** ${result.status}\n**Failure Signature:** \`${result.failureSignature}\`\n**Error Message:**\n\`\`\`\n${(result.errorMessage || 'No specific error message captured.').substring(0, 500)}\n\`\`\``;
+              }
+            } else {
+              commentBody = "### ⚠️ Build Error\nThe workflow encountered an infrastructure error and could not produce a result file.";
+            }
+
+            github.rest.issues.createComment({
+              issue_number: parseInt(issueNumber),
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: commentBody
+            });
+
+            github.rest.issues.update({
+              issue_number: parseInt(issueNumber),
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed',
+              labels: ['build-request', resultStatus === 'verified' ? 'resolved' : 'failed']
+            });
