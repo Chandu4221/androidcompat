@@ -100,7 +100,7 @@ jobs:
           mkdir -p tmp-build
           cp -r stubs/agp9/* tmp-build/
           COMBO='${{ toJson(matrix.combo) }}'
-
+          COMPILE_SDK=$(echo "$COMBO" | jq -r '.coreToolchain.compileSdk')
           go run cmd/inject/main.go \
             --dir=tmp-build \
             --agp=$(echo "$COMBO" | jq -r '.coreToolchain.agp') \
