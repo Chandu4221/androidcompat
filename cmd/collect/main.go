@@ -15,6 +15,7 @@ import (
 )
 
 // ---------- Bridge JSON structures ----------
+
 type BridgeFailure struct {
 	Description string          `json:"description"`
 	Message     string          `json:"message"`
@@ -28,13 +29,23 @@ type BridgeResult struct {
 }
 
 // ---------- Legacy structured error (init script) ----------
+
 type structuredError struct {
 	Task      string `json:"task"`
 	ErrorType string `json:"errorType"`
 	Cause     string `json:"cause"`
 }
 
+// ---------- LibCoord (reusable, shared shape with inject) ----------
+
+type LibCoord struct {
+	Group    string `json:"group"`
+	Artifact string `json:"artifact"`
+	Version  string `json:"version"`
+}
+
 // ---------- Main ----------
+
 func main() {
 	// Flags
 	comboID := flag.String("id", "", "Combo ID")
@@ -43,11 +54,10 @@ func main() {
 	kotlin := flag.String("kotlin", "", "Kotlin version")
 	ksp := flag.String("ksp", "", "KSP version")
 	jdk := flag.String("jdk", "", "JDK version")
-
 	compileSdk := flag.String("compile-sdk", "", "compileSdk version")
 	sdkPackage := flag.String("sdk-package", "", "SDK platform package")
 	workflowURL := flag.String("workflow-url", "", "GitHub Actions workflow run URL")
-
+	libsJSON := flag.String("libs", "[]", "JSON array of libraries: [{\"group\":\"x\",\"artifact\":\"y\",\"version\":\"z\"}]")
 	buildDir := flag.String("dir", "", "Build directory")
 	outputDir := flag.String("out", ".", "Output directory for result JSON")
 	bridgeJSON := flag.String("bridge-json", "", "Path to bridge-output.json (optional)")
@@ -59,10 +69,15 @@ func main() {
 
 	fmt.Printf("📊 Collecting result for combo: %s\n", *comboID)
 
+	// Parse dynamic libraries
+	var libs []LibCoord
+	if err := json.Unmarshal([]byte(*libsJSON), &libs); err != nil {
+		log.Fatalf("Failed to parse --libs JSON: %v", err)
+	}
+
 	// Read stdout and stderr from the build directory
 	stdoutPath := filepath.Join(*buildDir, "stdout.log")
 	stderrPath := filepath.Join(*buildDir, "stderr.log")
-
 	stdout, _ := os.ReadFile(stdoutPath)
 	stderr, _ := os.ReadFile(stderrPath)
 	combined := string(stdout) + "\n" + string(stderr)
@@ -93,7 +108,15 @@ func main() {
 	result.CoreToolchain.CompileSdk = *compileSdk
 	result.CoreToolchain.SdkPackage = *sdkPackage
 	result.WorkflowURL = *workflowURL
+
+	// Populate libraries from dynamic --libs flag
 	result.Libraries = []storage.Library{}
+	for _, lib := range libs {
+		result.Libraries = append(result.Libraries, storage.Library{
+			Name:    fmt.Sprintf("%s:%s", lib.Group, lib.Artifact),
+			Version: lib.Version,
+		})
+	}
 
 	result.ID = *comboID
 	result.Timestamp = time.Now().UTC().Format(time.RFC3339)
@@ -114,7 +137,6 @@ func main() {
 	if err := os.WriteFile(outPath, data, 0644); err != nil {
 		log.Fatalf("Failed to write result: %v", err)
 	}
-
 	fmt.Printf("✅ Result saved to %s\n", outPath)
 	fmt.Printf("   Status: %s\n", result.Status)
 	fmt.Printf("   Sync: %s\n", result.Verification.Sync)
@@ -124,6 +146,7 @@ func main() {
 }
 
 // ---------- Bridge Parser ----------
+
 func parseBridgeResult(bridgePath, comboID string) (storage.VerificationResult, error) {
 	data, err := os.ReadFile(bridgePath)
 	if err != nil {
@@ -257,6 +280,7 @@ func mapBridgeFailureToSignature(f *BridgeFailure) string {
 }
 
 // ---------- Legacy Parser (fallback) ----------
+
 // parseStructuredError scans for [[ERROR_CLASSIFICATION]] from the old init script.
 func parseStructuredError(output string) (structuredError, bool) {
 	lines := strings.Split(output, "\n")

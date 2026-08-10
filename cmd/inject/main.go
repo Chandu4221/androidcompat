@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
@@ -10,6 +11,13 @@ import (
 	"strings"
 )
 
+// LibCoord represents a single library dependency (reusable across inject/collect)
+type LibCoord struct {
+	Group    string `json:"group"`
+	Artifact string `json:"artifact"`
+	Version  string `json:"version"`
+}
+
 func main() {
 	dir := flag.String("dir", "", "Build directory")
 	agp := flag.String("agp", "", "AGP version")
@@ -18,6 +26,7 @@ func main() {
 	ksp := flag.String("ksp", "", "KSP version")
 	compileSdk := flag.String("compile-sdk", "", "compileSdk version")
 	agpMajor := flag.Int("agp-major", 0, "AGP major version (8 or 9)")
+	libsJSON := flag.String("libs", "[]", "JSON array of libraries: [{\"group\":\"x\",\"artifact\":\"y\",\"version\":\"z\"}]")
 	flag.Parse()
 
 	// Normalize: jq outputs the literal string "null" for missing JSON keys (AGP 9 has no ksp)
@@ -33,6 +42,12 @@ func main() {
 	// KSP required only for AGP 8 (AGP 9 uses built-in Kotlin, no external KSP)
 	if *agpMajor != 9 && *ksp == "" {
 		log.Fatal("--ksp is required for AGP 8")
+	}
+
+	// Parse dynamic libraries
+	var libs []LibCoord
+	if err := json.Unmarshal([]byte(*libsJSON), &libs); err != nil {
+		log.Fatalf("Failed to parse --libs JSON: %v", err)
 	}
 
 	// AGP 8/9: Kotlin DSL with libs.versions.toml
@@ -68,6 +83,16 @@ func main() {
 		appStr = injectAppPluginKts(appStr, "alias(libs.plugins.ksp)")
 	}
 
+	// Dynamic library injection (Level 1 generic build)
+	if len(libs) > 0 {
+		var depLines []string
+		for _, lib := range libs {
+			depLines = append(depLines, fmt.Sprintf(`    implementation("%s:%s:%s")`, lib.Group, lib.Artifact, lib.Version))
+		}
+		depsBlock := strings.Join(depLines, "\n")
+		appStr = injectAppDependencyKts(appStr, depsBlock)
+	}
+
 	if err := os.WriteFile(appGradleKts, []byte(appStr), 0644); err != nil {
 		log.Fatalf("Failed to update app/build.gradle.kts: %v", err)
 	}
@@ -93,7 +118,7 @@ func main() {
 		log.Fatalf("Failed to update wrapper: %v", err)
 	}
 
-	fmt.Println("✅ Injection complete (foundation-only)")
+	fmt.Printf("✅ Injection complete (foundation + %d dynamic libraries)\n", len(libs))
 }
 
 // ---------- Helpers ----------
@@ -171,4 +196,12 @@ func injectAppPluginKts(content, alias string) string {
 	}
 	re := regexp.MustCompile(`(?m)^plugins\s*\{`)
 	return re.ReplaceAllString(content, fmt.Sprintf("plugins {\n    %s", alias))
+}
+
+func injectAppDependencyKts(content, dependency string) string {
+	if dependency == "" {
+		return content
+	}
+	re := regexp.MustCompile(`(?m)^dependencies\s*\{`)
+	return re.ReplaceAllString(content, fmt.Sprintf("dependencies {\n%s", dependency))
 }

@@ -108,7 +108,8 @@ jobs:
             --kotlin=$(echo "$COMBO" | jq -r '.coreToolchain.kotlin') \
             --ksp=$(echo "$COMBO" | jq -r '.coreToolchain.ksp') \
             --compile-sdk=$COMPILE_SDK \
-            --agp-major=8
+            --agp-major=8 \
+            --libs='[]'
 
       - name: Install Android SDK platform
         run: |
@@ -144,9 +145,7 @@ jobs:
         run: |
           COMBO='${{ toJson(matrix.combo) }}'
           WORKFLOW_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-
           COMPILE_SDK=$(echo "$COMBO" | jq -r '.coreToolchain.compileSdk')
-
           go run cmd/collect/main.go \
             --id=$(echo "$COMBO" | jq -r '.id') \
             --agp=$(echo "$COMBO" | jq -r '.coreToolchain.agp') \
@@ -159,7 +158,8 @@ jobs:
             --workflow-url="$WORKFLOW_URL" \
             --dir=tmp-build \
             --out=. \
-            --bridge-json tmp-build/bridge-output.json
+            --bridge-json tmp-build/bridge-output.json \
+            --libs='[]'
 
       - name: Upload result artifact
         uses: actions/upload-artifact@v7
