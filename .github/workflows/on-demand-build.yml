@@ -2,7 +2,12 @@ name: On-Demand Compatibility Build
 
 on:
   issues:
-    types: [labeled]
+    types: [opened]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: "Issue number to reprocess (for manual testing/retries)"
+        required: false
 
 permissions:
   issues: write
@@ -10,8 +15,10 @@ permissions:
 
 jobs:
   process-request:
-    # Only run if the issue has the build-request label (added automatically by the form)
-    if: github.event.label.name == 'build-request'
+    # Labels applied by an Issue Form at creation time are part of the
+    # 'opened' payload, not a separate 'labeled' event — check the array
+    # on 'opened', and always run for manual workflow_dispatch retries.
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.issue.labels.*.name, 'build-request')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -24,6 +31,12 @@ jobs:
           script: |
             const body = context.payload.issue.body;
             const issueNumber = context.payload.issue.number;
+
+            // Set this FIRST, before any validation that might fail —
+            // otherwise a malformed request has no issue_number output,
+            // the failure-comment step silently no-ops, and the issue
+            // just sits open with no feedback.
+            core.setOutput('issue_number', issueNumber);
 
             // 1. Extract Foundation ID (matches hex string after the header)
             const foundationMatch = body.match(/### Foundation ID\s+([a-f0-9]+)/i);
@@ -100,7 +113,6 @@ jobs:
 
             const agpMajor = combo.coreToolchain.agp.startsWith('9') ? '9' : '8';
 
-            core.setOutput('issue_number', issueNumber);
             core.setOutput('foundation_id', foundationId);
             core.setOutput('agp_major', agpMajor);
             core.setOutput('combo_json', JSON.stringify(combo));
