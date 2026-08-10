@@ -2,7 +2,7 @@ name: On-Demand Compatibility Build
 
 on:
   issues:
-    types: [opened]
+    types: [labeled]
 
 permissions:
   issues: write
@@ -11,7 +11,7 @@ permissions:
 jobs:
   process-request:
     # Only run if the issue has the build-request label (added automatically by the form)
-    if: contains(github.event.issue.labels.*.name, 'build-request')
+    if: github.event.label.name == 'build-request'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
