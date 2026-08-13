@@ -1,6 +1,6 @@
 {
   "agpMajor": 9,
-  "generatedAt": "2026-08-07T09:08:12Z",
+  "generatedAt": "2026-08-13T05:57:54Z",
   "combos": [
     {
       "id": "1c2632308bf10577",
@@ -11,8 +11,7 @@
         "jdk": "17",
         "compileSdk": "36",
         "sdkPackage": "36"
-      },
-      "libraries": []
+      }
     },
     {
       "id": "755e6a061d40574c",
@@ -23,8 +22,7 @@
         "jdk": "17",
         "compileSdk": "36",
         "sdkPackage": "36"
-      },
-      "libraries": []
+      }
     },
     {
       "id": "be0525fff4fe6410",
@@ -35,8 +33,7 @@
         "jdk": "17",
         "compileSdk": "36",
         "sdkPackage": "36"
-      },
-      "libraries": []
+      }
     },
     {
       "id": "d98b6a2be3597d59",
@@ -47,8 +44,7 @@
         "jdk": "17",
         "compileSdk": "36",
         "sdkPackage": "36"
-      },
-      "libraries": []
+      }
     }
   ]
 }
