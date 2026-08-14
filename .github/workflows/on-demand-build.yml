@@ -227,6 +227,7 @@ jobs:
             --kotlin="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.kotlin')" \
             --ksp="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.ksp')" \
             --compile-sdk="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.compileSdk')" \
+            --agp-major=$AGP_MAJOR \
             --libs="$ADDONS_JSON"
 
           cd tmp-build
