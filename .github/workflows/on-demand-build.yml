@@ -15,124 +15,119 @@ permissions:
 
 jobs:
   process-request:
-    # Labels applied by an Issue Form at creation time are part of the
-    # 'opened' payload, not a separate 'labeled' event — check the array
-    # on 'opened', and always run for manual workflow_dispatch retries.
     if: github.event_name == 'workflow_dispatch' || contains(github.event.issue.labels.*.name, 'build-request')
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
       - name: Parse and Validate Request
         id: parse
-        uses: actions/github-script@v8
+        uses: actions/github-script@v7
         with:
           script: |
-            const body = context.payload.issue.body;
-            const issueNumber = context.payload.issue.number;
+            const fs = require('fs');
+            let issueNumber, issueBody;
 
-            // Set this FIRST, before any validation that might fail —
-            // otherwise a malformed request has no issue_number output,
-            // the failure-comment step silently no-ops, and the issue
-            // just sits open with no feedback.
-            core.setOutput('issue_number', issueNumber);
-
-            // 1. Extract Foundation ID (matches hex string after the header)
-            const foundationMatch = body.match(/### Foundation ID\s+([a-f0-9]+)/i);
-            if (!foundationMatch) {
-              core.setFailed("Could not find Foundation ID in issue body.");
-              return;
-            }
-            const foundationId = foundationMatch[1].trim();
-
-            // 2. Extract Addons (captures everything under the header until the next header or EOF)
-            const addonsMatch = body.match(/### Addons\s+([\s\S]*?)(?=\n###|$)/i);
-            if (!addonsMatch) {
-              core.setFailed("Could not find Addons in issue body.");
-              return;
-            }
-
-            const addonsText = addonsMatch[1].trim();
-            const addons = [];
-            const lines = addonsText.split('\n');
-            // Regex for group:artifact:version
-            const coordRegex = /^([a-zA-Z0-9._-]+):([a-zA-Z0-9._-]+):([0-9A-Za-z._+-]+)$/;
-
-            for (const line of lines) {
-              const trimmed = line.trim();
-              if (!trimmed || trimmed.startsWith('```') || trimmed.startsWith('#')) continue;
-              
-              const match = trimmed.match(coordRegex);
-              if (!match) {
-                core.setFailed(`Invalid addon format: "${trimmed}". Expected group:artifact:version`);
+            if (context.eventName === 'workflow_dispatch') {
+              issueNumber = context.payload.inputs.issue_number || '';
+              if (!issueNumber) {
+                core.setFailed('No issue_number provided for manual dispatch.');
                 return;
               }
-              addons.push({
-                group: match[1],
-                artifact: match[2],
-                version: match[3]
+              const { data: issue } = await github.rest.issues.get({
+                issue_number: parseInt(issueNumber),
+                owner: context.repo.owner,
+                repo: context.repo.repo
               });
+              issueBody = issue.body;
+            } else {
+              issueNumber = context.payload.issue.number;
+              issueBody = context.payload.issue.body;
+            }
+
+            if (!issueNumber || !issueBody) {
+              core.setFailed('Could not extract issue number or body.');
+              return;
+            }
+
+            // Extract Foundation ID from markdown template
+            const foundationMatch = issueBody.match(/### Foundation ID\s*\n\s*([a-f0-9]{16})/i);
+            const foundationId = foundationMatch ? foundationMatch[1].trim() : null;
+
+            if (!foundationId) {
+              core.setFailed('Missing or invalid Foundation ID. Must be a 16-character hex ID.');
+              return;
+            }
+
+            // Extract Addons
+            const addonsMatch = issueBody.match(/### Addons\s*\n\s*([\s\S]*?)(?:\n\n###|\n\n---|$)/i);
+            const addonsText = addonsMatch ? addonsMatch[1].trim() : '';
+
+            if (!addonsText) {
+              core.setFailed('Missing Addons section. At least one library is required.');
+              return;
+            }
+
+            // Parse addon lines into structured JSON
+            const addons = [];
+            const lines = addonsText.split('\n');
+            for (const line of lines) {
+              const trimmed = line.trim();
+              if (!trimmed || trimmed.startsWith('#') || trimmed.startsWith('```')) continue;
+              
+              const parts = trimmed.split(':');
+              if (parts.length === 3) {
+                addons.push({
+                  group: parts[0].trim(),
+                  artifact: parts[1].trim(),
+                  version: parts[2].trim()
+                });
+              }
             }
 
             if (addons.length === 0) {
-              core.setFailed("No valid addons found.");
+              core.setFailed('No valid addon coordinates found. Expected format: group:artifact:version');
               return;
             }
 
             if (addons.length > 5) {
-              core.setFailed("Maximum 5 addons allowed per request.");
+              core.setFailed('Too many addons. Maximum 5 per request.');
               return;
             }
 
-            // 3. Verify Foundation ID exists in compat.json
-            const fs = require('fs');
-            let validFoundation = false;
-            let combo = null;
-            const searchDirs = ['docs/data/agp8', 'docs/data/agp9'];
+            // Load foundation combo from compat.json files
+            const agp8Data = JSON.parse(fs.readFileSync('docs/data/agp8/compat.json', 'utf8'));
+            const agp9Data = JSON.parse(fs.readFileSync('docs/data/agp9/compat.json', 'utf8'));
+            const allCombos = [...agp8Data.results, ...agp9Data.results];
+            const combo = allCombos.find(c => c.id === foundationId);
 
-            for (const dir of searchDirs) {
-              const filePath = `${dir}/compat.json`;
-              if (fs.existsSync(filePath)) {
-                const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-                if (data.results) {
-                  const found = data.results.find(r => r.id === foundationId);
-                  if (found) {
-                    validFoundation = true;
-                    combo = found;
-                    break;
-                  }
-                }
-              }
-            }
-
-            if (!validFoundation) {
-              core.setFailed(`Foundation ID "${foundationId}" not found in verified results.`);
+            if (!combo) {
+              core.setFailed(`Foundation ID ${foundationId} not found in verified combos. Check the dashboard for valid IDs.`);
               return;
             }
 
-            const agpMajor = combo.coreToolchain.agp.startsWith('9') ? '9' : '8';
-
+            core.setOutput('issue_number', issueNumber);
             core.setOutput('foundation_id', foundationId);
-            core.setOutput('agp_major', agpMajor);
             core.setOutput('combo_json', JSON.stringify(combo));
             core.setOutput('addons_json', JSON.stringify(addons));
-            console.log(`✅ Validated request: Foundation ${foundationId} (AGP ${agpMajor}), Addons: ${JSON.stringify(addons)}`);
+            core.setOutput('addons_count', addons.length);
 
       - name: Comment Validation Failure
-        if: failure()
-        uses: actions/github-script@v8
+        if: failure() && steps.parse.outcome == 'failure'
+        uses: actions/github-script@v7
         with:
           script: |
             const issueNumber = '${{ steps.parse.outputs.issue_number }}';
-            if (!issueNumber) return; // Parse failed before finding issue number
+            if (!issueNumber) return;
 
             github.rest.issues.createComment({
               issue_number: parseInt(issueNumber),
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "### ❌ Validation Failed\n\nThe request could not be processed. Please check the format of your Foundation ID and Addons.\n\n*   **Foundation ID**: Must be a valid hex ID from the dashboard.\n*   **Addons**: Must be in `group:artifact:version` format, one per line.\n*   **Max Addons**: 5 per request."
+              body: "### ❌ Request Validation Failed\n\nYour build request could not be processed. Please check:\n\n1. **Foundation ID** is a valid 16-character hex ID from the dashboard\n2. **Addons** are in `group:artifact:version` format, one per line\n3. Maximum 5 addons per request\n\nFeel free to edit your issue or create a new one with corrected values."
             });
+
             github.rest.issues.update({
               issue_number: parseInt(issueNumber),
               owner: context.repo.owner,
@@ -141,55 +136,106 @@ jobs:
               labels: ['build-request', 'invalid']
             });
 
+      - name: Setup Go
+        if: success()
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.21"
+
+      - name: Metadata Gate (Level 0)
+        if: success()
+        id: metacheck
+        env:
+          FOUNDATION_JSON: ${{ steps.parse.outputs.combo_json }}
+          ADDONS_JSON: ${{ steps.parse.outputs.addons_json }}
+        run: |
+          COMPILE_SDK=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.compileSdk')
+          JDK=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.jdk')
+          go run cmd/metadata-check/main.go \
+            --libs="$ADDONS_JSON" \
+            --compile-sdk=$COMPILE_SDK \
+            --jdk=$JDK \
+            --out=metadata-failures.json
+
+      - name: Comment Metadata Failure
+        if: failure() && steps.metacheck.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const issueNumber = '${{ steps.parse.outputs.issue_number }}';
+            if (!issueNumber) return;
+
+            let failures = [];
+            if (fs.existsSync('metadata-failures.json')) {
+              failures = JSON.parse(fs.readFileSync('metadata-failures.json', 'utf8'));
+            }
+
+            let body = "### ❌ Metadata Gate Failed\n\nThe requested addons are **incompatible** with the selected Foundation based on declared metadata. The build was skipped to save CI resources.\n\n";
+            for (const f of failures) {
+              body += `- ${f}\n`;
+            }
+            body += "\n**Suggestion:** Choose a Foundation with a higher compileSdk/JDK, or use an older version of the library.";
+
+            github.rest.issues.createComment({
+              issue_number: parseInt(issueNumber),
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+
+            github.rest.issues.update({
+              issue_number: parseInt(issueNumber),
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed',
+              labels: ['build-request', 'metadata-failed']
+            });
+
       - name: Setup JDK 17
         if: success()
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v4
         with:
           distribution: "temurin"
           java-version: "17"
-
-      - name: Setup Go
-        if: success()
-        uses: actions/setup-go@v6
-        with:
-          go-version: "1.26"
 
       - name: Build Bridge JAR
         if: success()
         run: |
           cd tools/gradle-bridge
-          chmod +x gradlew
           ./gradlew shadowJar --no-daemon
+          cd ../..
 
       - name: Prepare and Run Build
         if: success()
-        id: build
         env:
           FOUNDATION_JSON: ${{ steps.parse.outputs.combo_json }}
           ADDONS_JSON: ${{ steps.parse.outputs.addons_json }}
-          AGP_MAJOR: ${{ steps.parse.outputs.agp_major }}
+          FOUNDATION_ID: ${{ steps.parse.outputs.foundation_id }}
+          ISSUE_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          mkdir -p tmp-build
-          cp -r stubs/agp${AGP_MAJOR}/* tmp-build/
+          # Determine AGP major from foundation
+          AGP_MAJOR=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.agp' | cut -d'.' -f1)
+          STUB_DIR="stubs/agp${AGP_MAJOR}"
 
-          COMPILE_SDK=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.compileSdk')
-          # Handle missing KSP key in AGP 9 combos
-          KSP_VER=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.ksp // "null"')
+          if [ ! -d "$STUB_DIR" ]; then
+            echo "❌ Stub directory not found: $STUB_DIR"
+            exit 1
+          fi
 
-          # Inject foundation + dynamic addons
+          # Copy stub to working directory
+          cp -r "$STUB_DIR" tmp-build
+
+          # Run inject tool
           go run cmd/inject/main.go \
             --dir=tmp-build \
-            --agp=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.agp') \
-            --gradle=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.gradle') \
-            --kotlin=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.kotlin') \
-            --ksp=$KSP_VER \
-            --compile-sdk=$COMPILE_SDK \
-            --agp-major=$AGP_MAJOR \
+            --agp="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.agp')" \
+            --gradle="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.gradle')" \
+            --kotlin="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.kotlin')" \
+            --ksp="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.ksp')" \
+            --jdk="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.jdk')" \
+            --compile-sdk="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.compileSdk')" \
             --libs="$ADDONS_JSON"
-            
-          # Install SDK platform
-          export JAVA_HOME=$JAVA_HOME_17_X64
-          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-${COMPILE_SDK}" || true
 
           # Run bridge build
           cd tmp-build
@@ -202,45 +248,69 @@ jobs:
             || true
           cd ..
 
-          # Collect result
+      - name: Collect Result
+        if: always() && steps.parse.outcome == 'success' && steps.metacheck.outcome != 'failure'
+        env:
+          FOUNDATION_JSON: ${{ steps.parse.outputs.combo_json }}
+          ADDONS_JSON: ${{ steps.parse.outputs.addons_json }}
+          FOUNDATION_ID: ${{ steps.parse.outputs.foundation_id }}
+          ISSUE_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
           go run cmd/collect/main.go \
-            --id="${{ steps.parse.outputs.foundation_id }}-ondemand" \
-            --agp=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.agp') \
-            --gradle=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.gradle') \
-            --kotlin=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.kotlin') \
-            --ksp=$KSP_VER \
-            --jdk=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.jdk') \
-            --compile-sdk=$COMPILE_SDK \
-            --sdk-package=$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.sdkPackage') \
-            --workflow-url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --id="${FOUNDATION_ID}-ondemand" \
+            --agp="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.agp')" \
+            --gradle="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.gradle')" \
+            --kotlin="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.kotlin')" \
+            --ksp="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.ksp')" \
+            --jdk="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.jdk')" \
+            --compile-sdk="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.compileSdk')" \
+            --sdk-package="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.sdkPackage')" \
+            --workflow-url="$ISSUE_URL" \
             --dir=tmp-build \
             --out=. \
-            --bridge-json tmp-build/bridge-output.json \
+            --bridge-json=tmp-build/bridge-output.json \
             --libs="$ADDONS_JSON"
 
       - name: Comment Result on Issue
-        if: always()
-        uses: actions/github-script@v8
+        if: always() && steps.metacheck.outcome != 'failure'
+        uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
             const issueNumber = '${{ steps.parse.outputs.issue_number }}';
             if (!issueNumber) return;
 
-            let commentBody = "";
-            let resultStatus = "failed";
-
             const resultFile = "result-${{ steps.parse.outputs.foundation_id }}-ondemand.json";
+            let commentBody;
+
             if (fs.existsSync(resultFile)) {
               const result = JSON.parse(fs.readFileSync(resultFile, 'utf8'));
-              resultStatus = result.status;
-              if (result.status === "verified") {
-                commentBody = `### ✅ Build Successful\n\nThe combination of Foundation \`${{ steps.parse.outputs.foundation_id }}\` and your selected addons compiled successfully!\n\n**Status:** ${result.status}\n**Sync:** ${result.verification.sync}\n**Compile:** ${result.verification.compile}`;
-              } else {
-                commentBody = `### ❌ Build Failed\n\nThe combination failed to build.\n\n**Status:** ${result.status}\n**Failure Signature:** \`${result.failureSignature}\`\n**Error Message:**\n\`\`\`\n${(result.errorMessage || 'No specific error message captured.').substring(0, 500)}\n\`\`\``;
+              const status = result.status === 'verified' ? '✅' : '❌';
+              const statusText = result.status === 'verified' ? 'COMPATIBLE' : 'INCOMPATIBLE';
+              
+              commentBody = `### ${status} Compatibility Result: ${statusText}\n\n`;
+              commentBody += `**Foundation:** \`${result.coreToolchain.agp}\` / Gradle \`${result.coreToolchain.gradle}\` / Kotlin \`${result.coreToolchain.kotlin}\`\n\n`;
+              
+              if (result.libraries && result.libraries.length > 0) {
+                commentBody += `**Addons tested:**\n`;
+                for (const lib of result.libraries) {
+                  commentBody += `- \`${lib.name}:${lib.version}\`\n`;
+                }
+                commentBody += `\n`;
               }
+              
+              commentBody += `**Verification:**\n`;
+              commentBody += `- Sync: ${result.verification.sync}\n`;
+              commentBody += `- Compile: ${result.verification.compile}\n`;
+              commentBody += `- Unit Test: ${result.verification.unitTest}\n\n`;
+              
+              if (result.errorMessage) {
+                commentBody += `**Error:**\n\`\`\`\n${result.errorMessage}\n\`\`\`\n\n`;
+              }
+              
+              commentBody += `[View full workflow run](${result.workflowUrl})`;
             } else {
-              commentBody = "### ⚠️ Build Error\nThe workflow encountered an infrastructure error and could not produce a result file.";
+              commentBody = "### ⚠️ Build Error\n\nThe workflow encountered an infrastructure error and could not produce a result. Please try again or report this issue.";
             }
 
             github.rest.issues.createComment({
@@ -250,10 +320,10 @@ jobs:
               body: commentBody
             });
 
+            // Close the issue
             github.rest.issues.update({
               issue_number: parseInt(issueNumber),
               owner: context.repo.owner,
               repo: context.repo.repo,
-              state: 'closed',
-              labels: ['build-request', resultStatus === 'verified' ? 'resolved' : 'failed']
+              state: 'closed'
             });
