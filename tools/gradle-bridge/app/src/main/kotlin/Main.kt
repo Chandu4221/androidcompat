@@ -76,17 +76,24 @@ fun main(args: Array<String>) {
         status = "success"
         lastException = null
 
-        // --- NEW: Cache invalidation step (Runs BEFORE connecting) ---
+        // --- Cache invalidation step (Runs BEFORE connecting) ---
         if (attempt > 1) {
             System.err.println("⚠️ Attempt $attempt/$maxAttempts. Clearing Gradle caches before fresh connection...")
-            val gradleHome = System.getProperty("user.home") + "/.gradle"
-            val clearCaches = ProcessBuilder("rm", "-rf", "$gradleHome/caches/", "$gradleHome/wrapper/dists/")
-                .redirectErrorStream(true)
-                .start()
-            val exitCode = clearCaches.waitFor()
-            if (exitCode != 0) {
-                System.err.println("⚠️ Cache clear failed with exit code $exitCode")
-            } else {
+            val gradleHome = File(System.getProperty("user.home"), ".gradle")
+            val cachesDir = File(gradleHome, "caches")
+            val wrapperDir = File(File(gradleHome, "wrapper"), "dists")  // Fixed: nested File constructors
+
+            var cleared = true
+            if (cachesDir.exists() && !cachesDir.deleteRecursively()) {
+                System.err.println("⚠️ Failed to delete: ${cachesDir.absolutePath}")
+                cleared = false
+            }
+            if (wrapperDir.exists() && !wrapperDir.deleteRecursively()) {
+                System.err.println("⚠️ Failed to delete: ${wrapperDir.absolutePath}")
+                cleared = false
+            }
+
+            if (cleared) {
                 System.err.println("✅ Gradle caches cleared successfully.")
             }
         }

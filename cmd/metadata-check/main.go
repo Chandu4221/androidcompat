@@ -199,8 +199,12 @@ func main() {
 	if len(failures) > 0 {
 		fmt.Printf("\n❌ METADATA GATE FAILED: %d violation(s)\n", len(failures))
 		if *outFlag != "" {
-			data, _ := json.MarshalIndent(failures, "", "  ")
-			os.WriteFile(*outFlag, data, 0644)
+			data, err := json.MarshalIndent(failures, "", "  ")
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "⚠️ Failed to marshal failures: %v\n", err)
+			} else if err := os.WriteFile(*outFlag, data, 0644); err != nil {
+				fmt.Fprintf(os.Stderr, "⚠️ Failed to write %s: %v\n", *outFlag, err)
+			}
 		}
 		os.Exit(1)
 	}
