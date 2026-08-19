@@ -11,7 +11,7 @@ on:
 
 permissions:
   issues: write
-  contents: read
+  contents: write
 
 jobs:
   process-request:
@@ -134,12 +134,83 @@ jobs:
 
       - name: Setup Go
         if: success()
-        uses: actions/setup-go@v6
+        uses: actions/setup-go@v7
         with:
-          go-version: "1.26"
+          go-version: "1.26.4"
+
+      - name: Check On-Demand Cache
+        if: success()
+        id: cache-check
+        env:
+          FOUNDATION_ID: ${{ steps.parse.outputs.foundation_id }}
+          ADDONS_JSON: ${{ steps.parse.outputs.addons_json }}
+        run: |
+          OUTPUT=$(go run cmd/cache-lookup/main.go \
+            --foundation="$FOUNDATION_ID" \
+            --libs="$ADDONS_JSON" 2>&1) || true
+
+          if echo "$OUTPUT" | grep -q '"id"'; then
+            echo "cache_hit=true" >> $GITHUB_OUTPUT
+            echo "$OUTPUT" > cached-result.json
+            echo "✅ Cache hit found"
+          else
+            echo "cache_hit=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ No cache hit, will run full build"
+          fi
+
+      - name: Comment Cached Result
+        if: steps.cache-check.outputs.cache_hit == 'true'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require('fs');
+            const issueNumber = '${{ steps.parse.outputs.issue_number }}';
+            if (!issueNumber) return;
+
+            const result = JSON.parse(fs.readFileSync('cached-result.json', 'utf8'));
+            const status = result.status === 'verified' ? '✅' : '❌';
+            const statusText = result.status === 'verified' ? 'COMPATIBLE' : 'INCOMPATIBLE';
+
+            let commentBody = `### ${status} Compatibility Result: ${statusText} (Cached)\n\n`;
+            commentBody += `**Foundation:** \`${result.coreToolchain.agp}\` / Gradle \`${result.coreToolchain.gradle}\` / Kotlin \`${result.coreToolchain.kotlin}\`\n\n`;
+
+            if (result.libraries && result.libraries.length > 0) {
+              commentBody += `**Addons tested:**\n`;
+              for (const lib of result.libraries) {
+                commentBody += `- \`${lib.name}:${lib.version}\`\n`;
+              }
+              commentBody += `\n`;
+            }
+
+            commentBody += `**Verification:**\n`;
+            commentBody += `- Sync: ${result.verification.sync}\n`;
+            commentBody += `- Compile: ${result.verification.compile}\n`;
+            commentBody += `- Unit Test: ${result.verification.unit_test}\n\n`;
+
+            if (result.errorMessage) {
+              commentBody += `**Error:**\n\`\`\`\n${result.errorMessage}\n\`\`\`\n\n`;
+            }
+
+            commentBody += `*This result was retrieved from cache (${result.timestamp}). No new build was run.*\n\n`;
+            commentBody += `[View original workflow run](${result.workflowUrl})`;
+
+            github.rest.issues.createComment({
+              issue_number: parseInt(issueNumber),
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: commentBody
+            });
+
+            github.rest.issues.update({
+              issue_number: parseInt(issueNumber),
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed',
+              labels: ['build-request', 'cached-result']
+            });
 
       - name: Metadata Gate (Level 0)
-        if: success()
+        if: success() && steps.cache-check.outputs.cache_hit != 'true'
         id: metacheck
         env:
           FOUNDATION_JSON: ${{ steps.parse.outputs.combo_json }}
@@ -189,21 +260,21 @@ jobs:
             });
 
       - name: Setup JDK 17
-        if: success()
+        if: success() && steps.cache-check.outputs.cache_hit != 'true'
         uses: actions/setup-java@v5
         with:
           distribution: "temurin"
           java-version: "17"
 
       - name: Build Bridge JAR
-        if: success()
+        if: success() && steps.cache-check.outputs.cache_hit != 'true'
         run: |
           cd tools/gradle-bridge
           ./gradlew shadowJar --no-daemon
           cd ../..
 
       - name: Prepare and Run Build
-        if: success()
+        if: success() && steps.cache-check.outputs.cache_hit != 'true'
         env:
           FOUNDATION_JSON: ${{ steps.parse.outputs.combo_json }}
           ADDONS_JSON: ${{ steps.parse.outputs.addons_json }}
@@ -241,7 +312,7 @@ jobs:
           cd ..
 
       - name: Collect Result
-        if: always() && steps.parse.outcome == 'success' && steps.metacheck.outcome != 'failure'
+        if: always() && steps.parse.outcome == 'success' && steps.metacheck.outcome != 'failure' && steps.cache-check.outputs.cache_hit != 'true'
         env:
           FOUNDATION_JSON: ${{ steps.parse.outputs.combo_json }}
           ADDONS_JSON: ${{ steps.parse.outputs.addons_json }}
@@ -261,8 +332,28 @@ jobs:
             --bridge-json=tmp-build/bridge-output.json \
             --libs="$ADDONS_JSON"
 
+      - name: Persist Result to Cache
+        if: success() && steps.cache-check.outputs.cache_hit != 'true'
+        run: |
+          go run cmd/cache-append/main.go \
+            --result="result-${{ steps.parse.outputs.foundation_id }}-ondemand.json" \
+            --cache="docs/data/ondemand/compat.json"
+
+      - name: Commit Cache Update
+        if: success() && steps.cache-check.outputs.cache_hit != 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/data/ondemand/compat.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: persist on-demand result to cache [skip ci]"
+            git push
+          else
+            echo "No changes to cache."
+          fi
+
       - name: Comment Result on Issue
-        if: always() && steps.metacheck.outcome != 'failure'
+        if: always() && steps.metacheck.outcome != 'failure' && steps.cache-check.outputs.cache_hit != 'true'
         uses: actions/github-script@v9
         with:
           script: |
@@ -292,13 +383,14 @@ jobs:
               commentBody += `**Verification:**\n`;
               commentBody += `- Sync: ${result.verification.sync}\n`;
               commentBody += `- Compile: ${result.verification.compile}\n`;
-              commentBody += `- Unit Test: ${result.verification.unitTest}\n\n`;
+              commentBody += `- Unit Test: ${result.verification.unit_test}\n\n`;
               
               if (result.errorMessage) {
                 commentBody += `**Error:**\n\`\`\`\n${result.errorMessage}\n\`\`\`\n\n`;
               }
               
-              commentBody += `[View full workflow run](${result.workflowUrl})`;
+              commentBody += `[View full workflow run](${result.workflowUrl})\n\n`;
+              commentBody += `*This result has been cached for future requests.*`;
             } else {
               commentBody = "### ⚠️ Build Error\n\nThe workflow encountered an infrastructure error and could not produce a result. Please try again or report this issue.";
             }
@@ -314,5 +406,6 @@ jobs:
               issue_number: parseInt(issueNumber),
               owner: context.repo.owner,
               repo: context.repo.repo,
-              state: 'closed'
+              state: 'closed',
+              labels: ['build-request', 'result-cached']
             });
