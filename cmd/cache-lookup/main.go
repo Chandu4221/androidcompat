@@ -1,20 +1,23 @@
 package main
 
 import (
-	"crypto/sha256"
-	"encoding/hex"
 	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
-	"sort"
-	"strings"
 )
 
+// LibCoord matches the incoming request format from the workflow
 type LibCoord struct {
 	Group    string `json:"group"`
 	Artifact string `json:"artifact"`
 	Version  string `json:"version"`
+}
+
+// CachedLibrary matches the format saved by cmd/collect
+type CachedLibrary struct {
+	Name    string `json:"name"` // stored as "group:artifact"
+	Version string `json:"version"`
 }
 
 type VerificationResult struct {
@@ -30,13 +33,10 @@ type VerificationResult struct {
 		CompileSdk string `json:"compileSdk"`
 		SdkPackage string `json:"sdkPackage"`
 	} `json:"coreToolchain"`
-	Libraries []struct {
-		Name    string `json:"name"`
-		Version string `json:"version"`
-	} `json:"libraries"`
-	Status           string `json:"status"`
-	FailureSignature string `json:"failureSignature,omitempty"`
-	ErrorMessage     string `json:"errorMessage,omitempty"`
+	Libraries        []CachedLibrary `json:"libraries"`
+	Status           string          `json:"status"`
+	FailureSignature string          `json:"failureSignature,omitempty"`
+	ErrorMessage     string          `json:"errorMessage,omitempty"`
 	Verification     struct {
 		Sync     string `json:"sync"`
 		Compile  string `json:"compile"`
@@ -49,22 +49,38 @@ type OnDemandCache struct {
 	Results []VerificationResult `json:"results"`
 }
 
-func generateComboKey(foundationID string, libs []LibCoord) string {
-	// Sort addons for deterministic key
-	sort.Slice(libs, func(i, j int) bool {
-		ci := fmt.Sprintf("%s:%s:%s", libs[i].Group, libs[i].Artifact, libs[i].Version)
-		cj := fmt.Sprintf("%s:%s:%s", libs[j].Group, libs[j].Artifact, libs[j].Version)
-		return ci < cj
-	})
-
-	parts := []string{foundationID}
+// buildRequestSet creates a set of "group:artifact:version" from the incoming request
+func buildRequestSet(libs []LibCoord) map[string]bool {
+	set := make(map[string]bool)
 	for _, lib := range libs {
-		parts = append(parts, fmt.Sprintf("%s:%s:%s", lib.Group, lib.Artifact, lib.Version))
+		key := fmt.Sprintf("%s:%s:%s", lib.Group, lib.Artifact, lib.Version)
+		set[key] = true
 	}
+	return set
+}
 
-	raw := strings.Join(parts, "|")
-	hash := sha256.Sum256([]byte(raw))
-	return hex.EncodeToString(hash[:])[:16]
+// buildCachedSet creates a set of "group:artifact:version" from the cached result
+func buildCachedSet(libs []CachedLibrary) map[string]bool {
+	set := make(map[string]bool)
+	for _, lib := range libs {
+		// lib.Name is already "group:artifact"
+		key := fmt.Sprintf("%s:%s", lib.Name, lib.Version)
+		set[key] = true
+	}
+	return set
+}
+
+// setsEqual checks if two string sets are identical (order-independent)
+func setsEqual(a, b map[string]bool) bool {
+	if len(a) != len(b) {
+		return false
+	}
+	for k := range a {
+		if !b[k] {
+			return false
+		}
+	}
+	return true
 }
 
 func main() {
@@ -84,41 +100,32 @@ func main() {
 		os.Exit(1)
 	}
 
-	comboKey := generateComboKey(*foundationID, libs)
+	requestSet := buildRequestSet(libs)
 
 	// Load cache
 	var cache OnDemandCache
 	if data, err := os.ReadFile(*cacheFile); err == nil {
 		if err := json.Unmarshal(data, &cache); err != nil {
 			fmt.Fprintf(os.Stderr, "⚠️ Failed to parse cache, treating as empty: %v\n", err)
-			cache = OnDemandCache{Results: []VerificationResult{}}
 		}
-	} else {
-		fmt.Printf("ℹ️ Cache file not found, treating as empty\n")
 	}
 
-	// Search for matching result
-	// Search for matching result
+	// Search for matching result using SET comparison (order-independent)
+	expectedID := *foundationID + "-ondemand"
 	for _, result := range cache.Results {
-		// Check if Foundation ID and libraries match
-		if len(result.Libraries) == len(libs) && strings.HasPrefix(result.ID, *foundationID) {
-			match := true
-			for i, lib := range libs {
-				expected := fmt.Sprintf("%s:%s", lib.Group, lib.Artifact)
-				if result.Libraries[i].Name != expected || result.Libraries[i].Version != lib.Version {
-					match = false
-					break
-				}
-			}
-			if match {
-				// Found! Output the cached result
-				data, _ := json.MarshalIndent(result, "", "  ")
-				fmt.Println(string(data))
-				os.Exit(0)
-			}
+		// 1. Same Foundation? (exact match on ID, not prefix)
+		if result.ID != expectedID {
+			continue
+		}
+		// 2. Same set of libraries, regardless of order?
+		cachedSet := buildCachedSet(result.Libraries)
+		if setsEqual(requestSet, cachedSet) {
+			data, _ := json.MarshalIndent(result, "", "  ")
+			fmt.Println(string(data))
+			os.Exit(0)
 		}
 	}
-	// Not found
-	fmt.Printf("CACHE_KEY=%s\n", comboKey)
+
+	fmt.Printf("ℹ️ No cache hit for foundation %s with %d addons\n", *foundationID, len(libs))
 	os.Exit(1)
 }

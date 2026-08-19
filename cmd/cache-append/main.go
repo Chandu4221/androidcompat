@@ -5,7 +5,15 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"sort"
+	"strings"
 )
+
+// CachedLibrary matches the format saved by cmd/collect
+type CachedLibrary struct {
+	Name    string `json:"name"` // stored as "group:artifact"
+	Version string `json:"version"`
+}
 
 type VerificationResult struct {
 	ID            string `json:"id"`
@@ -20,13 +28,10 @@ type VerificationResult struct {
 		CompileSdk string `json:"compileSdk"`
 		SdkPackage string `json:"sdkPackage"`
 	} `json:"coreToolchain"`
-	Libraries []struct {
-		Name    string `json:"name"`
-		Version string `json:"version"`
-	} `json:"libraries"`
-	Status           string `json:"status"`
-	FailureSignature string `json:"failureSignature,omitempty"`
-	ErrorMessage     string `json:"errorMessage,omitempty"`
+	Libraries        []CachedLibrary `json:"libraries"`
+	Status           string          `json:"status"`
+	FailureSignature string          `json:"failureSignature,omitempty"`
+	ErrorMessage     string          `json:"errorMessage,omitempty"`
 	Verification     struct {
 		Sync     string `json:"sync"`
 		Compile  string `json:"compile"`
@@ -39,8 +44,20 @@ type OnDemandCache struct {
 	Results []VerificationResult `json:"results"`
 }
 
+// comboKey produces an order-independent canonical key for a result:
+// result ID + sorted "name:version" library list.
+// Used to detect duplicates regardless of library order.
+func comboKey(r VerificationResult) string {
+	keys := make([]string, len(r.Libraries))
+	for i, lib := range r.Libraries {
+		keys[i] = lib.Name + ":" + lib.Version
+	}
+	sort.Strings(keys)
+	return r.ID + "|" + strings.Join(keys, ",")
+}
+
 func main() {
-	resultFile := flag.String("result", "", "Path to result JSON file")
+	resultFile := flag.String("result", "", "Path to result JSON file (from cmd/collect)")
 	cacheFile := flag.String("cache", "docs/data/ondemand/compat.json", "Cache file path")
 	flag.Parse()
 
@@ -49,7 +66,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	// Load new result
+	// 1. Read the new result
 	resultData, err := os.ReadFile(*resultFile)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "❌ Failed to read result file: %v\n", err)
@@ -58,15 +75,18 @@ func main() {
 
 	var newResult VerificationResult
 	if err := json.Unmarshal(resultData, &newResult); err != nil {
-		fmt.Fprintf(os.Stderr, "❌ Failed to parse result: %v\n", err)
+		fmt.Fprintf(os.Stderr, "❌ Failed to parse result JSON: %v\n", err)
 		os.Exit(1)
 	}
 
-	// Load cache
+	// 2. Strip heavy buildLog to keep cache file lean for the UI
+	newResult.BuildLog = ""
+
+	// 3. Load existing cache (or create empty)
 	var cache OnDemandCache
 	if data, err := os.ReadFile(*cacheFile); err == nil {
 		if err := json.Unmarshal(data, &cache); err != nil {
-			fmt.Fprintf(os.Stderr, "⚠️ Failed to parse cache, starting fresh: %v\n", err)
+			fmt.Fprintf(os.Stderr, "⚠️ Failed to parse existing cache, starting fresh: %v\n", err)
 			cache = OnDemandCache{Results: []VerificationResult{}}
 		}
 	} else {
@@ -74,16 +94,34 @@ func main() {
 		cache = OnDemandCache{Results: []VerificationResult{}}
 	}
 
-	// Append new result
-	cache.Results = append(cache.Results, newResult)
-
-	// Ensure directory exists
-	if err := os.MkdirAll("docs/data/ondemand", 0755); err != nil {
-		fmt.Fprintf(os.Stderr, "❌ Failed to create directory: %v\n", err)
-		os.Exit(1)
+	// 4. Idempotent append: replace if same combo key exists, otherwise append
+	newKey := comboKey(newResult)
+	replaced := false
+	for i, existing := range cache.Results {
+		if comboKey(existing) == newKey {
+			cache.Results[i] = newResult
+			replaced = true
+			break
+		}
+	}
+	if replaced {
+		fmt.Printf("♻️  Replaced existing entry for combo %s\n", newResult.ID)
+	} else {
+		cache.Results = append(cache.Results, newResult)
+		fmt.Printf("✅ Appended new result. Total cached results: %d\n", len(cache.Results))
 	}
 
-	// Write back
+	// 5. Ensure output directory exists
+	dir := *cacheFile
+	if idx := strings.LastIndex(dir, "/"); idx > 0 {
+		dir = dir[:idx]
+		if err := os.MkdirAll(dir, 0755); err != nil {
+			fmt.Fprintf(os.Stderr, "❌ Failed to create cache directory: %v\n", err)
+			os.Exit(1)
+		}
+	}
+
+	// 6. Write updated cache
 	data, err := json.MarshalIndent(cache, "", "  ")
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "❌ Failed to marshal cache: %v\n", err)
@@ -91,9 +129,9 @@ func main() {
 	}
 
 	if err := os.WriteFile(*cacheFile, data, 0644); err != nil {
-		fmt.Fprintf(os.Stderr, "❌ Failed to write cache: %v\n", err)
+		fmt.Fprintf(os.Stderr, "❌ Failed to write cache file: %v\n", err)
 		os.Exit(1)
 	}
 
-	fmt.Printf("✅ Appended result to cache. Total results: %d\n", len(cache.Results))
+	fmt.Printf("✅ Cache written to %s\n", *cacheFile)
 }
