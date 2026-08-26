@@ -15,7 +15,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        darkMode: "media",
+        darkMode: "class",
         theme: {
           extend: {
             fontFamily: {
@@ -26,6 +26,10 @@
                 DEFAULT: "#3DDC84",
                 dark: "#073042",
                 light: "#EAF6F6",
+                200: "#bbf7d0",
+              },
+              violet: {
+                300: "oklch(70.2% 0.183 293.541)",
               },
               page: "var(--color-page)",
               surface: "var(--color-surface)",
@@ -43,6 +47,18 @@
           },
         },
       };
+    </script>
+    <script>
+      // Apply dark mode immediately to avoid flash
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
     </script>
     <!-- DevIcons & FontAwesome -->
     <link
@@ -64,7 +80,7 @@
         --color-page: #f9fafb;
         --color-surface: #ffffff;
         --color-card: #f3f4f6;
-        --color-border: #e5e7eb;
+        --color-border: #d1d5db; /* Darker for clear separation */
         --color-text-main: #111827;
         --color-text-muted: #4b5563; /* Improved contrast */
         --color-success-text: #15803d;
@@ -74,22 +90,20 @@
         --color-warning-text: #b45309; /* amber-700 */
         --color-warning-bg: #fef3c7; /* amber-100 */
       }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          /* Dark Theme - lighter shades than pure black */
-          --color-page: #0b0f19;
-          --color-surface: #111827;
-          --color-card: #1f2937;
-          --color-border: #374151;
-          --color-text-main: #f9fafb;
-          --color-text-muted: #d1d5db; /* Improved contrast */
-          --color-success-text: #4ade80;
-          --color-success-bg: rgba(34, 197, 94, 0.1);
-          --color-error-text: #f87171;
-          --color-error-bg: rgba(239, 68, 68, 0.1);
-          --color-warning-text: #fcd34d; /* amber-300 */
-          --color-warning-bg: rgba(245, 158, 11, 0.1);
-        }
+      .dark {
+        /* Dark Theme - lighter shades than pure black */
+        --color-page: #0b0f19;
+        --color-surface: #111827;
+        --color-card: #1f2937;
+        --color-border: #475569; /* Crisp border in dark mode */
+        --color-text-main: #f9fafb;
+        --color-text-muted: #d1d5db; /* Improved contrast */
+        --color-success-text: #4ade80;
+        --color-success-bg: rgba(34, 197, 94, 0.1);
+        --color-error-text: #f87171;
+        --color-error-bg: rgba(239, 68, 68, 0.1);
+        --color-warning-text: #fcd34d; /* amber-300 */
+        --color-warning-bg: rgba(245, 158, 11, 0.1);
       }
       body {
         background-color: var(--color-page);
@@ -176,7 +190,7 @@
     <div id="app" class="flex-grow flex flex-col" v-cloak>
       <!-- Header -->
       <header
-        :class="['bg-surface border-b border-border shadow-md p-4 sticky top-0 z-10 transition-transform duration-300', showNavbar ? 'translate-y-0' : '-translate-y-full']"
+        :class="['bg-surface border-b border-border shadow-md p-4 sticky top-0 z-30 transition-transform duration-300', showNavbar ? 'translate-y-0' : '-translate-y-full']"
       >
         <div class="w-full flex items-center justify-between">
           <div class="flex items-center gap-4">
@@ -198,16 +212,37 @@
               </div>
             </div>
           </div>
-          <div
-            class="hidden md:flex items-center gap-6 text-xs text-textMain font-medium bg-page px-4 py-2 rounded-lg border border-border"
-          >
-            <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-green-500"></span>
-              Verified ({{ stats.verified }})
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-red-500"></span> Failed ({{
-              stats.failed }})
+          <div class="flex items-center gap-3">
+            <!-- Pill Theme Toggle Switch -->
+            <button
+              @click="toggleTheme"
+              type="button"
+              role="switch"
+              :aria-checked="isDark"
+              class="relative inline-flex h-[34px] w-[60px] shrink-0 cursor-pointer rounded-full p-[2px] items-center bg-page hover:bg-card border border-border transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-android focus:ring-offset-2 select-none shadow-inner"
+              :title="isDark ? 'Switch to Light Mode (😀)' : 'Switch to Dark Mode (😈)'"
+            >
+              <span class="sr-only">Toggle Theme</span>
+              <span
+                class="pointer-events-none flex h-[28px] w-[28px] transform items-center justify-center rounded-full bg-surface border border-border shadow-md transition-transform duration-300 ease-in-out text-[20px] leading-none select-none"
+                :class="isDark ? 'translate-x-[26px]' : 'translate-x-0'"
+              >
+                {{ isDark ? '😈' : '😀' }}
+              </span>
+            </button>
+
+            <!-- Stats Box -->
+            <div
+              class="hidden md:flex items-center gap-6 text-xs text-textMain font-medium bg-page px-4 py-2 rounded-lg border border-border"
+            >
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                Verified ({{ stats.verified }})
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-red-500"></span> Failed ({{
+                stats.failed }})
+              </div>
             </div>
           </div>
         </div>
@@ -446,181 +481,232 @@
               <div
                 v-for="item in paginatedData"
                 :key="item.id"
-                :class="['bg-surface border border-border rounded-xl shadow-lg p-5 flex flex-col lg:flex-row gap-6 transition-all', item.status === 'verified' ? 'hover:border-successText/30 hover:shadow-green-900/10' : 'hover:border-errorText/30 hover:shadow-red-900/10']"
+                :class="['bg-surface border border-border rounded-xl shadow-lg p-5 flex flex-col gap-4 transition-all relative overflow-hidden', item.status === 'verified' ? 'hover:border-successText/30 hover:shadow-green-900/10' : 'hover:border-errorText/30 hover:shadow-red-900/10']"
               >
-                <!-- Left Column: Title & Status -->
+                <!-- Top-Left Corner Ribbon for On-Demand -->
                 <div
-                  class="flex-1 flex flex-col gap-3 border-b lg:border-b-0 lg:border-r border-border pb-4 lg:pb-0 lg:pr-4"
+                  v-if="item._source === 'ondemand' || (item.libraries && item.libraries.length > 0)"
+                  class="absolute top-0 left-0 w-28 h-28 overflow-hidden pointer-events-none z-[2]"
                 >
-                  <div class="flex items-start justify-between">
-                    <div>
-                      <h3
-                        v-if="dynamicKeys.length > 0"
-                        class="text-textMain font-bold text-xl flex items-center gap-2 uppercase"
-                      >
-                        <i :class="(metadataConfig[dynamicKeys[0]] && metadataConfig[dynamicKeys[0]].icon) ? metadataConfig[dynamicKeys[0]].icon : 'fas fa-cog text-textMain'"></i> {{ metadataConfig[dynamicKeys[0]] ? metadataConfig[dynamicKeys[0]].label : dynamicKeys[0] }}
-                        <span class="font-mono">{{ item[dynamicKeys[0]] || '—' }}</span>
-                      </h3>
-                      <div
-                        v-if="dynamicKeys.length > 1"
-                        class="text-sm text-textMuted mt-1 flex items-center gap-2 font-medium uppercase"
-                      >
-                        <i :class="(metadataConfig[dynamicKeys[1]] && metadataConfig[dynamicKeys[1]].icon) ? metadataConfig[dynamicKeys[1]].icon : 'fas fa-cog text-textMuted'"></i>
-                        {{ metadataConfig[dynamicKeys[1]] ? metadataConfig[dynamicKeys[1]].label : dynamicKeys[1] }} <span class="font-mono">{{ item[dynamicKeys[1]] || '—' }}</span>
-                      </div>
-                    </div>
-                  </div>
-
                   <div
-                    class="mt-2 w-full flex flex-row justify-between items-end lg:flex-col lg:items-start"
+                    class="absolute -rotate-45 bg-purple-600 dark:bg-purple-700 text-white font-extrabold text-[9px] py-1 -left-9 top-5 w-36 text-center uppercase tracking-widest shadow-md flex items-center justify-center gap-1 border-y border-purple-400/40 select-none"
+                  >
+                    <i class="fas fa-bolt text-[8px] text-yellow-300"></i> On-Demand
+                  </div>
+                </div>
+
+                <!-- Top Row: Specs & Actions -->
+                <div class="flex flex-col lg:flex-row gap-6">
+                  <!-- Left Column: Title & Status -->
+                  <div
+                    class="flex-1 flex flex-col gap-3 border-b lg:border-b-0 lg:border-r border-border pb-4 lg:pb-0 lg:pr-4"
+                  >
+                    <div
+                      class="flex items-start justify-between"
+                      :class="item._source === 'ondemand' || (item.libraries && item.libraries.length > 0) ? 'pl-6 pt-1' : ''"
+                    >
+                      <div>
+                        <h3
+                          v-if="dynamicKeys.length > 0"
+                          class="text-textMain font-bold text-xl flex items-center gap-2 uppercase"
+                        >
+                          <i :class="(metadataConfig[dynamicKeys[0]] && metadataConfig[dynamicKeys[0]].icon) ? metadataConfig[dynamicKeys[0]].icon : 'fas fa-cog text-textMain'"></i> {{ metadataConfig[dynamicKeys[0]] ? metadataConfig[dynamicKeys[0]].label : dynamicKeys[0] }}
+                          <span class="font-mono">{{ item[dynamicKeys[0]] || '—' }}</span>
+                        </h3>
+                        <div
+                          v-if="dynamicKeys.length > 1"
+                          class="text-sm text-textMuted mt-1 flex items-center gap-2 font-medium uppercase"
+                        >
+                          <i :class="(metadataConfig[dynamicKeys[1]] && metadataConfig[dynamicKeys[1]].icon) ? metadataConfig[dynamicKeys[1]].icon : 'fas fa-cog text-textMuted'"></i>
+                          {{ metadataConfig[dynamicKeys[1]] ? metadataConfig[dynamicKeys[1]].label : dynamicKeys[1] }} <span class="font-mono">{{ item[dynamicKeys[1]] || '—' }}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="mt-2 w-full flex flex-row justify-between items-end lg:flex-col lg:items-start"
+                    >
+                      <div>
+                        <span
+                          v-if="item.status === 'verified'"
+                          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-successBg text-successText border border-successText/30"
+                          title="Verified"
+                        >
+                          <i class="fas fa-check-circle"></i> PASSED
+                        </span>
+                        <span
+                          v-else
+                          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-errorBg text-errorText border border-errorText/30"
+                          title="Failed"
+                        >
+                          <i class="fas fa-times-circle"></i> FAILED
+                        </span>
+                      </div>
+
+                      <div
+                        class="mt-auto lg:pt-4 flex flex-col gap-0.5 leading-tight items-end lg:items-start text-right lg:text-left"
+                      >
+                        <div
+                          class="text-[9px] text-textMuted uppercase font-bold tracking-wider flex items-center gap-1"
+                        >
+                          <i class="fas fa-clock"></i> Last Run
+                        </div>
+                        <div class="text-xs text-textMain font-medium font-mono">
+                          {{ formatDateOnly(item.timestamp) }}
+                        </div>
+                        <div class="text-[10px] text-textMuted font-mono">
+                          {{ formatTimeOnly(item.timestamp) }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Middle Column 1: Specs -->
+                  <div
+                    class="flex-1 lg:flex-[1.2] flex flex-col justify-between gap-3 border-b lg:border-b-0 lg:border-r border-border pb-4 lg:pb-0 lg:pr-4"
                   >
                     <div>
-                      <span
-                        v-if="item.status === 'verified'"
-                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-successBg text-successText border border-successText/30"
-                        title="Verified"
+                      <h4
+                        class="text-[10px] uppercase tracking-wider text-textMuted font-bold"
                       >
-                        <i class="fas fa-check-circle"></i> PASSED
-                      </span>
-                      <span
-                        v-else
-                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-errorBg text-errorText border border-errorText/30"
-                        title="Failed"
-                      >
-                        <i class="fas fa-times-circle"></i> FAILED
-                      </span>
-                    </div>
-
-                    <div
-                      class="mt-auto lg:pt-4 flex flex-col gap-0.5 leading-tight items-end lg:items-start text-right lg:text-left"
-                    >
-                      <div
-                        class="text-[9px] text-textMuted uppercase font-bold tracking-wider flex items-center gap-1"
-                      >
-                        <i class="fas fa-clock"></i> Last Run
-                      </div>
-                      <div class="text-xs text-textMain font-medium font-mono">
-                        {{ formatDateOnly(item.timestamp) }}
-                      </div>
-                      <div class="text-[10px] text-textMuted font-mono">
-                        {{ formatTimeOnly(item.timestamp) }}
-                      </div>
+                        Environment
+                      </h4>
+                      <ul class="text-sm text-textMain space-y-2.5 mt-1">
+                        <template v-for="key in dynamicKeys.slice(2).filter(k => k !== 'buildLog')" :key="key">
+                          <li v-if="item[key] && item[key] !== 'null'" class="flex items-center gap-2 uppercase">
+                            <div class="w-5 text-center">
+                              <i
+                                :class="(metadataConfig[key] && metadataConfig[key].icon) ? metadataConfig[key].icon : 'fas fa-cog text-textMuted text-sm'"
+                              ></i>
+                            </div>
+                            <span v-if="metadataConfig[key] && metadataConfig[key].label === 'Compile SDK'">API</span>
+                            <span v-else>{{ metadataConfig[key] ? metadataConfig[key].label : key }}</span>
+                            <span
+                              class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border whitespace-nowrap"
+                              >{{ item[key] }}</span
+                            >
+                          </li>
+                        </template>
+                      </ul>
                     </div>
                   </div>
-                </div>
 
-                <!-- Middle Column 1: Specs -->
-                <div
-                  class="flex-1 lg:flex-[1.2] flex flex-col gap-3 border-b lg:border-b-0 lg:border-r border-border pb-4 lg:pb-0 lg:pr-4"
-                >
-                  <h4
-                    class="text-[10px] uppercase tracking-wider text-textMuted font-bold"
-                  >
-                    Environment
-                  </h4>
-                  <ul class="text-sm text-textMain space-y-2.5 mt-1">
-                    <template v-for="key in dynamicKeys.slice(2).filter(k => k !== 'buildLog')" :key="key">
-                      <li v-if="item[key] && item[key] !== 'null'" class="flex items-center gap-2 uppercase">
-                        <div class="w-5 text-center">
-                          <i
-                            :class="(metadataConfig[key] && metadataConfig[key].icon) ? metadataConfig[key].icon : 'fas fa-cog text-textMuted text-sm'"
-                          ></i>
+                  <!-- Right Column: Results & Action -->
+                  <div class="flex-1 flex flex-col justify-between gap-4">
+                    <div>
+                      <div class="mb-3 flex justify-end">
+                        <div class="inline-flex shadow-sm rounded-md">
+                          <button
+                            @click="copyId(item.id)"
+                            :class="['font-mono bg-gray-900 hover:bg-gray-800 text-gray-100 hover:text-white dark:bg-gray-100 dark:hover:bg-white dark:text-gray-900 dark:hover:text-black border border-gray-900 dark:border-gray-200 px-2 py-1 normal-case text-xs tracking-normal inline-flex items-center gap-1.5 transition-colors cursor-pointer shadow-sm', item.workflowUrl ? 'rounded-l-md border-r-0' : 'rounded-md']"
+                            title="Copy Combo ID"
+                          >
+                            <i
+                              class="fas"
+                              :class="copiedId === item.id ? 'fa-check text-green-400 dark:text-green-600' : 'fa-fingerprint text-gray-400 dark:text-gray-600'"
+                            ></i>
+                            {{ item.id }}
+                          </button>
+                          <a
+                            v-if="item.workflowUrl"
+                            :href="item.workflowUrl"
+                            target="_blank"
+                            class="bg-gray-900 hover:bg-gray-800 text-gray-100 hover:text-white dark:bg-gray-100 dark:hover:bg-white dark:text-gray-900 dark:hover:text-black border border-gray-900 dark:border-gray-200 border-l border-l-gray-700 dark:border-l-gray-300 px-2.5 py-1 rounded-r-md flex items-center justify-center transition-colors shadow-sm"
+                            title="View GitHub Workflow"
+                          >
+                            <i class="fab fa-github"></i>
+                          </a>
                         </div>
-                        <span v-if="metadataConfig[key] && metadataConfig[key].label === 'Compile SDK'">API</span>
-                        <span v-else>{{ metadataConfig[key] ? metadataConfig[key].label : key }}</span>
-                        <span
-                          class="text-textMain font-mono ml-auto bg-card px-2 py-0.5 rounded border border-border whitespace-nowrap"
-                          >{{ item[key] }}</span
+                      </div>
+                      <h4
+                        class="text-[10px] uppercase tracking-wider text-textMuted font-bold mb-3"
+                      >
+                        Test Breakdown
+                      </h4>
+                      <div
+                        class="flex items-center gap-2 bg-card p-2.5 rounded-lg border border-border justify-between"
+                      >
+                        <div
+                          class="flex flex-col items-center gap-1.5 w-1/3"
+                          title="Sync"
                         >
-                      </li>
-                    </template>
-                  </ul>
+                          <span
+                            class="text-[9px] text-textMuted uppercase font-bold tracking-wider"
+                            >Sync</span
+                          >
+                          <status-badge
+                            :status="item.verification?.sync"
+                          ></status-badge>
+                        </div>
+                        <div class="w-px h-8 bg-border"></div>
+                        <div
+                          class="flex flex-col items-center gap-1.5 w-1/3"
+                          title="Compile"
+                        >
+                          <span
+                            class="text-[9px] text-textMuted uppercase font-bold tracking-wider"
+                            >Comp</span
+                          >
+                          <status-badge
+                            :status="item.verification?.compile"
+                          ></status-badge>
+                        </div>
+                        <div class="w-px h-8 bg-border"></div>
+                        <div
+                          class="flex flex-col items-center gap-1.5 w-1/3"
+                          title="Test"
+                        >
+                          <span
+                            class="text-[9px] text-textMuted uppercase font-bold tracking-wider"
+                            >Test</span
+                          >
+                          <status-badge
+                            :status="item.verification?.unit_test"
+                          ></status-badge>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button
+                      @click="showLog(item)"
+                      class="w-full bg-card hover:bg-border text-textMain border border-border px-4 py-2.5 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors shadow-sm"
+                    >
+                      <i class="fas fa-terminal"></i> View Build Log
+                    </button>
+                  </div>
                 </div>
 
-
-
-                <!-- Right Column: Results & Action -->
-                <div class="flex-1 flex flex-col justify-between gap-4">
-                  <div>
-                    <div class="mb-3 flex justify-end">
-                      <div class="inline-flex shadow-sm rounded-md">
-                        <button
-                          @click="copyId(item.id)"
-                          :class="['font-mono bg-textMain hover:bg-gray-800 text-surface px-2 py-1 normal-case text-xs tracking-normal inline-flex items-center gap-1.5 transition-colors cursor-pointer', item.workflowUrl ? 'rounded-l-md border-r border-white/20' : 'rounded-md']"
-                          title="Copy Combo ID"
-                        >
-                          <i
-                            class="fas"
-                            :class="copiedId === item.id ? 'fa-check text-green-400' : 'fa-fingerprint opacity-90'"
-                          ></i>
-                          {{ item.id }}
-                        </button>
-                        <a
-                          v-if="item.workflowUrl"
-                          :href="item.workflowUrl"
-                          target="_blank"
-                          class="bg-textMain hover:bg-gray-800 text-surface px-2.5 py-1 rounded-r-md flex items-center justify-center transition-colors"
-                          title="View GitHub Workflow"
-                        >
-                          <i class="fab fa-github"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <h4
-                      class="text-[10px] uppercase tracking-wider text-textMuted font-bold mb-3"
-                    >
-                      Test Breakdown
-                    </h4>
+                <!-- Bottom Shelf: Tested Addons (full-width) -->
+                <div
+                  v-if="item.libraries && item.libraries.length > 0"
+                  class="mt-2 pt-3.5 pb-3.5 border-t border-border flex flex-col md:flex-row md:items-start gap-3 bg-card -mx-5 -mb-5 px-5 rounded-b-xl"
+                >
+                  <div class="flex items-center gap-2 shrink-0 pt-0.5">
+                    <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-surface text-android border border-border text-xs shadow-sm">
+                      <i class="fas fa-cubes"></i>
+                    </span>
+                    <span class="text-xs font-extrabold text-textMain uppercase tracking-wider">Tested Addons:</span>
+                    <span class="text-xs font-mono px-2 py-0.5 rounded-full bg-surface border border-border text-textMuted font-bold shadow-xs">
+                      {{ item.libraries.length }}
+                    </span>
+                  </div>
+                  <div class="flex flex-wrap gap-2.5 items-center flex-grow">
                     <div
-                      class="flex items-center gap-2 bg-card p-2.5 rounded-lg border border-border justify-between"
+                      v-for="lib in item.libraries"
+                      :key="lib.name"
+                      class="inline-flex items-center text-xs font-mono bg-surface border border-border rounded-lg overflow-hidden shadow-sm hover:border-android transition-colors"
+                      :title="lib.name + ':' + lib.version"
                     >
-                      <div
-                        class="flex flex-col items-center gap-1.5 w-1/3"
-                        title="Sync"
-                      >
-                        <span
-                          class="text-[9px] text-textMuted uppercase font-bold tracking-wider"
-                          >Sync</span
-                        >
-                        <status-badge
-                          :status="item.verification?.sync"
-                        ></status-badge>
-                      </div>
-                      <div class="w-px h-8 bg-border"></div>
-                      <div
-                        class="flex flex-col items-center gap-1.5 w-1/3"
-                        title="Compile"
-                      >
-                        <span
-                          class="text-[9px] text-textMuted uppercase font-bold tracking-wider"
-                          >Comp</span
-                        >
-                        <status-badge
-                          :status="item.verification?.compile"
-                        ></status-badge>
-                      </div>
-                      <div class="w-px h-8 bg-border"></div>
-                      <div
-                        class="flex flex-col items-center gap-1.5 w-1/3"
-                        title="Test"
-                      >
-                        <span
-                          class="text-[9px] text-textMuted uppercase font-bold tracking-wider"
-                          >Test</span
-                        >
-                        <status-badge
-                          :status="item.verification?.unit_test"
-                        ></status-badge>
-                      </div>
+                      <span class="px-3 py-1.5 text-textMain flex items-center gap-2 font-medium">
+                        <i class="fas fa-box text-xs text-android"></i>
+                        <span v-if="lib.name.includes(':')" class="text-textMuted font-medium text-xs">{{ lib.name.split(':')[0] }}:</span>
+                        <span class="font-bold text-textMain text-xs">{{ lib.name.includes(':') ? lib.name.split(':')[1] : lib.name }}</span>
+                      </span>
+                      <span class="px-3 py-1.5 bg-card text-emerald-700 dark:text-android border-l border-border text-xs font-extrabold">
+                        {{ lib.version }}
+                      </span>
                     </div>
                   </div>
-
-                  <button
-                    @click="showLog(item)"
-                    class="w-full bg-card hover:bg-border text-textMain border border-border px-4 py-2.5 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors shadow-sm"
-                  >
-                    <i class="fas fa-terminal"></i> View Build Log
-                  </button>
                 </div>
               </div>
             </div>
@@ -644,7 +730,7 @@
                   :key="page"
                   @click="currentPage = page"
                   class="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-bold font-mono transition-all"
-                  :class="currentPage === page ? 'bg-textMain text-surface shadow-md' : 'text-textMuted hover:bg-surface hover:text-textMain'"
+                  :class="currentPage === page ? 'bg-android text-android-dark font-extrabold shadow-md' : 'text-textMuted hover:bg-card hover:text-textMain'"
                 >
                   {{ page }}
                 </button>
@@ -695,12 +781,12 @@
                 <p class="mt-2 flex items-center">
                   <button
                     @click="copyId(selectedItem.id)"
-                    class="font-mono bg-textMain hover:bg-gray-800 text-surface px-2 py-0.5 rounded-md shadow-sm text-xs inline-flex items-center gap-2 transition-colors cursor-pointer"
+                    class="font-mono bg-gray-900 hover:bg-gray-800 text-gray-100 hover:text-white dark:bg-gray-100 dark:hover:bg-white dark:text-gray-900 dark:hover:text-black border border-gray-900 dark:border-gray-200 px-2.5 py-1 rounded-md shadow-sm text-xs inline-flex items-center gap-2 transition-colors cursor-pointer"
                     title="Copy Combo ID"
                   >
                     <i
                       class="fas"
-                      :class="copiedId === selectedItem.id ? 'fa-check text-green-400' : 'fa-fingerprint opacity-90'"
+                      :class="copiedId === selectedItem.id ? 'fa-check text-green-400 dark:text-green-600' : 'fa-fingerprint text-gray-400 dark:text-gray-600'"
                     ></i>
                     {{ selectedItem.id }}
                   </button>
@@ -708,7 +794,7 @@
               </div>
               <button
                 @click="selectedItem = null"
-                class="text-textMuted hover:text-textMain hover:bg-gray-700/80 rounded-full w-10 h-10 flex items-center justify-center transition-colors"
+                class="text-textMuted hover:text-textMain hover:bg-surface rounded-full w-10 h-10 flex items-center justify-center transition-colors border border-transparent hover:border-border"
               >
                 <i class="fas fa-times text-xl"></i>
               </button>
@@ -737,8 +823,45 @@
                     </div>
                   </div>
                 </template>
+              </div>
 
-
+              <!-- Addon Libraries Section -->
+              <div
+                v-if="selectedItem.libraries && selectedItem.libraries.length > 0"
+                class="mb-6 bg-surface p-5 rounded-2xl border border-border shadow-sm"
+              >
+                <div class="flex items-center justify-between mb-3 border-b border-border pb-2.5">
+                  <h4
+                    class="text-sm font-bold text-textMain flex items-center gap-2 uppercase tracking-wide"
+                  >
+                    <i class="fas fa-cubes text-android"></i> Tested Addon Libraries
+                  </h4>
+                  <span class="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-card border border-border text-textMuted">
+                    {{ selectedItem.libraries.length }} {{ selectedItem.libraries.length === 1 ? 'addon' : 'addons' }}
+                  </span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div
+                    v-for="lib in selectedItem.libraries"
+                    :key="lib.name"
+                    class="bg-page p-3.5 rounded-xl border border-border flex items-center justify-between gap-3 shadow-inner"
+                  >
+                    <div class="flex items-center gap-3 min-w-0">
+                      <div class="w-9 h-9 rounded-lg bg-card flex items-center justify-center border border-border text-android shrink-0 shadow-sm">
+                        <i class="fas fa-box text-sm"></i>
+                      </div>
+                      <div class="min-w-0">
+                        <div v-if="lib.name.includes(':')" class="text-xs text-textMuted font-mono font-medium truncate">{{ lib.name.split(':')[0] }}</div>
+                        <div class="text-sm font-mono font-bold text-textMain truncate" :title="lib.name">
+                          {{ lib.name.includes(':') ? lib.name.split(':')[1] : lib.name }}
+                        </div>
+                      </div>
+                    </div>
+                    <span class="font-mono text-xs font-extrabold text-emerald-700 dark:text-android bg-card border border-border px-3 py-1.5 rounded-lg shrink-0 shadow-sm">
+                      {{ lib.version }}
+                    </span>
+                  </div>
+                </div>
               </div>
 
               <!-- Errors & Signatures -->
@@ -847,7 +970,8 @@
         },
         data() {
           return {
-            sources: ["agp9", "agp8"],
+            isDark: false,
+            sources: ["agp9", "agp8", "ondemand"],
             allData: [],
             currentPage: 1,
             itemsPerPage: 10,
@@ -892,8 +1016,6 @@
                 data = data.filter((i) => String(i[key]) === String(this.filters[key]));
               }
             }
-
-
 
             if (this.filters.status)
               data = data.filter((i) => i.status === this.filters.status);
@@ -947,7 +1069,6 @@
             this.dynamicKeys.forEach((key) => {
               this.filters[key] = "";
             });
-
           },
           uniqueValues(key) {
             const tabData = this.allData;
@@ -1073,6 +1194,29 @@
                 });
             }
           },
+          initTheme() {
+            const saved = localStorage.getItem("theme");
+            if (saved) {
+              this.isDark = saved === "dark";
+            } else {
+              this.isDark =
+                window.matchMedia &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches;
+            }
+            this.applyTheme();
+          },
+          toggleTheme() {
+            this.isDark = !this.isDark;
+            localStorage.setItem("theme", this.isDark ? "dark" : "light");
+            this.applyTheme();
+          },
+          applyTheme() {
+            if (this.isDark) {
+              document.documentElement.classList.add("dark");
+            } else {
+              document.documentElement.classList.remove("dark");
+            }
+          },
         },
         watch: {
           filters: {
@@ -1088,6 +1232,7 @@
           },
         },
         mounted() {
+          this.initTheme();
           this.loadData();
           window.addEventListener("scroll", () => {
             const currentScrollPosition =

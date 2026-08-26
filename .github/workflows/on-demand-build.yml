@@ -325,7 +325,9 @@ jobs:
             --gradle="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.gradle')" \
             --kotlin="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.kotlin')" \
             --ksp="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.ksp')" \
+            --jdk="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.jdk')" \
             --compile-sdk="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.compileSdk')" \
+            --sdk-package="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.sdkPackage')" \
             --workflow-url="$ISSUE_URL" \
             --dir=tmp-build \
             --out=. \
