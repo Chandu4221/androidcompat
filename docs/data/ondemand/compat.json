@@ -72,6 +72,48 @@
         "compile": "PASSED",
         "unit_test": "NO_TESTS_ADDED"
       }
+    },
+    {
+      "id": "d98b6a2be3597d59-ondemand",
+      "timestamp": "2026-08-27T07:44:53Z",
+      "workflowUrl": "https://github.com/Chandu4221/androidcompat/actions/runs/33050738995",
+      "coreToolchain": {
+        "agp": "9.1.1",
+        "gradle": "9.3.1",
+        "kotlin": "2.2.10",
+        "ksp": "null",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36"
+      },
+      "libraries": [
+        {
+          "name": "androidx.core:core-ktx",
+          "version": "1.18.0"
+        },
+        {
+          "name": "androidx.lifecycle:lifecycle-runtime-ktx",
+          "version": "2.10.0"
+        },
+        {
+          "name": "androidx.activity:activity-compose",
+          "version": "1.13.0"
+        },
+        {
+          "name": "androidx.navigation:navigation-compose",
+          "version": "2.9.7"
+        },
+        {
+          "name": "io.insert-koin:koin-android",
+          "version": "4.2.0"
+        }
+      ],
+      "status": "verified",
+      "verification": {
+        "sync": "PASSED",
+        "compile": "PASSED",
+        "unit_test": "NO_TESTS_ADDED"
+      }
     }
   ]
 }
