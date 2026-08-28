@@ -141,10 +141,10 @@ jobs:
             });
 
       - name: Setup Go
-        if: success()
         uses: actions/setup-go@v7
         with:
           go-version: "1.26.4"
+          cache: false
 
       - name: Check On-Demand Cache
         if: success()
