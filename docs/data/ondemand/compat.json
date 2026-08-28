@@ -114,6 +114,32 @@
         "compile": "PASSED",
         "unit_test": "NO_TESTS_ADDED"
       }
+    },
+    {
+      "id": "755e6a061d40574c-ondemand",
+      "timestamp": "2026-08-28T08:14:48Z",
+      "workflowUrl": "https://github.com/Chandu4221/androidcompat/actions/runs/33154377404",
+      "coreToolchain": {
+        "agp": "9.3.1",
+        "gradle": "9.5.0",
+        "kotlin": "2.2.10",
+        "ksp": "null",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36"
+      },
+      "libraries": [
+        {
+          "name": "com.squareup.retrofit2:retrofit",
+          "version": "2.9.0"
+        }
+      ],
+      "status": "verified",
+      "verification": {
+        "sync": "PASSED",
+        "compile": "PASSED",
+        "unit_test": "NO_TESTS_ADDED"
+      }
     }
   ]
 }
