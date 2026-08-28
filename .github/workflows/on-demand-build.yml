@@ -67,6 +67,10 @@ jobs:
               return;
             }
 
+            // Parse addon lines into structured JSON with strict charset validation.
+            // Maven coordinates must contain only safe characters — this blocks
+            // Kotlin/KTS script injection via crafted addon strings.
+            const COORD_PATTERN = /^[A-Za-z0-9_.\-+]+$/;
             const addons = [];
             const lines = addonsText.split('\n');
             for (const line of lines) {
@@ -74,13 +78,21 @@ jobs:
               if (!trimmed || trimmed.startsWith('#') || trimmed.startsWith('```')) continue;
               
               const parts = trimmed.split(':');
-              if (parts.length === 3) {
-                addons.push({
-                  group: parts[0].trim(),
-                  artifact: parts[1].trim(),
-                  version: parts[2].trim()
-                });
+              if (parts.length !== 3) {
+                core.setFailed(`Invalid addon format: "${trimmed}". Expected exactly group:artifact:version.`);
+                return;
               }
+              
+              const group = parts[0].trim();
+              const artifact = parts[1].trim();
+              const version = parts[2].trim();
+              
+              if (!COORD_PATTERN.test(group) || !COORD_PATTERN.test(artifact) || !COORD_PATTERN.test(version)) {
+                core.setFailed(`Addon contains invalid characters: "${trimmed}". Only letters, numbers, dots, hyphens, underscores, and plus signs are allowed.`);
+                return;
+              }
+              
+              addons.push({ group, artifact, version });
             }
 
             if (addons.length === 0) {
