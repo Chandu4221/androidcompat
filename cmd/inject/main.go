@@ -18,6 +18,23 @@ type LibCoord struct {
 	Version  string `json:"version"`
 }
 
+// coordPattern allowlists safe Maven coordinate characters. This matches the
+// workflow's COORD_PATTERN. Defense-in-depth: the workflow already validates,
+// but this blocks Kotlin/KTS script injection even if inject is called directly.
+var coordPattern = regexp.MustCompile(`^[A-Za-z0-9_.\-+]+$`)
+
+func validateCoordinate(group, artifact, version string) error {
+	for _, part := range []string{group, artifact, version} {
+		if part == "" {
+			return fmt.Errorf("coordinate part is empty")
+		}
+		if !coordPattern.MatchString(part) {
+			return fmt.Errorf("%q contains unsafe characters (allowed: letters, digits, . - _ +)", part)
+		}
+	}
+	return nil
+}
+
 func main() {
 	dir := flag.String("dir", "", "Build directory")
 	agp := flag.String("agp", "", "AGP version")
@@ -26,7 +43,7 @@ func main() {
 	ksp := flag.String("ksp", "", "KSP version")
 	compileSdk := flag.String("compile-sdk", "", "compileSdk version")
 	agpMajor := flag.Int("agp-major", 0, "AGP major version (8 or 9)")
-	libsJSON := flag.String("libs", "[]", "JSON array of libraries: [{\"group\":\"x\",\"artifact\":\"y\",\"version\":\"z\"}]")
+	libsJSON := flag.String("libs", "[]", `JSON array of libraries: [{"group":"x","artifact":"y","version":"z"}]`)
 	flag.Parse()
 
 	// Normalize: jq outputs the literal string "null" for missing JSON keys (AGP 9 has no ksp)
@@ -48,6 +65,14 @@ func main() {
 	var libs []LibCoord
 	if err := json.Unmarshal([]byte(*libsJSON), &libs); err != nil {
 		log.Fatalf("Failed to parse --libs JSON: %v", err)
+	}
+
+	// Defense-in-depth: reject unsafe coordinates BEFORE they are spliced into
+	// build.gradle.kts. Prevents Kotlin/KTS script injection via crafted addons.
+	for _, lib := range libs {
+		if err := validateCoordinate(lib.Group, lib.Artifact, lib.Version); err != nil {
+			log.Fatalf("Refusing to inject unsafe addon coordinate: %v", err)
+		}
 	}
 
 	// AGP 8/9: Kotlin DSL with libs.versions.toml
@@ -76,6 +101,7 @@ func main() {
 	appGradleKts := filepath.Join(*dir, "app", "build.gradle.kts")
 	appContent, _ := os.ReadFile(appGradleKts)
 	appStr := string(appContent)
+
 	appStr = replaceInString(appStr, `compileSdk\s*=\s*\d+`, fmt.Sprintf(`compileSdk = %s`, *compileSdk))
 	appStr = replaceInString(appStr, `targetSdk\s*=\s*\d+`, fmt.Sprintf(`targetSdk = %s`, *compileSdk))
 

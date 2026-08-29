@@ -9,6 +9,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"regexp"
 	"strconv"
 	"strings"
 	"time"
@@ -22,6 +23,23 @@ type LibCoord struct {
 }
 
 var httpClient = &http.Client{Timeout: 30 * time.Second}
+
+// coordPattern allowlists safe Maven coordinate characters. This matches the
+// workflow's COORD_PATTERN. Defense-in-depth: the workflow already validates,
+// but this blocks unsafe URL construction even if metadata-check is called directly.
+var coordPattern = regexp.MustCompile(`^[A-Za-z0-9_.\-+]+$`)
+
+func validateCoordinate(group, artifact, version string) error {
+	for _, part := range []string{group, artifact, version} {
+		if part == "" {
+			return fmt.Errorf("coordinate part is empty")
+		}
+		if !coordPattern.MatchString(part) {
+			return fmt.Errorf("%q contains unsafe characters (allowed: letters, digits, . - _ +)", part)
+		}
+	}
+	return nil
+}
 
 func baseURLFor(group string) string {
 	if strings.HasPrefix(group, "androidx.") || strings.HasPrefix(group, "com.android.") || strings.HasPrefix(group, "com.google.android.") {
@@ -40,6 +58,7 @@ func fetchAarMinCompileSdk(baseURL, group, artifact, version string) (int, error
 		return 0, err
 	}
 	defer resp.Body.Close()
+
 	if resp.StatusCode != 200 {
 		return 0, fmt.Errorf("AAR not found: HTTP %d", resp.StatusCode)
 	}
@@ -61,6 +80,7 @@ func fetchAarMinCompileSdk(baseURL, group, artifact, version string) (int, error
 				return 0, err
 			}
 			defer rc.Close()
+
 			content, err := io.ReadAll(rc)
 			if err != nil {
 				return 0, err
@@ -88,6 +108,7 @@ func fetchModuleBytecode(baseURL, group, artifact, version string) (int, error) 
 		return 0, err
 	}
 	defer resp.Body.Close()
+
 	if resp.StatusCode != 200 {
 		return 0, fmt.Errorf("module metadata not found: HTTP %d", resp.StatusCode)
 	}
@@ -103,6 +124,7 @@ func fetchModuleBytecode(baseURL, group, artifact, version string) (int, error) 
 			Attributes map[string]interface{} `json:"attributes"`
 		} `json:"variants"`
 	}
+
 	if err := json.Unmarshal(body, &module); err != nil {
 		return 0, err
 	}
@@ -145,6 +167,15 @@ func main() {
 	if err := json.Unmarshal([]byte(*libsFlag), &libs); err != nil {
 		fmt.Fprintf(os.Stderr, "❌ Invalid --libs JSON: %v\n", err)
 		os.Exit(1)
+	}
+
+	// Defense-in-depth: reject unsafe coordinates before they are used to build
+	// fetch URLs.
+	for _, lib := range libs {
+		if err := validateCoordinate(lib.Group, lib.Artifact, lib.Version); err != nil {
+			fmt.Fprintf(os.Stderr, "❌ Refusing unsafe addon coordinate: %v\n", err)
+			os.Exit(1)
+		}
 	}
 
 	jdkInt := 17
