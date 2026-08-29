@@ -140,6 +140,56 @@ jobs:
               labels: ['build-request', 'invalid']
             });
 
+      - name: Rate Limit Check
+        if: success() && github.event_name == 'issues'
+        id: ratelimit
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const MAX_CONCURRENT_BUILDS = 3;
+            const author = context.payload.issue.user.login;
+
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              creator: author,
+              labels: 'build-request',
+              state: 'open',
+              per_page: 100
+            });
+
+            // Exclude pull requests (GitHub's issues endpoint returns PRs too)
+            const openBuildRequests = issues.filter(i => !i.pull_request);
+            const openCount = openBuildRequests.length;
+            console.log(`Author "${author}" has ${openCount} open build-request issue(s), including this one.`);
+
+            if (openCount > MAX_CONCURRENT_BUILDS) {
+              core.setFailed(`Rate limit exceeded. You have ${openCount} open build requests; the maximum is ${MAX_CONCURRENT_BUILDS}. Please wait for existing builds to complete.`);
+            } else {
+              console.log(`Rate limit OK: ${openCount}/${MAX_CONCURRENT_BUILDS}.`);
+            }
+
+      - name: Comment Rate Limit Failure
+        if: failure() && steps.ratelimit.outcome == 'failure'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const issueNumber = '${{ steps.parse.outputs.issue_number }}';
+            if (!issueNumber) return;
+            github.rest.issues.createComment({
+              issue_number: parseInt(issueNumber),
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "### ⏳ Rate Limit Reached\n\nYou currently have too many open build requests. To keep CI resources fair for everyone, we limit concurrent builds per user.\n\nPlease **wait for your existing build requests to finish** (they close automatically once results are posted) before opening new ones.\n\nThanks for your patience!"
+            });
+            github.rest.issues.update({
+              issue_number: parseInt(issueNumber),
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed',
+              labels: ['build-request', 'rate-limited']
+            });
+
       - name: Setup Go
         uses: actions/setup-go@v7
         with:
