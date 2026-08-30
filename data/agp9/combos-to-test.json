@@ -1,6 +1,6 @@
 {
   "agpMajor": 9,
-  "generatedAt": "2026-08-23T00:36:52Z",
+  "generatedAt": "2026-08-30T02:10:38Z",
   "combos": [
     {
       "id": "1c2632308bf10577",
@@ -14,9 +14,9 @@
       }
     },
     {
-      "id": "755e6a061d40574c",
+      "id": "5e078f2c0a6ec8ed",
       "coreToolchain": {
-        "agp": "9.3.1",
+        "agp": "9.3.2",
         "gradle": "9.5.0",
         "kotlin": "2.2.10",
         "jdk": "17",
