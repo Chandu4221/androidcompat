@@ -1,0 +1,2439 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Your Project - Android Compatibility Oracle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            colors: {
+              android: {
+                DEFAULT: "#3DDC84",
+                dark: "#073042",
+                light: "#EAF6F6",
+                200: "#bbf7d0",
+              },
+              page: "var(--color-page)",
+              surface: "var(--color-surface)",
+              card: "var(--color-card)",
+              border: "var(--color-border)",
+              textMain: "var(--color-text-main)",
+              textMuted: "var(--color-text-muted)",
+              successText: "var(--color-success-text)",
+              successBg: "var(--color-success-bg)",
+              errorText: "var(--color-error-text)",
+              errorBg: "var(--color-error-bg)",
+              warningText: "var(--color-warning-text)",
+              warningBg: "var(--color-warning-bg)",
+            },
+          },
+        },
+      };
+    </script>
+    <script>
+      // Apply dark mode immediately to avoid flash
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+
+    <!-- DevIcons & FontAwesome -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- TOML Parser -->
+    <!-- Standalone TOML Parser (smol-toml) -->
+    <script>
+(function(global) {
+  var module = { exports: {} };
+  var exports = module.exports;
+  "use strict";
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+
+// dist/index.js
+var dist_exports = {};
+__export(dist_exports, {
+  TomlDate: () => TomlDate,
+  TomlError: () => TomlError,
+  default: () => dist_default,
+  parse: () => parse,
+  stringify: () => stringify
+});
+module.exports = __toCommonJS(dist_exports);
+
+// dist/error.js
+function getLineColFromPtr(string, ptr) {
+  let lines = string.slice(0, ptr).split(/\r\n|\n|\r/g);
+  return [lines.length, lines.pop().length + 1];
+}
+function makeCodeBlock(string, line, column) {
+  let lines = string.split(/\r\n|\n|\r/g);
+  let codeblock = "";
+  let numberLen = (Math.log10(line + 1) | 0) + 1;
+  for (let i = line - 1; i <= line + 1; i++) {
+    let l = lines[i - 1];
+    if (!l)
+      continue;
+    codeblock += i.toString().padEnd(numberLen, " ");
+    codeblock += ":  ";
+    codeblock += l;
+    codeblock += "\n";
+    if (i === line) {
+      codeblock += " ".repeat(numberLen + column + 2);
+      codeblock += "^\n";
+    }
+  }
+  return codeblock;
+}
+var TomlError = class extends Error {
+  line;
+  column;
+  codeblock;
+  constructor(message, options) {
+    const [line, column] = getLineColFromPtr(options.toml, options.ptr);
+    const codeblock = makeCodeBlock(options.toml, line, column);
+    super(`Invalid TOML document: ${message}
+
+${codeblock}`, options);
+    this.line = line;
+    this.column = column;
+    this.codeblock = codeblock;
+  }
+};
+
+// dist/util.js
+function indexOfNewline(str, start = 0, end = str.length) {
+  let idx = str.indexOf("\n", start);
+  if (str[idx - 1] === "\r")
+    idx--;
+  return idx <= end ? idx : -1;
+}
+function skipComment(str, ptr) {
+  for (let i = ptr; i < str.length; i++) {
+    let c = str[i];
+    if (c === "\n")
+      return i;
+    if (c === "\r" && str[i + 1] === "\n")
+      return i + 1;
+    if (c < " " && c !== "	" || c === "\x7F") {
+      throw new TomlError("control characters are not allowed in comments", {
+        toml: str,
+        ptr
+      });
+    }
+  }
+  return str.length;
+}
+function skipVoid(str, ptr, banNewLines, banComments) {
+  let c;
+  while ((c = str[ptr]) === " " || c === "	" || !banNewLines && (c === "\n" || c === "\r" && str[ptr + 1] === "\n"))
+    ptr++;
+  return banComments || c !== "#" ? ptr : skipVoid(str, skipComment(str, ptr), banNewLines);
+}
+function skipUntil(str, ptr, sep, end, banNewLines = false) {
+  if (!end) {
+    ptr = indexOfNewline(str, ptr);
+    return ptr < 0 ? str.length : ptr;
+  }
+  for (let i = ptr; i < str.length; i++) {
+    let c = str[i];
+    if (c === "#") {
+      i = indexOfNewline(str, i);
+    } else if (c === sep) {
+      return i + 1;
+    } else if (c === end) {
+      return i;
+    } else if (banNewLines && (c === "\n" || c === "\r" && str[i + 1] === "\n")) {
+      return i;
+    }
+  }
+  throw new TomlError("cannot find end of structure", {
+    toml: str,
+    ptr
+  });
+}
+function getStringEnd(str, seek) {
+  let first = str[seek];
+  let target = first === str[seek + 1] && str[seek + 1] === str[seek + 2] ? str.slice(seek, seek + 3) : first;
+  seek += target.length - 1;
+  do
+    seek = str.indexOf(target, ++seek);
+  while (seek > -1 && first !== "'" && str[seek - 1] === "\\" && str[seek - 2] !== "\\");
+  if (seek > -1) {
+    seek += target.length;
+    if (target.length > 1) {
+      if (str[seek] === first)
+        seek++;
+      if (str[seek] === first)
+        seek++;
+    }
+  }
+  return seek;
+}
+
+// dist/date.js
+var DATE_TIME_RE = /^(\d{4}-\d{2}-\d{2})?[T ]?(?:(\d{2}):\d{2}:\d{2}(?:\.\d+)?)?(Z|[-+]\d{2}:\d{2})?$/i;
+var TomlDate = class _TomlDate extends Date {
+  #hasDate = false;
+  #hasTime = false;
+  #offset = null;
+  constructor(date) {
+    let hasDate = true;
+    let hasTime = true;
+    let offset = "Z";
+    if (typeof date === "string") {
+      let match = date.match(DATE_TIME_RE);
+      if (match) {
+        if (!match[1]) {
+          hasDate = false;
+          date = `0000-01-01T${date}`;
+        }
+        hasTime = !!match[2];
+        if (match[2] && +match[2] > 23) {
+          date = "";
+        } else {
+          offset = match[3] || null;
+          date = date.toUpperCase();
+          if (!offset && hasTime)
+            date += "Z";
+        }
+      } else {
+        date = "";
+      }
+    }
+    super(date);
+    if (!isNaN(this.getTime())) {
+      this.#hasDate = hasDate;
+      this.#hasTime = hasTime;
+      this.#offset = offset;
+    }
+  }
+  isDateTime() {
+    return this.#hasDate && this.#hasTime;
+  }
+  isLocal() {
+    return !this.#hasDate || !this.#hasTime || !this.#offset;
+  }
+  isDate() {
+    return this.#hasDate && !this.#hasTime;
+  }
+  isTime() {
+    return this.#hasTime && !this.#hasDate;
+  }
+  isValid() {
+    return this.#hasDate || this.#hasTime;
+  }
+  toISOString() {
+    let iso = super.toISOString();
+    if (this.isDate())
+      return iso.slice(0, 10);
+    if (this.isTime())
+      return iso.slice(11, 23);
+    if (this.#offset === null)
+      return iso.slice(0, -1);
+    if (this.#offset === "Z")
+      return iso;
+    let offset = +this.#offset.slice(1, 3) * 60 + +this.#offset.slice(4, 6);
+    offset = this.#offset[0] === "-" ? offset : -offset;
+    let offsetDate = new Date(this.getTime() - offset * 6e4);
+    return offsetDate.toISOString().slice(0, -1) + this.#offset;
+  }
+  static wrapAsOffsetDateTime(jsDate, offset = "Z") {
+    let date = new _TomlDate(jsDate);
+    date.#offset = offset;
+    return date;
+  }
+  static wrapAsLocalDateTime(jsDate) {
+    let date = new _TomlDate(jsDate);
+    date.#offset = null;
+    return date;
+  }
+  static wrapAsLocalDate(jsDate) {
+    let date = new _TomlDate(jsDate);
+    date.#hasTime = false;
+    date.#offset = null;
+    return date;
+  }
+  static wrapAsLocalTime(jsDate) {
+    let date = new _TomlDate(jsDate);
+    date.#hasDate = false;
+    date.#offset = null;
+    return date;
+  }
+};
+
+// dist/primitive.js
+var INT_REGEX = /^((0x[0-9a-fA-F](_?[0-9a-fA-F])*)|(([+-]|0[ob])?\d(_?\d)*))$/;
+var FLOAT_REGEX = /^[+-]?\d(_?\d)*(\.\d(_?\d)*)?([eE][+-]?\d(_?\d)*)?$/;
+var LEADING_ZERO = /^[+-]?0[0-9_]/;
+var ESCAPE_REGEX = /^[0-9a-f]{4,8}$/i;
+var ESC_MAP = {
+  b: "\b",
+  t: "	",
+  n: "\n",
+  f: "\f",
+  r: "\r",
+  '"': '"',
+  "\\": "\\"
+};
+function parseString(str, ptr = 0, endPtr = str.length) {
+  let isLiteral = str[ptr] === "'";
+  let isMultiline = str[ptr++] === str[ptr] && str[ptr] === str[ptr + 1];
+  if (isMultiline) {
+    endPtr -= 2;
+    if (str[ptr += 2] === "\r")
+      ptr++;
+    if (str[ptr] === "\n")
+      ptr++;
+  }
+  let tmp = 0;
+  let isEscape;
+  let parsed = "";
+  let sliceStart = ptr;
+  while (ptr < endPtr - 1) {
+    let c = str[ptr++];
+    if (c === "\n" || c === "\r" && str[ptr] === "\n") {
+      if (!isMultiline) {
+        throw new TomlError("newlines are not allowed in strings", {
+          toml: str,
+          ptr: ptr - 1
+        });
+      }
+    } else if (c < " " && c !== "	" || c === "\x7F") {
+      throw new TomlError("control characters are not allowed in strings", {
+        toml: str,
+        ptr: ptr - 1
+      });
+    }
+    if (isEscape) {
+      isEscape = false;
+      if (c === "u" || c === "U") {
+        let code = str.slice(ptr, ptr += c === "u" ? 4 : 8);
+        if (!ESCAPE_REGEX.test(code)) {
+          throw new TomlError("invalid unicode escape", {
+            toml: str,
+            ptr: tmp
+          });
+        }
+        try {
+          parsed += String.fromCodePoint(parseInt(code, 16));
+        } catch {
+          throw new TomlError("invalid unicode escape", {
+            toml: str,
+            ptr: tmp
+          });
+        }
+      } else if (isMultiline && (c === "\n" || c === " " || c === "	" || c === "\r")) {
+        ptr = skipVoid(str, ptr - 1, true);
+        if (str[ptr] !== "\n" && str[ptr] !== "\r") {
+          throw new TomlError("invalid escape: only line-ending whitespace may be escaped", {
+            toml: str,
+            ptr: tmp
+          });
+        }
+        ptr = skipVoid(str, ptr);
+      } else if (c in ESC_MAP) {
+        parsed += ESC_MAP[c];
+      } else {
+        throw new TomlError("unrecognized escape sequence", {
+          toml: str,
+          ptr: tmp
+        });
+      }
+      sliceStart = ptr;
+    } else if (!isLiteral && c === "\\") {
+      tmp = ptr - 1;
+      isEscape = true;
+      parsed += str.slice(sliceStart, tmp);
+    }
+  }
+  return parsed + str.slice(sliceStart, endPtr - 1);
+}
+function parseValue(value, toml, ptr) {
+  if (value === "true")
+    return true;
+  if (value === "false")
+    return false;
+  if (value === "-inf")
+    return -Infinity;
+  if (value === "inf" || value === "+inf")
+    return Infinity;
+  if (value === "nan" || value === "+nan" || value === "-nan")
+    return NaN;
+  if (value === "-0")
+    return 0;
+  let isInt;
+  if ((isInt = INT_REGEX.test(value)) || FLOAT_REGEX.test(value)) {
+    if (LEADING_ZERO.test(value)) {
+      throw new TomlError("leading zeroes are not allowed", {
+        toml,
+        ptr
+      });
+    }
+    let numeric = +value.replace(/_/g, "");
+    if (isNaN(numeric)) {
+      throw new TomlError("invalid number", {
+        toml,
+        ptr
+      });
+    }
+    if (isInt && !Number.isSafeInteger(numeric)) {
+      throw new TomlError("integer value cannot be represented losslessly", {
+        toml,
+        ptr
+      });
+    }
+    return numeric;
+  }
+  let date = new TomlDate(value);
+  if (!date.isValid()) {
+    throw new TomlError("invalid value", {
+      toml,
+      ptr
+    });
+  }
+  return date;
+}
+
+// dist/extract.js
+function sliceAndTrimEndOf(str, startPtr, endPtr, allowNewLines) {
+  let value = str.slice(startPtr, endPtr);
+  let commentIdx = value.indexOf("#");
+  if (commentIdx > -1) {
+    skipComment(str, commentIdx);
+    value = value.slice(0, commentIdx);
+  }
+  let trimmed = value.trimEnd();
+  if (!allowNewLines) {
+    let newlineIdx = value.indexOf("\n", trimmed.length);
+    if (newlineIdx > -1) {
+      throw new TomlError("newlines are not allowed in inline tables", {
+        toml: str,
+        ptr: startPtr + newlineIdx
+      });
+    }
+  }
+  return [trimmed, commentIdx];
+}
+function extractValue(str, ptr, end, depth) {
+  if (depth === 0) {
+    throw new TomlError("document contains excessively nested structures. aborting.", {
+      toml: str,
+      ptr
+    });
+  }
+  let c = str[ptr];
+  if (c === "[" || c === "{") {
+    let [value, endPtr2] = c === "[" ? parseArray(str, ptr, depth) : parseInlineTable(str, ptr, depth);
+    let newPtr = skipUntil(str, endPtr2, ",", end);
+    if (end === "}") {
+      let nextNewLine = indexOfNewline(str, endPtr2, newPtr);
+      if (nextNewLine > -1) {
+        throw new TomlError("newlines are not allowed in inline tables", {
+          toml: str,
+          ptr: nextNewLine
+        });
+      }
+    }
+    return [value, newPtr];
+  }
+  let endPtr;
+  if (c === '"' || c === "'") {
+    endPtr = getStringEnd(str, ptr);
+    let parsed = parseString(str, ptr, endPtr);
+    if (end) {
+      endPtr = skipVoid(str, endPtr, end !== "]");
+      if (str[endPtr] && str[endPtr] !== "," && str[endPtr] !== end && str[endPtr] !== "\n" && str[endPtr] !== "\r") {
+        throw new TomlError("unexpected character encountered", {
+          toml: str,
+          ptr: endPtr
+        });
+      }
+      endPtr += +(str[endPtr] === ",");
+    }
+    return [parsed, endPtr];
+  }
+  endPtr = skipUntil(str, ptr, ",", end);
+  let slice = sliceAndTrimEndOf(str, ptr, endPtr - +(str[endPtr - 1] === ","), end === "]");
+  if (!slice[0]) {
+    throw new TomlError("incomplete key-value declaration: no value specified", {
+      toml: str,
+      ptr
+    });
+  }
+  if (end && slice[1] > -1) {
+    endPtr = skipVoid(str, ptr + slice[1]);
+    endPtr += +(str[endPtr] === ",");
+  }
+  return [
+    parseValue(slice[0], str, ptr),
+    endPtr
+  ];
+}
+
+// dist/struct.js
+var KEY_PART_RE = /^[a-zA-Z0-9-_]+[ \t]*$/;
+function parseKey(str, ptr, end = "=") {
+  let dot = ptr - 1;
+  let parsed = [];
+  let endPtr = str.indexOf(end, ptr);
+  if (endPtr < 0) {
+    throw new TomlError("incomplete key-value: cannot find end of key", {
+      toml: str,
+      ptr
+    });
+  }
+  do {
+    let c = str[ptr = ++dot];
+    if (c !== " " && c !== "	") {
+      if (c === '"' || c === "'") {
+        if (c === str[ptr + 1] && c === str[ptr + 2]) {
+          throw new TomlError("multiline strings are not allowed in keys", {
+            toml: str,
+            ptr
+          });
+        }
+        let eos = getStringEnd(str, ptr);
+        if (eos < 0) {
+          throw new TomlError("unfinished string encountered", {
+            toml: str,
+            ptr
+          });
+        }
+        dot = str.indexOf(".", eos);
+        let strEnd = str.slice(eos, dot < 0 || dot > endPtr ? endPtr : dot);
+        let newLine = indexOfNewline(strEnd);
+        if (newLine > -1) {
+          throw new TomlError("newlines are not allowed in keys", {
+            toml: str,
+            ptr: ptr + dot + newLine
+          });
+        }
+        if (strEnd.trimStart()) {
+          throw new TomlError("found extra tokens after the string part", {
+            toml: str,
+            ptr: eos
+          });
+        }
+        if (endPtr < eos) {
+          endPtr = str.indexOf(end, eos);
+          if (endPtr < 0) {
+            throw new TomlError("incomplete key-value: cannot find end of key", {
+              toml: str,
+              ptr
+            });
+          }
+        }
+        parsed.push(parseString(str, ptr, eos));
+      } else {
+        dot = str.indexOf(".", ptr);
+        let part = str.slice(ptr, dot < 0 || dot > endPtr ? endPtr : dot);
+        if (!KEY_PART_RE.test(part)) {
+          throw new TomlError("only letter, numbers, dashes and underscores are allowed in keys", {
+            toml: str,
+            ptr
+          });
+        }
+        parsed.push(part.trimEnd());
+      }
+    }
+  } while (dot + 1 && dot < endPtr);
+  return [parsed, skipVoid(str, endPtr + 1, true, true)];
+}
+function parseInlineTable(str, ptr, depth) {
+  let res = {};
+  let seen = /* @__PURE__ */ new Set();
+  let c;
+  let comma = 0;
+  ptr++;
+  while ((c = str[ptr++]) !== "}" && c) {
+    if (c === "\n") {
+      throw new TomlError("newlines are not allowed in inline tables", {
+        toml: str,
+        ptr: ptr - 1
+      });
+    } else if (c === "#") {
+      throw new TomlError("inline tables cannot contain comments", {
+        toml: str,
+        ptr: ptr - 1
+      });
+    } else if (c === ",") {
+      throw new TomlError("expected key-value, found comma", {
+        toml: str,
+        ptr: ptr - 1
+      });
+    } else if (c !== " " && c !== "	") {
+      let k;
+      let t = res;
+      let hasOwn = false;
+      let [key, keyEndPtr] = parseKey(str, ptr - 1);
+      for (let i = 0; i < key.length; i++) {
+        if (i)
+          t = hasOwn ? t[k] : t[k] = {};
+        k = key[i];
+        if ((hasOwn = Object.hasOwn(t, k)) && (typeof t[k] !== "object" || seen.has(t[k]))) {
+          throw new TomlError("trying to redefine an already defined value", {
+            toml: str,
+            ptr
+          });
+        }
+        if (!hasOwn && k === "__proto__") {
+          Object.defineProperty(t, k, { enumerable: true, configurable: true, writable: true });
+        }
+      }
+      if (hasOwn) {
+        throw new TomlError("trying to redefine an already defined value", {
+          toml: str,
+          ptr
+        });
+      }
+      let [value, valueEndPtr] = extractValue(str, keyEndPtr, "}", depth - 1);
+      seen.add(value);
+      t[k] = value;
+      ptr = valueEndPtr;
+      comma = str[ptr - 1] === "," ? ptr - 1 : 0;
+    }
+  }
+  if (comma) {
+    throw new TomlError("trailing commas are not allowed in inline tables", {
+      toml: str,
+      ptr: comma
+    });
+  }
+  if (!c) {
+    throw new TomlError("unfinished table encountered", {
+      toml: str,
+      ptr
+    });
+  }
+  return [res, ptr];
+}
+function parseArray(str, ptr, depth) {
+  let res = [];
+  let c;
+  ptr++;
+  while ((c = str[ptr++]) !== "]" && c) {
+    if (c === ",") {
+      throw new TomlError("expected value, found comma", {
+        toml: str,
+        ptr: ptr - 1
+      });
+    } else if (c === "#")
+      ptr = skipComment(str, ptr);
+    else if (c !== " " && c !== "	" && c !== "\n" && c !== "\r") {
+      let e = extractValue(str, ptr - 1, "]", depth - 1);
+      res.push(e[0]);
+      ptr = e[1];
+    }
+  }
+  if (!c) {
+    throw new TomlError("unfinished array encountered", {
+      toml: str,
+      ptr
+    });
+  }
+  return [res, ptr];
+}
+
+// dist/parse.js
+function peekTable(key, table, meta, type) {
+  let t = table;
+  let m = meta;
+  let k;
+  let hasOwn = false;
+  let state;
+  for (let i = 0; i < key.length; i++) {
+    if (i) {
+      t = hasOwn ? t[k] : t[k] = {};
+      m = (state = m[k]).c;
+      if (type === 0 && (state.t === 1 || state.t === 2)) {
+        return null;
+      }
+      if (state.t === 2) {
+        let l = t.length - 1;
+        t = t[l];
+        m = m[l].c;
+      }
+    }
+    k = key[i];
+    if ((hasOwn = Object.hasOwn(t, k)) && m[k]?.t === 0 && m[k]?.d) {
+      return null;
+    }
+    if (!hasOwn) {
+      if (k === "__proto__") {
+        Object.defineProperty(t, k, { enumerable: true, configurable: true, writable: true });
+        Object.defineProperty(m, k, { enumerable: true, configurable: true, writable: true });
+      }
+      m[k] = {
+        t: i < key.length - 1 && type === 2 ? 3 : type,
+        d: false,
+        i: 0,
+        c: {}
+      };
+    }
+  }
+  state = m[k];
+  if (state.t !== type && !(type === 1 && state.t === 3)) {
+    return null;
+  }
+  if (type === 2) {
+    if (!state.d) {
+      state.d = true;
+      t[k] = [];
+    }
+    t[k].push(t = {});
+    state.c[state.i++] = state = { t: 1, d: false, i: 0, c: {} };
+  }
+  if (state.d) {
+    return null;
+  }
+  state.d = true;
+  if (type === 1) {
+    t = hasOwn ? t[k] : t[k] = {};
+  } else if (type === 0 && hasOwn) {
+    return null;
+  }
+  return [k, t, state.c];
+}
+function parse(toml, opts) {
+  let maxDepth = opts?.maxDepth ?? 1e3;
+  let res = {};
+  let meta = {};
+  let tbl = res;
+  let m = meta;
+  for (let ptr = skipVoid(toml, 0); ptr < toml.length; ) {
+    if (toml[ptr] === "[") {
+      let isTableArray = toml[++ptr] === "[";
+      let k = parseKey(toml, ptr += +isTableArray, "]");
+      if (isTableArray) {
+        if (toml[k[1] - 1] !== "]") {
+          throw new TomlError("expected end of table declaration", {
+            toml,
+            ptr: k[1] - 1
+          });
+        }
+        k[1]++;
+      }
+      let p = peekTable(
+        k[0],
+        res,
+        meta,
+        isTableArray ? 2 : 1
+        /* Type.EXPLICIT */
+      );
+      if (!p) {
+        throw new TomlError("trying to redefine an already defined table or value", {
+          toml,
+          ptr
+        });
+      }
+      m = p[2];
+      tbl = p[1];
+      ptr = k[1];
+    } else {
+      let k = parseKey(toml, ptr);
+      let p = peekTable(
+        k[0],
+        tbl,
+        m,
+        0
+        /* Type.DOTTED */
+      );
+      if (!p) {
+        throw new TomlError("trying to redefine an already defined table or value", {
+          toml,
+          ptr
+        });
+      }
+      let v = extractValue(toml, k[1], void 0, maxDepth);
+      p[1][p[0]] = v[0];
+      ptr = v[1];
+    }
+    ptr = skipVoid(toml, ptr, true);
+    if (toml[ptr] && toml[ptr] !== "\n" && toml[ptr] !== "\r") {
+      throw new TomlError("each key-value declaration must be followed by an end-of-line", {
+        toml,
+        ptr
+      });
+    }
+    ptr = skipVoid(toml, ptr);
+  }
+  return res;
+}
+
+// dist/stringify.js
+var BARE_KEY = /^[a-z0-9-_]+$/i;
+function extendedTypeOf(obj) {
+  let type = typeof obj;
+  if (type === "object") {
+    if (Array.isArray(obj))
+      return "array";
+    if (obj instanceof Date)
+      return "date";
+  }
+  return type;
+}
+function isArrayOfTables(obj) {
+  for (let i = 0; i < obj.length; i++) {
+    if (extendedTypeOf(obj[i]) !== "object")
+      return false;
+  }
+  return obj.length != 0;
+}
+function formatString(s) {
+  return JSON.stringify(s).replace(/\x7f/g, "\\u007f");
+}
+function stringifyValue(val, type, depth) {
+  if (depth === 0) {
+    throw new Error("Could not stringify the object: maximum object depth exceeded");
+  }
+  if (type === "number") {
+    if (isNaN(val))
+      return "nan";
+    if (val === Infinity)
+      return "inf";
+    if (val === -Infinity)
+      return "-inf";
+    return val.toString();
+  }
+  if (type === "bigint" || type === "boolean") {
+    return val.toString();
+  }
+  if (type === "string") {
+    return formatString(val);
+  }
+  if (type === "date") {
+    if (isNaN(val.getTime())) {
+      throw new TypeError("cannot serialize invalid date");
+    }
+    return val.toISOString();
+  }
+  if (type === "object") {
+    return stringifyInlineTable(val, depth);
+  }
+  if (type === "array") {
+    return stringifyArray(val, depth);
+  }
+}
+function stringifyInlineTable(obj, depth) {
+  let keys = Object.keys(obj);
+  if (keys.length === 0)
+    return "{}";
+  let res = "{ ";
+  for (let i = 0; i < keys.length; i++) {
+    let k = keys[i];
+    if (i)
+      res += ", ";
+    res += BARE_KEY.test(k) ? k : formatString(k);
+    res += " = ";
+    res += stringifyValue(obj[k], extendedTypeOf(obj[k]), depth - 1);
+  }
+  return res + " }";
+}
+function stringifyArray(array, depth) {
+  if (array.length === 0)
+    return "[]";
+  let res = "[ ";
+  for (let i = 0; i < array.length; i++) {
+    if (i)
+      res += ", ";
+    if (array[i] === null || array[i] === void 0) {
+      throw new TypeError("arrays cannot contain null or undefined values");
+    }
+    res += stringifyValue(array[i], extendedTypeOf(array[i]), depth - 1);
+  }
+  return res + " ]";
+}
+function stringifyArrayTable(array, key, depth) {
+  if (depth === 0) {
+    throw new Error("Could not stringify the object: maximum object depth exceeded");
+  }
+  let res = "";
+  for (let i = 0; i < array.length; i++) {
+    res += `[[${key}]]
+`;
+    res += stringifyTable(array[i], key, depth);
+    res += "\n\n";
+  }
+  return res;
+}
+function stringifyTable(obj, prefix, depth) {
+  if (depth === 0) {
+    throw new Error("Could not stringify the object: maximum object depth exceeded");
+  }
+  let preamble = "";
+  let tables = "";
+  let keys = Object.keys(obj);
+  for (let i = 0; i < keys.length; i++) {
+    let k = keys[i];
+    if (obj[k] !== null && obj[k] !== void 0) {
+      let type = extendedTypeOf(obj[k]);
+      if (type === "symbol" || type === "function") {
+        throw new TypeError(`cannot serialize values of type '${type}'`);
+      }
+      let key = BARE_KEY.test(k) ? k : formatString(k);
+      if (type === "array" && isArrayOfTables(obj[k])) {
+        tables += stringifyArrayTable(obj[k], prefix ? `${prefix}.${key}` : key, depth - 1);
+      } else if (type === "object") {
+        let tblKey = prefix ? `${prefix}.${key}` : key;
+        tables += `[${tblKey}]
+`;
+        tables += stringifyTable(obj[k], tblKey, depth - 1);
+        tables += "\n\n";
+      } else {
+        preamble += key;
+        preamble += " = ";
+        preamble += stringifyValue(obj[k], type, depth);
+        preamble += "\n";
+      }
+    }
+  }
+  return `${preamble}
+${tables}`.trim();
+}
+function stringify(obj, opts) {
+  if (extendedTypeOf(obj) !== "object") {
+    throw new TypeError("stringify can only be called with an object");
+  }
+  let maxDepth = opts?.maxDepth ?? 1e3;
+  return stringifyTable(obj, "", maxDepth);
+}
+
+// dist/index.js
+var dist_default = { parse, stringify, TomlDate, TomlError };
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+  TomlDate,
+  TomlError,
+  parse,
+  stringify
+});
+/*!
+ * Copyright (c) Squirrel Chat et al., All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 3. Neither the name of the copyright holder nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software without
+ *    specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+  var exported = module.exports;
+  global.TOML = exported;
+  if (typeof window !== "undefined") window.TOML = exported;
+  if (typeof globalThis !== "undefined") globalThis.TOML = exported;
+})(typeof window !== "undefined" ? window : globalThis);
+var TOML = window.TOML || globalThis.TOML;
+    </script>
+
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <style>
+      :root {
+        --color-page: #f9fafb;
+        --color-surface: #ffffff;
+        --color-card: #f3f4f6;
+        --color-border: #d1d5db;
+        --color-text-main: #111827;
+        --color-text-muted: #4b5563;
+        --color-success-text: #15803d;
+        --color-success-bg: #dcfce7;
+        --color-error-text: #b91c1c;
+        --color-error-bg: #fee2e2;
+        --color-warning-text: #b45309;
+        --color-warning-bg: #fef3c7;
+      }
+      .dark {
+        --color-page: #0b0f19;
+        --color-surface: #111827;
+        --color-card: #1f2937;
+        --color-border: #475569;
+        --color-text-main: #f9fafb;
+        --color-text-muted: #d1d5db;
+        --color-success-text: #4ade80;
+        --color-success-bg: rgba(34, 197, 94, 0.1);
+        --color-error-text: #f87171;
+        --color-error-bg: rgba(239, 68, 68, 0.1);
+        --color-warning-text: #fcd34d;
+        --color-warning-bg: rgba(245, 158, 11, 0.1);
+      }
+      body {
+        background-color: var(--color-page);
+        color: var(--color-text-main);
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+      }
+      .bg-surface {
+        background-color: var(--color-surface);
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--color-page);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--color-border);
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-text-muted);
+      }
+      [v-cloak] {
+        display: none !important;
+      }
+      .step-badge {
+        width: 28px;
+        height: 28px;
+        border-radius: 9999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.875rem;
+      }
+    </style>
+  </head>
+  <body class="antialiased min-h-screen flex flex-col">
+    <div id="app" class="flex-grow flex flex-col" v-cloak>
+      <!-- Header -->
+      <header
+        :class="['bg-surface border-b border-border shadow-md p-4 sticky top-0 z-30 transition-transform duration-300', showNavbar ? 'translate-y-0' : '-translate-y-full']"
+      >
+        <div class="w-full flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <a
+              href="index.html"
+              class="w-12 h-12 rounded-full bg-android/10 flex items-center justify-center border border-android/20 text-android hover:bg-android/20 transition-all shrink-0 shadow-sm"
+              title="Back to Dashboard"
+            >
+              <i class="devicon-android-plain text-android text-3xl"></i>
+            </a>
+            <div>
+              <div class="flex items-center gap-2">
+                <h1 class="text-xl md:text-2xl font-bold text-textMain leading-tight">
+                  Test Your Project
+                </h1>
+                <span class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-android/15 text-android border border-android/30">
+                  TOML Importer
+                </span>
+              </div>
+              <p class="text-xs md:text-sm text-textMuted hidden sm:block">
+                Convert your Version Catalog (<code class="font-mono text-xs">libs.versions.toml</code>) into an on-demand compatibility build request.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <!-- Back to Dashboard Link -->
+            <a
+              href="index.html"
+              class="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-semibold rounded-lg bg-page hover:bg-card border border-border text-textMain transition-all shadow-sm"
+            >
+              <i class="fas fa-arrow-left text-xs"></i>
+              <span class="hidden sm:inline">Back to Dashboard</span>
+              <span class="sm:hidden">Dashboard</span>
+            </a>
+
+            <!-- Pill Theme Toggle Switch -->
+            <button
+              @click="toggleTheme"
+              type="button"
+              role="switch"
+              :aria-checked="isDark"
+              class="relative inline-flex h-[34px] w-[60px] shrink-0 cursor-pointer rounded-full p-[2px] items-center bg-page hover:bg-card border border-border transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-android focus:ring-offset-2 select-none shadow-inner"
+              :title="isDark ? 'Switch to Light Mode (😀)' : 'Switch to Dark Mode (😈)'"
+            >
+              <span class="sr-only">Toggle Theme</span>
+              <span
+                class="pointer-events-none flex h-[28px] w-[28px] transform items-center justify-center rounded-full bg-surface border border-border shadow-md transition-transform duration-300 ease-in-out text-[20px] leading-none select-none"
+                :class="isDark ? 'translate-x-[26px]' : 'translate-x-0'"
+              >
+                {{ isDark ? '😈' : '😀' }}
+              </span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Container -->
+      <main class="w-full p-4 flex-grow flex flex-col gap-6">
+
+        <!-- Global Alert Messages -->
+        <div
+          v-if="errorMessage"
+          class="p-4 rounded-xl border border-red-500/30 bg-errorBg text-errorText flex items-start gap-3 shadow-sm animate-fade-in-up"
+        >
+          <i class="fas fa-circle-exclamation text-lg mt-0.5 shrink-0"></i>
+          <div class="flex-grow text-sm">
+            <span class="font-semibold">Error:</span> {{ errorMessage }}
+          </div>
+          <button @click="errorMessage = ''" class="text-errorText hover:opacity-75">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <div
+          v-if="warningMessage"
+          class="p-4 rounded-xl border border-amber-500/30 bg-warningBg text-warningText flex items-start gap-3 shadow-sm animate-fade-in-up"
+        >
+          <i class="fas fa-triangle-exclamation text-lg mt-0.5 shrink-0"></i>
+          <div class="flex-grow text-sm">
+            <span class="font-semibold">Notice:</span> {{ warningMessage }}
+          </div>
+          <button @click="warningMessage = ''" class="text-warningText hover:opacity-75">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <!-- Progress Steps Bar -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div
+            :class="['p-3.5 rounded-xl border flex items-center gap-3 transition-all',
+              step >= 1 ? 'bg-surface border-android/40 shadow-sm' : 'bg-card/50 border-border opacity-60']"
+          >
+            <div :class="['step-badge', step >= 1 ? 'bg-android text-slate-950 font-bold' : 'bg-page text-textMuted border border-border']">
+              1
+            </div>
+            <div>
+              <div class="text-[10px] font-bold text-textMuted uppercase tracking-wider">Step 1</div>
+              <div class="text-sm font-semibold text-textMain">Provide TOML File</div>
+            </div>
+            <i v-if="parsedData" class="fas fa-circle-check text-android ml-auto text-lg"></i>
+          </div>
+
+          <div
+            :class="['p-3.5 rounded-xl border flex items-center gap-3 transition-all',
+              parsedData && verifiedFoundations.length ? 'bg-surface border-android/40 shadow-sm' : 'bg-card/50 border-border opacity-60']"
+          >
+            <div :class="['step-badge', selectedFoundation ? 'bg-android text-slate-950 font-bold' : 'bg-page text-textMuted border border-border']">
+              2
+            </div>
+            <div>
+              <div class="text-[10px] font-bold text-textMuted uppercase tracking-wider">Step 2</div>
+              <div class="text-sm font-semibold text-textMain">Match Foundation & Pick Addons</div>
+            </div>
+            <i v-if="selectedFoundation && selectedAddons.length > 0 && selectedAddons.length <= 5" class="fas fa-circle-check text-android ml-auto text-lg"></i>
+          </div>
+
+          <div
+            :class="['p-3.5 rounded-xl border flex items-center gap-3 transition-all',
+              canSubmit ? 'bg-surface border-android shadow-sm ring-1 ring-android/30' : 'bg-card/50 border-border opacity-60']"
+          >
+            <div :class="['step-badge', canSubmit ? 'bg-android text-slate-950 font-bold' : 'bg-page text-textMuted border border-border']">
+              3
+            </div>
+            <div>
+              <div class="text-[10px] font-bold text-textMuted uppercase tracking-wider">Step 3</div>
+              <div class="text-sm font-semibold text-textMain">Create GitHub Request</div>
+            </div>
+            <i v-if="canSubmit" class="fa-brands fa-github text-android ml-auto text-xl"></i>
+          </div>
+        </div>
+
+        <!-- STEP 1: TOML Input Area -->
+        <section class="bg-surface rounded-xl border border-border shadow-md p-5 flex flex-col gap-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5">
+              <h2 class="text-base md:text-lg font-bold text-textMain flex items-center gap-2">
+                <i class="fas fa-file-code text-android"></i>
+                <span>1. Upload or Paste <code class="font-mono text-xs bg-card px-2 py-0.5 rounded border border-border">libs.versions.toml</code></span>
+              </h2>
+            </div>
+            <div class="flex items-center gap-2">
+              <button
+                @click="loadSampleToml"
+                type="button"
+                class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-page hover:bg-card border border-border text-textMain transition-all flex items-center gap-1.5 shadow-sm"
+              >
+                <i class="fas fa-wand-magic-sparkles text-android"></i>
+                Load Sample TOML
+              </button>
+              <button
+                v-if="tomlInput"
+                @click="clearInput"
+                type="button"
+                class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-page hover:bg-card border border-border text-errorText hover:bg-errorBg transition-all flex items-center gap-1.5 shadow-sm"
+              >
+                <i class="fas fa-trash-can"></i>
+                Clear
+              </button>
+            </div>
+          </div>
+
+          <!-- Drag and Drop / File Input Box -->
+          <div
+            @dragover.prevent="isDragging = true"
+            @dragleave.prevent="isDragging = false"
+            @drop.prevent="handleFileDrop"
+            :class="['border-2 border-dashed rounded-xl p-4 md:p-5 transition-all text-center flex flex-col sm:flex-row items-center justify-between gap-4',
+              isDragging ? 'border-android bg-android/5' : 'border-border bg-page hover:border-android/50']"
+          >
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-10 h-10 rounded-xl bg-surface border border-border flex items-center justify-center text-textMuted text-lg shrink-0">
+                <i class="fas fa-upload text-android"></i>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-textMain">
+                  Upload your <code class="font-mono text-xs bg-card px-1.5 py-0.5 rounded border border-border">libs.versions.toml</code>
+                </p>
+                <p class="text-xs text-textMuted">
+                  Drag & drop file here, or click Browse File
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+              <label
+                class="cursor-pointer px-4 py-2 text-xs md:text-sm font-semibold rounded-lg bg-surface hover:bg-card border border-border text-textMain transition-all shadow-sm flex items-center gap-2 shrink-0"
+              >
+                <i class="fas fa-folder-open text-android"></i>
+                <span>Browse File</span>
+                <input
+                  type="file"
+                  accept=".toml"
+                  @change="handleFileUpload"
+                  class="hidden"
+                />
+              </label>
+            </div>
+          </div>
+
+          <!-- Textarea for raw TOML -->
+          <div class="relative">
+            <textarea
+              v-model="tomlInput"
+              @input="onTomlChange"
+              rows="7"
+              placeholder="Paste your libs.versions.toml contents here...
+
+[versions]
+agp = &quot;8.6.1&quot;
+kotlin = &quot;1.9.0&quot;
+coreKtx = &quot;1.13.1&quot;
+
+[libraries]
+androidx-core-ktx = { group = &quot;androidx.core&quot;, name = &quot;core-ktx&quot;, version.ref = &quot;coreKtx&quot; }
+
+[plugins]
+android-application = { id = &quot;com.android.application&quot;, version.ref = &quot;agp&quot; }
+kotlin-android = { id = &quot;org.jetbrains.kotlin.android&quot;, version.ref = &quot;kotlin&quot; }"
+              class="w-full font-mono text-xs md:text-sm p-4 rounded-xl border border-border bg-page text-textMain focus:outline-none focus:ring-1 focus:ring-android focus:border-android transition-all resize-y shadow-inner"
+            ></textarea>
+            <div
+              v-if="parsedData"
+              class="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-surface/90 border border-border text-[11px] font-mono text-successText flex items-center gap-1.5 shadow-sm backdrop-blur"
+            >
+              <i class="fas fa-check-circle"></i>
+              Parsed successfully
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 2 & 3: Parsed Results & Toolchain -->
+        <section v-if="parsedData" class="flex flex-col gap-6 animate-fade-in-up">
+          
+          <!-- Detected Toolchain Overview -->
+          <div class="bg-surface rounded-xl border border-border shadow-md p-5 flex flex-col gap-4">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <h2 class="text-base md:text-lg font-bold text-textMain flex items-center gap-2">
+                <i class="fas fa-microchip text-android"></i>
+                <span>2. Detected Toolchain & Verified Matches</span>
+              </h2>
+              <span class="text-xs text-textMuted font-medium">
+                {{ libraries.length }} total {{ libraries.length === 1 ? 'entry' : 'entries' }} in catalog
+              </span>
+            </div>
+
+            <!-- Detected Toolchain Badges -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div class="bg-page p-3.5 rounded-xl border border-border flex flex-col gap-1 shadow-sm">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-textMuted flex items-center gap-1.5">
+                  <i class="devicon-android-plain text-[#3DDC84]"></i> AGP Version
+                </span>
+                <span class="text-base md:text-lg font-bold font-mono text-textMain">
+                  {{ detectedAgp || 'Not found' }}
+                </span>
+                <span class="text-[11px] text-textMuted">
+                  {{ detectedAgpSource || 'Checked [plugins] & [versions]' }}
+                </span>
+              </div>
+
+              <div class="bg-page p-3.5 rounded-xl border border-border flex flex-col gap-1 shadow-sm">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-textMuted flex items-center gap-1.5">
+                  <i class="devicon-kotlin-plain text-[#7F52FF]"></i> Kotlin Version
+                </span>
+                <span class="text-base md:text-lg font-bold font-mono text-textMain">
+                  {{ detectedKotlin || 'Not found' }}
+                </span>
+                <span class="text-[11px] text-textMuted">
+                  {{ detectedKotlinSource || 'Checked [plugins] & [versions]' }}
+                </span>
+              </div>
+
+              <div class="bg-page p-3.5 rounded-xl border border-border flex flex-col gap-1 shadow-sm">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-textMuted flex items-center gap-1.5">
+                  <i class="fas fa-cubes text-blue-400"></i> Testable Addons
+                </span>
+                <span class="text-base md:text-lg font-bold font-mono text-textMain">
+                  {{ testableLibrariesCount }}
+                </span>
+                <span class="text-[11px] text-textMuted">
+                  Non-BOM resolved libraries
+                </span>
+              </div>
+
+              <div class="bg-page p-3.5 rounded-xl border border-border flex flex-col gap-1 shadow-sm">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-textMuted flex items-center gap-1.5">
+                  <i class="fas fa-layer-group text-amber-400"></i> BOM Managed
+                </span>
+                <span class="text-base md:text-lg font-bold font-mono text-textMain">
+                  {{ bomLibrariesCount }}
+                </span>
+                <span class="text-[11px] text-textMuted">
+                  Managed via Bill of Materials
+                </span>
+              </div>
+            </div>
+
+            <!-- Foundation Matches List -->
+            <div class="mt-2 flex flex-col gap-3">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <h3 class="text-sm font-bold text-textMain flex items-center gap-2">
+                  <i class="fas fa-network-wired text-android"></i>
+                  Select Verified Foundation
+                </h3>
+                <span class="text-xs text-textMuted">
+                  Ranked by compatibility score with your toolchain
+                </span>
+              </div>
+
+              <!-- Loading State for Foundations -->
+              <div v-if="loadingFoundations" class="p-6 text-center text-textMuted bg-page rounded-xl border border-border flex items-center justify-center gap-3">
+                <i class="fas fa-spinner fa-spin text-android text-lg"></i>
+                <span class="text-sm font-medium">Loading verified foundation matrix...</span>
+              </div>
+
+              <!-- No Foundation Matches Found State -->
+              <div
+                v-else-if="rankedFoundations.length === 0"
+                class="p-4 rounded-xl border border-amber-500/30 bg-warningBg text-warningText text-sm flex items-start gap-3"
+              >
+                <i class="fas fa-triangle-exclamation text-base mt-0.5 shrink-0"></i>
+                <div>
+                  <p class="font-semibold">No verified Foundation matches your AGP version.</p>
+                  <p class="text-xs mt-1">
+                    Check the <a href="index.html" class="underline font-semibold">dashboard</a> for available Foundations or try selecting a different major AGP version.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Foundation Cards Grid -->
+              <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div
+                  v-for="(f, idx) in rankedFoundations"
+                  :key="f.id"
+                  @click="selectedFoundation = f"
+                  :class="['p-4 rounded-xl border cursor-pointer transition-all flex flex-col justify-between gap-3 relative select-none',
+                    selectedFoundation && selectedFoundation.id === f.id
+                      ? 'bg-surface border-android shadow-md ring-2 ring-android/40'
+                      : 'bg-page hover:bg-card border-border hover:border-android/30 shadow-sm']"
+                >
+                  <!-- Card Header & Badge -->
+                  <div class="flex items-start justify-between gap-2">
+                    <div class="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        :name="'foundation-select'"
+                        :value="f"
+                        v-model="selectedFoundation"
+                        class="accent-android h-4 w-4 shrink-0"
+                      />
+                      <div class="font-mono text-xs font-bold text-textMain">
+                        ID: {{ f.id }}
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <span
+                        v-if="idx === 0 && f.score >= 100"
+                        class="px-2.5 py-0.5 text-[10px] font-bold rounded-full bg-android text-slate-950 uppercase tracking-wider"
+                      >
+                        Best Match
+                      </span>
+                      <button
+                        @click.stop="copyId(f.id)"
+                        class="text-xs text-textMuted hover:text-textMain p-1 rounded hover:bg-surface border border-transparent hover:border-border transition-colors"
+                        :title="copiedId === f.id ? 'Copied!' : 'Copy Foundation ID'"
+                      >
+                        <i :class="copiedId === f.id ? 'fas fa-check text-green-500' : 'fas fa-copy'"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Toolchain Specs Grid -->
+                  <div class="grid grid-cols-3 gap-2 text-xs">
+                    <div class="bg-surface p-2 rounded-lg border border-border/80 flex flex-col">
+                      <span class="text-[10px] text-textMuted font-bold uppercase tracking-wider flex items-center gap-1">
+                        <i class="devicon-android-plain text-[#3DDC84]"></i> AGP
+                      </span>
+                      <span class="font-mono font-bold text-textMain mt-0.5">{{ f.coreToolchain.agp }}</span>
+                    </div>
+                    <div class="bg-surface p-2 rounded-lg border border-border/80 flex flex-col">
+                      <span class="text-[10px] text-textMuted font-bold uppercase tracking-wider flex items-center gap-1">
+                        <i class="devicon-gradle-plain text-[#02303A] dark:text-[#EAF6F6]"></i> Gradle
+                      </span>
+                      <span class="font-mono font-bold text-textMain mt-0.5">{{ f.coreToolchain.gradle }}</span>
+                    </div>
+                    <div class="bg-surface p-2 rounded-lg border border-border/80 flex flex-col">
+                      <span class="text-[10px] text-textMuted font-bold uppercase tracking-wider flex items-center gap-1">
+                        <i class="devicon-kotlin-plain text-[#7F52FF]"></i> Kotlin
+                      </span>
+                      <span class="font-mono font-bold text-textMain mt-0.5">{{ f.coreToolchain.kotlin }}</span>
+                    </div>
+                    <div class="bg-surface p-2 rounded-lg border border-border/80 flex flex-col">
+                      <span class="text-[10px] text-textMuted font-bold uppercase tracking-wider flex items-center gap-1">
+                        <i class="fas fa-microchip text-textMuted"></i> KSP
+                      </span>
+                      <span class="font-mono font-bold text-textMain truncate mt-0.5" :title="f.coreToolchain.ksp">
+                        {{ f.coreToolchain.ksp !== 'null' && f.coreToolchain.ksp ? f.coreToolchain.ksp : 'None' }}
+                      </span>
+                    </div>
+                    <div class="bg-surface p-2 rounded-lg border border-border/80 flex flex-col">
+                      <span class="text-[10px] text-textMuted font-bold uppercase tracking-wider flex items-center gap-1">
+                        <i class="fas fa-mobile-screen-button text-textMuted"></i> SDK
+                      </span>
+                      <span class="font-mono font-bold text-textMain mt-0.5">API {{ f.coreToolchain.compileSdk }}</span>
+                    </div>
+                    <div class="bg-surface p-2 rounded-lg border border-border/80 flex flex-col">
+                      <span class="text-[10px] text-textMuted font-bold uppercase tracking-wider flex items-center gap-1">
+                        <i class="devicon-java-plain text-[#EA2D2E]"></i> JDK
+                      </span>
+                      <span class="font-mono font-bold text-textMain mt-0.5">{{ f.coreToolchain.jdk }}</span>
+                    </div>
+                  </div>
+
+                  <!-- Selection Indicator Footer -->
+                  <div class="text-[11px] flex items-center justify-between pt-1 border-t border-border/50 text-textMuted">
+                    <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-successBg text-successText border border-successText/30">
+                      <i class="fas fa-check-circle"></i> VERIFIED
+                    </span>
+                    <span v-if="selectedFoundation && selectedFoundation.id === f.id" class="text-android font-semibold flex items-center gap-1">
+                      <i class="fas fa-check"></i> Selected
+                    </span>
+                    <span v-else class="text-textMuted hover:text-textMain">
+                      Click to select
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3 & 5: Library Selection Table -->
+          <div class="bg-surface rounded-xl border border-border shadow-md p-5 flex flex-col gap-4">
+            
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+              <div>
+                <h2 class="text-base md:text-lg font-bold text-textMain flex items-center gap-2">
+                  <i class="fas fa-cubes text-android"></i>
+                  <span>3. Select Addons to Test (Max 5)</span>
+                </h2>
+                <p class="text-xs text-textMuted mt-0.5">
+                  Pick up to 5 individual libraries to test on top of the selected Foundation.
+                </p>
+              </div>
+
+              <!-- Addon Counter & Controls -->
+              <div class="flex items-center flex-wrap gap-2.5">
+                <!-- Bundle Dropdown -->
+                <div v-if="bundleNames.length > 0" class="flex items-center gap-1.5">
+                  <label class="text-xs font-bold text-textMuted uppercase tracking-wider">Bundle:</label>
+                  <select
+                    @change="onBundleSelect($event)"
+                    class="text-xs px-3 py-1.5 rounded-lg bg-page border border-border text-textMain focus:outline-none focus:ring-1 focus:ring-android"
+                  >
+                    <option value="">-- Select Bundle --</option>
+                    <option v-for="b in bundleNames" :key="b" :value="b">
+                      {{ b }} ({{ bundles[b].length }} items)
+                    </option>
+                  </select>
+                </div>
+
+                <!-- Addon Counter Badge -->
+                <div
+                  :class="['px-3 py-1.5 rounded-lg font-mono text-xs font-bold border flex items-center gap-2 shadow-sm',
+                    selectedAddons.length > 5
+                      ? 'bg-errorBg text-errorText border-red-400'
+                      : selectedAddons.length > 0
+                        ? 'bg-android/15 text-android border-android/30'
+                        : 'bg-page text-textMuted border-border']"
+                >
+                  <i class="fas fa-layer-group"></i>
+                  <span>{{ selectedAddons.length }}/5 addons selected</span>
+                </div>
+
+                <!-- Deselect All Button -->
+                <button
+                  v-if="selectedAddons.length > 0"
+                  @click="clearAddonSelection"
+                  type="button"
+                  class="px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-page hover:bg-card border border-border text-textMuted hover:text-textMain transition-all shadow-sm"
+                >
+                  Clear Selection
+                </button>
+              </div>
+            </div>
+
+            <!-- Search Filter for Table -->
+            <div class="flex items-center gap-3">
+              <div class="relative flex-grow">
+                <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-textMuted text-xs"></i>
+                <input
+                  v-model="librarySearch"
+                  type="text"
+                  placeholder="Filter libraries by alias, group, or artifact..."
+                  class="w-full pl-9 pr-4 py-2 text-xs md:text-sm rounded-lg bg-page border border-border text-textMain focus:outline-none focus:ring-1 focus:ring-android focus:border-android transition-all"
+                />
+              </div>
+            </div>
+
+            <!-- Warning if > 5 addons selected -->
+            <div
+              v-if="selectedAddons.length > 5"
+              class="p-4 rounded-xl border border-red-500/30 bg-errorBg text-errorText text-xs md:text-sm flex items-start gap-3 shadow-sm animate-fade-in-up"
+            >
+              <i class="fas fa-triangle-exclamation text-base mt-0.5 shrink-0"></i>
+              <div>
+                <p class="font-bold">Maximum 5 addons per build request.</p>
+                <p class="text-xs mt-0.5">Please deselect some libraries or split them into multiple build requests.</p>
+              </div>
+            </div>
+
+            <!-- Warning if all libraries are BOM-managed -->
+            <div
+              v-if="libraries.length > 0 && testableLibrariesCount === 0"
+              class="p-4 rounded-xl border border-amber-500/30 bg-warningBg text-warningText text-xs md:text-sm flex items-start gap-3 shadow-sm"
+            >
+              <i class="fas fa-info-circle text-base mt-0.5 shrink-0"></i>
+              <div>
+                <p class="font-semibold">All libraries are BOM-managed.</p>
+                <p class="text-xs mt-0.5">They cannot be individually versioned without a Bill of Materials. No testable addons found.</p>
+              </div>
+            </div>
+
+            <!-- Table Container -->
+            <div class="overflow-x-auto rounded-xl border border-border shadow-sm">
+              <table class="w-full text-left text-xs md:text-sm">
+                <thead class="bg-page border-b border-border text-textMuted text-[11px] uppercase tracking-wider font-bold">
+                  <tr>
+                    <th scope="col" class="py-3 px-4 w-12 text-center">Include</th>
+                    <th scope="col" class="py-3 px-4">Alias</th>
+                    <th scope="col" class="py-3 px-4">Group</th>
+                    <th scope="col" class="py-3 px-4">Artifact</th>
+                    <th scope="col" class="py-3 px-4">Version</th>
+                    <th scope="col" class="py-3 px-4 text-right">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-border bg-surface">
+                  <tr
+                    v-for="lib in filteredLibraries"
+                    :key="lib.alias"
+                    :class="['transition-colors',
+                      lib.selected ? 'bg-android/5' : 'hover:bg-card/50',
+                      lib.isBomManaged || lib.error ? 'opacity-70 bg-card/20' : '']"
+                  >
+                    <!-- Checkbox -->
+                    <td class="py-3 px-4 text-center">
+                      <input
+                        type="checkbox"
+                        v-model="lib.selected"
+                        @change="onLibraryCheckboxChange(lib)"
+                        :disabled="lib.isBomManaged || !!lib.error"
+                        class="accent-android h-4 w-4 rounded border-border cursor-pointer disabled:cursor-not-allowed"
+                      />
+                    </td>
+
+                    <!-- Alias -->
+                    <td class="py-3 px-4 font-mono font-bold text-textMain">
+                      {{ lib.alias }}
+                    </td>
+
+                    <!-- Group -->
+                    <td class="py-3 px-4 font-mono text-textMuted text-xs">
+                      {{ lib.group || '-' }}
+                    </td>
+
+                    <!-- Artifact -->
+                    <td class="py-3 px-4 font-mono text-textMain text-xs font-semibold">
+                      {{ lib.name || '-' }}
+                    </td>
+
+                    <!-- Version -->
+                    <td class="py-3 px-4">
+                      <span v-if="lib.isBomManaged" class="italic text-textMuted text-xs">
+                        managed by BOM
+                      </span>
+                      <span v-else-if="lib.error" class="text-errorText font-mono text-xs">
+                        {{ lib.error }}
+                      </span>
+                      <span v-else class="font-mono text-textMain font-bold text-xs bg-card px-2 py-0.5 rounded border border-border">
+                        {{ lib.version }}
+                      </span>
+                    </td>
+
+                    <!-- Status Badges -->
+                    <td class="py-3 px-4 text-right">
+                      <span
+                        v-if="lib.isBomManaged"
+                        class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/30 uppercase tracking-wider"
+                      >
+                        BOM
+                      </span>
+                      <span
+                        v-else-if="lib.error"
+                        class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-errorBg text-errorText border border-red-400 uppercase tracking-wider"
+                      >
+                        Missing Ref
+                      </span>
+                      <span
+                        v-else-if="lib.isTestLib"
+                        class="px-2 py-0.5 text-[10px] font-medium rounded-full bg-page text-textMuted border border-border"
+                      >
+                        Test Lib
+                      </span>
+                      <span
+                        v-else-if="lib.selected"
+                        class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-successBg text-successText border border-successText/30 uppercase tracking-wider"
+                      >
+                        Included
+                      </span>
+                      <span
+                        v-else
+                        class="px-2 py-0.5 text-[10px] font-medium rounded-full bg-page text-textMuted border border-border"
+                      >
+                        Ready
+                      </span>
+                    </td>
+                  </tr>
+
+                  <!-- Empty search state -->
+                  <tr v-if="filteredLibraries.length === 0">
+                    <td colspan="6" class="py-8 text-center text-textMuted text-xs md:text-sm">
+                      <i class="fas fa-box-open text-2xl mb-2 block opacity-40"></i>
+                      No libraries match your search filter "{{ librarySearch }}"
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- STEP 4: Request Generation & Issue Preview -->
+          <div class="bg-surface rounded-xl border border-border shadow-md p-5 flex flex-col gap-5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <h2 class="text-base md:text-lg font-bold text-textMain flex items-center gap-2">
+                <i class="fa-brands fa-github text-android"></i>
+                <span>4. Review & Create Build Request</span>
+              </h2>
+
+              <!-- GitHub CTA Button -->
+              <a
+                v-if="canSubmit"
+                :href="githubIssueUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-android text-slate-950 font-bold text-sm hover:brightness-110 active:scale-95 transition-all shadow-md"
+              >
+                <i class="fa-brands fa-github text-lg"></i>
+                <span>Create Build Request</span>
+                <i class="fas fa-arrow-up-right-from-square text-xs opacity-75"></i>
+              </a>
+              <button
+                v-else
+                type="button"
+                disabled
+                class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-card border border-border text-textMuted font-semibold text-sm cursor-not-allowed opacity-75"
+              >
+                <i class="fa-brands fa-github text-lg"></i>
+                <span>Create Build Request</span>
+              </button>
+            </div>
+
+            <!-- Validation Checklist Helper -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div
+                :class="['p-3 rounded-xl border flex items-center gap-2.5',
+                  selectedFoundation ? 'bg-successBg text-successText border-successText/30 font-semibold' : 'bg-page border-border text-textMuted font-medium']"
+              >
+                <i :class="selectedFoundation ? 'fas fa-check-circle text-successText' : 'far fa-circle text-textMuted'"></i>
+                <span>
+                  {{ selectedFoundation ? `Foundation selected (${selectedFoundation.id})` : 'Select a Foundation combination above' }}
+                </span>
+              </div>
+
+              <div
+                :class="['p-3 rounded-xl border flex items-center gap-2.5',
+                  selectedAddons.length >= 1 && selectedAddons.length <= 5
+                    ? 'bg-successBg text-successText border-successText/30 font-semibold'
+                    : 'bg-page border-border text-textMuted font-medium']"
+              >
+                <i :class="selectedAddons.length >= 1 && selectedAddons.length <= 5 ? 'fas fa-check-circle text-successText' : 'far fa-circle text-textMuted'"></i>
+                <span>
+                  {{ selectedAddons.length === 0 ? 'Select at least 1 addon (max 5)' : selectedAddons.length > 5 ? 'Too many addons selected (max 5)' : `${selectedAddons.length} addon(s) selected` }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Issue Markdown Preview Drawer -->
+            <div v-if="selectedFoundation && selectedAddons.length > 0" class="flex flex-col gap-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-bold text-textMuted uppercase tracking-wider flex items-center gap-1.5">
+                  <i class="fas fa-eye text-android"></i> Generated GitHub Issue Preview
+                </span>
+                <button
+                  @click="copyIssueBody"
+                  type="button"
+                  class="text-xs font-semibold text-textMain flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-page hover:bg-card border border-border transition-all shadow-sm"
+                >
+                  <i :class="copiedIssue ? 'fas fa-check text-successText' : 'fas fa-copy'"></i>
+                  <span>{{ copiedIssue ? 'Copied to clipboard' : 'Copy Preview' }}</span>
+                </button>
+              </div>
+
+              <!-- Code Preview Box -->
+              <div class="bg-card border border-border rounded-xl p-4 font-mono text-xs text-textMain flex flex-col gap-3 shadow-inner">
+                <div>
+                  <span class="text-textMuted select-none">Title: </span>
+                  <span class="font-bold text-android">{{ generatedIssueTitle }}</span>
+                </div>
+                <div class="border-t border-border pt-3 whitespace-pre-wrap leading-relaxed">{{ generatedIssueBody }}</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Footer -->
+      <footer class="bg-surface border-t border-border mt-auto py-6 px-4">
+        <div class="w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-textMuted">
+          <div class="flex items-center gap-2">
+            <i class="devicon-android-plain text-android text-base"></i>
+            <span>Android Compatibility Oracle &bull; Open-source toolchain testing matrix</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="index.html" class="hover:text-textMain transition-colors">Dashboard</a>
+            <a href="https://github.com/Chandu4221/androidcompat" target="_blank" rel="noopener noreferrer" class="hover:text-textMain transition-colors">
+              <i class="fab fa-github"></i> GitHub Repository
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Application Script -->
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            isDark: false,
+            showNavbar: true,
+            lastScrollPosition: 0,
+            step: 1,
+            tomlInput: "",
+            isDragging: false,
+            errorMessage: "",
+            warningMessage: "",
+            parsedData: null,
+            versions: {},
+            libraries: [],
+            bundles: {},
+            plugins: {},
+            detectedAgp: "",
+            detectedAgpSource: "",
+            detectedKotlin: "",
+            detectedKotlinSource: "",
+            verifiedFoundations: [],
+            loadingFoundations: false,
+            selectedFoundation: null,
+            librarySearch: "",
+            copiedId: null,
+            copiedIssue: false,
+          };
+        },
+        computed: {
+          testableLibraries() {
+            return this.libraries.filter((l) => !l.isBomManaged && !l.error);
+          },
+          testableLibrariesCount() {
+            return this.testableLibraries.length;
+          },
+          bomLibrariesCount() {
+            return this.libraries.filter((l) => l.isBomManaged).length;
+          },
+          bundleNames() {
+            return Object.keys(this.bundles);
+          },
+          filteredLibraries() {
+            const q = this.librarySearch.trim().toLowerCase();
+            if (!q) return this.libraries;
+            return this.libraries.filter((l) => {
+              return (
+                (l.alias && l.alias.toLowerCase().includes(q)) ||
+                (l.group && l.group.toLowerCase().includes(q)) ||
+                (l.name && l.name.toLowerCase().includes(q)) ||
+                (l.version && String(l.version).toLowerCase().includes(q))
+              );
+            });
+          },
+          selectedAddons() {
+            return this.libraries.filter((l) => l.selected && !l.isBomManaged && !l.error);
+          },
+          rankedFoundations() {
+            if (!this.verifiedFoundations || this.verifiedFoundations.length === 0) {
+              return [];
+            }
+            const userAgp = this.detectedAgp.trim();
+            const userKotlin = this.detectedKotlin.trim();
+
+            const userAgpParts = userAgp ? userAgp.split(".") : [];
+            const userAgpMajor = userAgpParts[0] || "";
+            const userAgpMajorMinor = userAgpParts.slice(0, 2).join(".");
+
+            const userKotlinParts = userKotlin ? userKotlin.split(".") : [];
+            const userKotlinMajor = userKotlinParts[0] || "";
+            const userKotlinMajorMinor = userKotlinParts.slice(0, 2).join(".");
+
+            // Score each foundation
+            const scored = this.verifiedFoundations.map((f) => {
+              let score = 0;
+              const fAgp = (f.coreToolchain && f.coreToolchain.agp) || "";
+              const fKotlin = (f.coreToolchain && f.coreToolchain.kotlin) || "";
+
+              const fAgpParts = fAgp.split(".");
+              const fAgpMajor = fAgpParts[0] || "";
+              const fAgpMajorMinor = fAgpParts.slice(0, 2).join(".");
+
+              const fKotlinParts = fKotlin.split(".");
+              const fKotlinMajor = fKotlinParts[0] || "";
+              const fKotlinMajorMinor = fKotlinParts.slice(0, 2).join(".");
+
+              // AGP Scoring: Exact major.minor or full match = 100 points, same major = 50 points
+              if (userAgp) {
+                if (fAgp === userAgp || fAgpMajorMinor === userAgpMajorMinor) {
+                  score += 100;
+                } else if (fAgpMajor === userAgpMajor) {
+                  score += 50;
+                }
+              } else {
+                // If AGP wasn't detected, give baseline points to any verified foundation
+                score += 10;
+              }
+
+              // Kotlin Scoring: Exact = 50, same major.minor = 30, same major = 10
+              if (userKotlin) {
+                if (fKotlin === userKotlin) {
+                  score += 50;
+                } else if (fKotlinMajorMinor === userKotlinMajorMinor) {
+                  score += 30;
+                } else if (fKotlinMajor === userKotlinMajor) {
+                  score += 10;
+                }
+              }
+
+              return {
+                ...f,
+                score,
+              };
+            });
+
+            // Filter out foundations with 0 score if user specified an AGP version
+            const matching = userAgpMajor
+              ? scored.filter((f) => f.score > 0)
+              : scored;
+
+            // Sort descending by score, then newest AGP, then Gradle
+            matching.sort((a, b) => {
+              if (b.score !== a.score) return b.score - a.score;
+              return String(b.coreToolchain.agp).localeCompare(String(a.coreToolchain.agp), undefined, { numeric: true });
+            });
+
+            return matching.slice(0, 5);
+          },
+          canSubmit() {
+            return (
+              this.selectedFoundation &&
+              this.selectedAddons.length >= 1 &&
+              this.selectedAddons.length <= 5
+            );
+          },
+          generatedIssueTitle() {
+            const agp = (this.selectedFoundation && this.selectedFoundation.coreToolchain.agp) || this.detectedAgp || "Custom";
+            const count = this.selectedAddons.length;
+            return `[Build Request]: AGP ${agp} + ${count} ${count === 1 ? 'addon' : 'addons'}`;
+          },
+          generatedIssueBody() {
+            if (!this.selectedFoundation) return "";
+            const foundationId = this.selectedFoundation.id;
+            const addonsList = this.selectedAddons
+              .map((l) => `${l.group}:${l.name}:${l.version}`)
+              .join("\n");
+
+            return `### Foundation ID\n${foundationId}\n\n### Addons\n${addonsList}`;
+          },
+          githubIssueUrl() {
+            if (!this.canSubmit) return "#";
+            const title = encodeURIComponent(this.generatedIssueTitle);
+            const foundationId = encodeURIComponent(this.selectedFoundation.id);
+            const addonsList = this.selectedAddons
+              .map((l) => `${l.group}:${l.name}:${l.version}`)
+              .join("\n");
+            const addons = encodeURIComponent(addonsList);
+            return `https://github.com/Chandu4221/androidcompat/issues/new?template=build-request.yml&title=${title}&foundation_id=${foundationId}&addons=${addons}&labels=build-request`;
+          },
+        },
+        watch: {
+          rankedFoundations(newVal) {
+            if (newVal && newVal.length > 0) {
+              // Auto-select first/best foundation if none selected or selected not in top list
+              if (!this.selectedFoundation || !newVal.some((f) => f.id === this.selectedFoundation.id)) {
+                this.selectedFoundation = newVal[0];
+              }
+            }
+          },
+        },
+        mounted() {
+          this.initTheme();
+          this.fetchFoundations();
+          window.addEventListener("scroll", () => {
+            const currentScrollPosition =
+              window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScrollPosition < 0) return;
+            if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 60)
+              return;
+            this.showNavbar = currentScrollPosition < this.lastScrollPosition;
+            this.lastScrollPosition = currentScrollPosition;
+          });
+        },
+        methods: {
+          initTheme() {
+            const saved = localStorage.getItem("theme");
+            if (saved) {
+              this.isDark = saved === "dark";
+            } else {
+              this.isDark =
+                window.matchMedia &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches;
+            }
+            this.applyTheme();
+          },
+          toggleTheme() {
+            this.isDark = !this.isDark;
+            localStorage.setItem("theme", this.isDark ? "dark" : "light");
+            this.applyTheme();
+          },
+          applyTheme() {
+            if (this.isDark) {
+              document.documentElement.classList.add("dark");
+            } else {
+              document.documentElement.classList.remove("dark");
+            }
+          },
+          async fetchFoundations() {
+            this.loadingFoundations = true;
+            const sources = ["agp8", "agp9"];
+            const verifiedList = [];
+
+            try {
+              const promises = sources.map(async (src) => {
+                const res = await fetch(`data/${src}/compat.json`);
+                if (res.ok) {
+                  const json = await res.json();
+                  if (json && Array.isArray(json.results)) {
+                    json.results.forEach((r) => {
+                      if (r.status === "verified" && r.coreToolchain) {
+                        verifiedList.push({
+                          id: r.id,
+                          status: r.status,
+                          coreToolchain: r.coreToolchain,
+                          source: src,
+                        });
+                      }
+                    });
+                  }
+                }
+              });
+
+              await Promise.all(promises);
+              this.verifiedFoundations = verifiedList;
+              if (this.rankedFoundations.length > 0 && !this.selectedFoundation) {
+                this.selectedFoundation = this.rankedFoundations[0];
+              }
+            } catch (err) {
+              console.warn("Failed to load foundation data", err);
+              this.errorMessage =
+                "Could not load Foundation data. Are you serving this locally? Use `python3 -m http.server`";
+            } finally {
+              this.loadingFoundations = false;
+            }
+          },
+          onTomlChange() {
+            this.errorMessage = "";
+            this.warningMessage = "";
+            if (!this.tomlInput.trim()) {
+              this.parsedData = null;
+              this.libraries = [];
+              this.step = 1;
+              return;
+            }
+            this.parseToml(this.tomlInput);
+          },
+          handleFileUpload(event) {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+
+            if (!file.name.endsWith(".toml")) {
+              this.errorMessage = "Please upload a .toml file";
+              event.target.value = "";
+              return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              this.tomlInput = e.target.result;
+              this.parseToml(this.tomlInput);
+            };
+            reader.onerror = () => {
+              this.errorMessage = "Failed to read file.";
+            };
+            reader.readAsText(file);
+          },
+          handleFileDrop(event) {
+            this.isDragging = false;
+            const file = event.dataTransfer.files && event.dataTransfer.files[0];
+            if (!file) return;
+
+            if (!file.name.endsWith(".toml")) {
+              this.errorMessage = "Please upload a .toml file";
+              return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              this.tomlInput = e.target.result;
+              this.parseToml(this.tomlInput);
+            };
+            reader.onerror = () => {
+              this.errorMessage = "Failed to read file.";
+            };
+            reader.readAsText(file);
+          },
+          clearInput() {
+            this.tomlInput = "";
+            this.parsedData = null;
+            this.libraries = [];
+            this.versions = {};
+            this.bundles = {};
+            this.plugins = {};
+            this.detectedAgp = "";
+            this.detectedAgpSource = "";
+            this.detectedKotlin = "";
+            this.detectedKotlinSource = "";
+            this.errorMessage = "";
+            this.warningMessage = "";
+            this.step = 1;
+          },
+          loadSampleToml() {
+            this.tomlInput = `[versions]
+agp = "8.6.1"
+kotlin = "1.9.0"
+coreKtx = "1.13.1"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+material = "1.12.0"
+activity = "1.9.3"
+constraintlayout = "2.1.4"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }`;
+
+            this.parseToml(this.tomlInput);
+          },
+          resolveVersionString(versionObj, versionsTable) {
+            if (!versionObj) return { version: null, error: null };
+
+            if (typeof versionObj === "string" || typeof versionObj === "number") {
+              return { version: String(versionObj), error: null };
+            }
+
+            if (typeof versionObj === "object") {
+              if (versionObj.ref) {
+                const refKey = versionObj.ref;
+                if (versionsTable[refKey] !== undefined) {
+                  return { version: String(versionsTable[refKey]), error: null };
+                } else {
+                  return { version: null, error: `Ref '${refKey}' not found` };
+                }
+              }
+              if (versionObj.strictly) return { version: String(versionObj.strictly), error: null };
+              if (versionObj.prefer) return { version: String(versionObj.prefer), error: null };
+              if (versionObj.require) return { version: String(versionObj.require), error: null };
+            }
+
+            return { version: null, error: null };
+          },
+          isTestDependency(group, name) {
+            const g = (group || "").toLowerCase();
+            const n = (name || "").toLowerCase();
+            return (
+              g === "junit" ||
+              g.startsWith("junit.") ||
+              n.includes("junit") ||
+              g.startsWith("androidx.test") ||
+              n.includes("espresso") ||
+              g.startsWith("org.mockito") ||
+              g.startsWith("org.robolectric") ||
+              n.includes("test-manifest") ||
+              (g === "org.jetbrains.kotlinx" && n.includes("coroutines-test"))
+            );
+          },
+          parseToml(rawText) {
+            this.errorMessage = "";
+            this.warningMessage = "";
+            let parsed = null;
+
+            try {
+              const parser = (typeof window !== "undefined" && window.TOML) || 
+                             (typeof globalThis !== "undefined" && globalThis.TOML) || 
+                             (typeof TOML !== "undefined" ? TOML : null);
+              if (!parser || typeof parser.parse !== "function") {
+                throw new Error("TOML parser engine not found on page.");
+              }
+              parsed = parser.parse(rawText);
+            } catch (err) {
+              console.error("TOML Parse error", err);
+              this.errorMessage = "Could not parse TOML. " + (err.message || "Please check syntax.");
+              this.parsedData = null;
+              this.libraries = [];
+              return;
+            }
+
+            if (!parsed) {
+              this.errorMessage = "Could not parse TOML. Please check syntax.";
+              return;
+            }
+
+            this.parsedData = parsed;
+            this.versions = parsed.versions || {};
+            this.bundles = parsed.bundles || {};
+            this.plugins = parsed.plugins || {};
+
+            // 1. Detect AGP & Kotlin from [plugins] and fallback to [versions]
+            let agp = "";
+            let agpSource = "";
+            let kotlin = "";
+            let kotlinSource = "";
+
+            if (parsed.plugins) {
+              for (const [pKey, pVal] of Object.entries(parsed.plugins)) {
+                let pId = "";
+                let pVer = null;
+
+                if (typeof pVal === "string") {
+                  // e.g. plugin = "id:version"
+                  const parts = pVal.split(":");
+                  pId = parts[0];
+                  pVer = parts[1];
+                } else if (typeof pVal === "object" && pVal !== null) {
+                  pId = pVal.id || "";
+                  const resolved = this.resolveVersionString(pVal.version, this.versions);
+                  if (resolved.version) pVer = resolved.version;
+                  else if (pVal["version.ref"]) {
+                    pVer = this.versions[pVal["version.ref"]];
+                  }
+                }
+
+                if (pId === "com.android.application" || pId === "com.android.library") {
+                  if (pVer && !agp) {
+                    agp = pVer;
+                    agpSource = `From plugin ${pId}`;
+                  }
+                }
+
+                if (
+                  pId === "org.jetbrains.kotlin.android" ||
+                  pId === "org.jetbrains.kotlin.jvm" ||
+                  pId === "kotlin-android" ||
+                  pId === "kotlin"
+                ) {
+                  if (pVer && !kotlin) {
+                    kotlin = pVer;
+                    kotlinSource = `From plugin ${pId}`;
+                  }
+                }
+              }
+            }
+
+            // Fallbacks for AGP and Kotlin from [versions] if not detected in [plugins]
+            if (!agp) {
+              if (this.versions.agp) {
+                agp = String(this.versions.agp);
+                agpSource = "From [versions].agp";
+              } else if (this.versions.androidGradlePlugin) {
+                agp = String(this.versions.androidGradlePlugin);
+                agpSource = "From [versions].androidGradlePlugin";
+              }
+            }
+
+            if (!kotlin) {
+              if (this.versions.kotlin) {
+                kotlin = String(this.versions.kotlin);
+                kotlinSource = "From [versions].kotlin";
+              } else if (this.versions.kotlinVersion) {
+                kotlin = String(this.versions.kotlinVersion);
+                kotlinSource = "From [versions].kotlinVersion";
+              }
+            }
+
+            this.detectedAgp = agp;
+            this.detectedAgpSource = agpSource;
+            this.detectedKotlin = kotlin;
+            this.detectedKotlinSource = kotlinSource;
+
+            // 2. Parse [libraries]
+            if (!parsed.libraries || Object.keys(parsed.libraries).length === 0) {
+              this.errorMessage = "No libraries found in TOML.";
+              this.libraries = [];
+              return;
+            }
+
+            const parsedLibraries = [];
+
+            for (const [alias, libVal] of Object.entries(parsed.libraries)) {
+              let group = "";
+              let name = "";
+              let version = null;
+              let isBomManaged = false;
+              let error = null;
+
+              if (typeof libVal === "string") {
+                // String coordinates: "group:name:version" or "group:name"
+                const parts = libVal.split(":");
+                group = parts[0] || "";
+                name = parts[1] || "";
+                if (parts.length >= 3) {
+                  version = parts[2];
+                } else {
+                  isBomManaged = true;
+                }
+              } else if (typeof libVal === "object" && libVal !== null) {
+                if (libVal.module) {
+                  const mParts = libVal.module.split(":");
+                  group = mParts[0] || "";
+                  name = mParts[1] || "";
+                } else {
+                  group = libVal.group || "";
+                  name = libVal.name || "";
+                }
+
+                // Check version
+                if (libVal["version.ref"]) {
+                  const refKey = libVal["version.ref"];
+                  if (this.versions[refKey] !== undefined) {
+                    version = String(this.versions[refKey]);
+                  } else {
+                    error = `Ref '${refKey}' not found`;
+                  }
+                } else if (libVal.version !== undefined) {
+                  const resolved = this.resolveVersionString(libVal.version, this.versions);
+                  if (resolved.version) {
+                    version = resolved.version;
+                  } else if (resolved.error) {
+                    error = resolved.error;
+                  } else {
+                    isBomManaged = true;
+                  }
+                } else {
+                  // No version property at all -> BOM-managed
+                  isBomManaged = true;
+                }
+              }
+
+              const isTestLib = this.isTestDependency(group, name);
+
+              parsedLibraries.push({
+                alias,
+                group,
+                name,
+                version,
+                isBomManaged,
+                isTestLib,
+                error,
+                selected: false,
+              });
+            }
+
+            this.libraries = parsedLibraries;
+
+            // Check if all libraries are BOM-managed
+            if (this.libraries.length > 0 && this.libraries.every((l) => l.isBomManaged)) {
+              this.warningMessage =
+                "All libraries are BOM-managed and cannot be individually versioned. No testable addons found.";
+            }
+
+            this.step = 2;
+          },
+          onLibraryCheckboxChange(lib) {
+            if (this.selectedAddons.length > 5) {
+              this.warningMessage =
+                "Maximum 5 addons per build request. Please deselect some or split into multiple requests.";
+            } else {
+              this.warningMessage = "";
+            }
+          },
+          onBundleSelect(event) {
+            const bundleKey = event.target.value;
+            if (!bundleKey || !this.bundles[bundleKey]) return;
+
+            const targetAliases = this.bundles[bundleKey];
+            let addedCount = 0;
+
+            this.libraries.forEach((lib) => {
+              if (targetAliases.includes(lib.alias)) {
+                if (!lib.isBomManaged && !lib.error) {
+                  lib.selected = true;
+                  addedCount++;
+                }
+              }
+            });
+
+            if (this.selectedAddons.length > 5) {
+              this.warningMessage =
+                "Maximum 5 addons per build request. Please deselect some or split into multiple requests.";
+            }
+            event.target.value = "";
+          },
+          clearAddonSelection() {
+            this.libraries.forEach((l) => (l.selected = false));
+            this.warningMessage = "";
+          },
+          copyId(id) {
+            navigator.clipboard.writeText(id).then(() => {
+              this.copiedId = id;
+              setTimeout(() => {
+                if (this.copiedId === id) this.copiedId = null;
+              }, 2000);
+            });
+          },
+          copyIssueBody() {
+            const text = `Title: ${this.generatedIssueTitle}\n\n${this.generatedIssueBody}`;
+            navigator.clipboard.writeText(text).then(() => {
+              this.copiedIssue = true;
+              setTimeout(() => {
+                this.copiedIssue = false;
+              }, 2500);
+            });
+          },
+        },
+      }).mount("#app");
+    </script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyD1lA2l7ZITxm-kca2u-2o-_RbhAA1XbTM",
+        authDomain: "android-compat-github.firebaseapp.com",
+        projectId: "android-compat-github",
+        storageBucket: "android-compat-github.firebasestorage.app",
+        messagingSenderId: "670711176665",
+        appId: "1:670711176665:web:3c64ba3e813e661ae1cdc8",
+        measurementId: "G-XL5P0KWTQL",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+  </body>
+</html>
