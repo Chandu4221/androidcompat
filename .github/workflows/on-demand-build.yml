@@ -362,7 +362,7 @@ jobs:
           ISSUE_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           go run cmd/collect/main.go \
-            --id="${FOUNDATION_ID}-ondemand" \
+            --foundation-id="${FOUNDATION_ID}" \
             --agp="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.agp')" \
             --gradle="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.gradle')" \
             --kotlin="$(echo "$FOUNDATION_JSON" | jq -r '.coreToolchain.kotlin')" \
@@ -384,7 +384,7 @@ jobs:
             const fs = require('fs');
             const issueNumber = '${{ steps.parse.outputs.issue_number }}';
             if (!issueNumber) return;
-            const resultFile = "result-${{ steps.parse.outputs.foundation_id }}-ondemand.json";
+            const resultFile = "ondemand-result.json";
             let commentBody;
             if (fs.existsSync(resultFile)) {
               const result = JSON.parse(fs.readFileSync(resultFile, 'utf8'));
@@ -461,7 +461,7 @@ jobs:
       - name: Persist Result to Cache
         run: |
           go run cmd/cache-append/main.go \
-            --result="result-${{ needs.build.outputs.foundation_id }}-ondemand.json" \
+            --result="ondemand-result.json" \
             --cache="docs/data/ondemand/compat.json"
 
       - name: Commit Cache Update

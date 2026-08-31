@@ -5,6 +5,8 @@ import (
 	"flag"
 	"fmt"
 	"os"
+
+	"github.com/Chandu4221/androidcompat/internal/storage"
 )
 
 // LibCoord matches the incoming request format from the workflow
@@ -14,73 +16,8 @@ type LibCoord struct {
 	Version  string `json:"version"`
 }
 
-// CachedLibrary matches the format saved by cmd/collect
-type CachedLibrary struct {
-	Name    string `json:"name"` // stored as "group:artifact"
-	Version string `json:"version"`
-}
-
-type VerificationResult struct {
-	ID            string `json:"id"`
-	Timestamp     string `json:"timestamp"`
-	WorkflowURL   string `json:"workflowUrl,omitempty"`
-	CoreToolchain struct {
-		AGP        string `json:"agp"`
-		Gradle     string `json:"gradle"`
-		Kotlin     string `json:"kotlin"`
-		KSP        string `json:"ksp"`
-		JDK        string `json:"jdk"`
-		CompileSdk string `json:"compileSdk"`
-		SdkPackage string `json:"sdkPackage"`
-	} `json:"coreToolchain"`
-	Libraries        []CachedLibrary `json:"libraries"`
-	Status           string          `json:"status"`
-	FailureSignature string          `json:"failureSignature,omitempty"`
-	ErrorMessage     string          `json:"errorMessage,omitempty"`
-	Verification     struct {
-		Sync     string `json:"sync"`
-		Compile  string `json:"compile"`
-		UnitTest string `json:"unit_test"`
-	} `json:"verification"`
-	BuildLog string `json:"buildLog,omitempty"`
-}
-
 type OnDemandCache struct {
-	Results []VerificationResult `json:"results"`
-}
-
-// buildRequestSet creates a set of "group:artifact:version" from the incoming request
-func buildRequestSet(libs []LibCoord) map[string]bool {
-	set := make(map[string]bool)
-	for _, lib := range libs {
-		key := fmt.Sprintf("%s:%s:%s", lib.Group, lib.Artifact, lib.Version)
-		set[key] = true
-	}
-	return set
-}
-
-// buildCachedSet creates a set of "group:artifact:version" from the cached result
-func buildCachedSet(libs []CachedLibrary) map[string]bool {
-	set := make(map[string]bool)
-	for _, lib := range libs {
-		// lib.Name is already "group:artifact"
-		key := fmt.Sprintf("%s:%s", lib.Name, lib.Version)
-		set[key] = true
-	}
-	return set
-}
-
-// setsEqual checks if two string sets are identical (order-independent)
-func setsEqual(a, b map[string]bool) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	for k := range a {
-		if !b[k] {
-			return false
-		}
-	}
-	return true
+	Results []storage.VerificationResult `json:"results"`
 }
 
 func main() {
@@ -100,7 +37,19 @@ func main() {
 		os.Exit(1)
 	}
 
-	requestSet := buildRequestSet(libs)
+	// Build canonical library keys (group:artifact:version) for hashing.
+	// Format MUST match what collect passes to storage.ComboID():
+	// collect builds Library.Name = "group:artifact" then LibraryKeys
+	// appends ":version" → "group:artifact:version". Same result here.
+	libKeys := make([]string, len(libs))
+	for i, lib := range libs {
+		libKeys[i] = fmt.Sprintf("%s:%s:%s", lib.Group, lib.Artifact, lib.Version)
+	}
+
+	// Compute the expected combo ID from the hash.
+	// This is the SINGLE SOURCE OF TRUTH — the same function collect used
+	// when it wrote the result, and cache-append uses for dedup.
+	expectedID := storage.ComboID(*foundationID, libKeys)
 
 	// Load cache
 	var cache OnDemandCache
@@ -110,22 +59,17 @@ func main() {
 		}
 	}
 
-	// Search for matching result using SET comparison (order-independent)
-	expectedID := *foundationID + "-ondemand"
+	// Search for matching result by exact ID match.
+	// The ID already encodes the library set, so equality here means
+	// "same foundation + same libraries regardless of order" — no set logic needed.
 	for _, result := range cache.Results {
-		// 1. Same Foundation? (exact match on ID, not prefix)
-		if result.ID != expectedID {
-			continue
-		}
-		// 2. Same set of libraries, regardless of order?
-		cachedSet := buildCachedSet(result.Libraries)
-		if setsEqual(requestSet, cachedSet) {
+		if result.ID == expectedID {
 			data, _ := json.MarshalIndent(result, "", "  ")
 			fmt.Println(string(data))
 			os.Exit(0)
 		}
 	}
 
-	fmt.Printf("ℹ️ No cache hit for foundation %s with %d addons\n", *foundationID, len(libs))
+	fmt.Printf("ℹ️ No cache hit for foundation %s with %d addons (expected combo ID: %s)\n", *foundationID, len(libs), expectedID)
 	os.Exit(1)
 }

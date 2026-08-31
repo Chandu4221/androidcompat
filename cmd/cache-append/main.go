@@ -5,55 +5,13 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"sort"
 	"strings"
+
+	"github.com/Chandu4221/androidcompat/internal/storage"
 )
 
-// CachedLibrary matches the format saved by cmd/collect
-type CachedLibrary struct {
-	Name    string `json:"name"` // stored as "group:artifact"
-	Version string `json:"version"`
-}
-
-type VerificationResult struct {
-	ID            string `json:"id"`
-	Timestamp     string `json:"timestamp"`
-	WorkflowURL   string `json:"workflowUrl,omitempty"`
-	CoreToolchain struct {
-		AGP        string `json:"agp"`
-		Gradle     string `json:"gradle"`
-		Kotlin     string `json:"kotlin"`
-		KSP        string `json:"ksp"`
-		JDK        string `json:"jdk"`
-		CompileSdk string `json:"compileSdk"`
-		SdkPackage string `json:"sdkPackage"`
-	} `json:"coreToolchain"`
-	Libraries        []CachedLibrary `json:"libraries"`
-	Status           string          `json:"status"`
-	FailureSignature string          `json:"failureSignature,omitempty"`
-	ErrorMessage     string          `json:"errorMessage,omitempty"`
-	Verification     struct {
-		Sync     string `json:"sync"`
-		Compile  string `json:"compile"`
-		UnitTest string `json:"unit_test"`
-	} `json:"verification"`
-	BuildLog string `json:"buildLog,omitempty"`
-}
-
 type OnDemandCache struct {
-	Results []VerificationResult `json:"results"`
-}
-
-// comboKey produces an order-independent canonical key for a result:
-// result ID + sorted "name:version" library list.
-// Used to detect duplicates regardless of library order.
-func comboKey(r VerificationResult) string {
-	keys := make([]string, len(r.Libraries))
-	for i, lib := range r.Libraries {
-		keys[i] = lib.Name + ":" + lib.Version
-	}
-	sort.Strings(keys)
-	return r.ID + "|" + strings.Join(keys, ",")
+	Results []storage.VerificationResult `json:"results"`
 }
 
 func main() {
@@ -73,7 +31,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	var newResult VerificationResult
+	var newResult storage.VerificationResult
 	if err := json.Unmarshal(resultData, &newResult); err != nil {
 		fmt.Fprintf(os.Stderr, "❌ Failed to parse result JSON: %v\n", err)
 		os.Exit(1)
@@ -87,18 +45,18 @@ func main() {
 	if data, err := os.ReadFile(*cacheFile); err == nil {
 		if err := json.Unmarshal(data, &cache); err != nil {
 			fmt.Fprintf(os.Stderr, "⚠️ Failed to parse existing cache, starting fresh: %v\n", err)
-			cache = OnDemandCache{Results: []VerificationResult{}}
+			cache = OnDemandCache{Results: []storage.VerificationResult{}}
 		}
 	} else {
 		fmt.Printf("ℹ️ Cache file not found, creating new\n")
-		cache = OnDemandCache{Results: []VerificationResult{}}
+		cache = OnDemandCache{Results: []storage.VerificationResult{}}
 	}
 
-	// 4. Idempotent append: replace if same combo key exists, otherwise append
-	newKey := comboKey(newResult)
+	// 4. Idempotent append: the combo ID is a hash of (foundation + sorted libs),
+	//    so ID equality means "same combo regardless of library order".
 	replaced := false
 	for i, existing := range cache.Results {
-		if comboKey(existing) == newKey {
+		if existing.ID == newResult.ID {
 			cache.Results[i] = newResult
 			replaced = true
 			break

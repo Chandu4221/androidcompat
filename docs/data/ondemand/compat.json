@@ -1,7 +1,9 @@
 {
   "results": [
     {
-      "id": "755e6a061d40574c-ondemand",
+      "id": "1144edd8a5a77e2d",
+      "foundationId": "755e6a061d40574c",
+      "source": "ondemand",
       "timestamp": "2026-08-19T04:46:36Z",
       "workflowUrl": "https://github.com/Chandu4221/androidcompat/actions/runs/32216802372",
       "coreToolchain": {
@@ -28,11 +30,12 @@
         "sync": "PASSED",
         "compile": "PASSED",
         "unit_test": "NO_TESTS_ADDED"
-      },
-      "buildLog": ""
+      }
     },
     {
-      "id": "56af9615a1b11f1f-ondemand",
+      "id": "b6e7cbc2e5daf6f3",
+      "foundationId": "56af9615a1b11f1f",
+      "source": "ondemand",
       "timestamp": "2026-08-25T15:32:45Z",
       "workflowUrl": "https://github.com/Chandu4221/androidcompat/actions/runs/32866104036",
       "coreToolchain": {
@@ -71,11 +74,12 @@
         "sync": "PASSED",
         "compile": "PASSED",
         "unit_test": "NO_TESTS_ADDED"
-      },
-      "buildLog": ""
+      }
     },
     {
-      "id": "d98b6a2be3597d59-ondemand",
+      "id": "5a02442a9ef110d9",
+      "foundationId": "d98b6a2be3597d59",
+      "source": "ondemand",
       "timestamp": "2026-08-27T07:44:53Z",
       "workflowUrl": "https://github.com/Chandu4221/androidcompat/actions/runs/33050738995",
       "coreToolchain": {
@@ -114,11 +118,12 @@
         "sync": "PASSED",
         "compile": "PASSED",
         "unit_test": "NO_TESTS_ADDED"
-      },
-      "buildLog": ""
+      }
     },
     {
-      "id": "755e6a061d40574c-ondemand",
+      "id": "dbe68015fafc498d",
+      "foundationId": "755e6a061d40574c",
+      "source": "ondemand",
       "timestamp": "2026-08-28T08:14:48Z",
       "workflowUrl": "https://github.com/Chandu4221/androidcompat/actions/runs/33154377404",
       "coreToolchain": {
@@ -141,8 +146,7 @@
         "sync": "PASSED",
         "compile": "PASSED",
         "unit_test": "NO_TESTS_ADDED"
-      },
-      "buildLog": ""
+      }
     }
   ]
 }

@@ -48,7 +48,8 @@ type LibCoord struct {
 
 func main() {
 	// Flags
-	comboID := flag.String("id", "", "Combo ID")
+	comboID := flag.String("id", "", "Combo ID (legacy: core verify workflows)")
+	foundationID := flag.String("foundation-id", "", "Foundation ID (16-char hex); combo ID computed from hash")
 	agp := flag.String("agp", "", "AGP version")
 	gradle := flag.String("gradle", "", "Gradle version")
 	kotlin := flag.String("kotlin", "", "Kotlin version")
@@ -57,17 +58,15 @@ func main() {
 	compileSdk := flag.String("compile-sdk", "", "compileSdk version")
 	sdkPackage := flag.String("sdk-package", "", "SDK platform package")
 	workflowURL := flag.String("workflow-url", "", "GitHub Actions workflow run URL")
-	libsJSON := flag.String("libs", "[]", "JSON array of libraries: [{\"group\":\"x\",\"artifact\":\"y\",\"version\":\"z\"}]")
+	libsJSON := flag.String("libs", "[]", `JSON array of libraries: [{"group":"x","artifact":"y","version":"z"}]`)
 	buildDir := flag.String("dir", "", "Build directory")
 	outputDir := flag.String("out", ".", "Output directory for result JSON")
 	bridgeJSON := flag.String("bridge-json", "", "Path to bridge-output.json (optional)")
 	flag.Parse()
 
-	if *comboID == "" || *buildDir == "" {
-		log.Fatal("--id and --dir are required")
+	if (*comboID == "" && *foundationID == "") || *buildDir == "" {
+		log.Fatal("--id or --foundation-id is required, along with --dir")
 	}
-
-	fmt.Printf("📊 Collecting result for combo: %s\n", *comboID)
 
 	// Parse dynamic libraries
 	var libs []LibCoord
@@ -118,7 +117,22 @@ func main() {
 		})
 	}
 
-	result.ID = *comboID
+	// Determine combo ID and source metadata
+	if *foundationID != "" {
+		// New path: compute unique, order-independent combo ID from the hash
+		result.FoundationID = *foundationID
+		result.ID = storage.ComboID(*foundationID, storage.LibraryKeys(result.Libraries))
+		if len(result.Libraries) > 0 {
+			result.Source = "ondemand"
+		} else {
+			result.Source = "core"
+		}
+	} else {
+		// Legacy path: use --id as-is (core verify workflows)
+		result.ID = *comboID
+	}
+	fmt.Printf("📊 Combo ID: %s\n", result.ID)
+
 	result.Timestamp = time.Now().UTC().Format(time.RFC3339)
 	result.BuildLog = combined
 
@@ -129,7 +143,15 @@ func main() {
 	}
 
 	// Write the result file
-	outPath := filepath.Join(*outputDir, "result-"+*comboID+".json")
+	var outPath string
+	if *foundationID != "" {
+		// On-demand path: fixed predictable filename so the workflow can find it
+		outPath = filepath.Join(*outputDir, "ondemand-result.json")
+	} else {
+		// Legacy path: result-{id}.json
+		outPath = filepath.Join(*outputDir, "result-"+result.ID+".json")
+	}
+
 	data, err := json.MarshalIndent(result, "", "  ")
 	if err != nil {
 		log.Fatalf("Failed to marshal result: %v", err)

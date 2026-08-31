@@ -27,6 +27,8 @@ type VerificationStatus struct {
 
 type VerificationResult struct {
 	ID               string             `json:"id"`
+	FoundationID     string             `json:"foundationId,omitempty"`
+	Source           string             `json:"source,omitempty"`
 	Timestamp        string             `json:"timestamp"`
 	WorkflowURL      string             `json:"workflowUrl,omitempty"`
 	CoreToolchain    CoreToolchain      `json:"coreToolchain"`
