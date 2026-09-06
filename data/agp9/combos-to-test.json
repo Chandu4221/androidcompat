@@ -1,12 +1,23 @@
 {
   "agpMajor": 9,
-  "generatedAt": "2026-08-30T02:10:38Z",
+  "generatedAt": "2026-09-06T01:42:58Z",
   "combos": [
     {
       "id": "1c2632308bf10577",
       "coreToolchain": {
         "agp": "9.2.1",
         "gradle": "9.4.1",
+        "kotlin": "2.2.10",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36"
+      }
+    },
+    {
+      "id": "3a69f4fa772bb81d",
+      "coreToolchain": {
+        "agp": "9.4.0",
+        "gradle": "9.5.0",
         "kotlin": "2.2.10",
         "jdk": "17",
         "compileSdk": "36",
