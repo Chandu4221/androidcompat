@@ -1,19 +1,7 @@
 {
   "agpMajor": 8,
-  "generatedAt": "2026-09-06T01:42:58Z",
+  "generatedAt": "2026-09-13T01:51:25Z",
   "combos": [
-    {
-      "id": "448cca2f5ee00910",
-      "coreToolchain": {
-        "agp": "8.13.2",
-        "gradle": "8.13",
-        "kotlin": "2.3.21",
-        "ksp": "2.3.11",
-        "jdk": "17",
-        "compileSdk": "36",
-        "sdkPackage": "36.1"
-      }
-    },
     {
       "id": "56af9615a1b11f1f",
       "coreToolchain": {
@@ -36,6 +24,18 @@
         "jdk": "17",
         "compileSdk": "33",
         "sdkPackage": "33"
+      }
+    },
+    {
+      "id": "7e8add860190bcca",
+      "coreToolchain": {
+        "agp": "8.13.2",
+        "gradle": "8.13",
+        "kotlin": "2.3.21",
+        "ksp": "2.3.12",
+        "jdk": "17",
+        "compileSdk": "36",
+        "sdkPackage": "36.1"
       }
     },
     {
